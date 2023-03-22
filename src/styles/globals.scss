@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+  // Background Colors
+  --background-dark-blue: #0b111b;
+  --background-dark-gray: #2b313a;
+  --background-darker-gray: #131923;
+
+  // Primary Colors
+  --primary-pink: #fe3dce;
+  --primary-blue: #26afe6;
+  --primary-white: #ffffff;
+  
+  // secondary Colors
+  --secondary-pink: #faaef2;
+  --secondary-blue: #bff2ff;
+  --secondary-purple: #9989ff;
+
+  // Gradients Colors
+  --gradient-pink-to-blue: linear-gradient(0.25turn, var(--primary-pink), var(--primary-blue));
+  --gradient-pink-to-baby-blue: linear-gradient(0.25turn, var(--secondary-pink), var(--secondary-blue));
+  --gradient-purple-to-pink: linear-gradient(0.25turn, var(--secondary-purple), var(--secondary-pink));
+
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background-dark-blue);
+  color: var(--primary-white);
+}
+.someting{
+  background: var(--primary-gradient-1);
+  // background-color: red;
+}
+body {}
