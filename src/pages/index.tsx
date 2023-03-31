@@ -12,14 +12,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='flex justify-center items-center h-screen w-screen' >
+      <section className='flex justify-center items-center h-screen w-screen' >
+        <h1 className="text-3xl font-bold bg-gradient-pink-to-blue bg-clip-text text-transparent ">
+          Hello world!
+        </h1>
+        <div className='bg-gradient-pink-to-blue from-secondaryBlue  to-secondaryPurple h-60 w-60 border-2'></div>
+        <div className='bg-gradient-pink-to-baby-blue h-60 w-60 border-2'></div>
+        <div className='bg-gradient-purple-to-pink h-60 w-60 border-2'></div>
+        {/* <div className=' h-60 w-60 border-2' style={{background: "linear-gradient(to right, #0099ff 0%, #8a2be2 50%, #ff69b4 100%)"}}  ></div> */}
+        {/* <div className='bg-gradient-conic from-primaryBlue via-secondaryPurple to-primaryPink rounded-full h-60 w-60 border-2'></div> */}
+      </section>
+      <section className='flex justify-center items-center h-screen w-screen' >
         <h1 className="text-3xl font-bold underline text-primary ">
           Hello world!
         </h1>
-        <div className='bg-gradient-pink-to-blue from-secondaryBlue  to-secondaryPurple space-y-5 h-60 w-60 border-2'></div>
-        <div className='bg-gradient-pink-to-baby-blue space-y-5 h-60 w-60 border-2'></div>
-        <div className='bg-gradient-purple-to-pink space-y-5 h-60 w-60 border-2'></div>
-      </main>
+        <div className='bg-gradient-pink-to-blue from-secondaryBlue  to-secondaryPurple h-60 w-60 border-2'></div>
+        <div className='bg-gradient-pink-to-baby-blue h-60 w-60 border-2'></div>
+        <div className='bg-gradient-purple-to-pink h-60 w-60 border-2'></div>
+      </section>
     </>
   )
 }
