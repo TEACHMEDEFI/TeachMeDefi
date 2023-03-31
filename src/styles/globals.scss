@@ -40,8 +40,14 @@ body {
   background-color: var(--background-dark-blue);
   color: var(--primary-white);
 }
-.someting{
-  background: var(--primary-gradient-1);
-  // background-color: red;
+.landing{
+  background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
 }
-body {}
+
+.section-2{
+  background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
+  
+}
+
+
+
