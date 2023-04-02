@@ -10,7 +10,9 @@ export default function Navbar() {
   return (
     <nav className=" absolute h-32 w-full flex justify-between items-center px-12 ">
       <div>
-        <Image src={"/TestLogo.png"} height={80} width={400} alt="teach me defi logo" />
+        <Link href={"/"}  >
+          <Image src={"/tdm_test_2.svg"} height={50} width={300} alt="teach me defi logo" />
+        </Link>
       </div>
       <div className="space-x-14 flex" >
 
@@ -21,16 +23,16 @@ export default function Navbar() {
         >
           <button >TEACH ME</button>
           <div className={`absolute flex flex-col w-28 ${teachMeButton ? "" : "hidden"} `} >
-            <Link href={"/"} >BTC Section</Link>
-            <Link href={"/"} >ETH Section</Link>
-            <Link href={"/"} >DOT Section</Link>
+            <Link href={"/lessons/btc"} >BTC Section</Link>
+            <Link href={"/lessons/eth"} >ETH Section</Link>
+            <Link href={"/lessons/dot"} >DOT Section</Link>
           </div>
         </div>
-        <Link href={"/"} >PODCAST</Link>
-        <Link href={"/"} >NEWSLETTER</Link>
-        <Link href={"/"} >MERCH</Link>
+        <Link href={"/podcast"} >PODCAST</Link>
+        <Link href={"/newsletter"} >NEWSLETTER</Link>
+        <Link href={"/merch"} >MERCH</Link>
       </div>
-      <Link href={"/"} className="" >SUBSCRIBE</Link>
+      <Link href={"/subscribe"} className="" >SUBSCRIBE</Link>
 
     </nav>
   )

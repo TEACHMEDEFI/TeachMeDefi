@@ -40,12 +40,16 @@ body {
   background-color: var(--background-dark-blue);
   color: var(--primary-white);
 }
+
 .landing{
-  background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
+  // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
+  // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
+  background: url(../../public/home/donut_filled_top_right.svg) no-repeat bottom right;
 }
 
 .section-2{
-  background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
+  // background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
+  background: url(../../public/home/Landing_donut_right_top.svg) no-repeat top right;
   
 }
 
