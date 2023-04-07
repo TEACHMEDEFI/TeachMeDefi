@@ -23,9 +23,9 @@ export default function Navbar() {
         >
           <button >TEACH ME</button>
           <div className={`absolute flex flex-col w-28 ${teachMeButton ? "" : "hidden"} `} >
-            <Link href={"/lessons/btc"} >BTC Section</Link>
-            <Link href={"/lessons/eth"} >ETH Section</Link>
-            <Link href={"/lessons/dot"} >DOT Section</Link>
+            <Link href={"/btc"} >BTC Section</Link>
+            <Link href={"/eth"} >ETH Section</Link>
+            <Link href={"/dot"} >DOT Section</Link>
           </div>
         </div>
         <Link href={"/podcast"} >PODCAST</Link>

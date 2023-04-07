@@ -20,7 +20,7 @@ export default function Home() {
           </h1>
           <h3 className='text-lg mb-5' >
             Damit Du den Einstieg in die neue Denzentrale Finanzwelt nicht verpasst,
-            unter stützen wir dich mit kostenfreien Inhalten und unserem Discord Forum.
+            unterstützen wir dich mit kostenfreien Inhalten und unserem Discord Forum.
           </h3>
           <PrimaryButton>
             JOIN NOW

@@ -37,11 +37,14 @@ module.exports = {
 
         'gradient-24': 'linear-gradient(104deg, var(--tw-gradient-stops))',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at bottom, var(--tw-gradient-stops))', 
+        'gradient-conic': 'conic-gradient(from 180deg at bottom, var(--tw-gradient-stops))',
       },
-      fontFamily:{
+      fontFamily: {
         poppins: ["var(--font-poppins)"],
         roboto: ["var(--font-roboto)"],
+      },
+      height: {
+        screenMinusNav: "calc(100vh - 128px)"
       }
 
     },
