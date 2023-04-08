@@ -1,25 +1,35 @@
 
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 
 
 export default function Footer() {
   return (
     <footer className="w-full py-16 flex justify-around items-center gap-14 " >
       <div className="flex flex-col gap-10 items-center " >
-        <Image src={"/tdm_Logo.svg"} height={50} width={180} alt="teach me defi logo" />
+        <div className="relative h-14 w-44 " >
+          <Image src={"/tdm_Logo.svg"} fill alt="teach me defi logo" sizes="180px" />
+        </div>
         <div className="flex gap-5 " >
           <Link href={"/"} target="_blank" >
-            <Image src="/icons/linkedIn.png" height={30} width={25} alt="linkedIn" />
+            <div className="h-9 w-9 relative">
+              <Image src="/icons/linkedIn.png" alt="linkedIn" fill sizes="40px" />
+            </div>
           </Link>
           <Link href={"/"} target="_blank" >
-            <Image src="/icons/youtube.png" height={30} width={30} alt="youtube" />
+            <div className="h-9 w-9 relative">
+              <Image src="/icons/youtube.png" alt="youtube" fill sizes="40px" />
+            </div>
           </Link>
           <Link href={"/"} target="_blank" >
-            <Image src="/icons/twitter.png" height={30} width={30} alt="twitter" />
+            <div className="h-9 w-9 relative">
+              <Image src="/icons/twitter.png" alt="twitter" fill sizes="40px" />
+            </div>
           </Link>
           <Link href={"/"} target="_blank" >
-            <Image src="/icons/discord.png" height={30} width={30} alt="discord" />
+            <div className="h-9 w-9 relative">
+              <Image src="/icons/discord.png" alt="discord" fill sizes="40px" />
+            </div>
           </Link>
         </div>
       </div>

@@ -8,10 +8,12 @@ export default function Navbar() {
   const [teachMeButton, toggleTeachMeButton] = useState(false)
 
   return (
-    <nav className=" absolute h-32 w-full flex justify-between items-center px-12 ">
+    <nav className=" absolute h-24 w-full flex justify-between items-center px-12 z-10 ">
       <div>
         <Link href={"/"}  >
-          <Image src={"/tdm_test_2.svg"} height={50} width={300} alt="teach me defi logo" />
+          <div className="h-40 w-80 relative" >
+            <Image src={"/tdm_test_2.svg"} fill alt="teach me defi logo" priority sizes="320px" />
+          </div>
         </Link>
       </div>
       <div className="space-x-14 flex" >
@@ -31,8 +33,9 @@ export default function Navbar() {
         <Link href={"/podcast"} >PODCAST</Link>
         <Link href={"/newsletter"} >NEWSLETTER</Link>
         <Link href={"/merch"} >MERCH</Link>
+        <Link href={"/subscribe"} className="" >SUBSCRIBE</Link>
       </div>
-      <Link href={"/subscribe"} className="" >SUBSCRIBE</Link>
+      <button>CONNECT</button>
 
     </nav>
   )

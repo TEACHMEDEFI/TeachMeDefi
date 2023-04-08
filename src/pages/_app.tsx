@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${poppins.className} `} >
       <Navbar />
-      <div className='pt-32 px-5' >
+      <div className='pt-24 px-5' >
         <Component {...pageProps} />
       </div>
 

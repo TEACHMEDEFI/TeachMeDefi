@@ -9,9 +9,9 @@ export default function index({ }: Props) {
       <h2>
         This is ETh section
       </h2>
-      <Link href={"/eth/1"}>lesson 1</Link>
-      <Link href={"/eth/2"}>lesson 2</Link>
-      <Link href={"/eth/3"}>lesson 3</Link>
+      <Link href={"/eth/what-is-ethereum"}>lesson 1</Link>
+      <Link href={"/eth/how-to-ethereum"}>lesson 2</Link>
+      <Link href={"/eth/how-to-use-MetaMask"}>lesson 3</Link>
     </div>
   )
 }

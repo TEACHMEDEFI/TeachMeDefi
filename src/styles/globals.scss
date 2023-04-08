@@ -41,6 +41,10 @@ body {
   color: var(--primary-white);
 }
 
+img{
+  object-fit: contain;
+}
+
 .landing{
   // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
   // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
