@@ -49,5 +49,12 @@ module.exports = {
 
     },
   },
+  textGradient: {
+    DEFAULT: {
+      text: 'transparent',
+      'bg-clip': 'text',
+      'bg-gradient-to-br': 'from-pink-400 to-red-600',
+    },
+  },
   plugins: [],
 }
