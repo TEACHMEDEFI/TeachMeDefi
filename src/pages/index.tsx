@@ -18,10 +18,10 @@ export default function Home() {
           <h1 className='text-7xl font-bold' >
             We Teach You <br /> Decentralized <br /> Finance
           </h1>
-          <h3 className='text-lg mb-5' >
+          <h2 className='text-lg mb-5' >
             Damit Du den Einstieg in die neue Denzentrale Finanzwelt nicht verpasst,
             unterstützen wir dich mit kostenfreien Inhalten und unserem Discord Forum.
-          </h3>
+          </h2>
           <PrimaryButton>
             JOIN NOW
           </PrimaryButton>
