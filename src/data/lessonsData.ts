@@ -19,7 +19,7 @@ export const generalLessons: Lesson[] = [
   {
     id:"b3bd96f0-d28a-4f6d-9a20-c4284e76a92e",
     title: 'Blockchaintechnologie - Der Ursprung.',
-    slug: 'der-ursprung',
+    slug: 'blockchain-der-ursprung',
     youtubeUrl: 'https://www.youtube.com/watch?v=GrZi2pHnoQg',
     youtubeThumbnail: "https://img.youtube.com/vi/GrZi2pHnoQg/hqdefault.jpg",
     transcript: 'This is the transcript for lesson 1.',
@@ -28,8 +28,8 @@ export const generalLessons: Lesson[] = [
   },
   {
     id:"a3a76f3d-2a51-43f6-84d3-8f3d2c61c1ab",
-    title: 'How to Ethereum.',
-    slug: 'how-to-ethereum',
+    title: 'Blockchain - Einfach erklärt.',
+    slug: 'blockchain-einfach-erklaert',
     youtubeUrl: 'https://www.youtube.com/watch?v=N-ZicxKesDE',
     youtubeThumbnail: "https://img.youtube.com/vi/N-ZicxKesDE/hqdefault.jpg",
     transcript: 'This is the transcript for lesson 2.',
@@ -38,8 +38,28 @@ export const generalLessons: Lesson[] = [
   },
   {
     id:"7b9f8b4d-4e4e-4f7b-86dc-2670b1f20b71",
-    title: 'How to use MetaMask.',
-    slug: 'how-to-use-MetaMask',
+    title: 'Dezentrlisierung - Die Vorteile.',
+    slug: 'dezentralisierung-die-vorteile',
+    youtubeUrl: 'https://www.youtube.com/watch?v=XLG-qtZwxIw',
+    youtubeThumbnail: "https://img.youtube.com/vi/XLG-qtZwxIw/hqdefault.jpg",
+    transcript: 'This is the transcript for lesson 3.',
+    importantLinks: ["www.google.com", "www.thisisLesson3.com"],
+    section: 0
+  },
+  {
+    id:"f7d39215-18e7-45f5-a12a-7e2d18b93f11",
+    title: 'Konsensmechanismen.',
+    slug: 'konsensmechanismen',
+    youtubeUrl: 'https://www.youtube.com/watch?v=XLG-qtZwxIw',
+    youtubeThumbnail: "https://img.youtube.com/vi/XLG-qtZwxIw/hqdefault.jpg",
+    transcript: 'This is the transcript for lesson 3.',
+    importantLinks: ["www.google.com", "www.thisisLesson3.com"],
+    section: 0
+  },
+  {
+    id:"694c98e1-3160-463e-9d9a-1edcd1e42425",
+    title: 'Wallets - Zugang zur Blockchain.',
+    slug: 'wallets-zugang-zur-blockchain',
     youtubeUrl: 'https://www.youtube.com/watch?v=XLG-qtZwxIw',
     youtubeThumbnail: "https://img.youtube.com/vi/XLG-qtZwxIw/hqdefault.jpg",
     transcript: 'This is the transcript for lesson 3.',
