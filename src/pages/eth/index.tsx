@@ -1,7 +1,7 @@
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { ethLessons } from '@/data/lessonsData'
+import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 
 
 export default function index() {
@@ -33,55 +33,12 @@ export default function index() {
         </h2>
         <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
       </section>
-      <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-        <h2>was ist eine Blockchain</h2>
 
-        {ethLessons.map((lesson, i) => (
-          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
-            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
-              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
-              {lesson.title}
-            </Link>
-            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
-          </div>
-        ))
-      }
-      <h2>Theory in ethere</h2>
-        {ethLessons.map((lesson, i) => (
-          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
-            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
-              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
-              {lesson.title}
-            </Link>
-            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
-          </div>
-        ))
-      }
-      <h2>Praktisch ethereum</h2>
-        {ethLessons.map((lesson, i) => (
-          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
-            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
-              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
-              {lesson.title}
-            </Link>
-            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
-          </div>
-        ))
-      }
-        {ethLessons.map((lesson, i) => (
-          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
-            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
-              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
-              {lesson.title}
-            </Link>
-            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
-          </div>
-        ))
-      }
-
-
+      <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >
+        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Was ist eine Blockchain"} section={0} />
+        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Theory Ethereum"} section={1} />
+        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Praktisch Ethereum"} section={2} />
         <Image src={"/eth/eth_windows.png"} className='absolute -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
-
 
       </section >
       {/* <section className='h-screen' >

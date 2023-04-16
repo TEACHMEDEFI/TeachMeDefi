@@ -1,7 +1,7 @@
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { dotLessons } from '@/data/lessonsData'
+import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 
 
 export default function index() {
@@ -33,19 +33,9 @@ export default function index() {
         </h2>
       </section>
       <section className='h-screen w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-
-        {dotLessons.map((lesson, i) => (
-          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
-            <Link href={`/dot/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
-              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
-              {lesson.title}
-            </Link>
-            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
-          </div>
-        ))
-        }
-
-
+        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />
+        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Theory Ethereum"} section={1} />
+        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Praktisch Ethereum"} section={2} />
 
       </section >
       {/* <section className='h-screen' >
