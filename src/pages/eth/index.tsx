@@ -23,7 +23,7 @@ export default function index() {
         </div>
       </section>
       <section className='h-96 w-full flex items-center justify-center relative' >
-        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg bg-slate-900/25 ' >
+        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg  backdrop-blur-md' >
           Ethereum ist eine dezentrale, Open-Source-Blockchain-Plattform,
           die es Entwicklern ermöglicht, Smart Contracts und dezentrale Anwendungen (DApps)
           zu erstellen. Im Gegensatz zu Bitcoin, das hauptsächlich als digitales
@@ -33,7 +33,8 @@ export default function index() {
         </h2>
         <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
       </section>
-      <section className='h-screen w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
+      <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
+        <h2>was ist eine Blockchain</h2>
 
         {ethLessons.map((lesson, i) => (
           <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
@@ -44,7 +45,39 @@ export default function index() {
             <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
           </div>
         ))
-        }
+      }
+      <h2>Theory in ethere</h2>
+        {ethLessons.map((lesson, i) => (
+          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
+            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
+              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
+              {lesson.title}
+            </Link>
+            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
+          </div>
+        ))
+      }
+      <h2>Praktisch ethereum</h2>
+        {ethLessons.map((lesson, i) => (
+          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
+            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
+              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
+              {lesson.title}
+            </Link>
+            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
+          </div>
+        ))
+      }
+        {ethLessons.map((lesson, i) => (
+          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
+            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
+              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
+              {lesson.title}
+            </Link>
+            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
+          </div>
+        ))
+      }
 
 
         <Image src={"/eth/eth_windows.png"} className='absolute -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />

@@ -26,6 +26,12 @@ module.exports = {
         bgDarkGray: "var(--background-dark-gray)",
         bgDarkerGray: "var(--background-darker-gray)",
 
+        // brand colors
+        polkaPink: "var(--polka-pink)",
+        polkaYellow: "var(--polka-yellow)",
+        polkaGreen: "var(--polka-green)",
+        polkaPurple: "var(--polka-pruple)",
+        polkaCyan: "var(--polka-cyan)",
       },
       backgroundImage: {
 
