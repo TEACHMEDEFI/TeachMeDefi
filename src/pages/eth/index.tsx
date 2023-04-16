@@ -1,10 +1,10 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { ethLessons } from '@/data/lessonsData'
 
-type Props = {}
 
-export default function index({ }: Props) {
+export default function index() {
   return (
     <div className='flex flex-col  w-full justify-center items-center'>
       <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
@@ -33,22 +33,29 @@ export default function index({ }: Props) {
         </h2>
         <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
       </section>
-      <section className='h-screen w-full flex flex-col items-center justify-center mb-36 relative ' >
+      <section className='h-screen w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
 
-        <Link href={"/eth/what-is-ethereum"}>lesson 1</Link>
-        <Link href={"/eth/how-to-ethereum"}>lesson 2</Link>
-        <Link href={"/eth/how-to-use-MetaMask"}>lesson 3</Link>
-
-
-          <Image src={"/eth/eth_windows.png"} className='absolute -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
-
-
-      </section>
-      <section className='h-screen' >
-
-      </section>
+        {ethLessons.map((lesson, i) => (
+          <div key={lesson.id} className='relative  rounded-xl flex justify-center items-center '>
+            <Link href={`/eth/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl ' >
+              {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
+              {lesson.title}
+            </Link>
+            <div className={`absolute w-64 h-36 rounded-xl ${i > 0 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
+          </div>
+        ))
+        }
 
 
-    </div>
+        <Image src={"/eth/eth_windows.png"} className='absolute -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
+
+
+      </section >
+      {/* <section className='h-screen' >
+
+      </section> */}
+
+
+    </div >
   )
 }
