@@ -1,5 +1,6 @@
 
 import { Lesson } from "@/data/lessonsData"
+import { useState } from "react";
 import Link from "next/link"
 
 type lessonsOverview = {
@@ -8,8 +9,20 @@ type lessonsOverview = {
   section: number;
   chain: string;
 }
-
+// "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"
 export default function LessonsOverview({ lessonsArray, title, section, chain }: lessonsOverview) {
+  let borderClass: string = "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink";
+
+  switch (chain) {
+    case "dot":
+      borderClass = "bg-polkaPink";
+      break;
+    case "btc":
+      borderClass = "bg-bitcoinOrange";
+      break;
+    default:
+      break;
+  }
   return (
     <div className="flex flex-col items-center gap-5" >
       <h2 className='text-2xl font-bold backdrop-blur-md p-2 rounded-md' >{title}</h2>
@@ -22,7 +35,7 @@ export default function LessonsOverview({ lessonsArray, title, section, chain }:
                   {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
                   {`${i + 1}.`} {lesson.title}
                 </Link>
-                <div className={`absolute w-64 h-36 rounded-xl ${i > 1 ? "bg-bgDarkGray" : "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"}  `} ></div>
+                <div className={`absolute w-64 h-36 rounded-xl ${i > 1 ? "bg-bgDarkGray" : borderClass}  `} ></div>
               </div>
             }
           </div>

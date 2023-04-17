@@ -13,7 +13,7 @@
   --primary-pink: #fe3dce;
   --primary-blue: #26afe6;
   --primary-white: #ffffff;
-  
+
   // secondary Colors
   --secondary-pink: #faaef2;
   --secondary-blue: #bff2ff;
@@ -30,6 +30,7 @@
   --polka-green: #56F39A;
   --polka-purple: #552BBF;
   --polka-cyan: #00B2FF;
+  --bitcoin-orange: #F7931A;
 
 }
 
@@ -48,21 +49,18 @@ body {
   color: var(--primary-white);
 }
 
-img{
+img {
   object-fit: contain;
 }
 
-.landing{
+.landing {
   // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
   // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
   background: url(../../public/home/donut_filled_top_right.svg) no-repeat bottom right;
 }
 
-.section-2{
+.section-2 {
   // background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
   background: url(../../public/home/Landing_donut_right_top.svg) no-repeat top right;
-  
+
 }
-
-
-

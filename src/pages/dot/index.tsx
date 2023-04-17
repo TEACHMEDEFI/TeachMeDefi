@@ -13,8 +13,7 @@ export default function index() {
             Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
           </h1>
           <h2 className='text-xl font-bold' >
-            Hier lernst du alles über die skalierbare und
-            interoperable Blockchain, die die Grundlage für eine dezentrale Zukunft bildet.
+          Lerne alles über die skalierbare, interoperable Blockchain für eine dezentrale Zukunft.
           </h2>
         </div>
         <div className='relative w-2/4 h-full grow'>

@@ -32,6 +32,7 @@ module.exports = {
         polkaGreen: "var(--polka-green)",
         polkaPurple: "var(--polka-pruple)",
         polkaCyan: "var(--polka-cyan)",
+        bitcoinOrange: "var(--bitcoin-orange)",
       },
       backgroundImage: {
 
