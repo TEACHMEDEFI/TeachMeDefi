@@ -7,8 +7,8 @@ import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 export default function index() {
   return (
     <div className='flex flex-col  w-full justify-center items-center'>
-      <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
-        <div className='w-2/4 space-y-10' >
+      <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
+        <div className='w-2/4 space-y-10 z-10 backdrop-blur-sm rounded-lg' >
           <h1 className='text-7xl font-bold mb-5' >
             Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
           </h1>
@@ -16,12 +16,14 @@ export default function index() {
           Lerne alles über die skalierbare, interoperable Blockchain für eine dezentrale Zukunft.
           </h2>
         </div>
-        <div className='relative w-2/4 h-full grow'>
+        <div className='relative w-2/4 h-full grow z-10'>
           <Image src={"/dot/Polkadot_Logo_Vertical.png"} fill alt='Ethereum Hero' />
         </div>
+        <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-32 bottom-0 ' />
+        <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
       </section>
-      <section className='h-96 w-full flex items-center justify-center relative' >
-        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg bg-slate-900/25 ' >
+      <section className=' w-full flex items-center justify-center relative my-36' >
+        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg backdrop-blur-sm' >
           Polkadot ist eine Blockchain-Plattform, die darauf abzielt, die Interoperabilität und Skalierbarkeit
           von Blockchains zu verbessern. Es ist eine dezentrale Plattform, die es verschiedenen Blockchains ermöglicht,
           miteinander zu kommunizieren und zusammenzuarbeiten. Polkadot verwendet eine innovative Technologie namens
@@ -30,12 +32,16 @@ export default function index() {
           profitieren, ohne dass sie sich um technische Details kümmern müssen. Polkadot hat auch eine eigene
           Kryptowährung namens DOT, die zur Stimmrechtsausübung und Netzwerksicherung verwendet wird.
         </h2>
+        <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
+        <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-44 -bottom-12 ' />
       </section>
-      <section className='h-screen w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
+      <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
         <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />
         <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Theory Ethereum"} section={1} />
         <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Praktisch Ethereum"} section={2} />
 
+        <Image src={"/dot/polka_z.svg"} width={261/2} height={261/2} alt='polkadot ' className='absolute left-36 -bottom-36 ' />
+        <Image src={"/dot/polka_polygon.svg"} width={455/2} height={437/2} alt='polkadot ' className='absolute -right-16 bottom-12 ' />
       </section >
       {/* <section className='h-screen' >
 

@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 
 
+
 // Font inports
 import { Poppins, Roboto } from 'next/font/google'
 
@@ -22,6 +23,7 @@ const roboto = Roboto({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
+
     <main className={`${poppins.className} `} >
       <Navbar />
       <div className='pt-24 px-5' >
@@ -30,5 +32,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Footer />
     </main>
+
   )
 }

@@ -28,9 +28,11 @@ export default function Navbar() {
     };
   }, [connectWalletRef]);
 
+
+
   return (
     <div   >
-      <nav className=" absolute h-24 w-full flex justify-between items-center px-12 z-10 ">
+      <nav className=" absolute h-24 w-full flex justify-between items-center px-12 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
             <div className="h-40 w-80 relative" >
@@ -59,7 +61,8 @@ export default function Navbar() {
         </div>
         <button onClick={() => toggleConnectWalletBtn(true)} >CONNECT</button>
       </nav>
-      <div className={`absolute w-screen h-screen z-20 flex backdrop-blur-md justify-center items-center ${connectWalletBtn ? "" : "hidden"}`}
+      {/* Wallet Connect Wiondow */}
+      <div className={`fixed w-screen h-screen z-20 flex backdrop-blur-md justify-center items-center ${connectWalletBtn ? "" : "hidden"}`}
       >
         <div className={`relative w-72 h-64 bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 p-5  `}>
           <button className="absolute top-1 right-3 bg-bgDarkGray h-6 w-6 rounded-full flex justify-center items-center "
@@ -67,8 +70,9 @@ export default function Navbar() {
           >
             X
           </button>
+          {/* <MetaMaskConnect /> */}
           <button className="bg-bgDarkGray rounded-md h-20 "
-            onClick={() => console.log("this is buttn")}
+            onClick={()=> console.log("mea")}
           >
             Metamask
           </button>
