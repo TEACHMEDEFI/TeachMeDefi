@@ -16,7 +16,7 @@ export default function index() {
           </h2>
         </div>
         <div className='relative w-2/4 h-full grow'>
-          <Image src={"/btc/btc_world.png"} fill alt='Ethereum Hero' />
+          <Image src={"/btc/btc_planet.png"} fill alt='Ethereum Hero' priority />
         </div>
       </section>
       <section className='h-96 w-full flex items-center justify-center relative' >
@@ -29,7 +29,7 @@ export default function index() {
           Jahren aufgrund seiner schnellen und sicheren Transaktionen und seines begrenzten Angebots an Popularität gewonnen.
         </h2>
       </section>
-      <section className='h-screen w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
+      <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
         <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Was ist eine Blockchain"} section={0} />
         <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Theory Ethereum"} section={1} />
         <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Praktisch Ethereum"} section={2} />

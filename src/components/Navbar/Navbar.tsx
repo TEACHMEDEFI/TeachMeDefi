@@ -2,33 +2,22 @@ import styles from "./Navbar.module.scss"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
+import { useWeb3React } from '@web3-react/core'
+import { Web3Provider } from '@ethersproject/providers'
+import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
 
 
 
 export default function Navbar() {
 
+  const { account, active, } = useWeb3React<Web3Provider>()
+
   const [teachMeButton, toggleTeachMeButton] = useState(false)
   const [connectWalletBtn, toggleConnectWalletBtn] = useState(false)
 
-  const connectWalletRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        connectWalletRef.current &&
-        !connectWalletRef.current.contains(event.target as Node)
-      ) {
-        toggleConnectWalletBtn(false);
-      }
-    }
-
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [connectWalletRef]);
-
-
+    console.log(account, active, "_____")
+  }, [])
 
   return (
     <div   >
@@ -59,7 +48,14 @@ export default function Navbar() {
           <Link href={"/merch"} >MERCH</Link>
           <Link href={"/subscribe"} className="" >SUBSCRIBE</Link>
         </div>
-        <button onClick={() => toggleConnectWalletBtn(true)} >CONNECT</button>
+        {
+          active ?
+            <button onClick={() => toggleConnectWalletBtn(true)} >
+              {`${account?.slice(0, 4)}...${account?.slice(-4)}`}
+            </button>
+            :
+            <button onClick={() => toggleConnectWalletBtn(true)}>CONNECT</button>
+        }
       </nav>
       {/* Wallet Connect Wiondow */}
       <div className={`fixed w-screen h-screen z-20 flex backdrop-blur-md justify-center items-center ${connectWalletBtn ? "" : "hidden"}`}
@@ -70,12 +66,13 @@ export default function Navbar() {
           >
             X
           </button>
-          {/* <MetaMaskConnect /> */}
-          <button className="bg-bgDarkGray rounded-md h-20 "
+
+          <MetaMaskButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
+          {/* <button className="bg-bgDarkGray rounded-md h-20 "
             onClick={()=> console.log("mea")}
           >
             Metamask
-          </button>
+          </button> */}
           <button className="bg-bgDarkGray rounded-md h-20 "
             onClick={() => console.log("this is buttn")}
           >

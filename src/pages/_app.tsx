@@ -1,5 +1,7 @@
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
+import { Web3ReactProvider } from '@web3-react/core'
+import { Web3Provider } from '@ethersproject/providers'
 // Component imports
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
@@ -21,17 +23,22 @@ const roboto = Roboto({
   variable: "--font-roboto"
 })
 
+function getLibrary(provider: any): Web3Provider {
+  const library = new Web3Provider(provider)
+  return library
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <main className={`${poppins.className} `} >
+        <Navbar />
+        <div className='pt-24 px-5' >
+          <Component {...pageProps} />
+        </div>
 
-    <main className={`${poppins.className} `} >
-      <Navbar />
-      <div className='pt-24 px-5' >
-        <Component {...pageProps} />
-      </div>
-
-      <Footer />
-    </main>
-
+        <Footer />
+      </main>
+    </Web3ReactProvider>
   )
 }
