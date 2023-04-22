@@ -4,10 +4,11 @@ import { Web3Provider } from '@ethersproject/providers'
 import { injected } from '../../utils/connectors'
 import { UserRejectedRequestError } from '@web3-react/injected-connector'
 import { formatAddress } from '../../utils/helpers'
+import Image from 'next/image'
 
-const MetaMaskButton = ({toggleConnectWalletBtn}:any) => {
+const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
 
-  const { chainId, account, activate, deactivate, setError, active, library, connector } = useWeb3React<Web3Provider>()
+  const { account, activate, deactivate, setError, active } = useWeb3React<Web3Provider>()
 
   const onClickConnect = () => {
     activate(injected, (error) => {
@@ -18,33 +19,49 @@ const MetaMaskButton = ({toggleConnectWalletBtn}:any) => {
         setError(error)
       }
     }, false)
+    setConnectedCookie()
     toggleConnectWalletBtn(false)
   }
 
   const onClickDisconnect = () => {
     deactivate()
+    localStorage.removeItem('hasConnected');
+  }
+  const setConnectedCookie = () => {
+    localStorage.setItem('hasConnected', 'true');
   }
 
   useEffect(() => {
-    // console.log(chainId, account, active, library, connector)
-  })
+    const hasConnected = localStorage.getItem('hasConnected');
+    if (hasConnected) {
+      // console.log("Already connected with account: ", account);
+      onClickConnect();
+    }
+    // console.log("öfet")
+  }, [active, account])
+
 
   return (
     <div>
       {active && typeof account === 'string' ? (
-        <div>
-          <button type="button" onClick={onClickDisconnect}>
-            Account: {formatAddress(account, 4)}
-          </button>
-          <p >ChainID: {chainId} connected</p>
-        </div>
+        <button className="bg-bgDarkGray rounded-md h-20 w-full px-5 flex justify-between items-center"
+          onClick={onClickDisconnect}
+        >
+          <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
+          <p>
+            {formatAddress(account, 4)}
+            <br />
+            Disconnect
+          </p>
+        </button>
       ) : (
-        <div>
-          <button type="button" onClick={onClickConnect}>
-            Connect MetaMask
-          </button>
-          <p > not connected </p>
-        </div>
+        <button
+          type="button"
+          className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+          onClick={onClickConnect}>
+          <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
+          <p>Connect MetaMask</p>
+        </button>
       )}
     </div>
   )
