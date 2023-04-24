@@ -31,18 +31,16 @@ export default function LessonsBurgerMenu({ lessons }: any) {
 
 
   return (
-    <div className="absolute left-0 top-28 flex ">
+    <div className="fixed left-0 top-28 flex ">
       <div className={` ${!openLessons && "hidden"} bg-bgDarkGray flex flex-col p-5 rounded-br-lg `} >
         {currentLessons && currentLessons.map(lesson => (
           <Link href={`/${currentSection}/${lesson.slug}`} key={lesson.id} >{lesson.title}</Link>
-        ))
-        }
+        ))}
       </div>
       <button
         className=" bg-bgDarkGray w-12 h-12 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-evenly py-1.5 "
         onClick={handleLessonsMenuClick}
       >
-
         <div className="bg-primaryWhite h-1 w-7 rounded-md "></div>
         <div className="bg-primaryWhite h-1 w-7 rounded-md "></div>
         <div className="bg-primaryWhite h-1 w-7 rounded-md "></div>
