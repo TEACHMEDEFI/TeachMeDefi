@@ -8,6 +8,8 @@ import ReactPlayer from "react-player";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 
+import {useUserProgress} from '../api/ethereum-api';
+
 
 type Params = {
   lesson: string
@@ -16,6 +18,10 @@ type Params = {
 export default function LessonPage({ lesson }: { lesson: Lesson }) {
   // console.log(lesson)
   const [showPlayer, setShowPlayer] = useState(false);
+  const [hasProgress, setProgress] = useUserProgress();
+
+  // Check whether the user has completed the 'ethereum-quest' challenge
+  const ethereumQuestCompleted = hasProgress('Video - Id to get from local storage');
 
   useEffect(() => {
     setShowPlayer(true);
@@ -30,6 +36,7 @@ export default function LessonPage({ lesson }: { lesson: Lesson }) {
               height="100%"
               width="100%"
               url={lesson.youtubeUrl}
+              onEnded={() => setProgress('Video - Id to write to local storage')}
               config={{
                 youtube: {
                   playerVars: { fs: 1 }
