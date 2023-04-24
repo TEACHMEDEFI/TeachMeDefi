@@ -33,3 +33,12 @@ const getSingleTokenBalance = async (token, wallet) => {
   const res = await contract.balanceOf(wallet)
   return res
 }
+
+
+const getUserProgressByWalletAddress = async (wallet) => {}
+
+
+const setUserProgressByWalletAddress = async (wallet) => {}
+
+
+const mintQuestNFT = async (questContractAddress) => {}
