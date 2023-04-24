@@ -15,7 +15,7 @@ contract TMDQuestFactory {
     }
 
     modifier onlyOwner() {
-        require(msg.sender = owner, "caller is not the owner");
+        require(msg.sender == owner, "caller is not the owner");
         _;
     }
 
@@ -24,19 +24,21 @@ contract TMDQuestFactory {
         deployedQuests.push(newQuest);
     }
 
-    function getDeployedQuests() public view returns (address[]) {
+    function getDeployedQuests() public view returns (address[] memory) {
         return deployedQuests;
     }
 }
 
 
 contract TMDQuest is ERC721, Ownable {
+    using Counters for Counters.Counter;
 
     string public baseURI;
-
     bool private mintable = false;
 
     Counters.Counter public tokenIds;
+
+    mapping(address => bool) private _minted;
     constructor(string memory _baseUri) ERC721("TMDQuest", "TMD") {
         baseURI = _baseUri;
     }
@@ -54,9 +56,12 @@ contract TMDQuest is ERC721, Ownable {
     }
 
     function mint () external {
-        if (mintable) {
-            tokenIds.increment();
-            _mint(_msgSender(), tokenIds.current());
-        }
+        require(mintable == true && !_minted[_msgSender()], "Not mintable or already minted");
+
+        tokenIds.increment();
+        _mint(_msgSender(), tokenIds.current());
+
+        _minted[_msgSender()] = true;
+        
     }
 }
