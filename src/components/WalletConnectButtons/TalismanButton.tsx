@@ -1,18 +1,19 @@
 import { useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
-import { injected } from '../../utils/connectors'
-import { UserRejectedRequestError } from '@web3-react/injected-connector'
+import { talisman } from '../../utils/connectors'
+import { UserRejectedRequestError as UserRejectedRequestErrorTalisman } from "../../utils/TalismanConnector";
 import { formatAddress } from '../../utils/helpers'
 import Image from 'next/image'
 
-const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
+const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
 
-  const { account, activate, deactivate, setError, active } = useWeb3React<Web3Provider>()
+  const { account, activate, deactivate, setError, active, connector } = useWeb3React<Web3Provider>()
+  console.log(connector)
 
   const onClickConnect = () => {
-    activate(injected, (error) => {
-      if (error instanceof UserRejectedRequestError) {
+    activate(talisman, (error) => {
+      if (error instanceof UserRejectedRequestErrorTalisman) {
         // ignore user rejected error
         console.log("user refused")
       } else {
@@ -47,7 +48,7 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
         <button className="bg-bgDarkGray rounded-md h-20 w-full px-5 flex justify-between items-center"
           onClick={onClickDisconnect}
         >
-          <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
+          <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
           <p>
             {formatAddress(account, 4)}
             <br />
@@ -59,12 +60,12 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
           type="button"
           className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
           onClick={onClickConnect}>
-          <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
-          <p>Connect <br /> MetaMask</p>
+          <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
+          <p>Connect <br /> Talisman</p>
         </button>
       )}
     </div>
   )
 }
 
-export default MetaMaskButton
+export default TalismanButton

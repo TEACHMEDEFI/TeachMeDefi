@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react"
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
+import TalismanButton from "../WalletConnectButtons/TalismanButton"
 import { formatAddress } from '../../utils/helpers'
 
 
@@ -69,11 +70,12 @@ export default function Navbar() {
           </button>
 
           <MetaMaskButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
+          <TalismanButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
 
-          <button className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center">
+          {/* <button className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center">
             <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
             <p>Connect <br /> Talisman</p>
-          </button>
+          </button> */}
 
         </div>
       </div>
