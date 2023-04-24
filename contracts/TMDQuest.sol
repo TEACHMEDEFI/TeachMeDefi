@@ -6,14 +6,13 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-contract QuestFactory {
+contract TMDQuestFactory {
     address[] public deployedQuests;
     address owner;
 
     constructor () {
         owner = msg.sender;
     }
-
 
     modifier onlyOwner() {
         require(msg.sender = owner, "caller is not the owner");

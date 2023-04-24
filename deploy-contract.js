@@ -4,7 +4,7 @@ require("dotenv").config()
 
 async function main() {
 
-    const QuestFactory = await hre.ethers.getContractFactory("QuestFactory");
+    const QuestFactory = await hre.ethers.getContractFactory("TMDQuestFactory");
 
     const questFactory = QuestFactory.deploy();
     await questFactory.deployed();
