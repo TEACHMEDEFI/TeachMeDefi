@@ -1,9 +1,13 @@
 import ERC721 from '../ERC721.json'
 const { ethers } = require('ethers')
 const provider = new ethers.providers.JsonRpcProvider('https://my-chainstack-node/123456')
+import { useWeb3React } from '@web3-react/core';
+import useSWR from 'swr';
+import { Web3Provider } from '@ethersproject/providers';
+import { fetcher } from "./fetcher";
 
 
-
+export const normalFetcher = (url) => fetch(url).then((res) => res.json());
 
 // Example of how to check for certain NFT
 const holdsToken = async (contractAddress) => {
