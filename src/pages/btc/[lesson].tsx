@@ -6,6 +6,7 @@ import { btcLessons, Lesson } from "@/data/lessonsData";
 import { GetStaticPaths, GetStaticProps } from "next";
 import ReactPlayer from "react-player";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
+import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 
 
 type Params = {
@@ -47,6 +48,7 @@ export default function LessonPage({ lesson }: { lesson: Lesson }) {
         </div>
       </section>
       <LessonsBurgerMenu />
+      <LinksAndIndexBurger />
     </main>
   )
 }
