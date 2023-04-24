@@ -72,7 +72,7 @@ export default function Navbar() {
 
           <button className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center">
             <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
-            <p>Talisman</p>
+            <p>Connect <br /> Talisman</p>
           </button>
 
         </div>

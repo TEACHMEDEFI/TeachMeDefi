@@ -60,7 +60,7 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
           className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
           onClick={onClickConnect}>
           <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
-          <p>Connect MetaMask</p>
+          <p>Connect <br /> MetaMask</p>
         </button>
       )}
     </div>
