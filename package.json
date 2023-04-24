@@ -28,6 +28,9 @@
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7",
+    "@openzeppelin/contracts": "^4.3.3",
+    "dotenv": "^16.0.0",
+    "hardhat": "^2.9.3"
   }
 }
