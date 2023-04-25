@@ -1,9 +1,8 @@
-import ERC721 from '../ERC721.json'
 const { ethers } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 
-import QuestABI from '../artifacts/contracts/OBYTransfer_V2.sol/OBYTransfer_V2.json';
+import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
 
 export const normalFetcher = (url) => fetch(url).then((res) => res.json());

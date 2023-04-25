@@ -36,7 +36,7 @@ contract TMDQuest is ERC721, Ownable {
     using Counters for Counters.Counter;
 
     string public baseURI;
-    bool private mintable = false;
+    bool private mintable = true;
 
     Counters.Counter public tokenIds;
 
