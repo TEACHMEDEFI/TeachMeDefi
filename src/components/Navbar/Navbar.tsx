@@ -1,7 +1,7 @@
-import styles from "./Navbar.module.scss"
+
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
@@ -9,10 +9,9 @@ import TalismanButton from "../WalletConnectButtons/TalismanButton"
 import { formatAddress } from '../../utils/helpers'
 
 
-
 export default function Navbar() {
 
-  const { account, active, } = useWeb3React<Web3Provider>()
+  const { account, active, deactivate } = useWeb3React<Web3Provider>()
 
   const [teachMeButton, toggleTeachMeButton] = useState(false)
   const [connectWalletBtn, toggleConnectWalletBtn] = useState(false)
@@ -20,6 +19,11 @@ export default function Navbar() {
   useEffect(() => {
     // console.log(account, active, "_____")
   }, [])
+
+  const onClickDisconnect = () => {
+    deactivate()
+    localStorage.removeItem('hasConnected');
+  }
 
   return (
     <div   >
@@ -68,14 +72,18 @@ export default function Navbar() {
           >
             X
           </button>
-
-          <MetaMaskButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
-          <TalismanButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
-
-          {/* <button className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center">
-            <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
-            <p>Connect <br /> Talisman</p>
-          </button> */}
+          {active && typeof account === 'string' ?
+            <button className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+              onClick={onClickDisconnect}
+            >
+              <p>{formatAddress(account)} <br /> Disconnect</p>
+            </button>
+            :
+            <>
+              <MetaMaskButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
+              <TalismanButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
+            </>
+          }
 
         </div>
       </div>

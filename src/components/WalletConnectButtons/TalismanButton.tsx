@@ -24,10 +24,6 @@ const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
     toggleConnectWalletBtn(false)
   }
 
-  const onClickDisconnect = () => {
-    deactivate()
-    localStorage.removeItem('hasConnected');
-  }
   const setConnectedLocalStorage = () => {
     localStorage.setItem('hasConnected', 'true');
   }
@@ -44,7 +40,14 @@ const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
 
   return (
     <div>
-      {active && typeof account === 'string' ? (
+      <button
+        type="button"
+        className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+        onClick={onClickConnect}>
+        <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
+        <p>Connect <br /> Talisman</p>
+      </button>
+      {/* {active && typeof account === 'string' ? (
         <button className="bg-bgDarkGray rounded-md h-20 w-full px-5 flex justify-between items-center"
           onClick={onClickDisconnect}
         >
@@ -63,7 +66,7 @@ const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
           <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
           <p>Connect <br /> Talisman</p>
         </button>
-      )}
+      )} */}
     </div>
   )
 }

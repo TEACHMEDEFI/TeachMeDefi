@@ -23,10 +23,7 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
     toggleConnectWalletBtn(false)
   }
 
-  const onClickDisconnect = () => {
-    deactivate()
-    localStorage.removeItem('hasConnected');
-  }
+
   const setConnectedLocalStorage = () => {
     localStorage.setItem('hasConnected', 'true');
   }
@@ -43,7 +40,14 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
 
   return (
     <div>
-      {active && typeof account === 'string' ? (
+      <button
+        type="button"
+        className="bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+        onClick={onClickConnect}>
+        <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
+        <p>Connect <br /> MetaMask</p>
+      </button>
+      {/* {active && typeof account === 'string' ? (
         <button className="bg-bgDarkGray rounded-md h-20 w-full px-5 flex justify-between items-center"
           onClick={onClickDisconnect}
         >
@@ -62,7 +66,7 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
           <Image src={"/icons/metamask-fox.svg"} width={60} height={60} alt='MetaMask Wallet Brand' />
           <p>Connect <br /> MetaMask</p>
         </button>
-      )}
+      )} */}
     </div>
   )
 }
