@@ -9,7 +9,6 @@ import Image from 'next/image'
 const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
 
   const { account, activate, deactivate, setError, active, connector } = useWeb3React<Web3Provider>()
-  console.log(connector)
 
   const onClickConnect = () => {
     activate(talisman, (error) => {
@@ -25,16 +24,22 @@ const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
   }
 
   const setConnectedLocalStorage = () => {
-    localStorage.setItem('hasConnected', 'true');
+    const connectedData = {
+      talisman: true,
+      metamask: false
+    };
+
+    const connectedDataString = JSON.stringify(connectedData);
+    localStorage.setItem('hasConnected', connectedDataString);
   }
 
   useEffect(() => {
     const hasConnected = localStorage.getItem('hasConnected');
-    if (hasConnected) {
-      // console.log("Already connected with account: ", account);
+    const localstorage = hasConnected && JSON.parse(hasConnected)
+    if (localstorage?.talisman) {
       onClickConnect();
     }
-    // console.log("öfet")
+
   }, [active, account])
 
 

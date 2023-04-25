@@ -1,7 +1,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
@@ -15,10 +15,6 @@ export default function Navbar() {
 
   const [teachMeButton, toggleTeachMeButton] = useState(false)
   const [connectWalletBtn, toggleConnectWalletBtn] = useState(false)
-
-  useEffect(() => {
-    // console.log(account, active, "_____")
-  }, [])
 
   const onClickDisconnect = () => {
     deactivate()
@@ -66,7 +62,7 @@ export default function Navbar() {
       {/* Wallet Connect Wiondow */}
       <div className={`fixed w-screen h-screen z-20 flex backdrop-blur-md justify-center items-center ${connectWalletBtn ? "" : "hidden"}`}
       >
-        <div className={`relative w-72 h-72 bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 p-5 pt-8 `}>
+        <div className={`relative w-72  bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-5 py-10 `}>
           <button className="absolute top-2 right-2 bg-bgDarkGray h-6 w-6 rounded-full flex justify-center items-center "
             onClick={() => toggleConnectWalletBtn(false)}
           >

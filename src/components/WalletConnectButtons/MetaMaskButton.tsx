@@ -25,16 +25,22 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
 
 
   const setConnectedLocalStorage = () => {
-    localStorage.setItem('hasConnected', 'true');
+    const connectedData = {
+      talisman: false,
+      metamask: true
+    };
+
+    const connectedDataString = JSON.stringify(connectedData);
+    localStorage.setItem('hasConnected', connectedDataString);
   }
 
   useEffect(() => {
     const hasConnected = localStorage.getItem('hasConnected');
-    if (hasConnected) {
-      // console.log("Already connected with account: ", account);
+    const localstorage = hasConnected && JSON.parse(hasConnected)
+    if (localstorage?.metamask) {
       onClickConnect();
     }
-    // console.log("öfet")
+
   }, [active, account])
 
 
