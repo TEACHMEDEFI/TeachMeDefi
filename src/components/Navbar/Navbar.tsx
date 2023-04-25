@@ -27,7 +27,7 @@ export default function Navbar() {
         <div>
           <Link href={"/"}  >
             <div className="h-40 w-80 relative" >
-              <Image src={"/tdm_test_2.svg"} fill alt="teach me defi logo" priority sizes="320px" />
+              <Image src={"/tdm_long_dark.svg"} fill alt="teach me defi logo" priority sizes="320px" />
             </div>
           </Link>
         </div>
@@ -47,7 +47,7 @@ export default function Navbar() {
           </div>
           <Link href={"/podcast"} >PODCAST</Link>
           <Link href={"/newsletter"} >NEWSLETTER</Link>
-          <Link href={"/merch"} >MERCH</Link>
+          {/* <Link href={"/merch"} >MERCH</Link> */}
           <Link href={"/subscribe"} className="" >SUBSCRIBE</Link>
         </div>
         {

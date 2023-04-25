@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="w-full py-16 flex justify-around items-center gap-14 " >
       <div className="flex flex-col gap-10 items-center " >
         <div className="relative h-14 w-44 " >
-          <Image src={"/tdm_Logo.svg"} fill alt="teach me defi logo" sizes="180px" />
+          <Image src={"/tdm_short_dark.svg"} fill alt="teach me defi logo" sizes="180px" />
         </div>
         <div className="flex gap-5 " >
           <Link href={"/"} target="_blank" >
