@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 
 contract TMDQuestFactory {
-    address[] public deployedQuests;
+    TMDQuest[] public contracts;
     address owner;
 
     constructor () {
@@ -19,13 +19,15 @@ contract TMDQuestFactory {
         _;
     }
 
-    function createQuest(string memory baseUri) external onlyOwner {
-        address newQuest = new TMDQuest(baseUri);
-        deployedQuests.push(newQuest);
+    function createQuest(string memory baseUri) external onlyOwner returns(TMDQuest)  {
+        TMDQuest newQuest = new TMDQuest(baseUri);
+        contracts.push(newQuest);
+
+        return newQuest;
     }
 
-    function getDeployedQuests() public view returns (address[] memory) {
-        return deployedQuests;
+    function getDeployedQuests() public view returns (TMDQuest[] memory) {
+        return contracts;
     }
 }
 
