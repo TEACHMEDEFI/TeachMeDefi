@@ -89,3 +89,27 @@ export const useMintNFT = async (questId) => {
 
   return [handleMint, txHash];
 }
+
+
+
+export const useFetch = (url) => {
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+     const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        setIsSuccess(response.status === 200);
+      } catch (error) {
+        setIsSuccess(false);
+      }
+    }
+
+    fetchData();
+  }, [url]);
+
+  return isSuccess;
+}
+
+
+
