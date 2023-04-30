@@ -20,7 +20,7 @@ export default function index() {
         </div>
       </section>
       <section className='h-96 w-full flex items-center justify-center relative' >
-        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg bg-slate-900/25 ' >
+        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg  ' >
           Bitcoin ist eine digitale Währung, die 2009 von einer Person oder Gruppe namens Satoshi Nakamoto ins Leben
           gerufen wurde. Im Gegensatz zu traditionellen Währungen wird Bitcoin nicht von einer Zentralbank ausgegeben,
           sondern durch ein dezentrales Netzwerk von Computern verwaltet, die als Blockchain bezeichnet werden.

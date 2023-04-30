@@ -7,6 +7,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import ReactPlayer from "react-player";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
+import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 
 // import {useUserProgress, useMintNFT, useBalance} from '../api/ethereum-api';
 
@@ -23,7 +24,7 @@ export default function LessonPage({ lesson }: { lesson: Lesson }) {
 
   // Check whether the user has completed the 'ethereum-quest' challenge
   // const ethereumQuestCompleted = hasProgress('Video - Id to get from local storage');
- 
+
   // <button onClick={handleMint}>Mint NFT</button>
   // const balance = useCoinBalance("0x1234567890123456789012345678901234567890");
 
@@ -32,32 +33,8 @@ export default function LessonPage({ lesson }: { lesson: Lesson }) {
   }, []);
   return (
     <main className='w-full flex flex-col  items-center ' >
-      <section className='w-full' >
-        <div className='w-full relative' >
-          {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
-          <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-            {showPlayer && <ReactPlayer
-              height="100%"
-              width="100%"
-              url={lesson.youtubeUrl}
-              // onEnded={() => setProgress('Video - Id to write to local storage')}
-              config={{
-                youtube: {
-                  playerVars: { fs: 1 }
-                }
-              }}
-            />
-            }
-          </div>
-        </div>
-        <div className='w-full  bg-bgDarkerGray rounded-b-xl p-10 flex flex-col space-y-5' >
-          <h2 className='font-bold text-2xl ' > {lesson?.title} </h2>
-          <h3 className='font-bold text-xl '>Transcript</h3>
-          <p>
-            {lesson.transcript}
-          </p>
-        </div>
-      </section>
+
+      <VideoWithTranscript lesson={lesson} />
       <LessonsBurgerMenu />
       <LinksAndIndexBurger />
     </main>
