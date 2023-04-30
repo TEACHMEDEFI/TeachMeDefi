@@ -1,6 +1,7 @@
 
 import { Lesson } from "@/data/lessonsData"
 import { useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link"
 
 type lessonsOverview = {
@@ -12,6 +13,7 @@ type lessonsOverview = {
 // "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink"
 export default function LessonsOverview({ lessonsArray, title, section, chain }: lessonsOverview) {
   let borderClass: string = "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink";
+  const { isDarkMode } = useTheme()
 
   switch (chain) {
     case "dot":
@@ -31,11 +33,11 @@ export default function LessonsOverview({ lessonsArray, title, section, chain }:
           <div key={lesson.id}>
             {lesson.section === section &&
               <div key={lesson.id} className='relative m-5 rounded-xl font-bold flex justify-center items-center '>
-                <Link href={`/${chain}/${lesson.slug}`} key={lesson.id} className='z-10 bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl px-3' >
+                <Link href={`/${chain}/${lesson.slug}`} key={lesson.id} className='z-10 bg-white dark:bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl px-3' >
                   {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
                   {`${i + 1}.`} {lesson.title}
                 </Link>
-                <div className={`absolute w-64 h-36 rounded-xl ${i > 1 ? "bg-bgDarkGray" : borderClass}  `} ></div>
+                <div className={`absolute w-64 h-36 rounded-xl ${i > 1 ? (isDarkMode ? "bg-bgDarkGray": "bg-gray-300") : borderClass}  `} ></div>
               </div>
             }
           </div>
