@@ -8,7 +8,7 @@ import ReactPlayer from "react-player";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 
-import {useUserProgress, useMintNFT, useBalance} from '../api/ethereum-api';
+// import {useUserProgress, useMintNFT, useBalance} from '../api/ethereum-api';
 
 
 type Params = {
@@ -18,7 +18,7 @@ type Params = {
 export default function LessonPage({ lesson }: { lesson: Lesson }) {
   // console.log(lesson)
   const [showPlayer, setShowPlayer] = useState(false);
-  const [hasProgress, setProgress] = useUserProgress();
+  // const [hasProgress, setProgress] = useUserProgress();
   // const [handleMint, txHash] = useMintNFT(null);
 
   // Check whether the user has completed the 'ethereum-quest' challenge

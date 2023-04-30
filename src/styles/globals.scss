@@ -14,6 +14,8 @@
   --primary-blue: #26afe6;
   --primary-white: #ffffff;
 
+  --primary-dark-gray: #3A3737;
+
   // secondary Colors
   --secondary-pink: #faaef2;
   --secondary-blue: #bff2ff;
@@ -45,8 +47,10 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--background-dark-blue);
-  color: var(--primary-white);
+  // background-color: var(--background-dark-blue);
+  // color: var(--primary-white);
+  background-color: var(--primary-white);
+  color: var(--primary-dark-gray);
 }
 
 img {
@@ -56,11 +60,22 @@ img {
 .landing {
   // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
   // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
-  background: url(../../public/home/donut_filled_top_right.svg) no-repeat bottom right;
+  background: url(/home/landing_donut_top.svg) no-repeat bottom right;
 }
 
 .section-2 {
   // background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
-  background: url(../../public/home/Landing_donut_right_top.svg) no-repeat top right;
+  background: url(/home/landing_donut_bottom.svg) no-repeat top right;
 
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
