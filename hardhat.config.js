@@ -27,7 +27,7 @@ module.exports = {
     },
     etherscan: {
         apiKey: ETHERSCAN_API_KEY,
-        url: API_URL
+        url: API_URL_SEPOLIA
     },
     skipFiles: ['node_modules'],
     solidity: "0.8.7",

@@ -1,9 +1,8 @@
-// import ERC721 from '../ERC721.json'
 const { ethers } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 
-// import QuestABI from '../artifacts/contracts/OBYTransfer_V2.sol/OBYTransfer_V2.json';
+import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
 
 export const normalFetcher = (url) => fetch(url).then((res) => res.json());
@@ -79,7 +78,7 @@ export const useMintNFT = async (questId) => {
   const handleMint = async () => {
     try {
       const contractAddress = QuestNftContractAddresses[questId];
-      // const contract = new Contract(contractAddress, QuestABI.abi, library.getSigner());
+      const contract = new Contract(contractAddress, QuestABI.abi, library.getSigner());
 
       const tx = await contract.mint();
       setTxHash(tx.hash);
@@ -90,3 +89,27 @@ export const useMintNFT = async (questId) => {
 
   return [handleMint, txHash];
 }
+
+
+
+export const useFetch = (url) => {
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+     const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        setIsSuccess(response.status === 200);
+      } catch (error) {
+        setIsSuccess(false);
+      }
+    }
+
+    fetchData();
+  }, [url]);
+
+  return isSuccess;
+}
+
+
+
