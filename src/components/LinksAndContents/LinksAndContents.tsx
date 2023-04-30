@@ -59,15 +59,15 @@ export default function LinksAndIndexBurger({ }: Props) {
   return (
     <div className="fixed right-24 bottom-0 flex flex-col ">
       <div
-        className={`bg-bgDarkGray h-12 flex items-center justify-evenly rounded-t-md w-64 `}
+        className={`bg-gray-300 dark:bg-bgDarkGray h-12 flex items-center justify-evenly rounded-t-md w-64 `}
       // onClick={openLinksAndContents}
       >
-        <button className={`w-full h-full rounded-tl-md px-2 ${!linksActive ? "bg-gray-600 rounded-br-md" : "font-bold"}`} onClick={handleLinksToggle} >Links</button>
-        <button className={`w-full h-full rounded-tr-md px-2 ${!contentsActive ? "bg-gray-600 rounded-bl-md" : "font-bold"}`} onClick={handleContentsToggle} >Verzeichnis</button>
+        <button className={`w-full h-full rounded-tl-md px-2 ${!linksActive ? "bg-gray-400 dark:bg-gray-600 rounded-br-md" : "font-bold"}`} onClick={handleLinksToggle} >Links</button>
+        <button className={`w-full h-full rounded-tr-md px-2 ${!contentsActive ? "bg-gray-400 dark:bg-gray-600 rounded-bl-md" : "font-bold"}`} onClick={handleContentsToggle} >Verzeichnis</button>
       </div>
 
 
-      <div className={` ${!openLinks && "hidden"} bg-bgDarkGray h-80 flex flex-col gap-3 p-5 pt-8 w-64 overflow-auto scrollbar-hide `} >
+      <div className={` ${!openLinks && "hidden"} bg-gray-300 dark:bg-bgDarkGray h-80 flex flex-col gap-3 p-5 pt-8 w-64 overflow-auto scrollbar-hide `} >
         {
           linksActive ?
             <>

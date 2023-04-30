@@ -6,7 +6,7 @@ import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 export default function index() {
   return (
     <div className='flex flex-col  w-full justify-center items-center'>
-      <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
+      <section className=' h-screen w-full flex justify-center items-center gap-24 max-w-7xl' >
         <div className='w-2/4 space-y-10' >
           <h1 className='text-7xl font-bold mb-5' >
             Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
@@ -15,8 +15,8 @@ export default function index() {
             Hier findest du alles, was du über die weltweit bekannteste Kryptowährung wissen musst.
           </h2>
         </div>
-        <div className='relative w-2/4 h-full grow'>
-          <Image src={"/btc/btc_planet.png"} fill alt='Ethereum Hero' priority />
+        <div className='relative w-2/5 h-full '>
+          <Image src={"/btc/bitcoin_planet.png"} fill alt='Ethereum Hero' priority />
         </div>
       </section>
       <section className='h-96 w-full flex items-center justify-center relative' >

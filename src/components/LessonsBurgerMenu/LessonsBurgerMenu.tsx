@@ -38,12 +38,12 @@ export default function LessonsBurgerMenu({ lessons }: any) {
         ))}
       </div>
       <button
-        className=" bg-bgDarkGray w-12 h-12 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-evenly py-1.5 "
+        className=" bg-gray-300 dark:bg-bgDarkGray w-12 h-12 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-evenly py-1.5 "
         onClick={handleLessonsMenuClick}
       >
-        <div className="bg-primaryWhite h-1 w-7 rounded-md "></div>
-        <div className="bg-primaryWhite h-1 w-7 rounded-md "></div>
-        <div className="bg-primaryWhite h-1 w-7 rounded-md "></div>
+        <div className=" bg-bgDarkGray dark:bg-primaryWhite h-1 w-7 rounded-md "></div>
+        <div className=" bg-bgDarkGray dark:bg-primaryWhite h-1 w-7 rounded-md "></div>
+        <div className=" bg-bgDarkGray dark:bg-primaryWhite h-1 w-7 rounded-md "></div>
       </button>
     </div>
   )
