@@ -8,7 +8,7 @@ import ReactPlayer from "react-player";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 
-// import {useUserProgress, useMintNFT, useBalance} from '../api/ethereum-api';
+// import {useUserProgress, useMintNFT, useBalance, useFetch} from '../api/ethereum-api';
 
 
 type Params = {
@@ -26,6 +26,8 @@ export default function LessonPage({ lesson }: { lesson: Lesson }) {
  
   // <button onClick={handleMint}>Mint NFT</button>
   // const balance = useCoinBalance("0x1234567890123456789012345678901234567890");
+
+  // const isSuccess = useFetch("Paste a url here!!");
 
   useEffect(() => {
     setShowPlayer(true);
