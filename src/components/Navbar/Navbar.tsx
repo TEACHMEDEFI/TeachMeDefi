@@ -37,21 +37,21 @@ export default function Navbar() {
         </div>
         <div className="space-x-14 flex" >
           <div
-            className="relative"
+            className="relative  "
             onMouseEnter={() => toggleTeachMeButton(!teachMeButton)}
             onMouseLeave={() => toggleTeachMeButton(false)}
           >
-            <button >TEACH ME</button>
-            <div className={`absolute flex flex-col w-28 ${teachMeButton ? "" : "hidden"} `} >
-              <Link href={"/btc"} >BTC Section</Link>
-              <Link href={"/eth"} >ETH Section</Link>
-              <Link href={"/dot"} >DOT Section</Link>
+            <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
+            <div className={`absolute flex flex-col w-32 pl-2 gap-1  rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
+              <Link href={"/btc"} className="rainbow-text" >BTC Section</Link>
+              <Link href={"/eth"} className="rainbow-text" >ETH Section</Link>
+              <Link href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link href={"/podcast"} >PODCAST</Link>
-          <Link href={"/newsletter"} >NEWSLETTER</Link>
-          {/* <Link href={"/merch"} >MERCH</Link> */}
-          <Link href={"/subscribe"} className="" >SUBSCRIBE</Link>
+          <Link href={"/podcast"} className="hover:underline">PODCAST</Link>
+          <Link href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
+          {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
+          <Link href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
         </div>
         <div className="flex  gap-5" >
           <button onClick={toggleDarkMode} className="border-2 dark:border-white border-bgDarkGray w-8 h-8 rounded-xl flex items-center justify-center" >

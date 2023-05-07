@@ -1,10 +1,10 @@
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/lessonsData';
+import { PrimaryButton } from '../Buttons/Buttons';
 
-
-export default function VideoWithTranscript({ lesson }: { lesson: Lesson }) {
+export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function VideoWithTranscript({ lesson }: { lesson: Lesson }) {
           {showPlayer && <ReactPlayer
             height="100%"
             width="100%"
-            url={lesson.youtubeUrl}
+            url={currentLesson.youtubeUrl}
             // onEnded={() => setProgress('Video - Id to write to local storage')}
             config={{
               youtube: {
@@ -31,10 +31,19 @@ export default function VideoWithTranscript({ lesson }: { lesson: Lesson }) {
         </div>
       </div>
       <div className='w-full bg-gray-200 dark:bg-bgDarkerGray rounded-b-xl p-10 flex flex-col space-y-5' >
-        <h2 className='font-bold text-2xl ' > {lesson?.title} </h2>
+        <div className='w-full flex justify-between ' >
+          <div className='w-1/2' >
+            <h2 className='font-bold text-2xl ' > {currentLesson?.title} </h2>
+          </div>
+          <div className='w-1/2' >
+            {
+              nextLessonSlug && <PrimaryButton href={nextLessonSlug}> Next </PrimaryButton>
+            }
+          </div>
+        </div>
         <h3 className='font-bold text-xl '>Transcript</h3>
         <p>
-          {lesson.transcript}
+          {currentLesson.transcript}
         </p>
       </div>
     </section>
