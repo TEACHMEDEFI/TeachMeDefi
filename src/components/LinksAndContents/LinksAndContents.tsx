@@ -2,7 +2,10 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from 'next/navigation';
-import { ethLessons, btcLessons, dotLessons, Lesson } from "../../data/lessonsData";
+import { Lesson } from "../../data/generalLessons";
+import { ethLessons } from "../../data/ethLessons";
+import { btcLessons } from "../../data/btcLessons";
+import { dotLessons } from "../../data/dotLessons";
 
 
 type Props = {}

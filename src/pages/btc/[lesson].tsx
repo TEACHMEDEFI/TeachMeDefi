@@ -1,7 +1,8 @@
 
 'use client';
 
-import { btcLessons, Lesson } from "@/data/lessonsData";
+import { btcLessons } from "@/data/btcLessons";
+import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
@@ -12,7 +13,7 @@ type Params = {
   lesson: string
 }
 
-export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string  }) {
+export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
 
   return (

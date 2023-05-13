@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { btcLessons } from '@/data/lessonsData'
+import { btcLessons } from '@/data/btcLessons'
 import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 
 

@@ -1,7 +1,8 @@
 
 'use client';
 
-import { ethLessons, Lesson } from "@/data/lessonsData";
+import { ethLessons } from "@/data/ethLessons";
+import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
@@ -12,9 +13,9 @@ type Params = {
   lesson: string
 }
 
-export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string  }) {
+export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
-  
+
   return (
     <main className='w-full flex flex-col  items-center ' >
       <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
@@ -47,7 +48,7 @@ export const getStaticProps: GetStaticProps<{ currentLesson: Lesson }, Params> =
   )
 
   const nextLessonSlug = (ethLessons.length !== currentLessonIndex + 1) ?
-  `/eth/${ethLessons[currentLessonIndex + 1].slug}` : ""
+    `/eth/${ethLessons[currentLessonIndex + 1].slug}` : ""
 
   return {
     props: {

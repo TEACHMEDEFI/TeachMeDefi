@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import { dotLessons } from '@/data/lessonsData'
+import { dotLessons } from '@/data/dotLessons'
 import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 
 

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
-import { Lesson } from '@/data/lessonsData';
+import { Lesson } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
@@ -31,9 +31,9 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
         </div>
       </div>
       <div className='w-full bg-gray-200 dark:bg-bgDarkerGray rounded-b-xl p-10 flex flex-col space-y-5' >
-        <div className='w-full flex justify-between ' >
+        <div className='w-full flex justify-between mb-10 ' >
           <div className='w-1/2' >
-            <h2 className='font-bold text-2xl ' > {currentLesson?.title} </h2>
+            <h2 className='font-bold text-3xl ' > {currentLesson?.title} </h2>
           </div>
           <div className='w-1/2' >
             {
@@ -41,10 +41,16 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             }
           </div>
         </div>
-        <h3 className='font-bold text-xl '>Transcript</h3>
-        <p>
-          {currentLesson.transcript}
-        </p>
+        <div className='flex justify-center' >
+          <div className='max-w-5xl' >
+            <h3 className='font-bold text-xl ml-10 mb-5'>Transcript</h3>
+            <div className='mx-10 space-y-8 '>
+              {currentLesson.transcript && currentLesson.transcript.map((text, i) => (
+                <p key={i} > {text} </p>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

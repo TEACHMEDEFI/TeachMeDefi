@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import { ethLessons } from '@/data/lessonsData'
+import { ethLessons } from '@/data/ethLessons'
 import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 
 

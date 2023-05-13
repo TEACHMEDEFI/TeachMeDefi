@@ -66,9 +66,9 @@ export default function Navbar() {
         <div className="flex gap-5 items-center " >
           <button onClick={toggleDarkMode} className="border-2 hidden dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:flex items-center justify-center" >
             {isDarkMode ?
-              <Image src={"/navbar/sun.svg"} width={20} height={20} alt="icon" className="xl:hover:animate-ping" />
+              <Image src={"/navbar/sun.svg"} width={20} height={20} alt="icon" />
               :
-              <Image src={"/navbar/moon.svg"} width={15} height={15} alt="icon" className="xl:hover:animate-ping" />
+              <Image src={"/navbar/moon.svg"} width={15} height={15} alt="icon" />
             }
           </button>
           <div className="hidden sm:block" >
@@ -111,9 +111,9 @@ export default function Navbar() {
           </button>
           <button onClick={toggleDarkMode} className="border-2 absolute top-4 left-4 dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:hidden flex items-center justify-center" >
             {isDarkMode ?
-              <Image src={"/navbar/sun.svg"} width={20} height={20} alt="icon" className="xl:hover:animate-ping" />
+              <Image src={"/navbar/sun.svg"} width={20} height={20} alt="icon" />
               :
-              <Image src={"/navbar/moon.svg"} width={15} height={15} alt="icon" className="xl:hover:animate-ping" />
+              <Image src={"/navbar/moon.svg"} width={15} height={15} alt="icon" />
             }
           </button>
           {/* _______ HAMBURGER CONNECT / WALLET BUTTON ______________ */}
