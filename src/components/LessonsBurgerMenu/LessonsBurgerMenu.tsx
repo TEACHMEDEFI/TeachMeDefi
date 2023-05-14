@@ -2,7 +2,10 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from 'next/navigation';
-import { ethLessons, btcLessons, dotLessons, Lesson } from "../../data/lessonsData";
+import { Lesson } from "../../data/generalLessons";
+import { ethLessons } from "../../data/ethLessons";
+import { btcLessons } from "../../data/btcLessons";
+import { dotLessons } from "../../data/dotLessons";
 
 
 export default function LessonsBurgerMenu({ lessons }: any) {
@@ -32,9 +35,17 @@ export default function LessonsBurgerMenu({ lessons }: any) {
 
   return (
     <div className="fixed left-0 top-28 flex ">
-      <div className={` ${!openLessons && "hidden"} bg-bgDarkGray flex flex-col p-5 rounded-br-lg `} >
-        {currentLessons && currentLessons.map(lesson => (
-          <Link href={`/${currentSection}/${lesson.slug}`} key={lesson.id} >{lesson.title}</Link>
+      <div className={` ${!openLessons && "hidden"} bg-gray-300 dark:bg-bgDarkGray flex flex-col p-5 rounded-br-lg gap-y-3`} >
+        {currentLessons && currentLessons.map((lesson, i) => (
+          <div key={lesson.id}>
+            <Link
+              href={`/${currentSection}/${lesson.slug}`}
+              onClick={() => setOpenLessons(false)}
+            >
+              {lesson.title}
+            </Link>
+            {i < currentLessons.length - 1 && <hr />}
+          </div>
         ))}
       </div>
       <button

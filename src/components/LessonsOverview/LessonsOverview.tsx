@@ -1,6 +1,5 @@
 
-import { Lesson } from "@/data/lessonsData"
-import { useState } from "react";
+import { Lesson } from "@/data/generalLessons"
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link"
 

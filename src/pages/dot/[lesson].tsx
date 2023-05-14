@@ -1,10 +1,9 @@
 
 'use client';
 
-import { useState, useEffect } from "react";
-import { dotLessons, Lesson } from "@/data/lessonsData";
+import { dotLessons } from "@/data/dotLessons";
+import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
-import ReactPlayer from "react-player";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
@@ -16,9 +15,9 @@ type Params = {
   lesson: string
 }
 
-export default function LessonPage({ lesson }: { lesson: Lesson }) {
+export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   // console.log(lesson)
-  const [showPlayer, setShowPlayer] = useState(false);
+
   // const [hasProgress, setProgress] = useUserProgress();
   // const [handleMint, txHash] = useMintNFT(null);
 
@@ -30,13 +29,11 @@ export default function LessonPage({ lesson }: { lesson: Lesson }) {
 
   // const isSuccess = useFetch("Paste a url here!!");
 
-  useEffect(() => {
-    setShowPlayer(true);
-  }, []);
+
   return (
     <main className='w-full flex flex-col  items-center ' >
 
-      <VideoWithTranscript lesson={lesson} />
+      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
       <LessonsBurgerMenu />
       <LinksAndIndexBurger />
     </main>
@@ -52,18 +49,26 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<{ lesson: Lesson }, Params> = async ({
+export const getStaticProps: GetStaticProps<{ currentLesson: Lesson }, Params> = async ({
   params,
 }) => {
   const { lesson } = params!
+
+  const currentLessonIndex = dotLessons.findIndex(
+    (currentLesson) => currentLesson.slug === lesson
+  )
 
   const currentLesson = dotLessons.find(
     (currentLesson) => currentLesson.slug === lesson
   )
 
+  const nextLessonSlug = (dotLessons.length !== currentLessonIndex + 1) ?
+  `/dot/${dotLessons[currentLessonIndex + 1].slug}` : ""
+
   return {
     props: {
-      lesson: currentLesson!,
+      currentLesson: currentLesson!,
+      nextLessonSlug,
     },
   }
 }

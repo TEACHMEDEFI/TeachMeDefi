@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   darkMode: 'class',
   content: [
@@ -64,5 +65,22 @@ module.exports = {
       'bg-gradient-to-br': 'from-pink-400 to-red-600',
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      const rainbowText = {
+        '.rainbow-text:hover': {
+          background: theme('colors.primaryBlue'),
+          background: `linear-gradient(to right, ${theme('colors.primaryBlue')}, ${theme('colors.secondaryPurple')}, ${theme('colors.primaryPink')})`,
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+          'text-fill-color': 'transparent',
+          background: theme('colors.primaryPink'),
+          background: `linear-gradient(to right, ${theme('colors.primaryPink')}, ${theme('colors.secondaryPurple')}, ${theme('colors.primaryBlue')})`,
+        },
+      };
+
+      addComponents(rainbowText);
+    })
+  ],
 }
