@@ -66,8 +66,15 @@ export const useUserProgress = () => {
 
 
 // Move to .env or store here in File?
+// Special cases: GLMR on Moonbeam?!
+// For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
 const QuestNftContractAddresses = {
-  "eth1": "EXAMPLE CONTRACT ADDRESS"
+  "eth2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
+  "eth3": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9", // Goerli Eth
+  "eth5": "0x912CE59144191C1204E64559FE8253a0e49E6548", // Arbi Eth
+  "polka2": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3", // Dot
+  "polka5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
+
 }
 
 
@@ -92,6 +99,7 @@ export const useMintNFT = async (questId) => {
 
 
 
+// Polka 4 and 5 + Eth 4 and 6
 export const useFetch = (url) => {
   const [isSuccess, setIsSuccess] = useState(false);
 
