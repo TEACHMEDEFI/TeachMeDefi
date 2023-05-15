@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
-import { useUserProgress, useMintNFT } from '../../pages/api/ethereum-api'
+import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
-  const [hasProgress, setProgress, numCompletedChallenges] = useUserProgress();
+  const [hasProgress, setProgress] = useUserProgress();
   const [handleMint, txHash] = useMintNFT('eth-1');
+  const balance  = useBalance('eth-1', 'nft');
 
   useEffect(() => {
     setShowPlayer(true);
@@ -64,13 +65,13 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
 
           <div className='w-1/2' >
             {
-              nextLessonSlug && <button onClick={() => handleButtonClick()}> SetProgress - Do You have Progress? {userHasProgress() ? 'Yeeees' : 'Sadly NO'} </button>
+              nextLessonSlug && <button onClick={() => handleButtonClick()}> {userHasProgress() ? 'You Already watched this' : 'Set User Progress'} </button>
             }
           </div>
 
           <div className='w-1/2' >
             {
-              <button onClick={() => mintProgressNFT()}> Mint Your Progress NFT </button>
+              <button onClick={() => mintProgressNFT()}> {balance > 0 ? 'You already minted' : 'Mint Your Progress NFT ' } </button>
             }
           </div>
         </div>

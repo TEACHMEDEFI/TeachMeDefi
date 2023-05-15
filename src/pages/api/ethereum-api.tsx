@@ -8,7 +8,7 @@ import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 export const normalFetcher = (url) => fetch(url).then((res) => res.json());
 
 
-type Token = keyof typeof TokenAddresses;
+
 
 const TokenAddresses = {
   "eth-2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
@@ -18,7 +18,16 @@ const TokenAddresses = {
   "dot-5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
 };
 
-export const useBalance = (token: Token): string | null => {
+// Move to .env or store here in File?
+// Special cases: GLMR on Moonbeam?!
+// For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
+const QuestNftContractAddresses = {
+  "eth-1": "0x82Cbb7E5838cb4851Ca6D5B6809B15B4A5a51997" // process.env.QUEST_ETH_ONE as string
+};
+
+type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
+
+export const useBalance = (token: Token, tokenType: string): string | null => {
   const { account, library } = useWeb3React();
   const [balance, setBalance] = useState<string | null>(null);
 
@@ -26,13 +35,14 @@ export const useBalance = (token: Token): string | null => {
     if (!account || !library || !token) return;
 
     const getTokenBalance = async (): Promise<void> => {
-      const tokenContract = new ethers.Contract(TokenAddresses[token], ["function balanceOf(address) view returns (uint256)"], library);
+      const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: TokenAddresses[token]
+      const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], library);
       const balance = await tokenContract.balanceOf(account);
       setBalance(balance.toString());
     };
 
     getTokenBalance();
-  }, [account, library, token]);
+  }, [account, library, token, tokenType]);
 
   return balance;
 };
@@ -77,15 +87,6 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
   };
 
   return [hasProgress, setProgress, numCompletedChallenges];
-};
-
-
-
-// Move to .env or store here in File?
-// Special cases: GLMR on Moonbeam?!
-// For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
-const QuestNftContractAddresses = {
-  "eth-1": "0x82Cbb7E5838cb4851Ca6D5B6809B15B4A5a51997" // process.env.QUEST_ETH_ONE as string
 };
 
 export const useMintNFT = (questId: keyof typeof QuestNftContractAddresses): [handleMint: () => Promise<void>, txHash: string | null] => {
