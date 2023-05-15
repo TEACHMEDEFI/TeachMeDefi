@@ -4,12 +4,18 @@ import { useState, useEffect } from 'react';
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
+const { QUEST_ETH_ONE } = process.env;
+
 
 export const normalFetcher = (url) => fetch(url).then((res) => res.json());
 
 
 const TokenAddresses = {
-  "eth": "Eth Contract Address"
+  "eth-2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
+  "eth-3": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9", // Goerli Eth
+  "eth-5": "0x912CE59144191C1204E64559FE8253a0e49E6548", // Arbi Eth
+  "polka-2": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3", // Dot
+  "polka-5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
 }
 
 
@@ -32,8 +38,12 @@ export const useBalance = async (token) => {
 
 export const useUserProgress = () => {
   const [userProgressObject, setUserProgressObject] = useState(() => {
-    const localStorageData = localStorage.getItem('userProgressObject');
-    return localStorageData ? JSON.parse(localStorageData) : { 'ethereum-quest-one': 'check' };
+    if (typeof window !== 'undefined') {
+      const localStorageData = localStorage.getItem('userProgressObject');
+      return localStorageData ? JSON.parse(localStorageData) : { 'ethereum-quest-one': 'check' };
+    } else {
+      return { 'ethereum-quest-one': 'check' };
+    }
   });
 
   const [numCompletedChallenges, setNumCompletedChallenges] = useState(() => {
@@ -46,22 +56,24 @@ export const useUserProgress = () => {
 
   const hasProgress = (challengeId) => {
     return userProgressObject.hasOwnProperty(challengeId);
-  }
+  };
 
   const setProgress = (challengeId, value) => {
-    setUserProgressObject(prevState => {
-      const newState = { ...prevState };
-      if (!newState.hasOwnProperty(challengeId)) {
-        newState[challengeId] = value;
-        localStorage.setItem('userProgressObject', JSON.stringify(newState));
-        setNumCompletedChallenges(Object.values(newState).filter(value => value === 'check').length);
-      }
-      return newState;
-    });
-  }
+    if (typeof window !== 'undefined') {
+      setUserProgressObject(prevState => {
+        const newState = { ...prevState };
+        if (!newState.hasOwnProperty(challengeId)) {
+          newState[challengeId] = value;
+          localStorage.setItem('userProgressObject', JSON.stringify(newState));
+          setNumCompletedChallenges(Object.values(newState).filter(value => value === 'check').length);
+        }
+        return newState;
+      });
+    }
+  };
 
   return [hasProgress, setProgress, numCompletedChallenges];
-}
+};
 
 
 
@@ -69,12 +81,7 @@ export const useUserProgress = () => {
 // Special cases: GLMR on Moonbeam?!
 // For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
 const QuestNftContractAddresses = {
-  "eth2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
-  "eth3": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9", // Goerli Eth
-  "eth5": "0x912CE59144191C1204E64559FE8253a0e49E6548", // Arbi Eth
-  "polka2": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3", // Dot
-  "polka5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
-
+  "eth-1": process.env.QUEST_ETH_ONE
 }
 
 

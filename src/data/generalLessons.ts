@@ -8,6 +8,7 @@ export type Lesson = {
   importantLinks?: string[];
   section: number; // 0 = Allgemein, 1 = Theory, 2 = Praktisch
   transcript: string[];
+  lessonId: string;
 }
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
@@ -24,6 +25,7 @@ export const generalLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/oc2jLjw6904/hqdefault.jpg",
     // importantLinks: [],
     section: 0,
+    lessonId: '',
     transcript:
       [
         "Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht's!",
@@ -45,6 +47,7 @@ export const generalLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/opVQuUnSDGw/hqdefault.jpg",
     // importantLinks: [],
     section: 0,
+    lessonId: '',
     transcript:
       [
         "Um wirklich zu verstehen, was eine Blockchain ist und warum sie für dich wichtig ist, lass uns zunächst klären, wofür Banken eigentlich da sind.",
@@ -65,6 +68,7 @@ export const generalLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/Sp2PFQRlj7w/hqdefault.jpg",
     // importantLinks: [],
     section: 0,
+    lessonId: '',
     transcript: [
       'Eine Blockchain ist wie eine dezentrale Buchhaltung oder Datenbank, die auf einem Netzwerk von vielen Benutzern, sogenannten Nodes, basiert. Statt alle Transaktionen und Daten zentral bei Banken zu speichern, verteilt sich die Speicherung aller Informationen in einer Blockchain auf viele Teilnehmer, also Nodes. Jede Node besitzt eine Kopie aller Transaktionen, die auf einer Blockchain stattfinden, und sorgt so für ein transparentes und sicheres System.',
       'Wie der Name "Block & Chain" schon sagt, besteht eine Blockchain aus einer Kette von Informationsblöcken. Bei Bitcoin, Ethereum und anderen Kryptowährungen handelt es sich bei den gespeicherten Informationen um Transaktionen zwischen dir und anderen Nutzern.',
@@ -85,6 +89,7 @@ export const generalLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/v9xNMZ-3xZk/hqdefault.jpg",
     // importantLinks: [],
     section: 0,
+    lessonId: '',
     transcript:
       [
         'Die Blockchain-Technologie bietet dir eine Vielzahl von Vorteilen, insbesondere aufgrund ihrer dezentralen Natur. Wenn du ein dezentrales Blockchain-System nutzt, kannst du auf denselben Stand der Informationen zugreifen wie alle anderen Benutzer, ohne dabei auf eine zentrale Autorität vertrauen zu müssen.',
@@ -103,6 +108,7 @@ export const generalLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/bckodtNLxhw/hqdefault.jpg",
     // importantLinks: [],
     section: 0,
+    lessonId: '',
     transcript: [
       'In diesem Video wollen wir uns den Konsensmechanismus, das Herzstück einer Blockchain, genauer ansehen. Der Konsensmechanismus stellt sicher, dass alle Teilnehmer im Netzwerk übereinstimmen und eine gemeinsame Wahrheit teilen, ohne auf eine zentrale Autorität angewiesen zu sein. Du wirst erfahren, wie Transaktionen in einem dezentralen Netzwerk verifiziert und abgeschlossen werden.',
       'Sogenannte Nodes im Netzwerk überprüfen jeden neuen Block, um sicherzustellen, dass er den Konsensregeln entspricht. Nodes sind Computer, die eine vollständige Kopie der Blockchain speichern und die Transaktionshistorie überprüfen. Sie tragen zur Dezentralisierung und Sicherheit des Netzwerks bei, indem sie Transaktionen validieren und weiterleiten. Dieser Prozess stellt sicher, dass alle Nodes im Netzwerk übereinstimmen und die Blockchain einheitlich und konsistent bleibt.',
@@ -120,6 +126,7 @@ export const generalLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/XLG-qtZwxIw/hqdefault.jpg",
     // importantLinks: [],
     section: 0,
+    lessonId: '',
     transcript: [
       'In diesem Video zeigen wir dir, wie du als Nutzer Transaktionen auf der Blockchain einleiten kannst. Dabei spielt das Kryptowährungs-Wallet eine entscheidende Rolle.',
       'Ein Kryptowährungs-Wallet ist deine digitale Geldbörse, mit der du Kryptowährungen verwalten, speichern, senden und empfangen kannst. Wallets bieten dir Zugang zur Blockchain und ermöglichen es dir, Transaktionen mit Kryptowährungen durchzuführen. Dabei gibt es verschiedene Formen von Wallets, wie Software-Wallets, Hardware-Wallets oder sogar als Papier-Wallets.',

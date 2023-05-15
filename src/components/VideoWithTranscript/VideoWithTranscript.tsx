@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
+import { useUserProgress } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
+  const [setProgress] = useUserProgress();
 
   useEffect(() => {
     setShowPlayer(true);
@@ -20,7 +22,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             height="100%"
             width="100%"
             url={currentLesson.youtubeUrl}
-            // onEnded={() => setProgress('Video - Id to write to local storage')}
+            onEnded={() => setProgress(currentLesson.lessonId)}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
