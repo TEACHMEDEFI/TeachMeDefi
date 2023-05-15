@@ -79,3 +79,10 @@ img {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.tagmanager-hide {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}

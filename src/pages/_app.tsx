@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 // Component imports
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
+import { TagManagerScript, TagManagerNoScript } from '@/components/TagManager/TagManager'
 
 
 
@@ -34,7 +35,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
       <ThemeProvider>
+      <TagManagerScript />
       <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white `} >
+        <TagManagerNoScript />
         <Navbar />
         <div className='pt-24 px-5' >
           <Component {...pageProps} />
