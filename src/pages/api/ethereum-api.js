@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
-const { QUEST_ETH_ONE } = process.env;
-
 
 export const normalFetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -14,8 +12,8 @@ const TokenAddresses = {
   "eth-2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
   "eth-3": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9", // Goerli Eth
   "eth-5": "0x912CE59144191C1204E64559FE8253a0e49E6548", // Arbi Eth
-  "polka-2": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3", // Dot
-  "polka-5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
+  "dot-2": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3", // Dot
+  "dot-5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
 }
 
 
