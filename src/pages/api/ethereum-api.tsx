@@ -85,17 +85,21 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
 // Special cases: GLMR on Moonbeam?!
 // For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
 const QuestNftContractAddresses = {
-  "eth-1": process.env.QUEST_ETH_ONE as string
+  "eth-1": "0x82Cbb7E5838cb4851Ca6D5B6809B15B4A5a51997" // process.env.QUEST_ETH_ONE as string
 };
 
 export const useMintNFT = (questId: keyof typeof QuestNftContractAddresses): [handleMint: () => Promise<void>, txHash: string | null] => {
   const { library } = useWeb3React();
   const [txHash, setTxHash] = useState<string | null>(null);
+  
 
   const handleMint = async (): Promise<void> => {
+    console.log('Starting to Mint for lesson:', questId)
     try {
       const contractAddress = QuestNftContractAddresses[questId];
       const contract = new Contract(contractAddress, QuestABI.abi, library.getSigner());
+
+      
 
       const tx = await contract.mint();
       setTxHash(tx.hash);
