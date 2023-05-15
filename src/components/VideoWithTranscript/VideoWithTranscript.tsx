@@ -7,11 +7,21 @@ import { useUserProgress } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
-  const [setProgress] = useUserProgress();
+  const [hasProgress, setProgress, numCompletedChallenges] = useUserProgress();
 
   useEffect(() => {
     setShowPlayer(true);
   }, []);
+
+  const handleButtonClick = () => {
+    // Update the progress using setProgress
+    setProgress(currentLesson.lessonId, 'check');
+  };
+
+  const userHasProgress = () => {
+
+    return hasProgress(currentLesson.lessonId);
+  }
 
   return (
     <section className='w-full' >
@@ -22,7 +32,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             height="100%"
             width="100%"
             url={currentLesson.youtubeUrl}
-            onEnded={() => setProgress(currentLesson.lessonId)}
+            // onEnded={() => setProgress(currentLesson.lessonId)}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
@@ -40,6 +50,12 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
           <div className='w-1/2' >
             {
               nextLessonSlug && <PrimaryButton href={nextLessonSlug}> Next </PrimaryButton>
+            }
+          </div>
+
+          <div className='w-1/2' >
+            {
+              nextLessonSlug && <button onClick={() => handleButtonClick()}> SetProgress - Do You have Progress? {userHasProgress() ? 'Yeeees' : 'Sadly NO'} </button>
             }
           </div>
         </div>
