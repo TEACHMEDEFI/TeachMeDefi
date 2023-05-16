@@ -6,14 +6,13 @@ import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
 
 const TokenAddresses = {
-  "eth-2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
-  "eth-3": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9", // Goerli Eth
-  "eth-5": "0x912CE59144191C1204E64559FE8253a0e49E6548", // Arbi Eth
-  "dot-2": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3", // Dot
-  "dot-5": "0xffffffff1fcacbd218edc0eba20fc2308c778080", // xcDot
+  "eth-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH, //Sepolia Eth
+  "eth-3": process.env.NEXT_PUBLIC_GOERLI_ETH, // Goerli Eth
+  "eth-5": process.env.NEXT_PUBLIC_ARBI_ETH, // Arbi Eth
+  "dot-2": process.env.NEXT_PUBLIC_DOT, // Dot
+  "dot-5": process.env.NEXT_PUBLIC_XCDOT, // xcDot
 };
 
-// Move to .env or store here in File?
 // Special cases: GLMR on Moonbeam?!
 // For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
 const QuestNftContractAddresses = {
