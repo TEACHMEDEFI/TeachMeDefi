@@ -1,12 +1,10 @@
 import Script from "next/script";
+import type { NextPage } from "next";
 
+const GTM_ID = process.env.NEXT_PUBLIC_TAGMANAGER_CONTAINER_ID;
 
-const GTM_ID = '';
-
-export const TagManagerScript = () => {
-
+const TagManagerScript: NextPage = () => {
   return (
-
     <Script id="google-tag-manager" strategy="afterInteractive">
       {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -16,18 +14,18 @@ export const TagManagerScript = () => {
         })(window,document,'script','dataLayer','${GTM_ID}');
       `}
     </Script>
-  )
-}
+  );
+};
 
-
-export const TagManagerNoScript = () => {
-
-  const tagManagerUrl = `https://www.googletagmanager.com/ns.html?id=GTM-${GTM_ID}`
+const TagManagerNoScript: NextPage = () => {
+  const tagManagerUrl = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`;
 
   return (
-    <div id="google-tag-manager-no-script" strategy="afterInteractive" className="tagmanager-hide">
+    <div id="google-tag-manager-no-script" className="tagmanager-hide">
       <iframe src={tagManagerUrl} />
-   </div>
-  )
-}
+    </div>
+  );
+};
 
+export default TagManagerScript;
+export { TagManagerNoScript, TagManagerScript };

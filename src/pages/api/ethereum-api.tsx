@@ -17,7 +17,7 @@ const TokenAddresses = {
 // Special cases: GLMR on Moonbeam?!
 // For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
 const QuestNftContractAddresses = {
-  "eth-1": "0xD2746EFFBb96B5950677a910837f18E778Ff195c" // process.env.QUEST_ETH_ONE as string
+  "eth-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string
 };
 
 type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
