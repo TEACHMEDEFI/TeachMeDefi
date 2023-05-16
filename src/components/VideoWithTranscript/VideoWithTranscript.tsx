@@ -8,7 +8,7 @@ import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereu
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
   const [hasProgress, setProgress] = useUserProgress();
-  const [handleMint, txHash] = useMintNFT('eth-1');
+  const [handleMint] = useMintNFT('eth-1');
   const balance  = useBalance('eth-1', 'nft');
 
   useEffect(() => {

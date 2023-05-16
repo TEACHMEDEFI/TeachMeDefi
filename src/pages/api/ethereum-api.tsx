@@ -5,11 +5,6 @@ import { useState, useEffect } from 'react';
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
 
-export const normalFetcher = (url) => fetch(url).then((res) => res.json());
-
-
-
-
 const TokenAddresses = {
   "eth-2": "0xd38e5c25935291ffd51c9d66c3b7384494bb099a", //Sepolia Eth
   "eth-3": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9", // Goerli Eth
