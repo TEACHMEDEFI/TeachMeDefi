@@ -4,7 +4,7 @@ require("dotenv").config()
 
 
 const baseURIs = {
-    "eth-1": "example-uri-1"
+    "eth-1": "https://ipfs.io/ipfs/QmPSya9xYL7aSfo1pQkwVZVQEiKshFNJSM3CPTPigaYvnd?filename=quest_one.json"
 }
 
 

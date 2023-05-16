@@ -19,16 +19,21 @@ contract TMDQuest is ERC721, Ownable {
         baseURI = _baseUri;
     }
 
-    function _baseURI() internal view virtual override returns (string memory) {
-        return baseURI;
-    }
-
     function setBaseURI(string memory _questBaseURI) external onlyOwner {
         baseURI = _questBaseURI;
     }
 
     function setMintable(bool _mintable) external onlyOwner {
         mintable = _mintable;
+    }
+
+
+    /**
+     * @dev See {IERC721Metadata-tokenURI}.
+     */
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+        _requireMinted(tokenId);
+        return bytes(baseURI).length > 0 ? string(baseURI) : "";
     }
 
     function mint () external {
