@@ -22,9 +22,13 @@ export default function Home() {
             Damit Du den Einstieg in die neue Denzentrale Finanzwelt nicht verpasst,
             unterstützen wir dich mit kostenfreien Inhalten und unserem Discord Forum.
           </h2>
-          <PrimaryButton>
-            JOIN NOW
-          </PrimaryButton>
+          {/* Button führt zu newsletter */}
+          {/* Social media links hier zu */}
+          <div>
+            <PrimaryButton>
+              JOIN NOW
+            </PrimaryButton>
+          </div>
         </div>
         <div className='w-4/12 h-11/12'>
           {/* <h3>
@@ -36,6 +40,16 @@ export default function Home() {
         {/* <div className='bg-gradient-conic from-primaryBlue via-secondaryPurple to-primaryPink rounded-full h-60 w-60 border-2'></div> */}
       </section>
       <section className=' section-2 flex justify-center items-center h-screen w-screen' >
+
+        {/* dsfsf
+          - Our Services 1.TeachMe Section overview scroll to the sections futher down 2. Podcast with CTA 3. Newsletters with CTA
+          - Landingpage Video
+          - TeachMe Section => BTC Section ETH Section DOT Section
+          - Podcast 
+          - Newsletter
+          - Our Team
+          - FAQ
+        */}
         {/* <h1 className="text-3xl font-bold underline text-primary ">
           Hello world!
         </h1>

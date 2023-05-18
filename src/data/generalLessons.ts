@@ -7,7 +7,7 @@ export type Lesson = {
   youtubeThumbnail: string;
   importantLinks?: string[];
   section: number; // 0 = Allgemein, 1 = Theory, 2 = Praktisch
-  transcript: string[];
+  transcript: string[] | JSX.Element;
 }
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails

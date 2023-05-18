@@ -1,4 +1,4 @@
-
+import React from "react";
 import { generalLessons, Lesson } from "./generalLessons";
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
@@ -16,13 +16,18 @@ export const ethLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/hyNcJDO1JOM/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    transcript:
-      [
-        'Lass uns jetzt gemeinsam herausfinden, was die Ethereum Blockchain so besonders macht.',
-        'Ethereum wurde 2015 von Vitalik Buterin, einem russisch-kanadischen Programmierer, gemeinsam mit anderen Mitbegründern wie Gavin Wood, Joseph Lubin und Charles Hoskinson ins Leben gerufen. Die Idee für Ethereum entstand, als Vitalik erkannte, dass Bitcoin zwar revolutionär war, aber in seinen Anwendungsmöglichkeiten begrenzt ist, da man zu dieser Zeit lediglich Bitcoin empfangen und versenden konnte.',
-        'Das Team hinter Ethereum wollte eine Plattform schaffen, die über die Funktionen einer reinen Kryptowährung hinausgeht. Ihr Ziel war es, eine Umgebung zu entwickeln, die es ermöglicht, dezentrale Anwendungen (dApps) und automatisierte Verträge zu erstellen. Auf Ethereum können komplexe Finanzprodukte, dezentrale Organisationen oder sogar virtuelle Welten aufgebaut werden. Diese bahnbrechende Technologie hat das Potenzial, traditionelle Geschäftsmodelle und Organisationen zu verändern und eine Vielzahl neuer Möglichkeiten zu erschließen.',
-        'In den nachfolgenden Videos werden wir gemeinsam tiefer in die verschiedenen Funktionen von Ethereum eintauchen und dir zeigen, wie du Zugang zu diesem spannenden Ökosystem findest. Begleite uns auf dieser Reise, um mehr über Ethereum, seine Funktionen und die Zukunft der Blockchain-Technologie zu erfahren.',
-      ],
+    transcript: (
+      <>
+        
+      </>
+    )
+    // transcript:
+    //   [
+    //     'Lass uns jetzt gemeinsam herausfinden, was die Ethereum Blockchain so besonders macht.',
+    //     'Ethereum wurde 2015 von Vitalik Buterin, einem russisch-kanadischen Programmierer, gemeinsam mit anderen Mitbegründern wie Gavin Wood, Joseph Lubin und Charles Hoskinson ins Leben gerufen. Die Idee für Ethereum entstand, als Vitalik erkannte, dass Bitcoin zwar revolutionär war, aber in seinen Anwendungsmöglichkeiten begrenzt ist, da man zu dieser Zeit lediglich Bitcoin empfangen und versenden konnte.',
+    //     'Das Team hinter Ethereum wollte eine Plattform schaffen, die über die Funktionen einer reinen Kryptowährung hinausgeht. Ihr Ziel war es, eine Umgebung zu entwickeln, die es ermöglicht, dezentrale Anwendungen (dApps) und automatisierte Verträge zu erstellen. Auf Ethereum können komplexe Finanzprodukte, dezentrale Organisationen oder sogar virtuelle Welten aufgebaut werden. Diese bahnbrechende Technologie hat das Potenzial, traditionelle Geschäftsmodelle und Organisationen zu verändern und eine Vielzahl neuer Möglichkeiten zu erschließen.',
+    //     'In den nachfolgenden Videos werden wir gemeinsam tiefer in die verschiedenen Funktionen von Ethereum eintauchen und dir zeigen, wie du Zugang zu diesem spannenden Ökosystem findest. Begleite uns auf dieser Reise, um mehr über Ethereum, seine Funktionen und die Zukunft der Blockchain-Technologie zu erfahren.',
+    //   ],
   },
   {
     id: "1c728798-3297-4d8f-98c3-3a3a68e33d27",
