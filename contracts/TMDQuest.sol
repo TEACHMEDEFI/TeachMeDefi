@@ -6,32 +6,6 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-contract TMDQuestFactory {
-    TMDQuest[] public contracts;
-    address owner;
-
-    constructor () {
-        owner = msg.sender;
-    }
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "caller is not the owner");
-        _;
-    }
-
-    function createQuest(string memory baseUri) external onlyOwner returns(TMDQuest)  {
-        TMDQuest newQuest = new TMDQuest(baseUri);
-        contracts.push(newQuest);
-
-        return newQuest;
-    }
-
-    function getDeployedQuests() public view returns (TMDQuest[] memory) {
-        return contracts;
-    }
-}
-
-
 contract TMDQuest is ERC721, Ownable {
     using Counters for Counters.Counter;
 
@@ -45,16 +19,21 @@ contract TMDQuest is ERC721, Ownable {
         baseURI = _baseUri;
     }
 
-    function _baseURI() internal view virtual override returns (string memory) {
-        return baseURI;
-    }
-
-    function setBaseURI(string memory _blackSquareBaseURI) external onlyOwner {
-        baseURI = _blackSquareBaseURI;
+    function setBaseURI(string memory _questBaseURI) external onlyOwner {
+        baseURI = _questBaseURI;
     }
 
     function setMintable(bool _mintable) external onlyOwner {
         mintable = _mintable;
+    }
+
+
+    /**
+     * @dev See {IERC721Metadata-tokenURI}.
+     */
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+        _requireMinted(tokenId);
+        return bytes(baseURI).length > 0 ? string(baseURI) : "";
     }
 
     function mint () external {

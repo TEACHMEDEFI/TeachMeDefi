@@ -3,13 +3,35 @@ import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
+import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
+  const [hasProgress, setProgress] = useUserProgress();
+  const [handleMint] = useMintNFT('eth-1');
+  const balance = useBalance('eth-1', 'nft');
 
   useEffect(() => {
     setShowPlayer(true);
   }, []);
+
+  const handleButtonClick = () => {
+    // Update the progress using setProgress
+    setProgress(currentLesson.lessonId, 'check');
+  };
+
+
+  const mintProgressNFT = async () => {
+    // Update the progress using setProgress
+    const hash = await handleMint();
+
+    return hash;
+  };
+
+  const userHasProgress = () => {
+
+    return hasProgress(currentLesson.lessonId);
+  }
 
   return (
     <section className='w-full' >
@@ -20,7 +42,8 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             height="100%"
             width="100%"
             url={currentLesson.youtubeUrl}
-            // onEnded={() => setProgress('Video - Id to write to local storage')}
+            controls={true}
+            // onEnded={() => setProgress(currentLesson.lessonId)}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
@@ -38,6 +61,18 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
           <div className='w-1/2' >
             {
               nextLessonSlug && <PrimaryButton href={nextLessonSlug}> Next </PrimaryButton>
+            }
+          </div>
+
+          <div className='w-1/2' >
+            {
+              nextLessonSlug && <button onClick={() => handleButtonClick()}> {userHasProgress() ? 'You Already watched this' : 'Set User Progress'} </button>
+            }
+          </div>
+
+          <div className='w-1/2' >
+            {
+              <button onClick={() => mintProgressNFT()}> {balance > 0 ? 'You already minted' : 'Mint Your Progress NFT '} </button>
             }
           </div>
         </div>

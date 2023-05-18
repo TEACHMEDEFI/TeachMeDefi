@@ -17,6 +17,7 @@ export const btcLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/GrZi2pHnoQg/hqdefault.jpg",
     importantLinks: ["www.google.com", "www.thisisLesson1.com"],
     section: 1,
+    lessonId: 'btc-1',
     transcript: ['This is the transcript for lesson 1.'],
   },
   {
@@ -27,6 +28,7 @@ export const btcLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/N-ZicxKesDE/hqdefault.jpg",
     importantLinks: ["www.google.com", "www.thisisLesson2.com"],
     section: 1,
+    lessonId: 'btc-2',
     transcript: ['This is the transcript for lesson 2.'],
   },
   {
@@ -37,6 +39,7 @@ export const btcLessons: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/XLG-qtZwxIw/hqdefault.jpg",
     importantLinks: ["www.google.com", "www.thisisLesson3.com"],
     section: 1,
+    lessonId: 'btc-3',
     transcript: ['This is the transcript for lesson 3.'],
   },
 ]
