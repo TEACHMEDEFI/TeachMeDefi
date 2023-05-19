@@ -34,8 +34,8 @@ export default function Navbar() {
   // }
 
   return (
-    <div   >
-      <nav className=" absolute h-24 w-full font-bold flex justify-between items-center px-12 z-10 backdrop-blur-sm">
+    <div className="flex justify-center"  >
+      <nav className=" absolute h-24 w-full max-w-7xl font-bold flex justify-between items-center px-12 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
             <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative" >

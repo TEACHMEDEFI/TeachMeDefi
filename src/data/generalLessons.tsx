@@ -7,7 +7,7 @@ export type Lesson = {
   youtubeThumbnail: string;
   importantLinks?: string[];
   section: number; // 0 = Allgemein, 1 = Theory, 2 = Praktisch
-  transcript: string[];
+  transcript: string[] | JSX.Element;
   lessonId: string;
 }
 
@@ -26,18 +26,30 @@ export const generalLessons: Lesson[] = [
     // importantLinks: [],
     section: 0,
     lessonId: 'general-1',
-    transcript:
-      [
-        "Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht's!",
-        "Unser Onboarding besteht aus zwei Teilen:",
-        "1.  Im ersten Teil erwarten dich einige Videos, die dir Blockchain-Technologie und die verschiedenen Blockchain-Ökosysteme näherbringen – ganz theoretisch.",
-        "2.  Im zweiten Teil geht's dann ans Eingemachte: Mit unseren Videotutorials löst du Quests, die dir praktisch zeigen, wie du in der Krypto-Welt durchstarten kannst. Nach jeder erfolgreich gemeisterten Quest schaltest du die nächste frei.",
-        "Unsere Onboarding Quests sind so gestaltet, dass du dein Krypto- und DeFi-Wissen Schritt für Schritt ausbauen kannst. Du siehst immer, wie weit du schon gekommen bist, und wenn du Quests abschließt, gibt's auch Belohnungen – zum Beispiel in Form von NFTs.",
-        "Nach und nach präsentieren wir dir ausgewählte Quests aus den Ethereum-, Polkadot- und Bitcoin-Onboarding-Programmen. Wir ermutigen dich, die Onboarding Quests durchzuarbeiten, um dein Wissen über DeFi und Kryptowährungen aufzubauen.",
-        "Uns geht's dabei vor allem darum, dir praktisches Know-how zu vermitteln, das du wirklich anwenden kannst! Was ist eine Wallet? Wie richtest du eine ein? Wie besorgst du dir Kryptos? Wie bewahrst du sie sicher auf und was kannst du damit anstellen?",
-        "Und wie immer der Hinweis: Bei Teach Me Defi gibt's keine Finanzberatung. Unser Ziel ist einfach, dir den Einstieg und die Nutzung der verschiedenen Tools in der Krypto-Welt leichter zu machen.",
-        "Viel Erfolg und Spaß auf deiner abenteuerlichen Reise in die Welt der dezentralisierten Finanzen!",
-      ],
+    transcript: (
+      <>
+        <p>Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht&apos;s!</p>
+        <p>Unser Onboarding besteht aus zwei Teilen:</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </>
+    ),
+
+    // transcript:
+    //   [
+    //     "Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht's!",
+    //     "Unser Onboarding besteht aus zwei Teilen:",
+    //     "1.  Im ersten Teil erwarten dich einige Videos, die dir Blockchain-Technologie und die verschiedenen Blockchain-Ökosysteme näherbringen – ganz theoretisch.",
+    //     "2.  Im zweiten Teil geht's dann ans Eingemachte: Mit unseren Videotutorials löst du Quests, die dir praktisch zeigen, wie du in der Krypto-Welt durchstarten kannst. Nach jeder erfolgreich gemeisterten Quest schaltest du die nächste frei.",
+    //     "Unsere Onboarding Quests sind so gestaltet, dass du dein Krypto- und DeFi-Wissen Schritt für Schritt ausbauen kannst. Du siehst immer, wie weit du schon gekommen bist, und wenn du Quests abschließt, gibt's auch Belohnungen – zum Beispiel in Form von NFTs.",
+    //     "Nach und nach präsentieren wir dir ausgewählte Quests aus den Ethereum-, Polkadot- und Bitcoin-Onboarding-Programmen. Wir ermutigen dich, die Onboarding Quests durchzuarbeiten, um dein Wissen über DeFi und Kryptowährungen aufzubauen.",
+    //     "Uns geht's dabei vor allem darum, dir praktisches Know-how zu vermitteln, das du wirklich anwenden kannst! Was ist eine Wallet? Wie richtest du eine ein? Wie besorgst du dir Kryptos? Wie bewahrst du sie sicher auf und was kannst du damit anstellen?",
+    //     "Und wie immer der Hinweis: Bei Teach Me Defi gibt's keine Finanzberatung. Unser Ziel ist einfach, dir den Einstieg und die Nutzung der verschiedenen Tools in der Krypto-Welt leichter zu machen.",
+    //     "Viel Erfolg und Spaß auf deiner abenteuerlichen Reise in die Welt der dezentralisierten Finanzen!",
+    //   ],
   },
   {
     id: "b3bd96f0-d28a-4f6d-9a20-c4284e76a92e",

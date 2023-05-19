@@ -64,7 +64,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             }
           </div>
 
-          <div className='w-1/2' >
+          {/* <div className='w-1/2' >
             {
               nextLessonSlug && <button onClick={() => handleButtonClick()}> {userHasProgress() ? 'You Already watched this' : 'Set User Progress'} </button>
             }
@@ -74,15 +74,13 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             {
               <button onClick={() => mintProgressNFT()}> {balance > 0 ? 'You already minted' : 'Mint Your Progress NFT '} </button>
             }
-          </div>
+          </div> */}
         </div>
         <div className='flex justify-center' >
           <div className='max-w-5xl' >
             <h3 className='font-bold text-xl ml-10 mb-5'>Transcript</h3>
             <div className='mx-10 space-y-8 '>
-              {currentLesson.transcript && currentLesson.transcript.map((text, i) => (
-                <p key={i} > {text} </p>
-              ))}
+              {currentLesson.transcript && currentLesson.transcript}
             </div>
           </div>
         </div>
