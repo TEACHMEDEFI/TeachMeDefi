@@ -139,7 +139,7 @@ export default function Home() {
         newsletter section
       </section>
       {/* Our Team section */}
-      <section className='my-44 flex flex-col items-center h-96 border mb-5' >
+      <section className='my-44 flex flex-col items-center mb-5' >
         <AboutUs />
       </section>
       {/* FAQs */}
