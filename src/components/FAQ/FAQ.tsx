@@ -11,7 +11,7 @@ import { faqData } from '@/data/faqData'
 export default function FAQ() {
   return (
     <div className='w-full max-w-2xl py-10'>
-      <h3 className='text-2xl font-bold mb-8' >FAQs</h3>
+      <h3 className='text-4xl font-bold mb-8' >FAQs</h3>
       <Accordion allowToggle className='border-y-2' >
         {faqData && faqData.map(faqElement => (
           <AccordionItem className="border-y-2 py-4" key={faqElement.id} >

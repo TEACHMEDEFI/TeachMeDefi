@@ -3,35 +3,35 @@ import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
-import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
+// import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
-  const [hasProgress, setProgress] = useUserProgress();
-  const [handleMint] = useMintNFT('eth-1');
-  const balance = useBalance('eth-1', 'nft');
+  // const [hasProgress, setProgress] = useUserProgress();
+  // const [handleMint] = useMintNFT('eth-1');
+  // const balance = useBalance('eth-1', 'nft');
 
-  useEffect(() => {
-    setShowPlayer(true);
-  }, []);
+  // useEffect(() => {
+  //   setShowPlayer(true);
+  // }, []);
 
-  const handleButtonClick = () => {
-    // Update the progress using setProgress
-    setProgress(currentLesson.lessonId, 'check');
-  };
+  // const handleButtonClick = () => {
+  //   // Update the progress using setProgress
+  //   setProgress(currentLesson.lessonId, 'check');
+  // };
 
 
-  const mintProgressNFT = async () => {
-    // Update the progress using setProgress
-    const hash = await handleMint();
+  // const mintProgressNFT = async () => {
+  //   // Update the progress using setProgress
+  //   const hash = await handleMint();
 
-    return hash;
-  };
+  //   return hash;
+  // };
 
-  const userHasProgress = () => {
+  // const userHasProgress = () => {
 
-    return hasProgress(currentLesson.lessonId);
-  }
+  //   return hasProgress(currentLesson.lessonId);
+  // }
 
   return (
     <section className='w-full' >

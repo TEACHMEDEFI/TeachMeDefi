@@ -63,7 +63,7 @@ export default function Home() {
       {/* Our services  */}
       <section className='flex flex-col justify-center items-center w-full relative mt-20 mb-44' >
         <div className='z-10'>
-          <h3 className='text-2xl font-bold mb-10' >Entdecke unsere Services!</h3>
+          <h3 className='text-4xl font-bold mb-10' >Entdecke unsere Services!</h3>
           <div className='flex flex-wrap gap-10' >
             <div className='w-72 space-y-5 flex flex-col justify-between' >
               <div >
@@ -109,7 +109,7 @@ export default function Home() {
         <div className='bg-gradient-purple-to-pink h-60 w-60 border-2'></div> */}
       </section>
       {/* Landing page intro video */}
-        {/* THIS FUCKER IS CAUSING RENDERING ERROR */}
+      {/* THIS FUCKER IS CAUSING RENDERING ERROR */}
       <section className='my-44 flex flex-col items-center ' >
         {/* <div className='h-[540px] w-[960px] ' >
           <ReactPlayer
@@ -138,11 +138,9 @@ export default function Home() {
       <section className='my-44 flex flex-col items-center h-96 border mb-5' >
         newsletter section
       </section>
-      {/* Our Team section */}
       <section className='my-44 flex flex-col items-center mb-5' >
         <AboutUs />
       </section>
-      {/* FAQs */}
       <section className='mt-44 mb-20 flex flex-col items-center ' >
         <FAQ />
       </section>
