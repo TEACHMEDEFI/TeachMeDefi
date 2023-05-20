@@ -2,10 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
-import { PrimaryButton } from '@/components/Buttons/Buttons'
+import { PrimaryButton, SecondaryButton } from '@/components/Buttons/Buttons'
 import { useTheme } from '@/context/ThemeContext'
 import ReactPlayer from "react-player";
 import FAQ from '@/components/FAQ/FAQ'
+import AboutUs from '@/components/AboutUs/AboutUs'
 
 
 export default function Home() {
@@ -139,7 +140,7 @@ export default function Home() {
       </section>
       {/* Our Team section */}
       <section className='my-44 flex flex-col items-center h-96 border mb-5' >
-        Our team section
+        <AboutUs />
       </section>
       {/* FAQs */}
       <section className='mt-44 mb-20 flex flex-col items-center ' >

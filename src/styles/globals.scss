@@ -57,11 +57,11 @@ img {
   object-fit: contain;
 }
 
-.landing {
-  // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
-  // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
-  // background: url(/home/landing_donut_top.svg) no-repeat bottom right;
-}
+// .landing {
+//   // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
+//   // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
+//   // background: url(/home/landing_donut_top.svg) no-repeat bottom right;
+// }
 
 .landing-donut {
   width: 160vh;
@@ -75,11 +75,11 @@ img {
   translate: 50% calc(50% - 96px);
 }
 
-.landing-bg-2 {
-  // background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
-  // background: url(/home/landing_donut_bottom.svg) no-repeat top right;
+// .landing-bg-2 {
+//   // background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
+//   // background: url(/home/landing_donut_bottom.svg) no-repeat top right;
 
-}
+// }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
