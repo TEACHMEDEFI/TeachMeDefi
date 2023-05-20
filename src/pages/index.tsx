@@ -4,6 +4,8 @@ import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import { PrimaryButton } from '@/components/Buttons/Buttons'
 import { useTheme } from '@/context/ThemeContext'
+import ReactPlayer from "react-player";
+import FAQ from '@/components/FAQ/FAQ'
 
 
 export default function Home() {
@@ -57,36 +59,40 @@ export default function Home() {
         {/* <div className=' h-60 w-60 border-2' style={{background: "linear-gradient(to right, #0099ff 0%, #8a2be2 50%, #ff69b4 100%)"}}  ></div> */}
         {/* <div className='bg-gradient-conic from-primaryBlue via-secondaryPurple to-primaryPink rounded-full h-60 w-60 border-2'></div> */}
       </section>
-      <section className='flex flex-col justify-center items-center w-full relative pt-48' >
+      {/* Our services  */}
+      <section className='flex flex-col justify-center items-center w-full relative mt-20 mb-44' >
         <div className='z-10'>
-
           <h3 className='text-2xl font-bold mb-10' >Entdecke unsere Services!</h3>
           <div className='flex flex-wrap gap-10' >
-            <div className='w-72 space-y-5 ' >
-              <div className='relative w-72 h-72'>
-                <Image src={"/home/Cryptocurrencies_overview.jpg"} fill className='object-cover rounded-xl' alt='Overview image over all cryptocurrencies Bitcoin Ethereum Polkadot' />
+            <div className='w-72 space-y-5 flex flex-col justify-between' >
+              <div >
+                <div className='relative w-72 h-72 mb-3'>
+                  <Image src={"/home/Cryptocurrencies_overview.jpg"} fill className='object-cover rounded-xl' alt='Overview image over all cryptocurrencies Bitcoin Ethereum Polkadot' />
+                </div>
+                <h4 className='text-lg font-bold' >Lerne Krypto, verdiene NFTs</h4>
+                <p className='mt-5 tracking-wider text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
               </div>
-              <h4 className='text-lg font-bold' >Lerne Krypto, verdiene NFTs</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
-              <Link href={"/"} >Mehr erfahren</Link>
+              <Link href={"/"} className='rainbow-text font-bold text-lg' >Mehr erfahren</Link>
             </div>
-
-            <div className='w-72 space-y-5 ' >
-              <div className='relative w-72 h-72'>
-                <Image src={"/home/Podcast_teaser.jpg"} fill className='object-cover rounded-xl' alt='Podcasst teaser Crypto Cryptocurrencie Krypto Kryptowährung Bitcoin Ethereum Polkadot' />
+            <div className='w-72 space-y-5 flex flex-col justify-between' >
+              <div >
+                <div className='relative w-72 h-72 mb-3'>
+                  <Image src={"/home/Podcast_teaser.jpg"} fill className='object-cover rounded-xl' alt='Podcasst teaser Crypto Cryptocurrencie Krypto Kryptowährung Bitcoin Ethereum Polkadot' />
+                </div>
+                <h4 className='text-lg font-bold' >Krypto Chats: Höre unsere Podcast um unsere Meinung zur aktuellen lage des Kryptomarktes zu hören</h4>
+                <p className='mt-5 tracking-wider text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
               </div>
-              <h4 className='text-lg font-bold' >Krypto Chats: Höre unsere Podcast um unsere Meinung zur aktuellen lage des Kryptomarktes zu hören</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
-              <Link href={"/"} >Mehr erfahren</Link>
+              <Link href={"/"} className='rainbow-text font-bold text-lg' >Mehr erfahren</Link>
             </div>
-
-            <div className='w-72 space-y-5 ' >
-              <div className='relative w-72 h-72'>
-                <Image src={"/home/Newsletter.png"} fill className='object-cover rounded-xl' alt='GIVE THIS AN ALT' />
+            <div className='w-72 space-y-5 flex flex-col justify-between' >
+              <div >
+                <div className='relative w-72 h-72 mb-3'>
+                  <Image src={"/home/Newsletter.png"} fill className='object-cover rounded-xl' alt='GIVE THIS AN ALT' />
+                </div>
+                <h4 className='text-lg font-bold' >Insider Newsletter: Abonniere unseren Newsletter um auf dem aktuellen Stand zu bleiben</h4>
+                <p className='mt-5 tracking-wider text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
               </div>
-              <h4 className='text-lg font-bold' >Insider Newsletter: Abonniere unseren Newsletter um auf dem aktuellen Stand zu bleiben</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
-              <Link href={"/"} >Mehr erfahren</Link>
+              <Link href={"/"} className='rainbow-text font-bold text-lg' >Mehr erfahren</Link>
             </div>
           </div>
         </div>
@@ -100,6 +106,44 @@ export default function Home() {
         <div className='bg-gradient-pink-to-blue from-secondaryBlue  to-secondaryPurple h-60 w-60 border-2'></div>
         <div className='bg-gradient-pink-to-baby-blue h-60 w-60 border-2'></div>
         <div className='bg-gradient-purple-to-pink h-60 w-60 border-2'></div> */}
+      </section>
+      {/* Landing page intro video */}
+        {/* THIS FUCKER IS CAUSING RENDERING ERROR */}
+      <section className='my-44 flex flex-col items-center ' >
+        {/* <div className='h-[540px] w-[960px] ' >
+          <ReactPlayer
+            height="100%"
+            width="100%"
+            url="https://youtu.be/20xgeCs3aw4"
+            controls={true}
+            // onEnded={() => setProgress(currentLesson.lessonId)}
+            config={{
+              youtube: {
+                playerVars: { fs: 1 }
+              }
+            }}
+          />
+        </div> */}
+      </section>
+      {/* List of each section that is offered */}
+      <section className='my-44 flex flex-col items-center h-96 border mb-5' >
+        auflistung der verschiedenen teach me sections
+      </section>
+      {/* Podcast section */}
+      <section className='my-44 flex flex-col items-center h-96 border mb-5' >
+        podcast section
+      </section>
+      {/* Newsletter section */}
+      <section className='my-44 flex flex-col items-center h-96 border mb-5' >
+        newsletter section
+      </section>
+      {/* Our Team section */}
+      <section className='my-44 flex flex-col items-center h-96 border mb-5' >
+        Our team section
+      </section>
+      {/* FAQs */}
+      <section className='mt-44 mb-20 flex flex-col items-center ' >
+        <FAQ />
       </section>
       {/* 
           - Our Services 1.TeachMe Section overview scroll to the sections futher down 2. Podcast with CTA 3. Newsletters with CTA
