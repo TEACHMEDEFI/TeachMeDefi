@@ -16,8 +16,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/TDM_logo.png" />
       </Head>
-      <section className='landing flex  items-center h-screen w-screen gap-x-32' >
-        <div className=' w-4/12 h-11/12 space-y-5 xl:ml-24 lg:ml-16 ' >
+      <section className='landing flex  items-center h-screen w-full gap-x-32 relative' >
+        <div className=' w-4/12 h-11/12 space-y-5 xl:ml-24 lg:ml-16 z-10' >
           <h1 className='xl:text-6xl text-4xl font-bold' >
             We Teach You <br /> Decentralized <br /> Finance
           </h1>
@@ -52,10 +52,12 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <div className='landing-donut ' > </div>
+
         {/* <div className=' h-60 w-60 border-2' style={{background: "linear-gradient(to right, #0099ff 0%, #8a2be2 50%, #ff69b4 100%)"}}  ></div> */}
         {/* <div className='bg-gradient-conic from-primaryBlue via-secondaryPurple to-primaryPink rounded-full h-60 w-60 border-2'></div> */}
       </section>
-      <section className='flex flex-col justify-center items-center w-screen relative pt-48' >
+      <section className='flex flex-col justify-center items-center w-full relative pt-48' >
         <div className='z-10'>
 
           <h3 className='text-2xl font-bold mb-10' >Entdecke unsere Services!</h3>
@@ -91,7 +93,7 @@ export default function Home() {
 
 
 
-        <div className='landing-bg-2 absolute h-screen w-screen top-0 right-0' ></div>
+        <div className='landing-bg-2 absolute h-screen w-full top-0 right-0' ></div>
         {/* <h1 className="text-3xl font-bold underline text-primary ">
           Hello world!
         </h1>

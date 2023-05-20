@@ -6,7 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 export default function Footer() {
   const { isDarkMode } = useTheme();
   return (
-    <footer className="w-full py-16 flex justify-around items-center gap-14 " >
+    <footer className="w-full max-w-[2000px] py-16 flex justify-around items-center gap-14 " >
       <div className="flex flex-col gap-10 items-center " >
         <div className="relative h-14 w-44 " >
           <Image src={isDarkMode ? "/tdm_short_light.svg" : "/tdm_short_dark.svg"} fill alt="teach me defi logo" sizes="180px" />

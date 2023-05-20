@@ -60,13 +60,25 @@ img {
 .landing {
   // background: url(../../public/home/Landing_donut_top.svg) no-repeat bottom left;
   // background: url(../../public/home/Landing_donut_right_bottom.svg) no-repeat bottom right;
-  background: url(/home/landing_donut_top.svg) no-repeat bottom right;
+  // background: url(/home/landing_donut_top.svg) no-repeat bottom right;
+}
+
+.landing-donut {
+  width: 160vh;
+  height: 160vh;
+  background: url(/home/landing_rgb_donut.svg) no-repeat;
+  transform-origin: center;
+  overflow: visible;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  translate: 50% calc(50% - 96px);
 }
 
 .landing-bg-2 {
   // background: url(../../public/home/Landing_donut_bottom.svg) no-repeat top left;
-  background: url(/home/landing_donut_bottom.svg) no-repeat top right;
-  
+  // background: url(/home/landing_donut_bottom.svg) no-repeat top right;
+
 }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
@@ -76,8 +88,10 @@ img {
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .tagmanager-hide {

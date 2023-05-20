@@ -36,10 +36,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <Web3ReactProvider getLibrary={getLibrary}>
       <ThemeProvider>
       <TagManagerScript />
-      <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white `} >
+      <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white flex flex-col items-center `} >
         <TagManagerNoScript />
         <Navbar />
-        <div className='pt-24 px-5' >
+        <div className='pt-24 px-5 max-w-[2000px]' >
           <Component {...pageProps} />
         </div>
 
