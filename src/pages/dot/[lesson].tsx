@@ -16,7 +16,7 @@ type Params = {
 }
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
-
+  console.log(currentLesson)
   return (
     <main className='w-full flex flex-col  items-center ' >
 
@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<{ currentLesson: Lesson }, Params> = async ({
+export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
   params,
 }) => {
   const { lesson } = params!
@@ -50,11 +50,11 @@ export const getStaticProps: GetStaticProps<{ currentLesson: Lesson }, Params> =
   )
 
   const nextLessonSlug = (dotLessons.length !== currentLessonIndex + 1) ?
-  `/dot/${dotLessons[currentLessonIndex + 1].slug}` : ""
+    `/dot/${dotLessons[currentLessonIndex + 1].slug}` : ""
 
   return {
     props: {
-      currentLesson: currentLesson!,
+      currentLesson,
       nextLessonSlug,
     },
   }

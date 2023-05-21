@@ -42,7 +42,7 @@ export const useBalance = (token: Token, tokenType: string): string | null => {
     if (!account || !library || !token) return;
 
     const getTokenBalance = async (): Promise<void> => {
-      const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: TokenAddresses[token]
+      const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: "TokenAddresses[token]"
       const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], library);
       const balance = await tokenContract.balanceOf(account);
       setBalance(balance.toString());

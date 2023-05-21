@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<{ currentLesson: Lesson }, Params> = async ({
+export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
   params,
 }) => {
   const { lesson } = params!
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps<{ currentLesson: Lesson }, Params> =
 
   return {
     props: {
-      currentLesson: currentLesson!,
+      currentLesson: currentLesson,
       nextLessonSlug,
     },
   }

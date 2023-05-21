@@ -30,7 +30,7 @@ export function SecondaryButton({ children, onClick, href, target }: Props) {
         href={href ? href : "/"}
         className="bg-white dark:bg-bgDarkBlue px-7 py-1 w-full h-full rounded font-bold text-lg "
         onClick={() => onClick?.()}
-        target={target ? target : "_self"}
+        target={target  ? target : "_self"}
       >
         {children}
       </Link>

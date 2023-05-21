@@ -7,7 +7,7 @@ export type Lesson = {
   youtubeThumbnail: string;
   importantLinks?: string[];
   section: number; // 0 = Allgemein, 1 = Theory, 2 = Praktisch
-  transcript: string[] | JSX.Element;
+  transcript?: string[] | JSX.Element;
   lessonId: string;
 }
 
@@ -26,17 +26,18 @@ export const generalLessons: Lesson[] = [
     // importantLinks: [],
     section: 0,
     lessonId: 'general-1',
-    transcript: (
-      <>
-        <p>Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht&apos;s!</p>
-        <p>Unser Onboarding besteht aus zwei Teilen:</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </>
-    ),
+    // JSX Element DOESNT WORK, THE DATA THAT getStaticProps FETCHES, HAS TO BE JSON SERIALIZABLE !!!!!
+    // transcript: (
+    //   <>
+    //     <p>Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht&apos;s!</p>
+    //     <p>Unser Onboarding besteht aus zwei Teilen:</p>
+    //     <p></p>
+    //     <p></p>
+    //     <p></p>
+    //     <p></p>
+    //     <p></p>
+    //   </>
+    // ),
 
     // transcript:
     //   [
@@ -63,13 +64,13 @@ export const generalLessons: Lesson[] = [
     transcript:
       [
         "Um wirklich zu verstehen, was eine Blockchain ist und warum sie für dich wichtig ist, lass uns zunächst klären, wofür Banken eigentlich da sind.",
-        "Banken haben die Aufgabe, dein Geld sicher aufzubewahren und dafür zu sorgen, dass Transaktionen zwischen dir und anderen Anlegern reibungslos ablaufen, ohne dass doppelte Transaktionen entstehen - also dass du denselben Euro oder Dollar zweimal ausgibst.",
-        'Banken agieren also als zentrale Institution und vertrauenswürdige Buchhalter und Verwalter, die deine Einlagen "sicher aufbewahren" und Transaktionen zwischen verschiedenen Akteuren sauber dokumentieren sollen.',
-        "Wir reden hier also von einem System, das alle Infos an einem zentralen Ort - dem Server der Bank - speichert und darauf vertraut, dass dieses System nicht gehackt oder manipuliert wird.",
-        "Leider hat die Bankenkrise von 2008 das Vertrauen in traditionelle Finanzinstitutionen ziemlich erschüttert und gezeigt, dass sie ihrer Aufgabe, dein Geld sicher zu verwahren und Transaktionen korrekt abzuwickeln, nicht gerecht werden.",
-        "Bitcoin und Blockchain-Technologie sind direkt aus diesem Misstrauen entstanden. Sie bieten dir eine dezentrale, transparente und fälschungssichere Alternative zu zentralisierten Banken. Die Blockchain verändert das Verhältnis zwischen dir und Finanzinstitutionen grundlegend, indem sie die zentrale Vertrauensinstanz wegnimmt.",
-        "Die Blockchain-Technologie gibt dir, als Benutzer, immer mehr Kontrolle über deine finanziellen Entscheidungen und Transaktionen. Diese dezentrale Infrastruktur baut auf Transparenz, Sicherheit und Unveränderlichkeit und behebt so die Schwächen der zentralisierten Banken, während das Vertrauen ins Finanzsystem gestärkt wird.",
-        "Dank der Dezentralisierung und Transparenz der Blockchain kannst du als Benutzer deine Transaktionen selbst managen, kontrollieren und sicherstellen, dass dein Geld nicht missbraucht oder schlecht verwaltet wird. Dies fördert eine stärkere Verantwortlichkeit und Selbstregulierung im Finanzsystem, was letztendlich dazu beiträgt, das Vertrauen in die Sicherheit und Integrität deiner finanziellen Infrastruktur wiederherzustellen.",
+        // "Banken haben die Aufgabe, dein Geld sicher aufzubewahren und dafür zu sorgen, dass Transaktionen zwischen dir und anderen Anlegern reibungslos ablaufen, ohne dass doppelte Transaktionen entstehen - also dass du denselben Euro oder Dollar zweimal ausgibst.",
+        // 'Banken agieren also als zentrale Institution und vertrauenswürdige Buchhalter und Verwalter, die deine Einlagen "sicher aufbewahren" und Transaktionen zwischen verschiedenen Akteuren sauber dokumentieren sollen.',
+        // "Wir reden hier also von einem System, das alle Infos an einem zentralen Ort - dem Server der Bank - speichert und darauf vertraut, dass dieses System nicht gehackt oder manipuliert wird.",
+        // "Leider hat die Bankenkrise von 2008 das Vertrauen in traditionelle Finanzinstitutionen ziemlich erschüttert und gezeigt, dass sie ihrer Aufgabe, dein Geld sicher zu verwahren und Transaktionen korrekt abzuwickeln, nicht gerecht werden.",
+        // "Bitcoin und Blockchain-Technologie sind direkt aus diesem Misstrauen entstanden. Sie bieten dir eine dezentrale, transparente und fälschungssichere Alternative zu zentralisierten Banken. Die Blockchain verändert das Verhältnis zwischen dir und Finanzinstitutionen grundlegend, indem sie die zentrale Vertrauensinstanz wegnimmt.",
+        // "Die Blockchain-Technologie gibt dir, als Benutzer, immer mehr Kontrolle über deine finanziellen Entscheidungen und Transaktionen. Diese dezentrale Infrastruktur baut auf Transparenz, Sicherheit und Unveränderlichkeit und behebt so die Schwächen der zentralisierten Banken, während das Vertrauen ins Finanzsystem gestärkt wird.",
+        // "Dank der Dezentralisierung und Transparenz der Blockchain kannst du als Benutzer deine Transaktionen selbst managen, kontrollieren und sicherstellen, dass dein Geld nicht missbraucht oder schlecht verwaltet wird. Dies fördert eine stärkere Verantwortlichkeit und Selbstregulierung im Finanzsystem, was letztendlich dazu beiträgt, das Vertrauen in die Sicherheit und Integrität deiner finanziellen Infrastruktur wiederherzustellen.",
       ],
   },
   {
@@ -82,15 +83,15 @@ export const generalLessons: Lesson[] = [
     section: 0,
     lessonId: 'general-3',
     transcript: [
-      'Eine Blockchain ist wie eine dezentrale Buchhaltung oder Datenbank, die auf einem Netzwerk von vielen Benutzern, sogenannten Nodes, basiert. Statt alle Transaktionen und Daten zentral bei Banken zu speichern, verteilt sich die Speicherung aller Informationen in einer Blockchain auf viele Teilnehmer, also Nodes. Jede Node besitzt eine Kopie aller Transaktionen, die auf einer Blockchain stattfinden, und sorgt so für ein transparentes und sicheres System.',
-      'Wie der Name "Block & Chain" schon sagt, besteht eine Blockchain aus einer Kette von Informationsblöcken. Bei Bitcoin, Ethereum und anderen Kryptowährungen handelt es sich bei den gespeicherten Informationen um Transaktionen zwischen dir und anderen Nutzern.',
-      'Jeder Block kann jedoch nur eine gewisse Menge an Daten speichern. Ist der Speicher des jeweiligen Blocks voll, wird er in chronologischer Reihenfolge in die Kette gesetzt. An diese Kette kann immer nur ein Block nach dem anderen hinzugefügt werden.',
-      'Aber was macht eine Blockchain so sicher?',
-      'Die Manipulationssicherheit der Blockchain entsteht dadurch, dass die einzelnen Blöcke per Hashs miteinander verkettet sind. Ein Hash ist eine kryptographische Verschlüsselung und dient dazu, beliebig große Datensätze in einer festen Länge anzugeben, also zu verschlüsseln. Die Hash-Funktion, die bei Bitcoin zum Einsatz kommt, ist der SHA-256.',
-      'Doch wie werden nun die einzelnen Blöcke manipulationssicher miteinander verkettet?',
-      'Das geschieht dadurch, dass der Hash eines jeden Blocks aus den im Block gespeicherten Transaktionen und aus dem Hash des vorherigen Blocks besteht. Dadurch lässt sich die Kette bis zum ersten Block zurückverfolgen.',
-      'Das bedeutet, dass alle in der Vergangenheit getätigten Transaktionen einen Einfluss auf alle folgenden Hashs haben. Verändert jemand eine vergangene Transaktion zu seinen Gunsten, ändert das den Hash des jeweiligen Blocks und somit auch den Hash aller darauffolgenden Blöcke bis zum aktuellen Block. Das würde dir und allen Teilnehmern sofort auffallen und im Konsens zur Ablehnung des geänderten Blocks führen.',
-      'Genau das ist es, was die Blockchain so sicher macht: Die Datenbank überprüft sich durch mathematische Verfahren selbst, und es ist kein zentraler Akteur wie eine Bank notwendig.',
+      // 'Eine Blockchain ist wie eine dezentrale Buchhaltung oder Datenbank, die auf einem Netzwerk von vielen Benutzern, sogenannten Nodes, basiert. Statt alle Transaktionen und Daten zentral bei Banken zu speichern, verteilt sich die Speicherung aller Informationen in einer Blockchain auf viele Teilnehmer, also Nodes. Jede Node besitzt eine Kopie aller Transaktionen, die auf einer Blockchain stattfinden, und sorgt so für ein transparentes und sicheres System.',
+      // 'Wie der Name "Block & Chain" schon sagt, besteht eine Blockchain aus einer Kette von Informationsblöcken. Bei Bitcoin, Ethereum und anderen Kryptowährungen handelt es sich bei den gespeicherten Informationen um Transaktionen zwischen dir und anderen Nutzern.',
+      // 'Jeder Block kann jedoch nur eine gewisse Menge an Daten speichern. Ist der Speicher des jeweiligen Blocks voll, wird er in chronologischer Reihenfolge in die Kette gesetzt. An diese Kette kann immer nur ein Block nach dem anderen hinzugefügt werden.',
+      // 'Aber was macht eine Blockchain so sicher?',
+      // 'Die Manipulationssicherheit der Blockchain entsteht dadurch, dass die einzelnen Blöcke per Hashs miteinander verkettet sind. Ein Hash ist eine kryptographische Verschlüsselung und dient dazu, beliebig große Datensätze in einer festen Länge anzugeben, also zu verschlüsseln. Die Hash-Funktion, die bei Bitcoin zum Einsatz kommt, ist der SHA-256.',
+      // 'Doch wie werden nun die einzelnen Blöcke manipulationssicher miteinander verkettet?',
+      // 'Das geschieht dadurch, dass der Hash eines jeden Blocks aus den im Block gespeicherten Transaktionen und aus dem Hash des vorherigen Blocks besteht. Dadurch lässt sich die Kette bis zum ersten Block zurückverfolgen.',
+      // 'Das bedeutet, dass alle in der Vergangenheit getätigten Transaktionen einen Einfluss auf alle folgenden Hashs haben. Verändert jemand eine vergangene Transaktion zu seinen Gunsten, ändert das den Hash des jeweiligen Blocks und somit auch den Hash aller darauffolgenden Blöcke bis zum aktuellen Block. Das würde dir und allen Teilnehmern sofort auffallen und im Konsens zur Ablehnung des geänderten Blocks führen.',
+      // 'Genau das ist es, was die Blockchain so sicher macht: Die Datenbank überprüft sich durch mathematische Verfahren selbst, und es ist kein zentraler Akteur wie eine Bank notwendig.',
     ],
   },
   {
@@ -104,12 +105,12 @@ export const generalLessons: Lesson[] = [
     lessonId: 'general-4',
     transcript:
       [
-        'Die Blockchain-Technologie bietet dir eine Vielzahl von Vorteilen, insbesondere aufgrund ihrer dezentralen Natur. Wenn du ein dezentrales Blockchain-System nutzt, kannst du auf denselben Stand der Informationen zugreifen wie alle anderen Benutzer, ohne dabei auf eine zentrale Autorität vertrauen zu müssen.',
-        'Dank der dezentralen Natur der Blockchain profitierst du von erhöhter Sicherheit, da die Daten öffentlich und unveränderbar sind. Du hast die Möglichkeit, jede Transaktion in der Blockchain selbst zu überprüfen und zu verifizieren, wodurch das Risiko von Manipulationen und Betrug minimiert wird.',
-        'Die Blockchain-Technologie ermöglicht dir ein höheres Maß an Transparenz als herkömmliche Systeme, da alle Transaktionen öffentlich und unveränderbar sind. Du kannst jede Transaktion in der Blockchain überprüfen und verifizieren, was zu mehr Vertrauen zwischen dir und anderen Benutzern führt.',
-        'Durch die dezentrale Natur der Blockchain kannst du Kosten sparen, da Zwischenakteure nicht mehr nötig sind. Du interagierst direkt mit anderen Benutzern, ohne dass eine zentrale Stelle als Vermittler dazwischen geschaltet ist.',
-        'Da keine zentrale Autorität vorhanden ist, können dezentrale Blockchain-Transaktionen schnell abgeschlossen werden, ohne dass eine Genehmigung von Dritten erforderlich ist.',
-        'Vor allem profitierst du von der Widerstandsfähigkeit einer Blockchain gegenüber Angriffen und Ausfällen, da die Daten auf mehrere Nodes verteilt sind. Selbst wenn ein Node ausfällt oder angegriffen wird, bleibt die Integrität der gesamten Blockchain unbeeinträchtigt.',
+        // 'Die Blockchain-Technologie bietet dir eine Vielzahl von Vorteilen, insbesondere aufgrund ihrer dezentralen Natur. Wenn du ein dezentrales Blockchain-System nutzt, kannst du auf denselben Stand der Informationen zugreifen wie alle anderen Benutzer, ohne dabei auf eine zentrale Autorität vertrauen zu müssen.',
+        // 'Dank der dezentralen Natur der Blockchain profitierst du von erhöhter Sicherheit, da die Daten öffentlich und unveränderbar sind. Du hast die Möglichkeit, jede Transaktion in der Blockchain selbst zu überprüfen und zu verifizieren, wodurch das Risiko von Manipulationen und Betrug minimiert wird.',
+        // 'Die Blockchain-Technologie ermöglicht dir ein höheres Maß an Transparenz als herkömmliche Systeme, da alle Transaktionen öffentlich und unveränderbar sind. Du kannst jede Transaktion in der Blockchain überprüfen und verifizieren, was zu mehr Vertrauen zwischen dir und anderen Benutzern führt.',
+        // 'Durch die dezentrale Natur der Blockchain kannst du Kosten sparen, da Zwischenakteure nicht mehr nötig sind. Du interagierst direkt mit anderen Benutzern, ohne dass eine zentrale Stelle als Vermittler dazwischen geschaltet ist.',
+        // 'Da keine zentrale Autorität vorhanden ist, können dezentrale Blockchain-Transaktionen schnell abgeschlossen werden, ohne dass eine Genehmigung von Dritten erforderlich ist.',
+        // 'Vor allem profitierst du von der Widerstandsfähigkeit einer Blockchain gegenüber Angriffen und Ausfällen, da die Daten auf mehrere Nodes verteilt sind. Selbst wenn ein Node ausfällt oder angegriffen wird, bleibt die Integrität der gesamten Blockchain unbeeinträchtigt.',
       ],
   },
   {

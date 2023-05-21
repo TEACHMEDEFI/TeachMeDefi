@@ -12,7 +12,7 @@ import AboutUs from '@/components/AboutUs/AboutUs'
 export default function Home() {
   const { isDarkMode } = useTheme();
   return (
-    <div >
+    <div className='scroll-smooth' >
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="TeachMeDefi teach me defi" />
@@ -29,7 +29,7 @@ export default function Home() {
             unterstützen wir dich mit kostenfreien Inhalten und unserem Discord Forum.
           </h2>
           {/* JOIN NOW BUTTON SOLL ZUM NEWSLETTER FÜHREN */}
-          <div className="flex gap-5 " >
+          <div className="flex gap-5 items-center" >
             <PrimaryButton>
               JOIN NOW
             </PrimaryButton>
@@ -63,50 +63,94 @@ export default function Home() {
       {/* Our services  */}
       <section className='flex flex-col justify-center items-center w-full relative mt-20 mb-44' >
         <div className='z-10'>
-          <h3 className='text-4xl font-bold mb-10' >Entdecke unsere Services!</h3>
-          <div className='flex flex-wrap gap-10' >
-            <div className='w-72 space-y-5 flex flex-col justify-between' >
+          <h3 className='text-4xl font-bold mb-14' >Entdecke unsere Services!</h3>
+          <div className='flex flex-wrap gap-32' >
+            <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl w-72 pb-5 space-y-5 flex flex-col justify-between' >
               <div >
                 <div className='relative w-72 h-72 mb-3'>
-                  <Image src={"/home/Cryptocurrencies_overview.jpg"} fill className='object-cover rounded-xl' alt='Overview image over all cryptocurrencies Bitcoin Ethereum Polkadot' />
+                  <Image
+                    src={"/home/Cryptocurrencies_overview.jpg"}
+                    fill
+                    className='object-cover rounded-xl'
+                    alt='Overview image over all cryptocurrencies Bitcoin Ethereum Polkadot'
+                  />
                 </div>
-                <h4 className='text-lg font-bold' >Lerne Krypto, verdiene NFTs</h4>
-                <p className='mt-5 tracking-wider text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
+                <div className='px-4'>
+                  <h4 className=' font-bold' >Lerne Krypto, verdiene NFTs</h4>
+                  <p className='mt-5 tracking-wider text-sm'>
+                    Unsere E-Learning-Plattform bietet ansprechende und interaktive Kurse für alle Niveaus,
+                    die jederzeit und überall zugänglich sind - lernen Sie in Ihrem eigenen Tempo!
+                  </p>
+                </div>
               </div>
-              <Link href={"/"} className='rainbow-text font-bold text-lg' >Mehr erfahren</Link>
+              <Link
+                href={"#courses"}
+                scroll={false}
+                className='underline rainbow-text font-bold text-lg px-4 '
+              >
+                Mehr erfahren
+              </Link>
             </div>
-            <div className='w-72 space-y-5 flex flex-col justify-between' >
+            <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl w-72 pb-5 space-y-5 flex flex-col justify-between' >
               <div >
                 <div className='relative w-72 h-72 mb-3'>
-                  <Image src={"/home/Podcast_teaser.jpg"} fill className='object-cover rounded-xl' alt='Podcasst teaser Crypto Cryptocurrencie Krypto Kryptowährung Bitcoin Ethereum Polkadot' />
+                  <Image
+                    src={"/home/Podcast_teaser.jpg"}
+                    fill
+                    className='object-cover rounded-xl'
+                    alt='Podcasst teaser Crypto Cryptocurrencie Krypto Kryptowährung Bitcoin Ethereum Polkadot'
+                  />
                 </div>
-                <h4 className='text-lg font-bold' >Krypto Chats: Höre unsere Podcast um unsere Meinung zur aktuellen lage des Kryptomarktes zu hören</h4>
-                <p className='mt-5 tracking-wider text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
+                <div className='px-4'>
+                  <h4 className=' font-bold' >
+                    Krypto Chats: Gemeinsam WEB3 erforschen
+                  </h4>
+                  <p className='mt-5 tracking-wider text-sm'>
+                    Unser Podcast ist die perfekte Mischung aus Unterhaltung und Bildung, da wir eine Vielzahl von
+                    Themen in einem informellen und unterhaltsamen Ton diskutieren.
+                  </p>
+                </div>
               </div>
-              <Link href={"/"} className='rainbow-text font-bold text-lg' >Mehr erfahren</Link>
+              <Link
+                href={"#podcast"}
+                scroll={false}
+                className='underline rainbow-text font-bold text-lg px-4 '
+              >
+                Mehr erfahren
+              </Link>
             </div>
-            <div className='w-72 space-y-5 flex flex-col justify-between' >
+            <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl w-72 pb-5 space-y-5 flex flex-col justify-between' >
               <div >
                 <div className='relative w-72 h-72 mb-3'>
-                  <Image src={"/home/Newsletter.png"} fill className='object-cover rounded-xl' alt='GIVE THIS AN ALT' />
+                  <Image
+                    src={"/home/Newsletter.png"}
+                    fill
+                    className='object-cover rounded-xl'
+                    alt='GIVE THIS AN ALT'
+                  />
                 </div>
-                <h4 className='text-lg font-bold' >Insider Newsletter: Abonniere unseren Newsletter um auf dem aktuellen Stand zu bleiben</h4>
-                <p className='mt-5 tracking-wider text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam assumenda error doloribus deleniti eos saepe libero explicabo esse facere? Voluptas mollitia minima expedita odio voluptate enim laboriosam! Vero, expedita?</p>
+                <div className='px-4'>
+                  <h4 className=' font-bold' >
+                    Krypto Insider Newsletter
+                  </h4>
+                  <p className='mt-5 tracking-wider text-sm'>
+                    Unser Newsletter ist die ultimative Quelle für Neuigkeiten, Tipps und
+                    Inspirationen für alle, die ihr Leben in vollen Zügen genießen möchten.
+                    {/* Abonniere unseren Newsletter um auf dem aktuellen Stand zu bleiben. */}
+                  </p>
+                </div>
               </div>
-              <Link href={"/"} className='rainbow-text font-bold text-lg' >Mehr erfahren</Link>
+              <Link
+                href={"/#newsletter"}
+                scroll={false}
+                className='underline rainbow-text font-bold text-lg px-4 '
+              >
+                Mehr erfahren
+              </Link>
             </div>
           </div>
         </div>
-
-
-
-        <div className='landing-bg-2 absolute h-screen w-full top-0 right-0' ></div>
-        {/* <h1 className="text-3xl font-bold underline text-primary ">
-          Hello world!
-        </h1>
-        <div className='bg-gradient-pink-to-blue from-secondaryBlue  to-secondaryPurple h-60 w-60 border-2'></div>
-        <div className='bg-gradient-pink-to-baby-blue h-60 w-60 border-2'></div>
-        <div className='bg-gradient-purple-to-pink h-60 w-60 border-2'></div> */}
+        {/* <div className='landing-bg-2 absolute h-screen w-full top-0 right-0' ></div> */}
       </section>
       {/* Landing page intro video */}
       {/* THIS FUCKER IS CAUSING RENDERING ERROR */}
@@ -127,29 +171,36 @@ export default function Home() {
         </div> */}
       </section>
       {/* List of each section that is offered */}
-      <section className='my-44 flex flex-col items-center h-96 border mb-5' >
-        auflistung der verschiedenen teach me sections
+      <section id='courses' className='py-44' >
+        <div className=' bg-slate-100 dark:bg-gray-800 my-44 flex items-center justify-between rounded-lg mb-55' >
+          Auflistung <br /> der <br /> kurse
+        </div>
+
       </section>
       {/* Podcast section */}
-      <section id='podcast' className=' bg-slate-100 dark:bg-gray-900 my-44 flex items-center justify-between rounded-lg mb-55' >
-        {/* du must noch farben anpassen, zu sonnig drausen  */}
-        <div className='flex flex-col grow items-center gap-8 '>
-          <h3 className='text-4xl font-bold '> Hör dir unsere <span className='text-5xl'>Podcasts</span> an</h3>
-          <PrimaryButton href='/' >Jetzt anhören </PrimaryButton>
-        </div>
-        <div className='relative h-96 w-96 ' >
-          <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+      <section id='podcast' className='py-44' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex items-center justify-between rounded-lg mb-55'>
+          {/* du must noch farben anpassen, zu sonnig drausen  */}
+          <div className='flex flex-col grow items-center gap-8 '>
+            <h3 className='text-4xl font-bold '> Hör dir unsere <span className='text-5xl'>Podcasts</span> an</h3>
+            <PrimaryButton href='/' target='_blank' >Jetzt anhören </PrimaryButton>
+          </div>
+          <div className='relative h-96 w-96 ' >
+            <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+          </div>
         </div>
       </section>
       {/* Newsletter section */}
-      <section id='newsletter' className=' bg-slate-100 dark:bg-gray-900 my-44 flex items-center justify-between rounded-lg mb-5' >
-        {/* du must noch farben anpassen, zu sonnig drausen  */}
-        <div className='relative h-96 w-96 ' >
-          <Image src={"/home/newsletter_mailbox.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
-        </div>
-        <div className='flex flex-col grow items-center gap-8 '>
-          <h3 className='text-4xl font-bold '> <span className='text-5xl'>Abonniere</span> unseren  Newsletter</h3>
-          <PrimaryButton href='/' >Starte jetzt </PrimaryButton>
+      <section id='newsletter' className='py-44'  >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex items-center justify-between rounded-lg mb-5' >
+          {/* du must noch farben anpassen, zu sonnig drausen  */}
+          <div className='relative h-96 w-96 ' >
+            <Image src={"/home/newsletter_mailbox.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+          </div>
+          <div className='flex flex-col grow items-center gap-8 '>
+            <h3 className='text-4xl font-bold '> <span className='text-5xl'>Abonniere</span> unseren  Newsletter</h3>
+            <PrimaryButton href='/' target='_blank' >Starte jetzt </PrimaryButton>
+          </div>
         </div>
       </section>
       <section id='about-us' className='my-44 flex flex-col items-center mb-5' >
