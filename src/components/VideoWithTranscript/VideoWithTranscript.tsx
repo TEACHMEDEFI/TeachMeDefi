@@ -11,9 +11,9 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
   // const [handleMint] = useMintNFT('eth-1');
   // const balance = useBalance('eth-1', 'nft');
 
-  // useEffect(() => {
-  //   setShowPlayer(true);
-  // }, []);
+  useEffect(() => {
+    setShowPlayer(true);
+  }, []);
 
   // const handleButtonClick = () => {
   //   // Update the progress using setProgress
