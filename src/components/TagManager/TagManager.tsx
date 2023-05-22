@@ -21,9 +21,9 @@ const TagManagerNoScript: NextPage = () => {
   const tagManagerUrl = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`;
 
   return (
-    <div id="google-tag-manager-no-script" className="tagmanager-hide">
-      <iframe src={tagManagerUrl} />
-    </div>
+    <noscript id="google-tag-manager-no-script">
+      <iframe src={tagManagerUrl} className="tagmanager-hide" />
+    </noscript>
   );
 };
 
