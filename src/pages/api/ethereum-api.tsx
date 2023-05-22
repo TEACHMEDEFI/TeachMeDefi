@@ -6,11 +6,11 @@ import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
 
 const TokenAddresses = {
-  "eth-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH, //Sepolia Eth
-  "eth-3": process.env.NEXT_PUBLIC_GOERLI_ETH, // Goerli Eth
-  "eth-5": process.env.NEXT_PUBLIC_ARBI_ETH, // Arbi Eth
-  "dot-2": process.env.NEXT_PUBLIC_DOT, // Dot
-  "dot-5": process.env.NEXT_PUBLIC_XCDOT, // xcDot
+  "eth-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH as string, //Sepolia Eth
+  "eth-3": process.env.NEXT_PUBLIC_GOERLI_ETH as string, // Goerli Eth
+  "eth-5": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbi Eth
+  "dot-2": process.env.NEXT_PUBLIC_DOT as string, // Dot
+  "dot-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
 };
 
 // Special cases: GLMR on Moonbeam?!
@@ -34,6 +34,10 @@ const QuestNftContractAddresses = {
 
 type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
 
+
+/*
+* Check if a user holds a certain coin or NFT
+*/
 export const useBalance = (token: Token, tokenType: string): string | null => {
   const { account, library } = useWeb3React();
   const [balance, setBalance] = useState<string | null>(null);
@@ -55,6 +59,10 @@ export const useBalance = (token: Token, tokenType: string): string | null => {
 };
 
 
+
+/*
+* Custom Hook to set and get the user's progress to and from local Strorage
+*/
 export const useUserProgress = (): [hasProgress: (challengeId: string) => boolean, setProgress: (challengeId: string, value: string) => void, numCompletedChallenges: number] => {
   console.log('Importing Progress Hook');
   const [userProgressObject, setUserProgressObject] = useState<{ [key: string]: string }>(() => {
@@ -79,12 +87,12 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
   };
 
   const setProgress = (challengeId: string, value: string): void => {
-    console.log('Setting Progress');
     if (typeof window !== 'undefined') {
       setUserProgressObject(prevState => {
         const newState = { ...prevState };
         if (!newState.hasOwnProperty(challengeId)) {
           newState[challengeId] = value;
+          console.log('Setting Progress 2');
           localStorage.setItem('userProgressObject', JSON.stringify(newState));
           setNumCompletedChallenges(Object.values(newState).filter(value => value === 'check').length);
         }
@@ -96,6 +104,11 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
   return [hasProgress, setProgress, numCompletedChallenges];
 };
 
+
+
+/*
+* Hook to Mint a progress NFT
+*/
 export const useMintNFT = (questId: keyof typeof QuestNftContractAddresses): [handleMint: () => Promise<void>, txHash: string | null] => {
   const { library } = useWeb3React();
   const [txHash, setTxHash] = useState<string | null>(null);
@@ -121,7 +134,9 @@ export const useMintNFT = (questId: keyof typeof QuestNftContractAddresses): [ha
 
 
 
-// Polka 4 and 5 + Eth 4 and 6
+/*
+* Check if a transaction url which was provided by the user is a valid address
+*/
 export const useFetch = (url: string): boolean => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 

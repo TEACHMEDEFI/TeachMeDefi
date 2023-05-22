@@ -15,7 +15,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
     setShowPlayer(true);
   }, []);
 
-  // const handleButtonClick = () => {
+  // const setUserProgress = () => {
   //   // Update the progress using setProgress
   //   setProgress(currentLesson.lessonId, 'check');
   // };
@@ -43,7 +43,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             width="100%"
             url={currentLesson.youtubeUrl}
             controls={true}
-            // onEnded={() => setProgress(currentLesson.lessonId)}
+            // onEnded={() => setUserProgress()}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
@@ -68,9 +68,9 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             {
               nextLessonSlug && <button onClick={() => handleButtonClick()}> {userHasProgress() ? 'You Already watched this' : 'Set User Progress'} </button>
             }
-          </div>
+          </div> */}
 
-          <div className='w-1/2' >
+          {/* <div className='w-1/2' >
             {
               <button onClick={() => mintProgressNFT()}> {balance > 0 ? 'You already minted' : 'Mint Your Progress NFT '} </button>
             }
