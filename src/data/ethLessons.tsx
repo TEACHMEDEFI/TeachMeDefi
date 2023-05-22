@@ -9,14 +9,13 @@ import { generalLessons, Lesson } from "./generalLessons";
 export const ethLessons: Lesson[] = [
   ...generalLessons,
   {
-    id: "a2c9d8f1-20b7-4b14-a4fb-d47f4d8a1467",
+    id: "eth-1",
     title: 'Die Ethereum Blockchain.',
     slug: 'die-ethereum-blockchain',
     youtubeUrl: 'https://www.youtube.com/watch?v=hyNcJDO1JOM',
     youtubeThumbnail: "https://img.youtube.com/vi/hyNcJDO1JOM/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-1',
     transcript:
       [
         'Lass uns jetzt gemeinsam herausfinden, was die Ethereum Blockchain so besonders macht.',
@@ -26,14 +25,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "1c728798-3297-4d8f-98c3-3a3a68e33d27",
+    id: "eth-2",
     title: 'Ethereum 2.0 - Der Wechsel von PoW zu PoS.',
     slug: 'ethereum-wechsel-von-pow-zu-pos',
     youtubeUrl: 'https://www.youtube.com/watch?v=ExIs9mKfvaU',
     youtubeThumbnail: "https://img.youtube.com/vi/ExIs9mKfvaU/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-2',
     transcript:
       [
         'Bevor wir nun an eingemachte gehen beachte, dass Ethereum im Jahr 2022 einen bedeutenden Übergang vom Proof-of-Work (PoW) zum Proof-of-Stake (PoS) Konsensmechanismus vollzogen. Dieser Wechsel verbessert die Energieeffizienz und Skalierbarkeit des Netzwerks.',
@@ -44,14 +42,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "fdb7a5f5-d5f7-4e5c-9d22-fc328f6b659e",
+    id: "eth-3",
     title: 'Ether - der Treibstoff von Ethereum.',
     slug: 'ether-treibstoff-von-ethereum',
     youtubeUrl: 'https://www.youtube.com/watch?v=QfnuJlchwsw',
     youtubeThumbnail: "https://img.youtube.com/vi/QfnuJlchwsw/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-3',
     transcript:
       [
         'Ether ist die native Kryptowährung von Ethereum, der als Treibstoff für die Plattform dient.',
@@ -65,14 +62,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "e2990f6c-a259-4e7e-a02a-cc0d3b9bf2f9",
+    id: "eth-4",
     title: 'Smart Contracts & Ethereum Virtual Mashine (EVM).',
     slug: 'smart-contracts-and-evm',
     youtubeUrl: 'https://www.youtube.com/watch?v=UwLioT3iHQU',
     youtubeThumbnail: "https://img.youtube.com/vi/UwLioT3iHQU/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-4',
     transcript:
       [
         'Eine der großen Unterschiede der Ethereum Blockchain zur Bitcoin Blockchain ist die Möglichkeit intelliegente Verträge - sogenannte Smart contracts - zu nutzen.',
@@ -88,14 +84,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "c1e4d508-f5d6-4d22-90ec-15d4ba986a3e",
+    id: "eth-5",
     title: 'Dezentrale Applikationen (dApps).',
     slug: 'dezentrale-applikationen',
     youtubeUrl: 'https://www.youtube.com/watch?v=2VHPOGq0qfw',
     youtubeThumbnail: "https://img.youtube.com/vi/2VHPOGq0qfw/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-5',
     transcript:
       [
         'Decentralised Applications, also dezentrale Applikationen, kurz auch als dApps bezeichnet, sind Anwendungen, die auf der Ethereum Blockchain laufen und keine zentrale Kontrollinstanz benötigen.',
@@ -106,14 +101,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "0c461c16-5e45-4f02-9b96-41bb36348cc4",
+    id: "eth-6",
     title: 'DeFi - Dezentrale Finanzsysteme.',
     slug: 'dezentrale-finanzsysteme',
     youtubeUrl: 'https://www.youtube.com/watch?v=QD2RCTvh97o',
     youtubeThumbnail: "https://img.youtube.com/vi/QD2RCTvh97o/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-6',
     transcript:
       [
         'Die Entwicklung und Anwendung von Smart Contracts und dApps auf der Ethereum Blockchain ermöglicht es, eine dezentrale Finanzwelt aufzubauen, die ohne zentrale Kontrollinstanz sicher agieren kann. Und das rund um die Uhr.',
@@ -126,14 +120,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "3b12bb20-4be7-49a8-94a2-4f4b9476a5bc",
+    id: "eth-7",
     title: 'Die Tokenisierung von Vermögenswerten & Rechten - ERC20 & ERC721.',
     slug: 'erc20-and-erc721',
     youtubeUrl: 'https://www.youtube.com/watch?v=3ng1K8eEfnU',
     youtubeThumbnail: "https://img.youtube.com/vi/3ng1K8eEfnU/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-6',
     transcript:
       [
         'Die Tokenisierung ist der Prozess der Umwandlung von Vermögenswerten oder Rechten in digitale Tokens auf einer Blockchain. Durch die Tokenisierung können physische oder digitale Güter auf einer sicheren, transparenten und dezentralen Plattform wie Ethereum verfolgt, gehandelt und verwaltet werden. Die Vorteile der Tokenisierung umfassen erhöhte Liquidität, schnellere und effizientere Transaktionen sowie verbesserte Sicherheit und Transparenz.',
@@ -145,14 +138,13 @@ export const ethLessons: Lesson[] = [
       ],
   },
   {
-    id: "e8a7f79c-2074-4d26-96d5-3e6c894ef9eb",
+    id: "eth-8",
     title: 'Smart Contracts & Ethereum Virtual Mashine (EVM).',
     slug: 'ether-treibstoff-von-ethereum',
     youtubeUrl: 'https://www.youtube.com/watch?v=QgCqAEi7bsA',
     youtubeThumbnail: "https://img.youtube.com/vi/QgCqAEi7bsA/hqdefault.jpg",
     // importantLinks: [],
     section: 1,
-    lessonId: 'eth-8',
     transcript:
       [
         'DAOs sind Organisationen, die auf der Blockchain-Technologie basieren und von Smart Contracts gesteuert werden. Sie ermöglichen die gemeinschaftliche Entscheidungsfindung durch dezentrale Governance, wobei Mitglieder ohne zentrale Autorität oder Hierarchie zusammenarbeiten. DAOs haben das Potenzial, traditionelle Organisationsstrukturen zu revolutionieren und transparentere, demokratischere Entscheidungsprozesse zu ermöglichen.',
