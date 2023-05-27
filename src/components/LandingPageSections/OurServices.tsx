@@ -8,17 +8,17 @@ export default function OurServices() {
       <div className='z-10'>
         <h3 className='text-4xl font-bold mb-14' >Entdecke unsere Services!</h3>
         <div className='flex flex-wrap gap-32' >
-          <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl w-72 pb-5 space-y-5 flex flex-col justify-between' >
+          <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl p-5 space-y-5 flex flex-col justify-between' >
             <div >
               <div className='relative w-72 h-72 mb-3'>
                 <Image
-                  src={"/home/Cryptocurrencies_overview.jpg"}
+                  src={"/home/cryptocurrencies-overview.jpg"}
                   fill
                   className='object-cover rounded-xl'
                   alt='Overview image over all cryptocurrencies Bitcoin Ethereum Polkadot'
                 />
               </div>
-              <div className='px-4'>
+              <div className=' max-w-[280px] '>
                 <h4 className=' font-bold' >Lerne Krypto, verdiene NFTs</h4>
                 <p className='mt-5 tracking-wider text-sm'>
                   Unsere E-Learning-Plattform bietet ansprechende und interaktive Kurse für alle Niveaus,
@@ -29,12 +29,12 @@ export default function OurServices() {
             <Link
               href={"#courses"}
               scroll={false}
-              className='underline rainbow-text font-bold text-lg px-4 '
+              className='underline rainbow-text font-bold text-lg px-4'
             >
               Mehr erfahren
             </Link>
           </div>
-          <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl w-72 pb-5 space-y-5 flex flex-col justify-between' >
+          <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl p-5 space-y-5 flex flex-col justify-between' >
             <div >
               <div className='relative w-72 h-72 mb-3'>
                 <Image
@@ -44,7 +44,7 @@ export default function OurServices() {
                   alt='Podcasst teaser Crypto Cryptocurrencie Krypto Kryptowährung Bitcoin Ethereum Polkadot'
                 />
               </div>
-              <div className='px-4'>
+              <div className=' max-w-[280px] '>
                 <h4 className=' font-bold' >
                   Krypto Chats: Gemeinsam WEB3 erforschen
                 </h4>
@@ -62,7 +62,7 @@ export default function OurServices() {
               Mehr erfahren
             </Link>
           </div>
-          <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl w-72 pb-5 space-y-5 flex flex-col justify-between' >
+          <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl p-5 space-y-5 flex flex-col justify-between' >
             <div >
               <div className='relative w-72 h-72 mb-3'>
                 <Image
@@ -72,7 +72,7 @@ export default function OurServices() {
                   alt='GIVE THIS AN ALT'
                 />
               </div>
-              <div className='px-4'>
+              <div className=' max-w-[280px] '>
                 <h4 className=' font-bold' >
                   Krypto Insider Newsletter
                 </h4>
