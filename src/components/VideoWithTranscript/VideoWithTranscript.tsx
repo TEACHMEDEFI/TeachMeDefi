@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/generalLessons';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { Input } from '@chakra-ui/react';
+import { Input, useToast } from '@chakra-ui/react';
 // import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
@@ -11,7 +11,8 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
   // const [hasProgress, setProgress] = useUserProgress();
   // const [handleMint] = useMintNFT('eth-1');
   // const balance = useBalance('eth-1', 'nft');
-  const [showPopup, setShowPopup] = useState(false)
+  const [showPopup, setShowPopup] = useState(false);
+  const toast = useToast();
 
   useEffect(() => {
     setShowPlayer(true);
