@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
 import { Lesson } from '@/data/generalLessons';
-import { PrimaryButton } from '../Buttons/Buttons';
+import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
+import { Input } from '@chakra-ui/react';
 // import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
@@ -10,9 +11,22 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
   // const [hasProgress, setProgress] = useUserProgress();
   // const [handleMint] = useMintNFT('eth-1');
   // const balance = useBalance('eth-1', 'nft');
+  const [showPopup, setShowPopup] = useState(false)
 
   useEffect(() => {
     setShowPlayer(true);
+  }, []);
+
+  const [testState, setTestState] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTestState(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   // const setUserProgress = () => {
@@ -34,7 +48,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
   // }
 
   return (
-    <section className='w-full' >
+    <section className='w-full ' >
       <div className='w-full relative' >
         {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
         <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
@@ -64,6 +78,12 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             }
           </div>
 
+          <div >
+            {/* THIS IS FOR TESTING  */}
+            <PrimaryButton onClick={() => setShowPopup(!showPopup)}> show popo </PrimaryButton>
+          </div>
+
+          {/* {console.log(currentLesson)} */}
           {/* <div className='w-1/2' >
             {
               nextLessonSlug && <button onClick={() => handleButtonClick()}> {userHasProgress() ? 'You Already watched this' : 'Set User Progress'} </button>
@@ -85,6 +105,24 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
           </div>
         </div>
       </div>
+      {/* THIS IS FOR TESTING  */}
+      {showPopup &&
+        <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
+          <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
+            <p>Claim your NFT to continue</p>
+            {currentLesson.popupHasInput &&
+              <Input
+                isInvalid={true}
+                errorBorderColor='crimson'
+                className='rounded-sm'
+                placeholder='0xaa559f9di9d50046d451632e372245dddf0b69be5b39asvbd28429e4dc6d03f1'
+              />
+            }
+            <PrimaryButton buttonDisabled={testState} onClick={() => alert("CLaim pressed")} >Claim</PrimaryButton>
+            <GeneralButton  onClick={() => setShowPopup(false)}>closeee</GeneralButton>
+          </div>
+        </div>
+      }
     </section>
   )
 }

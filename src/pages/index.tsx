@@ -171,15 +171,15 @@ export default function Home() {
         </div> */}
       </section>
       {/* List of each section that is offered */}
-      <section id='courses' className='py-44' >
-        <div className=' bg-slate-100 dark:bg-gray-800 my-44 flex items-center justify-between rounded-lg mb-55' >
+      <section id='courses' className='py-44 flex flex-col items-center' >
+        <div className=' bg-slate-100 dark:bg-gray-800 my-44 flex items-center justify-between rounded-lg w-[1200px]' >
           Auflistung <br /> der <br /> kurse
         </div>
 
       </section>
       {/* Podcast section */}
-      <section id='podcast' className='py-44' >
-        <div className=' bg-slate-100 dark:bg-gray-800 flex items-center justify-between rounded-lg mb-55'>
+      <section id='podcast' className='py-44 flex flex-col items-center' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex items-center justify-between rounded-lg w-[1200px]'>
           {/* du must noch farben anpassen, zu sonnig drausen  */}
           <div className='flex flex-col grow items-center gap-8 '>
             <h3 className='text-4xl font-bold '> Hör dir unsere <span className='text-5xl'>Podcasts</span> an</h3>
@@ -191,8 +191,8 @@ export default function Home() {
         </div>
       </section>
       {/* Newsletter section */}
-      <section id='newsletter' className='py-44'  >
-        <div className=' bg-slate-100 dark:bg-gray-800 flex items-center justify-between rounded-lg mb-5' >
+      <section id='newsletter' className='py-44 flex flex-col items-center'  >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex items-center justify-between rounded-lg w-[1200px]' >
           {/* du must noch farben anpassen, zu sonnig drausen  */}
           <div className='relative h-96 w-96 ' >
             <Image src={"/home/newsletter_mailbox.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />

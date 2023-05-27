@@ -7,48 +7,85 @@ type Props = {
   onClick?: Function,
   href?: string,
   target?: "_blank",
+  buttonDisabled?: boolean,
 }
 
 
-export function PrimaryButton({ children, onClick, href, target }: Props) {
+export function PrimaryButton({ children, onClick, href, target, buttonDisabled }: Props) {
   return (
-    <div className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink px-7 py-2 rounded font-bold text-lg text-white" >
-      <Link
-        href={href ? href : "/"}
-        onClick={() => onClick?.()}
-        target={target ? target : "_self"}
-      >
-        {children}
-      </Link>
+    <div
+      className={`
+      bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink  rounded font-bold
+      text-lg text-white m-auto ${buttonDisabled && "brightness-75"}
+     `}
+    >
+      {href ?
+        <Link
+          href={href && href}
+          onClick={() => onClick?.()}
+          target={target ? target : "_self"}
+          className="w-full h-full px-7 py-2"
+        >
+          {children}
+        </Link>
+        :
+        <button
+          disabled={buttonDisabled}
+          onClick={() => onClick?.()}
+          className="w-full h-full px-7 py-2"
+        >
+          {children}
+        </button>
+      }
     </div>
   )
 }
-export function SecondaryButton({ children, onClick, href, target }: Props) {
+export function SecondaryButton({ children, onClick, href, target, buttonDisabled }: Props) {
   return (
-    <div className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink p-1  rounded flex">
-      <Link
-        href={href ? href : "/"}
-        className="bg-white dark:bg-bgDarkBlue px-7 py-1 w-full h-full rounded font-bold text-lg "
-        onClick={() => onClick?.()}
-        target={target  ? target : "_self"}
-      >
-        {children}
-      </Link>
+    <div className={`bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink m-auto rounded flex ${buttonDisabled && "brightness-75"} `}>
+      {href ?
+        <Link
+          href={href && href}
+          className="bg-white dark:bg-bgDarkBlue px-7 py-2 w-full h-full rounded font-bold text-lg "
+          onClick={() => onClick?.()}
+          target={target ? target : "_self"}
+        >
+          {children}
+        </Link>
+        :
+        <button
+          className="bg-white dark:bg-bgDarkBlue px-7 py-2 w-full h-full rounded font-bold text-lg "
+          disabled={buttonDisabled}
+          onClick={() => onClick?.()}
+        >
+          {children}
+        </button>
+      }
     </div>
   )
 }
 
-export function GeneralButton({ children, onClick, href, target }: Props) {
+export function GeneralButton({ children, onClick, href, target, buttonDisabled }: Props) {
   return (
-    <div className=" bg-slate-200 dark:bg-bgDarkGray p-1  rounded flex">
-      <Link
-        href={href ? href : "/"}
-        className=" px-7 py-1 w-full h-full  font-bold text-lg "
+    <div className=" bg-slate-200 dark:bg-bgDarkGray  m-auto rounded flex">
+      {href ?
+        <Link
+          href={href && href}
+          className=" px-7 py-2 w-full h-full  font-bold text-lg "
+          onClick={() => onClick?.()}
+          target={target ? target : "_self"}
+          >
+          {children}
+        </Link>
+        :
+        <button
+        disabled={buttonDisabled}
         onClick={() => onClick?.()}
-        target={target ? target : "_self"}
-      >
-        {children}
-      </Link>
+          className=" px-7 py-2 w-full h-full  font-bold text-lg "
+        >
+          {children}
+        </button>
+      }
     </div>
   )
 }
