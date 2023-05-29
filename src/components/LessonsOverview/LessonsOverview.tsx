@@ -1,7 +1,8 @@
 
-import { Lesson } from "@/data/generalLessons"
+import { Lesson } from "@/data/generalLessons";
 import { useTheme } from "@/context/ThemeContext";
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
 
 type lessonsOverview = {
   lessonsArray: Lesson[];
@@ -36,7 +37,12 @@ export default function LessonsOverview({ lessonsArray, title, section, chain }:
                   {/* <Image src={lesson.youtubeThumbnail} width={50} height={50} alt={lesson.title} /> */}
                   {`${i + 1}.`} {lesson.title}
                 </Link>
-                <div className={`absolute w-64 h-36 rounded-xl ${i > 1 ? (isDarkMode ? "bg-bgDarkGray": "bg-gray-300") : borderClass}  `} ></div>
+                {lesson.nftCanBeClaimed &&
+                  <div className="absolute z-10 bottom-3 right-3" >
+                    <Image src={"/tmd_logo_head.svg"} width={25} height={25} alt="teach me defi logo" />
+                  </div>
+                }
+                <div className={`absolute w-64 h-36 rounded-xl ${i > 1 ? (isDarkMode ? "bg-bgDarkGray" : "bg-gray-300") : borderClass}  `} ></div>
               </div>
             }
           </div>
