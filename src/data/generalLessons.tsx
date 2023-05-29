@@ -7,8 +7,9 @@ export type Lesson = {
   youtubeThumbnail: string;
   importantLinks?: string[];
   section: number; // 0 = Allgemein, 1 = Theory, 2 = Praktisch
-  transcript?: string[]; // JSX ON getStaticProps doesnt work !
   popupHasInput?: boolean;
+  nftCanBeClaimed?: boolean;
+  transcript?: string[]; // JSX ON getStaticProps doesnt work !
 }
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
