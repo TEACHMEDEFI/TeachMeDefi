@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/patrick/Desktop/TeachMeDefi/contracts/TMDQuest.sol": {
-      "lastModificationDate": 1684244638034,
-      "contentHash": "67c5fda865c571b55f793d174fcedbab",
+      "lastModificationDate": 1685383682699,
+      "contentHash": "df6170e20995e7995539893e91882ad6",
       "sourceName": "contracts/TMDQuest.sol",
       "solcConfig": {
         "version": "0.8.7",
