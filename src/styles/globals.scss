@@ -54,6 +54,10 @@ body {
   scroll-behavior: smooth;
 }
 
+html{
+  background-color: var(--background-dark-blue);
+}
+
 img {
   object-fit: contain;
 }

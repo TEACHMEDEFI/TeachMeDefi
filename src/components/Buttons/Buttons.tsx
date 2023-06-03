@@ -7,23 +7,26 @@ type Props = {
   onClick?: Function,
   href?: string,
   target?: "_blank",
+  customClassWrapper?: string,
+  customClassButton?: string,
   buttonDisabled?: boolean,
 }
 
 
-export function PrimaryButton({ children, onClick, href, target, buttonDisabled }: Props) {
+export function PrimaryButton({ children, onClick, href, target, customClassWrapper, customClassButton, buttonDisabled }: Props) {
   return (
     <div
       className={`
       bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink  rounded font-bold
       text-lg text-white ${buttonDisabled ? "brightness-50" : ""}
+      ${customClassWrapper ? customClassWrapper : ""} 
      `}
     >
       {href ?
         <Link
           href={href && href}
           target={target ? target : "_self"}
-          className="w-full h-full px-7 py-2 block"
+          className={`w-full h-full px-7 py-2 block ${customClassButton ? customClassButton : ""} `}
         >
           {children}
         </Link>
@@ -31,7 +34,7 @@ export function PrimaryButton({ children, onClick, href, target, buttonDisabled 
         <button
           disabled={buttonDisabled}
           onClick={() => onClick?.()}
-          className="w-full h-full px-7 py-2"
+          className={`w-full h-full px-7 py-2 ${customClassButton ? customClassButton : ""} `}
         >
           {children}
         </button>
@@ -39,20 +42,28 @@ export function PrimaryButton({ children, onClick, href, target, buttonDisabled 
     </div>
   )
 }
-export function SecondaryButton({ children, onClick, href, target, buttonDisabled }: Props) {
+export function SecondaryButton({ children, onClick, href, target, customClassWrapper, customClassButton, buttonDisabled }: Props) {
   return (
-    <div className={`bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink rounded flex ${buttonDisabled ? "brightness-50" : ""} `}>
+    <div className={`
+    bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink p-1 rounded flex 
+    ${buttonDisabled ? "brightness-50" : ""} 
+    ${customClassWrapper ? customClassWrapper : ""} 
+    `}>
       {href ?
         <Link
           href={href && href}
-          className="bg-white dark:bg-bgDarkBlue px-7 py-2 w-full h-full rounded font-bold text-lg block"
+          className={`bg-white dark:bg-bgDarkBlue px-7 py-2 w-full h-full rounded font-bold text-lg block
+          ${customClassButton ? customClassButton : ""} 
+          `}
           target={target ? target : "_self"}
         >
           {children}
         </Link>
         :
         <button
-          className="bg-white dark:bg-bgDarkBlue px-7 py-2 w-full h-full rounded font-bold text-lg "
+          className={`bg-white dark:bg-bgDarkBlue px-7 py-2 w-full h-full rounded font-bold text-lg 
+          ${customClassButton ? customClassButton : ""} 
+          `}
           disabled={buttonDisabled}
           onClick={() => onClick?.()}
         >
@@ -63,13 +74,20 @@ export function SecondaryButton({ children, onClick, href, target, buttonDisable
   )
 }
 
-export function GeneralButton({ children, onClick, href, target, buttonDisabled }: Props) {
+export function GeneralButton({ children, onClick, href, target, customClassWrapper, customClassButton, buttonDisabled }: Props) {
   return (
-    <div className={` bg-slate-200 dark:bg-bgDarkGray rounded flex  ${buttonDisabled ? "brightness-50" : ""} `}>
+    <div className={`
+      rounded flex  
+    ${buttonDisabled ? "brightness-50" : ""} 
+    ${customClassWrapper ? customClassWrapper : ""} 
+    `}>
       {href ?
         <Link
           href={href && href}
-          className=" px-7 py-2 w-full h-full  font-bold text-lg block"
+          className={` px-7 py-2 w-full h-full  font-bold text-lg blockrounded-lg
+          bg-slate-200 dark:bg-bgDarkGray
+          ${customClassButton ? customClassButton : ""} 
+          `}
           target={target ? target : "_self"}
         >
           {children}
@@ -78,7 +96,10 @@ export function GeneralButton({ children, onClick, href, target, buttonDisabled 
         <button
           disabled={buttonDisabled}
           onClick={() => onClick?.()}
-          className=" px-7 py-2 w-full h-full  font-bold text-lg "
+          className={` px-7 py-2 w-full h-full  font-bold text-lg rounded-lg
+          bg-slate-200 dark:bg-bgDarkGray
+          ${customClassButton ? customClassButton : ""} 
+          `}
         >
           {children}
         </button>
