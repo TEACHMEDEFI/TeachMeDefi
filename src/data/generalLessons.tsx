@@ -5,12 +5,24 @@ export type Lesson = {
   slug: string;
   youtubeUrl: string;
   youtubeThumbnail: string;
-  importantLinks?: string[];
-  section: number; // 0 = Allgemein, 1 = Theory, 2 = Praktisch
+  importantLinks?: Links[];
+  section: number; // 0 = Allgemein, 1 = Theory, alles ab 2 = Praktisch
   popupHasInput?: boolean;
   nftCanBeClaimed?: boolean;
   questNumber?: number;
-  transcript?: string[]; // JSX ON getStaticProps doesnt work !
+  transcript?: string[] | Transcript[]; // JSX ON getStaticProps doesnt work !
+}
+
+export type Transcript = {
+  title?: string;
+  subline?: string;
+  text?: string;
+  links?: Links[]
+}
+
+export type Links = {
+  linkText: string,
+  href: string
 }
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
@@ -41,7 +53,7 @@ export const generalLessons: Lesson[] = [
         "Und wie immer der Hinweis: Bei Teach Me Defi gibt's keine Finanzberatung. Unser Ziel ist einfach, dir den Einstieg und die Nutzung der verschiedenen Tools in der Krypto-Welt leichter zu machen.",
         "Viel Erfolg und Spaß auf deiner abenteuerlichen Reise in die Welt der dezentralisierten Finanzen!",
       ],
-      
+
   },
   {
     id: "general-2",
@@ -65,7 +77,7 @@ export const generalLessons: Lesson[] = [
         "Die Blockchain-Technologie gibt dir, als Benutzer, immer mehr Kontrolle über deine finanziellen Entscheidungen und Transaktionen. Diese dezentrale Infrastruktur baut auf Transparenz, Sicherheit und Unveränderlichkeit und behebt so die Schwächen der zentralisierten Banken, während das Vertrauen ins Finanzsystem gestärkt wird.",
         "Dank der Dezentralisierung und Transparenz der Blockchain kannst du als Benutzer deine Transaktionen selbst managen, kontrollieren und sicherstellen, dass dein Geld nicht missbraucht oder schlecht verwaltet wird. Dies fördert eine stärkere Verantwortlichkeit und Selbstregulierung im Finanzsystem, was letztendlich dazu beiträgt, das Vertrauen in die Sicherheit und Integrität deiner finanziellen Infrastruktur wiederherzustellen.",
       ],
-      
+
   },
   {
     id: "general-3",
@@ -89,7 +101,7 @@ export const generalLessons: Lesson[] = [
       'Das bedeutet, dass alle in der Vergangenheit getätigten Transaktionen einen Einfluss auf alle folgenden Hashs haben. Verändert jemand eine vergangene Transaktion zu seinen Gunsten, ändert das den Hash des jeweiligen Blocks und somit auch den Hash aller darauffolgenden Blöcke bis zum aktuellen Block. Das würde dir und allen Teilnehmern sofort auffallen und im Konsens zur Ablehnung des geänderten Blocks führen.',
       'Genau das ist es, was die Blockchain so sicher macht: Die Datenbank überprüft sich durch mathematische Verfahren selbst, und es ist kein zentraler Akteur wie eine Bank notwendig.',
     ],
-    
+
   },
   {
     id: "general-4",
@@ -110,7 +122,7 @@ export const generalLessons: Lesson[] = [
         'Da keine zentrale Autorität vorhanden ist, können dezentrale Blockchain-Transaktionen schnell abgeschlossen werden, ohne dass eine Genehmigung von Dritten erforderlich ist.',
         'Vor allem profitierst du von der Widerstandsfähigkeit einer Blockchain gegenüber Angriffen und Ausfällen, da die Daten auf mehrere Nodes verteilt sind. Selbst wenn ein Node ausfällt oder angegriffen wird, bleibt die Integrität der gesamten Blockchain unbeeinträchtigt.',
       ],
-      
+
   },
   {
     id: "general-5",
@@ -130,7 +142,7 @@ export const generalLessons: Lesson[] = [
       'Im Proof of Stake-System gibt es keine Miner, sondern sogenannte Validatoren. Diese Validatoren setzen (oder "staken") einen Teil ihrer eigenen Kryptowährung, um am Konsensmechanismus teilzunehmen. Anstatt dass alle Validatoren um die Lösung eines mathematischen Rätsels konkurrieren, wird ein Validator zufällig ausgewählt, um den nächsten Block zu erstellen. Andere Validatoren im Netzwerk überprüfen die Richtigkeit des Blocks und aktualisieren ihre Kopie der Blockchain entsprechend. Der Proof of Stake-Mechanismus ist energieeffizienter als der Proof of Work, da er keine rechenintensiven Prozesse erfordert.',
       'Insgesamt sorgt der Konsensmechanismus dafür, dass alle Teilnehmer im Blockchain-Netzwerk zusammenarbeiten, um Transaktionen zu validieren und eine gemeinsame Wahrheit zu schaffen. PoW und PoS sind zwei unterschiedliche Ansätze, um diesen Konsens zu erreichen, wobei PoS als energieeffizientere Alternative zu PoW betrachtet wird.',
     ],
-    
+
   },
   {
     id: "general-6",
@@ -154,7 +166,7 @@ export const generalLessons: Lesson[] = [
       '5.  Der Empfänger erhält die Kryptowährung in seinem Wallet und kann die Transaktionsdaten über seinen öffentlichen Schlüssel einsehen. Das Wallet des Empfängers aktualisiert das Guthaben automatisch.',
       'Wichtig ist, dass du deine private Keys sorgfältig schützen musst, da der Verlust oder Diebstahl dieser den Zugriff auf die Kryptowährung dauerhaft verhindert. Bewahre sie niemals digital auf, sondern notiere sie auf Papier und verwahre sie sicher. So stellst du sicher, dass niemand ungehindert auf deine Gelder zugreifen kann.',
     ],
-    
+
   },
 ]
 

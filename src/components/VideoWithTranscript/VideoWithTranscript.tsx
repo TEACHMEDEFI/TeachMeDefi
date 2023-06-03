@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import ReactPlayer from "react-player";
-import { Lesson } from '@/data/generalLessons';
+import Link from 'next/link';
+import { Lesson, Transcript, Links } from '@/data/generalLessons';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { Input, useToast } from '@chakra-ui/react';
 // import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
@@ -99,9 +100,32 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
         </div>
         <div className='flex justify-center' >
           <div className='max-w-5xl' >
-            <h3 className='font-bold text-xl ml-10 mb-5'>Transcript</h3>
             <div className='mx-10 space-y-8 '>
-              {currentLesson.transcript && currentLesson.transcript}
+              {currentLesson.transcript && currentLesson.transcript.map((row: Transcript | string, i) => (
+                <div key={i}>
+                  {typeof row === "object" ?
+
+                    <div>
+                      {row.title && <h3 className='text-3xl font-bold mb-6'>{row.title}</h3>}
+                      {row.subline && <h4 className='font-bold mb-1'>{row.subline}</h4>}
+                      {row.text && <p className='tracking-wider '>{row.text}</p>}
+                      {row.links &&
+                        <ul className='list-disc ml-5'>
+                          {row.links && row.links.map((link: Links, i) => (
+                            <li key={i}>
+                              <Link href={link.href} key={i} target="_blank" className="underline font-bold" >{link.linkText}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                      }
+                    </div>
+                    :
+                    <p className='tracking-wider' >
+                      {row}
+                    </p>
+                  }
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -120,7 +144,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
               />
             }
             <PrimaryButton buttonDisabled={testState} onClick={() => alert("CLaim pressed")} >Claim</PrimaryButton>
-            <GeneralButton  onClick={() => setShowPopup(false)}>closeee</GeneralButton>
+            <GeneralButton onClick={() => setShowPopup(false)}>closeee</GeneralButton>
           </div>
         </div>
       }
