@@ -8,37 +8,37 @@ type FaqData = {
 
 export const faqData: FaqData[] = [
   {
-    id: "3n9A5b7C",
-    question: "This is question 1",
-    answer: "THIS is answer 1",
+    id: "faq-1",
+    question: "1. um dolor sit amet consectetur adipisicing elit. Delect",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, doloremque unde laboriosam nesciunt tenetur vero magnam, maiores deserunt facilis asperiores saepe quibusdam, magni autem? Aliquam enim possimus impedit quo dignissimos.", 
   },
   {
-    id: "Xy8p2Rt4",
-    question: "This is question 2",
-    answer: "THIS is answer 2",
+    id: "faq-2",
+    question: "2. um dolor sit amet consectetur adipisicing elit. Delect",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, doloremque unde laboriosam nesciunt tenetur vero magnam, maiores deserunt facilis asperiores saepe quibusdam, magni autem? Aliquam enim possimus impedit quo dignissimos.", 
   },
   {
-    id: "Lk6q7Sd9",
+    id: "faq-3",
     question: "This is question 3",
     answer: "THIS is answer 3",
   },
   {
-    id: "Bf3M6v8N",
+    id: "faq-4",
     question: "This is question 4",
     answer: "THIS is answer 4",
   },
   {
-    id: "Pw2K7h4R",
+    id: "faq-5",
     question: "This is question 5",
     answer: "THIS is answer 5",
   },
   {
-    id: "Gt5D9r2W",
+    id: "faq-6",
     question: "This is question 6",
     answer: "THIS is answer 6",
   },
   {
-    id: "Jz4F7n6M",
+    id: "faq-7",
     question: "This is question 7",
     answer: "THIS is answer 7",
   },

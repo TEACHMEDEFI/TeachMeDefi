@@ -38,6 +38,7 @@ export default function index() {
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Was ist eine Blockchain"} section={0} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Theory Ethereum"} section={1} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 1"} section={2} />
+        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 2"} section={3} />
         <Image src={"/eth/eth_windows.png"} className='absolute -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
 
       </section >

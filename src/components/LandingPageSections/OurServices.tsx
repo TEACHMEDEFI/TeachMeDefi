@@ -29,7 +29,7 @@ export default function OurServices() {
             <Link
               href={"#courses"}
               scroll={false}
-              className='underline rainbow-text font-bold text-lg px-4'
+              className='underline rainbow-text font-bold text-lg '
             >
               Mehr erfahren
             </Link>
@@ -57,7 +57,7 @@ export default function OurServices() {
             <Link
               href={"#podcast"}
               scroll={false}
-              className='underline rainbow-text font-bold text-lg px-4 '
+              className='underline rainbow-text font-bold text-lg  '
             >
               Mehr erfahren
             </Link>
@@ -86,7 +86,7 @@ export default function OurServices() {
             <Link
               href={"#newsletter"}
               scroll={false}
-              className='underline rainbow-text font-bold text-lg px-4 '
+              className='underline rainbow-text font-bold text-lg  '
             >
               Mehr erfahren
             </Link>
