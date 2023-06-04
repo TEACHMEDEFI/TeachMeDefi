@@ -57,9 +57,6 @@ export default function AboutUs() {
             <p>In Krypto Seit 2017</p>
           </div>
         </div>
-        <SecondaryButton>
-          Vereinbare HEUTE noch ein Termin
-        </SecondaryButton>
         <p className="tracking-wide leading-relaxed " >
           Wir befinden uns in einem Zeitalter der Entwicklung. Während das Web 1.0 in seiner Ursprungsphase noch
           statisch und ohne Interaktionsmöglichkeiten die ersten Websites präsentierte, revolutionierte das Web 2.0

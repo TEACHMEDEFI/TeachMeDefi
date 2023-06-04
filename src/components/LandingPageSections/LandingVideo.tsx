@@ -12,6 +12,7 @@ export default function LandingVideo() {
 
   return (
     <section className='my-44 flex flex-col items-center ' >
+      <h3>ÜBERSCHRIFT</h3>
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
             <div className='h-[540px] w-[960px] ' >

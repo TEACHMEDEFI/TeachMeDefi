@@ -21,13 +21,17 @@ export default function Home() {
       </Head>
 
       <HeroSection />
-      <OurServices />
+      {/* <OurServices /> */}
       <LandingVideo />
       <CourseOverview />
+      {/* Course videos Bilder = thumbnails von rustam jan und sohel  */}
       <Podcast />
       <Newsletter />
       <AboutUs />
       <FAQ />
+      {/* FAQ kommen +50 Fragen Faq, ausklappbar machen? */}
+      {/* Unter jedem Section title für Theroy und Praktisch, ein kleiner info text zu wie viel Zeitaufwand die Quest/section beansprucht */}
+      {/* Quest container bekommt background und unten den Videos dann der mint buttong */}
       {/* 
           - Our Services 1.TeachMe Section overview scroll to the sections futher down 2. Podcast with CTA 3. Newsletters with CTA
           - Landingpage Video
