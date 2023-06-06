@@ -1,5 +1,6 @@
 
 import { generalLessons, Lesson } from "./generalLessons";
+import { dotQuests } from "./dot/index";
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
 
@@ -39,4 +40,5 @@ export const dotLessons: Lesson[] = [
     section: 1,
     transcript: ['This is the transcript for lesson 3.'],
   },
+  ...dotQuests
 ]
