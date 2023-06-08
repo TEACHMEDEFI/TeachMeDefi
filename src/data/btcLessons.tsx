@@ -4,6 +4,20 @@ import { generalLessons, Lesson } from "./generalLessons";
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
 
 
+const onFormToggle = (e) => {
+  const forms = document.querySelectorAll('.js-formToggle');
+  const hiddenClass = 'd-none';
+
+  forms.forEach((form) => {
+    if (!form.classList.contains(hiddenClass)) {
+      form.classList.add(hiddenClass);
+    }
+  });
+
+  e.target.classList.remove(hiddenClass);
+}
+
+
 /**
  *  ____________________ BITCOIN LESSONS ___________________________
  */
