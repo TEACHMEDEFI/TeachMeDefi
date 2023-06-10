@@ -174,7 +174,7 @@ export const quest5: Lesson[] = [
         links: [
           {
               linkText: 'Impermanent Loss',
-              href: " https://www.ledger.com/academy/glossary/impermanent-loss#:~:text=Impermanent"
+              href: "https://www.ledger.com/academy/glossary/impermanent-loss#:~:text=Impermanent"
           }
       ]
       },
@@ -235,5 +235,79 @@ export const quest5: Lesson[] = [
       }
     ]
   },
-  
+  {
+    id: "dot-27",
+    title: '5.3 Heimreise',
+    slug: 'heimreise',
+    youtubeUrl: 'https://youtu.be/3YHZKhhDYVs',
+    youtubeThumbnail: "https://youtu.be/3YHZKhhDYVs/hqdefault.jpg",
+    importantLinks: [],
+    section: 2, // danach 3 und 4
+    questNumber: 9,
+    transcript: [
+      {
+        subline: "Schritt-für-Schritt Anleitung zum “Rückgängig”-machen der getätigten Aktionen und Rücksenden von DOT zur Relay Chain:",
+        title: "Anleitung zum Video",
+        text: "In dieser Anleitung zeigen wir dir, wie du einfach und schnell alle Aktionen, die wir bisher in dieser “Polkadot-Serie” durchgeführt haben, “rückgängig” machen und deine DOT zur Relay Chain zurückschicken kannst. Erfahre, wie du deine GLMR in DOT tauschst und dabei einen Teil für Transaktionsgebühren in GLMR behältst. Anschließend senden wir die DOTs von Moonbeam zurück zur Relay Chain."
+      },
+      {
+        subline: '1. Zurückswappen von GLMR zu DOT',
+        text: '1.1 Besuche die Stella Swap Seite und wähle GLMR für “Swap From" und DOT für “Swap To”',
+        links: [
+          {
+              linkText: 'Stella Swap',
+              href: "https://app.stellaswap.com/exchange/swap"
+          }
+        ]
+      },
+      {
+        text: '1.2 Gib den Betrag ein, den du zurückswappen möchtest, und behalte etwas Glimmer für Transaktionsgebühren übrig. Wähle nicht “Max” für GLMR, da wir noch etwas GLMR für die anschließende Cross-Chain Transaktion benötigen.'
+      },
+      {
+        text: '1.3 Ich lasse hier 1 GLMR in der Wallet für zukünftige Gebühren und trade den Rest zu DOT.'
+      },
+      {
+        text: '1.4 Klicke auf "Approve" und warte, bis die Transaktion abgeschlossen ist.'
+      },
+      {
+        subline: '2.  Zurücksenden von DOT zur Relay Chain',
+        text: '2.1 Gehe zum Moonbeam-Dashboard und wähle "Crosschain" > "Parachain Bridges". Wähle DOT aus und klicke diesmal für das “From”-Feld "Moonbeam” und für das “To”-Feld “Polkadot".',
+        links: [
+          {
+              linkText: 'Moonbeam Dashboard',
+              href: "https://apps.moonbeam.network/moonbeam"
+          }
+        ]
+      },
+      {
+        text: 'Falls noch nicht verbunden, verbinde sowohl deinen Ethereum-Account (”Sender”-Feld) und deinen Polkadot-Account (”Recipient”-Feld).'
+      },
+      {
+        text: 'Klicke auf "Max", um den gesamten verbleibenden DOT-Betrag zu teleportieren.'
+      },
+      {
+        text: 'Klicke “Send” und sende somit die DOTs zurück zur Relay Chain.'
+      },
+      {
+        subline: '3. Überprüfung und Abschluss',
+        text: '3.1 Warte, bis die Transaktion abgeschlossen ist und deine DOTs auf der Relay Chain erscheinen.',
+      },
+      {
+        text: '3.2 Überprüfe deine Wallet-Adresse auf der Relay Chain, um sicherzustellen, dass die DOTs wieder sichtbar sind. Klicke dafür auf deinen Polkadot Account in Talisman, um dein DOT-Guthaben zu sehen. Auf deinem Ethereum-Account andererseits solltest du nun kein xcDOT-Guthaben mehr sehen.'
+      },
+      {
+        subline: 'Fazit',
+        text: 'Wir hoffen, dass dir diese Anleitung gefallen hat und du etwas Neues gelernt hast. Falls du Fragen hast oder Feedback geben möchtest, kontaktiere uns gerne über unsere Webseite. Dieses kurze Abenteuer in die Polkadot-Welt ist nun zu Ende! Wir freuen uns darauf, von dir zu hören und hoffen dich auch zukünftig auf deinen Krypto-Abenteuern zu begleiten!',
+        links: [
+          {
+              linkText: 'Teach Me Defi',
+              href: "https://www.teachmedefi.de/"
+          }
+        ]
+      },
+      {
+        text: 'Wenn diese Informationen für dich nützlich waren, abonniere doch gerne unseren Newsletter und unseren Podcast auf teachmedefi.de. Wir halten dich dort wöchentlich auf dem Laufenden was die aktuellsten Ereignisse im Krypto-Markt angeht!'
+      },
+    ]
+  }
 ]
