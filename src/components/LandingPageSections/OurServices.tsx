@@ -14,6 +14,7 @@ export default function OurServices() {
                 <Image
                   src={"/home/cryptocurrencies-overview.jpg"}
                   fill
+                  loading='lazy' 
                   className='object-cover rounded-xl'
                   alt='Overview image over all cryptocurrencies Bitcoin Ethereum Polkadot'
                 />
@@ -40,6 +41,7 @@ export default function OurServices() {
                 <Image
                   src={"/home/Podcast_teaser.jpg"}
                   fill
+                  loading="lazy"
                   className='object-cover rounded-xl'
                   alt='Podcasst teaser Crypto Cryptocurrencie Krypto Kryptowährung Bitcoin Ethereum Polkadot'
                 />
@@ -68,6 +70,7 @@ export default function OurServices() {
                 <Image
                   src={"/home/Newsletter.png"}
                   fill
+                  loading='lazy' 
                   className='object-cover rounded-xl'
                   alt='GIVE THIS AN ALT'
                 />

@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/TDM_logo.png" />
       </Head>
-
+    
       <HeroSection />
       {/* OurService erstmal ausgeblendet, weil doppelt gemoppelt */}
       {/* <OurServices /> */}

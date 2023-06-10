@@ -12,10 +12,11 @@ export default function CourseOverview() {
             <div >
               <div className='relative w-72 h-72 mb-3'>
                 <Image
-                  src={"/home/btc-render.jpg"}
+                  src={"/home/bitcoin-section-thumbnail.png"}
                   fill
+                  loading='lazy' 
                   className='object-cover rounded-xl'
-                  alt='ALT TEXT HERE -----------------'
+                  alt='Find out more about Bitcoin quests on TeachMeDefi'
                 />
               </div>
               <div className='max-w-[280px]'>
@@ -35,10 +36,11 @@ export default function CourseOverview() {
             <div >
               <div className='relative w-72 h-72 mb-3'>
                 <Image
-                  src={"/home/eth-render.jpg"}
+                  src={"/home/ethereum-section-thumbnail.png"}
                   fill
+                  loading='lazy' 
                   className='object-cover rounded-xl'
-                  alt='ALT THEXT HERE _----------------'
+                  alt='Find out more about Etherum quests on TeachMeDefi'
                 />
               </div>
               <div className='max-w-[280px]'>
@@ -60,10 +62,11 @@ export default function CourseOverview() {
             <div >
               <div className='relative w-72 h-72 mb-3'>
                 <Image
-                  src={"/home/dot-render.jpg"}
+                  src={"/home/polkadot-section-thumbnail.png"}
                   fill
+                  loading='lazy' 
                   className='object-cover rounded-xl'
-                  alt='GIVE THIS AN ALT -------------'
+                  alt='Find out more about Polkadot quest on TeachMeDefi'
                 />
               </div>
               <div className='max-w-[280px]'>

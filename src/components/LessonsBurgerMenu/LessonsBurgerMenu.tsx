@@ -35,7 +35,7 @@ export default function LessonsBurgerMenu({ lessons }: any) {
 
   return (
     <div className="fixed left-0 top-28 flex ">
-      <div className={` ${!openLessons && "hidden"} bg-gray-300 dark:bg-bgDarkGray flex flex-col p-5 rounded-br-lg gap-y-3`} >
+      <div className={` ${!openLessons && "hidden"} bg-gray-300 dark:bg-bgDarkGray flex flex-col p-5 rounded-br-lg gap-y-3 max-h-96 overflow-y-auto`} >
         {currentLessons && currentLessons.map((lesson, i) => (
           <div key={lesson.id}>
             <Link
