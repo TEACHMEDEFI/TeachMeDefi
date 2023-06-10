@@ -4,7 +4,7 @@ import { generalLessons, Lesson } from "./generalLessons";
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails
 
 
-const onFormToggle = (e) => {
+const onFormToggle = (e:any) => {
   const forms = document.querySelectorAll('.js-formToggle');
   const hiddenClass = 'd-none';
 
