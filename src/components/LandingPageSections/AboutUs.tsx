@@ -20,6 +20,7 @@ export default function AboutUs() {
                 src={"/home/placeholder_profile_pic.jpg"}
                 className="rounded-3xl"
                 fill
+                loading='lazy' 
                 alt="Profil picture"
               />
             </div>
@@ -34,6 +35,7 @@ export default function AboutUs() {
                 src={"/home/placeholder_profile_pic.jpg"}
                 className="rounded-3xl"
                 fill
+                loading='lazy' 
                 alt="Profil picture"
               />
             </div>
@@ -48,6 +50,7 @@ export default function AboutUs() {
                 src={"/home/placeholder_profile_pic.jpg"}
                 className="rounded-3xl"
                 fill
+                loading='lazy' 
                 alt="Profil picture"
               />
             </div>
