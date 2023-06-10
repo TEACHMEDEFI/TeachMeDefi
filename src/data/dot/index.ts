@@ -3,13 +3,15 @@ import { quest1 } from "./quest-1";
 import { quest2 } from "./quest-2";
 import { quest3 } from "./quest-3";
 import { quest4 } from "./quest-4";
+import { quest5 } from "./quest-5";
 // import { quest2 } from "./dot-2";
 
 export const dotQuests = [
   ...quest1,
   ...quest2,
   ...quest3,
-  ...quest4
+  ...quest4,
+  ...quest5
 ]
 
 
