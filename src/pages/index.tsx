@@ -30,6 +30,7 @@ export default function Home() {
       <Newsletter />
       <AboutUs />
       <FAQ />
+      {/* video, more than just learning our services, improve yourself (section overview), our member experience (über uns) */}
       {/* FAQ kommen +50 Fragen Faq, ausklappbar machen? */}
       {/* Unter jedem Section title für Theroy und Praktisch, ein kleiner info text zu wie viel Zeitaufwand die Quest/section beansprucht */}
       {/* Quest container bekommt background und unten den Videos dann der mint buttong */}
