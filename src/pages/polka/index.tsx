@@ -1,7 +1,5 @@
 
 import Image from 'next/image'
-import { dotLessons } from '@/data/dotLessons'
-import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
 import Polkdadot from '@/components/Polkadot/Polka';
 
 
