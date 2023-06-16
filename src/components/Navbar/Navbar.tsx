@@ -8,6 +8,7 @@ import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
 import TalismanButton from "../WalletConnectButtons/TalismanButton"
 import { formatAddress } from '../../utils/helpers'
 import { useTheme } from '@/context/ThemeContext';
+import { reportLinkClick } from "../scripts/tagmanager-events"
 
 
 export default function Navbar() {
@@ -27,6 +28,14 @@ export default function Navbar() {
 
   const toggleBurgerMenu = () => {
     setOpenBurgerMenu(!openBurgerMenu)
+  }
+
+  const handleTagManagerEvents = (event: any) => {
+    event.preventDefault();
+    reportLinkClick(event.target);
+    const href = event.target.href
+
+    window.location = href;
   }
 
   // const toggleBurgerTeachMe = () => {
@@ -58,10 +67,10 @@ export default function Navbar() {
               <Link href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link href={"/podcast"} className="hover:underline">PODCAST</Link>
-          <Link href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
+          <Link data-linktarget="podcast" onClick={handleTagManagerEvents} href={"/podcast"} className="hover:underline">PODCAST</Link>
+          <Link data-linktarget="newsletter" onClick={handleTagManagerEvents} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
-          <Link href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
+          <Link data-linktarget="subscribe" onClick={handleTagManagerEvents} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
         </div>
         <div className="flex gap-5 items-center " >
           <button onClick={toggleDarkMode} className="border-2 hidden dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:flex items-center justify-center" >
