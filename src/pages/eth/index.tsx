@@ -1,7 +1,9 @@
 
 import Image from 'next/image'
 import { ethLessons } from '@/data/ethLessons'
+import { ethQuestsTEST } from '@/data/ethTest'
 import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
+import LessonsList from '@/components/LessonsList/LessonsList'
 
 
 export default function index() {
@@ -34,8 +36,11 @@ export default function index() {
         <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
       </section>
 
+      <section className=' w-full flex items-center justify-center relative' >
+        <LessonsList chain={"eth"} lessonsArray={ethQuestsTEST} />
+      </section>
       <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >
-        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Was ist eine Blockchain"} section={0} />
+        {/* <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Was ist eine Blockchain"} section={0} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Theory Ethereum"} section={1} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 1"} section={2} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 2"} section={3} />
@@ -43,7 +48,7 @@ export default function index() {
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 4"} section={5} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 5"} section={6} />
         <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Quest 6"} section={7} />
-        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Sicherheit"} section={8} />
+        <LessonsOverview chain={"eth"} lessonsArray={ethLessons} title={"Sicherheit"} section={8} /> */}
         <Image src={"/eth/eth_windows.png"} className='absolute -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
 
       </section >

@@ -11,6 +11,7 @@ export type Lesson = {
   nftCanBeClaimed?: boolean;
   questNumber?: number;
   transcript?: string[] | Transcript[]; // JSX ON getStaticProps doesnt work !
+  isLastQuest?: boolean;
 }
 
 export type Transcript = {
