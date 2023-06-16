@@ -23,10 +23,6 @@ export default function index() {
       </section>
 
       <Polkdadot />
-     
-
-
-
     </div >
   )
 }
