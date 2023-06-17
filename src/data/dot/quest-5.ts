@@ -244,6 +244,7 @@ export const quest5: Lesson[] = [
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 9,
+    isLastQuest: true,
     transcript: [
       {
         subline: "Schritt-für-Schritt Anleitung zum “Rückgängig”-machen der getätigten Aktionen und Rücksenden von DOT zur Relay Chain:",

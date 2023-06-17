@@ -12,7 +12,7 @@ type LessonsListProps = {
   isQuestSection?: boolean;
 }
 
-export default function LesseonsList({ chain, lessonsArray, title, isQuestSection }: LessonsListProps) {
+export default function LessonsList({ chain, lessonsArray, title, isQuestSection }: LessonsListProps) {
   return (
     <div className='relative dark:border-bgDarkGray p-3 w-full max-w-4xl backdrop-blur-lg rounded-lg'>
       <h2 className='font-bold text-2xl' >{title}</h2>

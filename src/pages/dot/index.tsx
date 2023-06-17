@@ -1,7 +1,10 @@
 
 import Image from 'next/image'
 import { dotLessons } from '@/data/dotLessons'
+import { generalLessons } from '@/data/generalLessons'
+import { dotQuests } from '@/data/dot'
 import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
+import LessonsList from '@/components/LessonsList/LessonsList'
 
 
 export default function index() {
@@ -35,10 +38,15 @@ export default function index() {
         <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
         <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' />
       </section>
+      <section className=' w-full flex flex-col items-center justify-center relative z-50' >
+        <LessonsList chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} />
+        {/* <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theroy Section"} /> */}
+        <LessonsList chain={"dot"} lessonsArray={dotQuests} title={"Quest section"} isQuestSection />
+      </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />
+        {/* <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />
         <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Theory Ethereum"} section={1} />
-        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Praktisch Ethereum"} section={2} />
+        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Praktisch Ethereum"} section={2} /> */}
 
         <Image src={"/dot/polka_z.svg"} width={261/2} height={261/2} alt='polkadot ' className='absolute left-36 -bottom-36 ' />
         <Image src={"/dot/polka_polygon.svg"} width={455/2} height={437/2} alt='polkadot ' className='absolute -right-16 bottom-12 ' />
