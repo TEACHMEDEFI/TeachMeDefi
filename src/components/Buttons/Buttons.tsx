@@ -108,3 +108,37 @@ export function GeneralButton({ children, onClick, href, target, customClassWrap
   )
 }
 
+export function ClaimRewardButton({ children, onClick, href, target, customClassWrapper, customClassButton, buttonDisabled }: Props) {
+  return (
+    <div className={`
+      rounded flex  
+    ${buttonDisabled ? "brightness-50" : ""} 
+    ${customClassWrapper ? customClassWrapper : ""} 
+    `}>
+      {href ?
+        <Link
+          href={href && href}
+          className={` px-3 py-1 w-full font-bold rounded-lg
+          bg-slate-200 dark:bg-bgDarkGray
+          ${customClassButton ? customClassButton : ""} 
+          `}
+          target={target ? target : "_self"}
+        >
+          {children}
+        </Link>
+        :
+        <button
+          disabled={buttonDisabled}
+          onClick={() => onClick?.()}
+          className={` px-3 py-1  w-full font-bold  rounded-lg
+          bg-slate-200 dark:bg-bgDarkGray
+          ${customClassButton ? customClassButton : ""} 
+          `}
+        >
+          {children}
+        </button>
+      }
+    </div>
+  )
+}
+

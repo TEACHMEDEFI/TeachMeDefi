@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined 
   params,
 }) => {
   const { lesson } = params!
-
+  
   const currentLessonIndex = ethLessons.findIndex(
     (currentLesson) => currentLesson.slug === lesson
   )

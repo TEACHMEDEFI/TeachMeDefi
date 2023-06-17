@@ -1,4 +1,5 @@
 
+import { Quests } from "../generalLessons";
 import { quest1 } from "./quest-1";
 import { quest2 } from "./quest-2";
 import { quest3 } from "./quest-3";
@@ -8,14 +9,35 @@ import { quest6 } from "./quest-6";
 import { questSicherheit } from "./quest-sicherheit";
 
 
-export const ethQuests = [
-  ...quest1,
-  ...quest2,
-  ...quest3,
-  ...quest4,
-  ...quest5,
-  ...quest6,
-  ...questSicherheit,
+export const ethQuests: Quests[] = [
+  {
+    questTitle: "Quest Title 1",
+    lessons: [...quest1]
+  },
+  {
+    questTitle: "Quest Title 2",
+    lessons: [...quest2]
+  },
+  {
+    questTitle: "Quest Title 3",
+    lessons: [...quest3]
+  },
+  {
+    questTitle: "Quest Title 4",
+    lessons: [...quest4]
+  },
+  {
+    questTitle: "Quest Title 5",
+    lessons: [...quest5]
+  },
+  {
+    questTitle: "Quest Title 6",
+    lessons: [...quest6]
+  },
+  {
+    questTitle: "Quest Sicherheit",
+    lessons: [...questSicherheit]
+  },
 ]
 
 

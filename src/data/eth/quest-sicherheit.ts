@@ -300,6 +300,7 @@ export const questSicherheit: Lesson[] = [
     ],
     section: 8,
     questNumber: 7,
+    isLastQuest: true,
     transcript: [
       {
         title: "Anleitung: Wie man Krypto-Transaktionen rückgängig macht",

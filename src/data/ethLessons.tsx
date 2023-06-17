@@ -1,4 +1,4 @@
-import { generalLessons, Lesson } from "./generalLessons";
+import { generalLessons, Lesson, Quests } from "./generalLessons";
 import { ethTheory } from "./eth/ethTheory";
 import { ethQuests } from "./eth";
 
@@ -7,8 +7,11 @@ import { ethQuests } from "./eth";
 /**
  *  ____________________ ETHEREUM LESSONS ___________________________
  */
-export const ethLessons: Lesson[] = [
-  ...generalLessons,
-  ...ethTheory,
-  ...ethQuests,
+const spreadQuestsArray = ethQuests.reduce((lessonsArray:Lesson[], quest) => [...lessonsArray, ...quest.lessons], []);
+
+
+export const ethLessons = [
+  ...generalLessons[0].lessons,
+  ...ethTheory[0].lessons,
+  ...spreadQuestsArray
 ]
