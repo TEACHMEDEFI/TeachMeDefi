@@ -1,7 +1,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
@@ -16,10 +16,16 @@ export default function Navbar() {
   const { account, active, deactivate } = useWeb3React<Web3Provider>()
   const { isDarkMode, toggleDarkMode } = useTheme();
 
+  const [ethereumIsThere, setEthereumIsThere] = useState<boolean>(false)
   const [teachMeButton, toggleTeachMeButton] = useState<boolean>(false)
   const [connectWalletBtn, toggleConnectWalletBtn] = useState<boolean>(false)
   const [openBurgerMenu, setOpenBurgerMenu] = useState<boolean>(false);
 
+  useEffect(()=>{
+    if (typeof window.ethereum !== 'undefined') {
+      setEthereumIsThere(true)
+    }
+  },[])
 
   const onClickDisconnect = () => {
     deactivate()
@@ -80,16 +86,19 @@ export default function Navbar() {
               <Image src={"/navbar/moon.svg"} width={15} height={15} alt="icon" />
             }
           </button>
-          <div className="hidden sm:block" >
-            {
-              active && typeof account === 'string' ?
-                <button onClick={() => toggleConnectWalletBtn(true)} >
-                  {formatAddress(account, 4)}
-                </button>
-                :
-                <button onClick={() => toggleConnectWalletBtn(true)}>CONNECT</button>
-            }
-          </div>
+          {
+            ethereumIsThere &&
+            <div className="hidden sm:block" >
+              {
+                active && typeof account === 'string' ?
+                  <button onClick={() => toggleConnectWalletBtn(true)} >
+                    {formatAddress(account, 4)}
+                  </button>
+                  :
+                  <button onClick={() => toggleConnectWalletBtn(true)}>CONNECT</button>
+              }
+            </div>
+          }
 
           {/**
              * 
