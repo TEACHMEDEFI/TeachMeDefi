@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import { btcLessons } from '@/data/btcLessons'
-import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
+import Image from 'next/image';
+// import { btcLessons } from '@/data/btcLessons';
+// import LessonsOverview from '@/components/LessonsOverview/LessonsOverview';
 
 
 export default function index() {
@@ -30,9 +30,9 @@ export default function index() {
         </h2>
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Was ist eine Blockchain"} section={0} />
+        {/* <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Was ist eine Blockchain"} section={0} />
         <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Theory Ethereum"} section={1} />
-        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Praktisch Ethereum"} section={2} />
+        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Praktisch Ethereum"} section={2} /> */}
 
       </section >
       {/* <section className='h-screen' >
