@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Lesson } from '@/data/generalLessons'
 import { Quests } from '@/data/generalLessons'
 import { ClaimRewardButton } from '../Buttons/Buttons'
+import { useUserProgress } from '../../pages/api/ethereum-api'
 
 type LessonsListProps = {
   lessonsArray: Quests[];
@@ -13,6 +14,24 @@ type LessonsListProps = {
 }
 
 export default function LessonsList({ chain, lessonsArray, title, isQuestSection }: LessonsListProps) {
+  const [hasProgress, setProgress] = useUserProgress();
+
+  const getImagePath = (id: string, type : string): string => {
+    let imagePath = '';
+
+    if (type === 'top' && !hasProgress(id)) {
+      imagePath = '/progress/top-progress-dark.svg';
+    } else if (type === 'top' && hasProgress(id)) {
+      imagePath = '/progress/mid-progress-dark.svg'
+    } else if (type === 'middle' && !hasProgress(id)) {
+      imagePath = '/progress/mid-progress-dark.svg'
+    }
+
+    return imagePath;
+
+  }
+
+
   return (
     <div className='relative dark:border-bgDarkGray p-3 w-full max-w-4xl backdrop-blur-lg rounded-lg'>
       <h2 className='font-bold text-2xl' >{title}</h2>
@@ -21,7 +40,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
           <div className='w-full border-t-4 h-full  items-center pl-5'>
 
             <div className='font-bold flex items-center'>
-              <Image src={i < 1 ? "/progress/top-progress-dark.svg" : "/progress/mid-progress-dark.svg"} width={30} height={30} alt='progress bar' />
+              <Image src={getImagePath(chain === 'eth' ? 'eth-1' : 'dot-1' , i)} width={30} height={30} alt='progress bar' />
               <h3 className='pl-5' >{quests.questTitle}</h3>
             </div>
 

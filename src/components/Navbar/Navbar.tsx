@@ -36,12 +36,16 @@ export default function Navbar() {
     setOpenBurgerMenu(!openBurgerMenu)
   }
 
-  const handleTagManagerEvents = (event: any) => {
+  const handleTagManagerEventsRedirect = (event: any) => {
     event.preventDefault();
     reportLinkClick(event.target);
     const href = event.target.href
 
     window.location = href;
+  }
+
+  const handleTagManagerClickEvents =(event: any) => {
+    reportLinkClick(event.target);
   }
 
   // const toggleBurgerTeachMe = () => {
@@ -69,14 +73,14 @@ export default function Navbar() {
             <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
               {/* <Link href={"/btc"} className="rainbow-text" >BTC Section</Link> */}
-              <Link href={"/eth"} className="rainbow-text" >ETH Section</Link>
-              <Link href={"/dot"} className="rainbow-text" >DOT Section</Link>
+              <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETH Section</Link>
+              <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link data-linktarget="podcast" onClick={handleTagManagerEvents} href={"/podcast"} className="hover:underline">PODCAST</Link>
-          <Link data-linktarget="newsletter" onClick={handleTagManagerEvents} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
+          <Link data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"/podcast"} className="hover:underline">PODCAST</Link>
+          <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
-          <Link data-linktarget="subscribe" onClick={handleTagManagerEvents} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
+          <Link data-linktarget="subscribe" onClick={handleTagManagerEventsRedirect} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
         </div>
         <div className="flex gap-5 items-center " >
           <button onClick={toggleDarkMode} className="border-2 hidden dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:flex items-center justify-center" >
@@ -180,8 +184,8 @@ export default function Navbar() {
             </button>
             :
             <>
-              <MetaMaskButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
-              <TalismanButton toggleConnectWalletBtn={toggleConnectWalletBtn} />
+              <MetaMaskButton data-linktarget="metamask-connect" onClick={handleTagManagerClickEvents} toggleConnectWalletBtn={toggleConnectWalletBtn} />
+              {/* <TalismanButton toggleConnectWalletBtn={toggleConnectWalletBtn} /> */}
             </>
           }
 
