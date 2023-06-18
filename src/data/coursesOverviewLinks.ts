@@ -13,8 +13,8 @@ export const courseSections: Course[] =[
     title: "Polkadot",
     href: "/dot"
   },
-  {
-    title: "Bitcoin",
-    href: "/btc"
-  },
+  // {
+  //   title: "Bitcoin",
+  //   href: "/btc"
+  // },
 ]

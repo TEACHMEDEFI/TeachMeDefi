@@ -13,6 +13,7 @@ type LessonsListProps = {
 }
 
 export default function LessonsList({ chain, lessonsArray, title, isQuestSection }: LessonsListProps) {
+
   return (
     <div className='relative dark:border-bgDarkGray p-3 w-full max-w-4xl backdrop-blur-lg rounded-lg'>
       <h2 className='font-bold text-2xl' >{title}</h2>
@@ -38,7 +39,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
 
                 {quests.lessons.length === i + 1 &&
                   <div className='flex items-center border-t ' >
-                    <Image src={quest.isLastQuest ? "/progress/bot-progress-dark.svg" : "/progress/progress-line.svg"} width={30} height={30} alt='progress bar' />
+                    <Image src={quest.isLastQuest ? "/progress/bot-progress-dark.svg" : "/progress/progress-line-dark.svg"} width={30} height={30} alt='progress bar' />
                     {isQuestSection ?
                       <ClaimRewardButton customClassWrapper='ml-5 my-2' >Claim</ClaimRewardButton>
                       :

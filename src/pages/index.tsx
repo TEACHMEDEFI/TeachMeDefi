@@ -19,9 +19,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/TDM_logo.png" />
       </Head>
-    
+
       <HeroSection />
-      {/* OurService erstmal ausgeblendet, weil doppelt gemoppelt */}
       <LandingVideo />
       <OurServices />
       <CourseOverview />
@@ -32,20 +31,23 @@ export default function Home() {
       <FAQ />
       {/* video, more than just learning our services, improve yourself (section overview), our member experience (über uns) */}
       {/* FAQ kommen +50 Fragen Faq, ausklappbar machen? */}
-      {/* Unter jedem Section title für Theroy und Praktisch, ein kleiner info text zu wie viel Zeitaufwand die Quest/section beansprucht */}
-      {/* Quest container bekommt background und unten den Videos dann der mint buttong */}
       {/* Popup from Videos also into Section overview to each quest */}
+
+
+      {/* RESPONSIVE MACHEN  */}
+      {/* LINKS (href) FEHLEN: FOOTER, NEWSLETTER, PODCAST, SUBSCRIBE ... */}
+
+
+      {/* Bild für SectionOverview */}
+      {/* Bild für unsere Service Component  */}
       {/* Eth brand assets auf die landing page so wie im Eth section, als hintergrund */}
-      
-      {/* 
-          - Our Services 1.TeachMe Section overview scroll to the sections futher down 2. Podcast with CTA 3. Newsletters with CTA
-          - Landingpage Video
-          - TeachMe Section => BTC Section ETH Section DOT Section
-          - Podcast 
-          - Newsletter
-          - Our Team
-          - FAQ
-        */}
+      {/* Zeitaufwand zu den Quest titles */}
+      {/* DOT Theory teil fehlt */}
+      {/* DOT quests important links fehlen */}
+      {/* In LessonBurgerMenu: scrollable machen  */}
+
+
+
     </div>
   )
 }

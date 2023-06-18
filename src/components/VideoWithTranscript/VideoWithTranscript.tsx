@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { Lesson, Transcript, Links } from '@/data/generalLessons';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { Input, useToast } from '@chakra-ui/react';
-// import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
+import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
-  // const [hasProgress, setProgress] = useUserProgress();
+  const [hasProgress, setProgress] = useUserProgress();
   // const [handleMint] = useMintNFT('eth-1');
   // const balance = useBalance('eth-1', 'nft');
   const [showPopup, setShowPopup] = useState(false);
@@ -31,10 +31,10 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
     };
   }, []);
 
-  // const setUserProgress = () => {
-  //   // Update the progress using setProgress
-  //   setProgress(currentLesson.lessonId, 'check');
-  // };
+  const setUserProgress = () => {
+    // Update the progress using setProgress
+    setProgress(currentLesson.id, 'check');
+  };
 
 
   // const mintProgressNFT = async () => {
@@ -44,10 +44,10 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
   //   return hash;
   // };
 
-  // const userHasProgress = () => {
+  const userHasProgress = () => {
 
-  //   return hasProgress(currentLesson.lessonId);
-  // }
+    return hasProgress(currentLesson.id);
+  }
 
   return (
     <section className='w-full ' >
@@ -59,7 +59,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             width="100%"
             url={currentLesson.youtubeUrl}
             controls={true}
-            // onEnded={() => setUserProgress()}
+            onEnded={() => setUserProgress()}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
