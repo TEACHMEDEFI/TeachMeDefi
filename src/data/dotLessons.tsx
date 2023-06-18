@@ -11,6 +11,6 @@ import { dotQuests } from "./dot/index";
 const spreadDotQuestsArray = dotQuests.reduce((lessonsArray: Lesson[], quest) => [...lessonsArray, ...quest.lessons], []);
 export const dotLessons: Lesson[] = [
   ...generalLessons[0].lessons,
-  
+  //theroy fehlt noch
   ...spreadDotQuestsArray
 ]

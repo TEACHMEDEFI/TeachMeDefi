@@ -1,11 +1,41 @@
 
-import { GeneralButton } from "@/components/Buttons/Buttons"
-import Image from "next/image"
+import { GeneralButton } from "@/components/Buttons/Buttons";
+import Image from "next/image";
+import Link from "next/link";
+import { courseSections } from "@/data/coursesOverviewLinks";
 
 export default function CourseOverview() {
   return (
     <section id='courses' className='py-44 flex flex-col items-center' >
-      <div className='z-10'>
+
+      <div className="bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]
+      from-blue-200 via-purple-200 to-pink-200
+       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+        rounded-3xl relative text-bgDarkGray flex items-center"
+      >
+        <div className="mx-20 mb-20 mt-96" >
+          <h2 className="text-4xl font-bold mb-6" >improve yourself to <br /> prepare for the better future.</h2>
+          <p className="tracking-wider w-[500px] mb-5" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae, ab quisquam. Ad eveniet autem quae, obcaecati molestias error vitae beatae sunt, minima labore ab. Maxime inventore corrupti laboriosam porro beatae?</p>
+          <div className="flex" >
+            {courseSections && courseSections.map((course, i) => (
+              <div key={course.title} className="flex" >
+                <Link href={course.href} className="font-bold text-xl" >{course.title}</Link>
+                {courseSections.length > i + 1 && <div className="mx-3 font-bold text-xl">|</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-[550px] h-[550px]">
+
+        </div>
+        <div className="absolute right-12 bottom-0 w-[500px] h-[750px]">
+          <Image src={"/home/woman-with-folder.png"} fill alt="studying" />
+        </div>
+      </div>
+
+
+
+      {/* <div className='z-10'>
         <h3 className='text-4xl font-bold mb-14' >Was wir bieten ...</h3>
         <div className='flex flex-wrap gap-32' >
           <div className=' bg-slate-100 dark:bg-gray-800 rounded-2xl p-5 space-y-5 flex flex-col justify-between ' >
@@ -14,7 +44,7 @@ export default function CourseOverview() {
                 <Image
                   src={"/home/bitcoin-section-thumbnail.png"}
                   fill
-                  loading='lazy' 
+                  loading='lazy'
                   className='object-cover rounded-xl'
                   alt='Find out more about Bitcoin quests on TeachMeDefi'
                 />
@@ -38,7 +68,7 @@ export default function CourseOverview() {
                 <Image
                   src={"/home/ethereum-section-thumbnail.png"}
                   fill
-                  loading='lazy' 
+                  loading='lazy'
                   className='object-cover rounded-xl'
                   alt='Find out more about Etherum quests on TeachMeDefi'
                 />
@@ -64,7 +94,7 @@ export default function CourseOverview() {
                 <Image
                   src={"/home/polkadot-section-thumbnail.png"}
                   fill
-                  loading='lazy' 
+                  loading='lazy'
                   className='object-cover rounded-xl'
                   alt='Find out more about Polkadot quest on TeachMeDefi'
                 />
@@ -85,7 +115,7 @@ export default function CourseOverview() {
             </GeneralButton>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

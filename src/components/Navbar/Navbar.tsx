@@ -68,7 +68,7 @@ export default function Navbar() {
           >
             <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              <Link href={"/btc"} className="rainbow-text" >BTC Section</Link>
+              {/* <Link href={"/btc"} className="rainbow-text" >BTC Section</Link> */}
               <Link href={"/eth"} className="rainbow-text" >ETH Section</Link>
               <Link href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>

@@ -22,8 +22,8 @@ export default function Home() {
     
       <HeroSection />
       {/* OurService erstmal ausgeblendet, weil doppelt gemoppelt */}
-      {/* <OurServices /> */}
       <LandingVideo />
+      <OurServices />
       <CourseOverview />
       {/* Course videos Bilder = thumbnails von rustam jan und sohel  */}
       <Podcast />

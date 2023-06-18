@@ -84,7 +84,7 @@ export const questSicherheit: Lesson[] = [
   {
     id: "eth-28",
     title: 'Sicherheit - Multisig Wallet einrichten',
-    slug: 'multisig-wllet-einrichten',
+    slug: 'multisig-wallet-einrichten',
     youtubeUrl: 'https://www.youtube.com/watch?v=MtZULB6a60k',
     youtubeThumbnail: "https://img.youtube.com/vi/MtZULB6a60k/hqdefault.jpg",
     importantLinks: [
