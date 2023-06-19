@@ -134,7 +134,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
                   </div>
                 }
 
-                {showPopup[quest.id] ? <QuestClaimModal questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
+                {showPopup && showPopup[quest.id] ? <QuestClaimModal questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
 
               </div>
             ))}

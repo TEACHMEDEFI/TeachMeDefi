@@ -9,7 +9,7 @@ import { Lesson } from "../generalLessons";
 
 export const quest2: Lesson[] = [
   {
-    id: "dot-21",
+    id: "dot-11",
     title: '2.1 DOT kaufen',
     slug: 'dot-kaufen',
     youtubeUrl: 'https://youtu.be/2PsLjRfAJbQ',
@@ -92,7 +92,7 @@ export const quest2: Lesson[] = [
     ]
   },
   {
-    id: "dot-22",
+    id: "dot-12",
     title: '2.2 DOT senden',
     slug: 'dot-senden',
     youtubeUrl: 'https://youtu.be/JggH_V_bsfQ',
@@ -194,7 +194,7 @@ export const quest2: Lesson[] = [
     ]
   },
   {
-    id: "dot-22",
+    id: "dot-13",
     title: '2.3 Block Explorer nutzen',
     slug: 'block-explorer-nutzen',
     youtubeUrl: 'https://youtu.be/xn3c4k1YdB8',
