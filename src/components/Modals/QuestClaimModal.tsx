@@ -89,7 +89,6 @@ export default function QuestClaimModal({questSectionId, togglePopup} : QuestCla
 
     }, [nftMinted])
 
-
       const mintProgressNFT = async () => {
         console.log('Starting to Mint for lesson:', questSectionId)
         try {
@@ -97,23 +96,21 @@ export default function QuestClaimModal({questSectionId, togglePopup} : QuestCla
             const contract = new Contract(contractAddress, QuestABI.abi, library.getSigner());
     
             await contract.mint();
-
             setShowSpinner(true);
 
             let once = true;
-
-                contract.on('Transfer', (from, to) => {
-                    console.log(from, to)
-                    
-                        setShowSpinner(false);
-                        setNftMinted(true)
-                        once = false;
-                    // }
-                })
-            } catch (error) {
+            contract.on('Transfer', (from, to) => {
+                console.log(from, to)
+                
+                    setShowSpinner(false);
+                    setNftMinted(true)
+                    once = false;
+                // }
+            })
+        } catch (error) {
             console.error(error);
-            }
-        };
+        }
+    };
 
 
     console.log(nftMintable)
