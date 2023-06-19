@@ -36,7 +36,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
     useEffect(() => {
 
-        setup()
+        const nodeURL = questSectionId === 'dot-quest-6' ? 'https://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
+        setup(nodeURL)
 
     }, [nftMinted, showSpinner])
 
@@ -56,11 +57,12 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
     }, [api, selectedPolkaAccount])
 
-    const setup = async () => {
+    const setup = async (nodeURL: string) => {
         // Connect to polka relay chain
         // The ULREndpoints differ from Chain to chain!
         // Provider will depend on the task
-        const wsProvider = new WsProvider('wss://rpc.polkadot.io')
+        const wsProvider = new WsProvider(nodeURL)
+
 
         const api = await ApiPromise.create({provider: wsProvider})
 
