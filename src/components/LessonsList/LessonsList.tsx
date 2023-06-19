@@ -46,10 +46,6 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
       setImagePath(firstQuestId, 'top',  'top-slot')
     }
 
-    // if (isQuestSection) {
-    //   console.log(lessonsArray)
-    // }
-
     // Set Lessons Progress bar Color
     lessonsArray.forEach((quests: Quests, i) => {
       const bottomSlotId = quests.lessons[quests.lessons.length - 1].id;
@@ -57,7 +53,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
       const topSlotAlias = `top-slot-${quests.questSectionId}`
       const bottomSlotAlias = isQuestSection ? `bottom-slot-${quests.questSectionId}` : 'bottom-slot'
       if (isQuestSection) {
-        setImagePath(quests.lessons[0].id, 'top', topSlotAlias)
+        setImagePath(topSlotId, 'top', topSlotAlias)
       }
       setImagePath(bottomSlotId, 'bot', bottomSlotAlias)
       
