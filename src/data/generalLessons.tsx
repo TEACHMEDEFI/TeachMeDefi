@@ -40,6 +40,7 @@ export type Quests = {
 export const generalLessons: Quests[] = [
   {
     questTitle: "Was ist eine Blockchain",
+    questSectionId: 'general-1',
     lessons: [
       {
         id: "general-1",
