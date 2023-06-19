@@ -1,9 +1,8 @@
 
 import Image from 'next/image'
-import { dotLessons } from '@/data/dotLessons'
 import { generalLessons } from '@/data/generalLessons'
 import { dotQuests } from '@/data/dot'
-import LessonsOverview from '@/components/LessonsOverview/LessonsOverview'
+import { dotTheory } from '@/data/dot/dotTheory'
 import LessonsList from '@/components/LessonsList/LessonsList'
 
 
@@ -40,7 +39,7 @@ export default function index() {
       </section>
       <section className=' w-full flex flex-col items-center justify-center relative z-50' >
         <LessonsList chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
-        {/* <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theroy Section"} /> */}
+        <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theroy Section"} isTheorySection />
         <LessonsList chain={"dot"} lessonsArray={dotQuests} title={"Quest section"} isQuestSection />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
