@@ -57,12 +57,10 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
       
       // Set Progress for all mid slots
       quests.lessons.forEach((quest: Lesson) => {
-        
         const questId = quest.id;
         setImagePath(questId, 'mid', 'none');
 
         setShowPopup({questId: false})
-        
       }) 
     });
 

@@ -18,7 +18,6 @@ type QuestNftContractAddresses = {
 type QuestClaimModalProps = {
     questSectionId: string;
     togglePopup: Function
-        
 }
 
 const QuestNftContractAddresses: QuestNftContractAddresses = {
@@ -34,12 +33,13 @@ const QuestNftContractAddresses: QuestNftContractAddresses = {
     "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
     "dot-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
     "dot-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  };
+    "dot-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string
+};
 
 const checkQuestsForCompleteView = (questSectionId: string, hasProgress: Function): boolean => {
     let userHasAllProgress = true;
-    const sectionQuest = ethQuests.filter((quest) => {
+    let dataArray = questSectionId.indexOf('eth') > -1 ? ethQuests : dotQuests
+    const sectionQuest = dataArray.filter((quest) => {
         return quest.questSectionId === questSectionId;
     })
 
@@ -52,7 +52,6 @@ const checkQuestsForCompleteView = (questSectionId: string, hasProgress: Functio
     })
 
     return userHasAllProgress;
-
 }
 
 
@@ -100,12 +99,9 @@ export default function QuestClaimModal({questSectionId, togglePopup} : QuestCla
 
             let once = true;
             contract.on('Transfer', (from, to) => {
-                console.log(from, to)
-                
-                    setShowSpinner(false);
-                    setNftMinted(true)
-                    once = false;
-                // }
+                setShowSpinner(false);
+                setNftMinted(true)
+                once = false;
             })
         } catch (error) {
             console.error(error);
