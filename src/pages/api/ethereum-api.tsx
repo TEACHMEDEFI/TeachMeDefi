@@ -45,9 +45,9 @@ type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresse
 /*
 * Check if a user holds a certain coin or NFT
 */
-export const useBalance = (token: Token, tokenType: string): number | null => {
+export const useBalance = (token: Token, tokenType: string): number => {
   const { account, library } = useWeb3React();
-  const [balance, setBalance] = useState<string | null>(null);
+  const [balance, setBalance] = useState<number>(null);
 
   useEffect(() => {
     if (!account || !library || !token) return;

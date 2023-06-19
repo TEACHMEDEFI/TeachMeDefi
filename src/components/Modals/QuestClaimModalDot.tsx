@@ -5,8 +5,8 @@ import BN from 'bn.js';
 import { Spinner } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { QuestNftContractAddresses, useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
-import { useBalance, useUserProgress } from '../../pages/api/ethereum-api'
+import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
+import { useBalance } from '../../pages/api/ethereum-api'
 
 
 type QuestClaimModalProps = {

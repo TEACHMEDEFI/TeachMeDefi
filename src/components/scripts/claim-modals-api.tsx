@@ -1,5 +1,3 @@
-import { Spinner } from '@chakra-ui/react'
-import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useWeb3React } from '@web3-react/core';
 import { useEffect, useState } from 'react'
 const { Contract } = require('ethers')

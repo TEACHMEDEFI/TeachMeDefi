@@ -1,9 +1,8 @@
 import { Spinner } from '@chakra-ui/react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useWeb3React } from '@web3-react/core';
-import { useEffect, useState } from 'react'
-import { useBalance, useUserProgress } from '../../pages/api/ethereum-api'
-import { QuestNftContractAddresses, useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
+import { useEffect } from 'react'
+import { useBalance } from '../../pages/api/ethereum-api'
+import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
 
 type QuestClaimModalProps = {
     questSectionId: string;
