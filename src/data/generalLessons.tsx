@@ -29,7 +29,7 @@ export type Links = {
 export type Quests = {
   questTitle: string;
   lessons: Lesson[];
-  questSectionId: string;
+  questSectionId: string
 }
 
 // https://img.youtube.com/vi/<insert-youtube-video-id-here>/hqdefault.jpg   <--- Youtubes URL build for thumnails

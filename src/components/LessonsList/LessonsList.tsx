@@ -46,17 +46,20 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
       setImagePath(firstQuestId, 'top',  'top-slot')
     }
 
+    // if (isQuestSection) {
+    //   console.log(lessonsArray)
+    // }
+
     // Set Lessons Progress bar Color
     lessonsArray.forEach((quests: Quests, i) => {
       const bottomSlotId = quests.lessons[quests.lessons.length - 1].id;
       const topSlotId = quests.lessons[0].id
-      const topSlotAlias = 'top-slot'
+      const topSlotAlias = `top-slot-${quests.questSectionId}`
+      const bottomSlotAlias = isQuestSection ? `bottom-slot-${quests.questSectionId}` : 'bottom-slot'
       if (isQuestSection) {
         setImagePath(quests.lessons[0].id, 'top', topSlotAlias)
-
-        console.log('Setting the special slot', topSlotId, topSlotAlias )
       }
-      setImagePath(bottomSlotId, 'bot', 'bottom-slot')
+      setImagePath(bottomSlotId, 'bot', bottomSlotAlias)
       
       // Set Progress for all mid slots
       quests.lessons.forEach((quest: Lesson) => {
@@ -94,6 +97,8 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
     setShowPopup(show)
   }
 
+  // console.log(imagePaths)
+
 
   if (!imagePaths) {
     return ( <></>)
@@ -107,7 +112,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
           <div className='w-full border-t-4 h-full  items-center pl-5'>
 
             <div className='font-bold flex items-center'>
-              <Image src={imagePaths['top-slot']} width={30} height={30} alt='progress bar' />
+              <Image src={imagePaths[isQuestSection ? `top-slot-${quests.questSectionId}` : 'top-slot']} width={30} height={30} alt='progress bar' />
               <h3 className='pl-5' >{quests.questTitle} {quests.questSectionId}</h3>
             </div>
 
@@ -124,7 +129,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
 
                 {quests.lessons.length === i + 1 &&
                   <div className='flex items-center border-t ' >
-                    <Image src={imagePaths['bottom-slot']} width={30} height={30} alt='progress bar' />
+                    <Image src={imagePaths[isQuestSection ? `bottom-slot-${quests.questSectionId}` : 'bottom-slot']} width={30} height={30} alt='progress bar' />
                     {isQuestSection ?
                       <ClaimRewardButton onClick={() => togglePopup(quest.id)} customClassWrapper='ml-5 my-2' >Claim</ClaimRewardButton>
                       :
