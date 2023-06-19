@@ -71,8 +71,17 @@ export const useBalance = (token: Token, tokenType: string): number => {
 
         console.log('token address is', tokenAddress)
         console.log('token is', token)
+        console.log('Account is', account)
+        console.log('Chain is', chainIdPerQuest[token])
+        const abiUrl = `https://api.etherscan.io/api?module=contract&action=getabi&address=${tokenAddress}&apiKey=${process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY}`;
+        const abiResponse = await fetch(abiUrl);
+        
+        const abiJson = await abiResponse.json();
+        console.log('ABI IS', abiJson)
+        const abi = JSON.parse(abiJson.result);
+        
         const infuraProvider = new ethers.providers.InfuraProvider(chainIdPerQuest[token], process.env.NEXT_PUBLIC_INFURA_API_KEY as string );
-        const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], infuraProvider);
+        const tokenContract = new ethers.Contract(tokenAddress, abi, infuraProvider);
         let balance = await tokenContract.balanceOf(account);
         balance = ethers.BigNumber.from(balance._hex).toNumber()
         setBalance(balance);
