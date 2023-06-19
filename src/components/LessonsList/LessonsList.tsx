@@ -6,7 +6,18 @@ import { Lesson } from '@/data/generalLessons'
 import { Quests } from '@/data/generalLessons'
 import { ClaimRewardButton } from '../Buttons/Buttons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
-import QuestClaimModal from '../Modals/QuestClaimModal'
+import dynamic from "next/dynamic";
+import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
+
+
+const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModal'), {
+  ssr: false,
+});
+
+const QuestClaimModalDot = dynamic(() => import('../Modals/QuestClaimModalDot'), {
+  ssr: false,
+});
+
 
 
 type LessonsListProps = {
@@ -33,7 +44,13 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
   const [hasProgress] = useUserProgress();
   const [imagePaths, setImagePaths] = useState<ImageSourceObject>()
   const [showPopup, setShowPopup] = useState<QuestModalShow>();
+  const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
   const imageSourceObject: ImageSourceObject = {}
+
+
+  const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
+    setSelectedAccount(account)
+  }
 
 
 
@@ -84,7 +101,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
 
   useEffect(() => {
 
-  }, [showPopup])
+  }, [showPopup, selectedAccount])
 
 
   const togglePopup = (questId: string) => {
@@ -134,7 +151,10 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
                   </div>
                 }
 
-                {showPopup && showPopup[quest.id] ? <QuestClaimModal questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
+                {showPopup && showPopup[quest.id] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
+
+                {showPopup && showPopup[quest.id] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
+                selectedAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : <p></p>}
 
               </div>
             ))}
