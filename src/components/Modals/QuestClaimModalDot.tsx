@@ -14,7 +14,7 @@ type QuestClaimModalProps = {
     questSectionId: string;
     togglePopup: Function;
     setSelectedPolkaAccount: Function,
-    selectedPolkaAccount: InjectedAccountWithMeta;
+    selectedPolkaAccount: InjectedAccountWithMeta | undefined;
 }
 
 
@@ -26,7 +26,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const nftBalance = useBalance(questSectionId, 'nft');
     const [api, setApi] = useState<ApiPromise>();
     const [balances, setBalances] = useState<BN>();
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, selectedPolkaAccount);
+    const hasSelectedAccount = selectedPolkaAccount ? true : false
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
 
     // Add the mintableConditions for polkdadot as nex step
     // wss://rpc.polkadot.io > polkadot
@@ -44,10 +45,11 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
         (async() => {
             // Queries
+            // @ts-ignore: Unreachable code error
             const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
             const now = await api.query.timestamp.now();
 
-            setBalances(balance.free);
+            setBalances(new BN(balance.free));
 
             console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
         })()

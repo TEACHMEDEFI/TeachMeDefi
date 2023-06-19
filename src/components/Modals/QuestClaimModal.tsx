@@ -3,6 +3,7 @@ import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useEffect, useState } from 'react'
 import { useBalance } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
+import { BN } from 'bn.js';
 
 type QuestClaimModalProps = {
     questSectionId: string;
@@ -12,7 +13,7 @@ type QuestClaimModalProps = {
 const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps) => {
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useBalance(questSectionId, 'nft');
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', null, false);
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
 
     useEffect(() => {
 

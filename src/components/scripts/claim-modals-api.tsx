@@ -48,7 +48,7 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 }
 
 
-export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN, polkaWalletConnected: boolean): boolean => {
+export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
     let tokenBalance = useBalance(questSectionId, token);
@@ -98,7 +98,7 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
             })()
 
             let once = true;
-            contract.on('Transfer', (from, to) => { 
+            contract.on('Transfer', () => { 
                 setShowSpinner(false);
                 setNftMinted(true)
                 once = false;
