@@ -24,11 +24,44 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useBalance(questSectionId, 'nft');
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token');
+    const [api, setApi] = useState<ApiPromise>();
+    const [balances, setBalances] = useState<BN>();
 
+    // Add the mintableConditions for polkdadot as nex step
+    // wss://rpc.polkadot.io > polkadot
+    // xcDOT?
+    // GLMR?
 
     useEffect(() => {
 
+        setup()
+
     }, [nftMinted, showSpinner])
+
+    useEffect(() => {
+        if (!selectedAccount || !api) return
+
+        (async() => {
+            // Queries
+            await api.query.system.account(selectedAccount.address, ({data: {free}} : {data : {free: BN}}) => {
+                setBalances(free)
+            })
+        })()
+
+        // console.log(balances?.toString())
+    }, [api, selectedAccount])
+
+    const setup = async () => {
+        // Connect to a meme Chain
+        // The ULREndpoints differ from Chain to chain!
+        // Provider will depend on the task
+        const wsProvider = new WsProvider('wss://rpc.polkadot.io')
+
+        const api = await ApiPromise.create({provider: wsProvider})
+
+        setApi(api);
+
+    }
 
     const handleConnection = async () => {
         if (typeof window !== 'undefined') {

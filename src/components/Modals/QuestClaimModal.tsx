@@ -1,6 +1,6 @@
 import { Spinner } from '@chakra-ui/react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useBalance } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
 
@@ -10,7 +10,6 @@ type QuestClaimModalProps = {
 }
 
 const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps) => {
-
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useBalance(questSectionId, 'nft');
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token');
@@ -27,6 +26,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
             console.log(e)
         }
     }
+
 
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
