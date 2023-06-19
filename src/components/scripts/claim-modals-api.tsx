@@ -2,6 +2,8 @@ import { useWeb3React } from '@web3-react/core';
 import { useEffect, useState } from 'react'
 const { Contract } = require('ethers')
 import { useBalance, useUserProgress } from '../../pages/api/ethereum-api'
+import { ethQuests } from '@/data/eth';
+import { dotQuests } from '@/data/dot';
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
