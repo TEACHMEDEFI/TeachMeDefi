@@ -5,7 +5,8 @@ import BN from 'bn.js';
 import { Spinner } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { QuestNftContractAddresses, useIsProgressNftMintable } from '../scripts/claim-modals-api'
+import { QuestNftContractAddresses, useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
+import { useBalance, useUserProgress } from '../../pages/api/ethereum-api'
 
 
 type QuestClaimModalProps = {
@@ -20,6 +21,9 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     // const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>();
     // const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
     const NAME = "GMorDie"
+    const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
+    const nftBalance = useBalance(questSectionId, 'nft');
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token');
 
     const handleConnection = async () => {
         if (typeof window !== 'undefined') {
@@ -43,8 +47,12 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
        
     }
 
-    const mintProgressNFT = () => {
-
+    const handleMint = () => {
+        try {
+            mintNft(questSectionId);
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     return (
@@ -54,9 +62,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 (<><PrimaryButton onClick={handleConnection}>Bitte Clicke hier um deine Polka Wallet zu verbinden</PrimaryButton></>) : 
                 (<>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedAccount.address}</>)}
 
-                <PrimaryButton onClick={() => mintProgressNFT()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
-
-
+                <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
             
                 <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
             

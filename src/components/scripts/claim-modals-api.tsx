@@ -91,7 +91,7 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
             })()
 
             let once = true;
-            contract.on('Transfer', (from, to) => {
+            contract.on('Transfer', (from, to) => { 
                 setShowSpinner(false);
                 setNftMinted(true)
                 once = false;
