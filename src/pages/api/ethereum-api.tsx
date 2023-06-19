@@ -11,9 +11,8 @@ type TokenAddresses = {
 
 const TokenAddresses: TokenAddresses = {
   "eth-quest-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH as string, //Sepolia Eth
-  "eth-quest-3": process.env.NEXT_PUBLIC_GOERLI_ETH as string, // Goerli Eth
-  "eth-quest-5": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbi Eth
-  "dot-quest-2": process.env.NEXT_PUBLIC_DOT as string, // Dot
+  "eth-quest-3": process.env.NEXT_PUBLIC_WETH as string, // WETH
+  "eth-quest-4": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbitrum Eth
   "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
 };
 
@@ -41,13 +40,24 @@ const QuestNftContractAddresses: QuestNftContractAddresses = {
 
 type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
 
+type ChainIdPerQuest = {
+  [key: string]: string
+}
+
+const chainIdPerQuest: ChainIdPerQuest = {
+  "eth-quest-2": 'sepolia', //Sepolia Eth
+  "eth-quest-3": 'homestead', // WETH
+  "eth-quest-4": 'arbitrum', // Arbitrum
+  "dot-quest-5": 'homestead', // xcDot
+}
+
 
 /*
 * Check if a user holds a certain coin or NFT
 */
 export const useBalance = (token: Token, tokenType: string): number => {
   const { account, library } = useWeb3React();
-  const [balance, setBalance] = useState<number>(null);
+  const [balance, setBalance] = useState<number>(0);
 
   useEffect(() => {
     if (!account || !library || !token) return;
@@ -57,9 +67,12 @@ export const useBalance = (token: Token, tokenType: string): number => {
       try {
         const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: TokenAddresses[token]
 
+        if (!tokenAddress) return;
+
         console.log('token address is', tokenAddress)
         console.log('token is', token)
-        const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], library);
+        const infuraProvider = new ethers.providers.InfuraProvider(chainIdPerQuest[token], process.env.NEXT_PUBLIC_INFURA_API_KEY as string );
+        const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], infuraProvider);
         let balance = await tokenContract.balanceOf(account);
         balance = ethers.BigNumber.from(balance._hex).toNumber()
         setBalance(balance);

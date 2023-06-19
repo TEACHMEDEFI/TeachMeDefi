@@ -7,25 +7,26 @@ import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
 import { useBalance } from '../../pages/api/ethereum-api'
+import Image from 'next/image'
 
 
 type QuestClaimModalProps = {
     questSectionId: string;
     togglePopup: Function;
     setSelectedPolkaAccount: Function,
-    selectedAccount: InjectedAccountWithMeta;
+    selectedPolkaAccount: InjectedAccountWithMeta;
 }
 
 
-const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccount, selectedAccount} : QuestClaimModalProps) => {
+const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccount, selectedPolkaAccount} : QuestClaimModalProps) => {
     // const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>();
     // const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
     const NAME = "Peter"
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useBalance(questSectionId, 'nft');
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token');
     const [api, setApi] = useState<ApiPromise>();
     const [balances, setBalances] = useState<BN>();
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, selectedPolkaAccount);
 
     // Add the mintableConditions for polkdadot as nex step
     // wss://rpc.polkadot.io > polkadot
@@ -39,20 +40,22 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     }, [nftMinted, showSpinner])
 
     useEffect(() => {
-        if (!selectedAccount || !api) return
+        if (!selectedPolkaAccount || !api) return
 
         (async() => {
             // Queries
-            await api.query.system.account(selectedAccount.address, ({data: {free}} : {data : {free: BN}}) => {
-                setBalances(free)
-            })
+            const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
+            const now = await api.query.timestamp.now();
+
+            setBalances(balance.free);
+
+            console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
         })()
 
-        console.log('Dot balances are', balances)
-    }, [api, selectedAccount])
+    }, [api, selectedPolkaAccount])
 
     const setup = async () => {
-        // Connect to a meme Chain
+        // Connect to polka relay chain
         // The ULREndpoints differ from Chain to chain!
         // Provider will depend on the task
         const wsProvider = new WsProvider('wss://rpc.polkadot.io')
@@ -96,9 +99,16 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-                {!selectedAccount ? 
-                (<><PrimaryButton onClick={handleConnection}>Bitte Clicke hier um deine Polka Wallet zu verbinden</PrimaryButton></>) : 
-                (<>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedAccount.address}</>)}
+                {!selectedPolkaAccount ? 
+                (<> <button
+                    type="button"
+                    className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+                    onClick={handleConnection}>
+                    <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
+                    Bitte Clicke hier um deine Polka Wallet zu verbinden
+                 </button></>) : 
+                (<>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedPolkaAccount.address}</>)}
+
 
                 {showSpinner ? (
                 <>
@@ -117,7 +127,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable ? 
                 (
                 <>
-                    <p>Claim your NFT to continue</p>
                     <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
                     <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
                 </>

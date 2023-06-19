@@ -5,7 +5,6 @@ import { useState, useEffect } from "react"
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import MetaMaskButton from "../WalletConnectButtons/MetaMaskButton"
-import TalismanButton from "../WalletConnectButtons/TalismanButton"
 import { formatAddress } from '../../utils/helpers'
 import { useTheme } from '@/context/ThemeContext';
 import { reportLinkClick } from "../scripts/tagmanager-events"

@@ -47,8 +47,7 @@ const TalismanButton = ({ toggleConnectWalletBtn }: any) => {
     <div>
       <button
         type="button"
-        className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
-        onClick={onClickConnect}>
+        className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center">
         <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
         <p>Connect <br /> Talisman</p>
       </button>

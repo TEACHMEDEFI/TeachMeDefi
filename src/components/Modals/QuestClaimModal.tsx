@@ -12,7 +12,7 @@ type QuestClaimModalProps = {
 const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps) => {
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useBalance(questSectionId, 'nft');
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token');
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', null, false);
 
     useEffect(() => {
 
@@ -49,7 +49,6 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
                 {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable ? 
                 (
                 <>
-                    <p>Claim your NFT to continue</p>
                     <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
                     <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
                 </>

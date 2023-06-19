@@ -4,6 +4,7 @@ const { Contract } = require('ethers')
 import { useBalance, useUserProgress } from '../../pages/api/ethereum-api'
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
+import BN from 'bn.js';
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
@@ -47,7 +48,7 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 }
 
 
-export const useIsProgressNftMintable = (questSectionId: string, token: string): boolean => {
+export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN, polkaWalletConnected: boolean): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
     let tokenBalance = useBalance(questSectionId, token);
@@ -58,11 +59,18 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string):
     if (questSectionId === 'eth-quest-1') {
         console.log(account)
         mintable = account ? true : false
-    } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6') {
+    } else if (questSectionId === 'dot-quest-1') {
+        mintable = polkaWalletConnected ? true : false
+    } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6' || questSectionId == 'dot-quest-3' || questSectionId == 'dot-quest-5') {
         mintable = checkQuestsForCompleteView(questSectionId, hasProgress)
+    } else if (questSectionId == 'dot-quest-2') {
+        mintable = balances ? true : false;
     } else {
         mintable = tokenBalance > 0;
     }
+
+
+    console.log('Quest NFT is mintable', mintable)
 
     return mintable;
 }
