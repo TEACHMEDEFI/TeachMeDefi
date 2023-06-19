@@ -17,7 +17,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
 
     useEffect(() => {
 
-    }, [nftMinted, showSpinner])
+    }, [nftMinted, showSpinner, nftMintable, nftBalance])
 
 
     const handleMint = () => {

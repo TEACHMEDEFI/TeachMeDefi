@@ -52,7 +52,6 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string):
     tokenBalance = !tokenBalance ? 0 : tokenBalance;
     let mintable = false;
 
-    console.log('Section Id', questSectionId)
 
     if (questSectionId === 'eth-quest-1') {
         console.log(account)
