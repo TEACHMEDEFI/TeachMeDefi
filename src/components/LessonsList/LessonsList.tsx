@@ -49,9 +49,12 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
     // Set Lessons Progress bar Color
     lessonsArray.forEach((quests: Quests, i) => {
       const bottomSlotId = quests.lessons[quests.lessons.length - 1].id;
+      const topSlotId = quests.lessons[0].id
+      const topSlotAlias = 'top-slot'
       if (isQuestSection) {
-        // console.log(hasProgress(quests.lessons[0].id))
-        setImagePath(quests.lessons[0].id, 'top', 'top-slot')
+        setImagePath(quests.lessons[0].id, 'top', topSlotAlias)
+
+        console.log('Setting the special slot', topSlotId, topSlotAlias )
       }
       setImagePath(bottomSlotId, 'bot', 'bottom-slot')
       
@@ -95,8 +98,6 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
   if (!imagePaths) {
     return ( <></>)
   }
-
-
 
   return (
     <div className='relative dark:border-bgDarkGray p-3 w-full max-w-4xl backdrop-blur-lg rounded-lg'>
