@@ -42,4 +42,29 @@ export const faqData: FaqData[] = [
     question: "This is question 7",
     answer: "THIS is answer 7",
   },
+  {
+    id: "faq-8",
+    question: "This is question 8",
+    answer: "THIS is answer 8",
+  },
+  {
+    id: "faq-9",
+    question: "This is question 9",
+    answer: "THIS is answer 9",
+  },
+  {
+    id: "faq-10",
+    question: "This is question 10",
+    answer: "THIS is answer 10",
+  },
+  {
+    id: "faq-11",
+    question: "This is question 11",
+    answer: "THIS is answer 11",
+  },
+  {
+    id: "faq-12",
+    question: "This is question 12",
+    answer: "THIS is answer 12",
+  },
 ]

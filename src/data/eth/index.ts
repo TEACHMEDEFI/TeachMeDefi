@@ -12,30 +12,37 @@ import { questSicherheit } from "./quest-sicherheit";
 export const ethQuests: Quests[] = [
   {
     questTitle: "Quest Title 1",
+    questSectionId: "eth-quest-1",
     lessons: [...quest1]
   },
   {
     questTitle: "Quest Title 2",
+    questSectionId: "eth-quest-2",
     lessons: [...quest2]
   },
   {
     questTitle: "Quest Title 3",
+    questSectionId: "eth-quest-3",
     lessons: [...quest3]
   },
   {
     questTitle: "Quest Title 4",
+    questSectionId: "eth-quest-4",
     lessons: [...quest4]
   },
   {
     questTitle: "Quest Title 5",
+    questSectionId: "eth-quest-5",
     lessons: [...quest5]
   },
   {
     questTitle: "Quest Title 6",
+    questSectionId: "eth-quest-6",
     lessons: [...quest6]
   },
   {
     questTitle: "Quest Sicherheit",
+    questSectionId: "eth-quest-7",
     lessons: [...questSicherheit]
   },
 ]

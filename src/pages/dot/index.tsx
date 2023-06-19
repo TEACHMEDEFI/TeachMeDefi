@@ -39,7 +39,7 @@ export default function index() {
         <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' />
       </section>
       <section className=' w-full flex flex-col items-center justify-center relative z-50' >
-        <LessonsList chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} />
+        <LessonsList chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
         {/* <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theroy Section"} /> */}
         <LessonsList chain={"dot"} lessonsArray={dotQuests} title={"Quest section"} isQuestSection />
       </section>

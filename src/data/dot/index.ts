@@ -9,22 +9,27 @@ import { quest5 } from "./quest-5";
 export const dotQuests:Quests[] = [
   {
     questTitle: "Quest Title 1",
+    questSectionId: "dot-quest-1",
     lessons: [...quest1]
   },
   {
     questTitle: "Quest Title 2",
+    questSectionId: "dot-quest-2",
     lessons: [...quest2]
   },
   {
     questTitle: "Quest Title 3",
+    questSectionId: "dot-quest-3",
     lessons: [...quest3]
   },
   {
     questTitle: "Quest Title 4",
+    questSectionId: "dot-quest-4",
     lessons: [...quest4]
   },
   {
     questTitle: "Quest Title 5",
+    questSectionId: "dot-quest-5",
     lessons: [...quest5]
   },
 ]

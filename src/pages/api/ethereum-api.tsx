@@ -15,21 +15,23 @@ const TokenAddresses = {
 
 // Special cases: GLMR on Moonbeam?!
 // For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
-const QuestNftContractAddresses = {
-  "eth-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-7": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-7": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string
+type QuestNftContractAddresses = {
+  [key: string]: string
+}
+
+const QuestNftContractAddresses: QuestNftContractAddresses = {
+  "eth-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "dot-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "dot-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "dot-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "dot-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "dot-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
 };
 
 type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
@@ -38,7 +40,7 @@ type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresse
 /*
 * Check if a user holds a certain coin or NFT
 */
-export const useBalance = (token: Token, tokenType: string): string | null => {
+export const useBalance = (token: Token, tokenType: string): number | null => {
   const { account, library } = useWeb3React();
   const [balance, setBalance] = useState<string | null>(null);
 
@@ -46,10 +48,20 @@ export const useBalance = (token: Token, tokenType: string): string | null => {
     if (!account || !library || !token) return;
 
     const getTokenBalance = async (): Promise<void> => {
-      const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: "TokenAddresses[token]"
-      const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], library);
-      const balance = await tokenContract.balanceOf(account);
-      setBalance(balance.toString());
+
+      try {
+        const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: "TokenAddresses[token]"
+
+        console.log('token address is', tokenAddress)
+        console.log('token is', token)
+        const tokenContract = new ethers.Contract(tokenAddress, ["function balanceOf(address) view returns (uint256)"], library);
+        let balance = await tokenContract.balanceOf(account);
+        balance = ethers.BigNumber.from(balance._hex).toNumber()
+        setBalance(balance);
+      } catch (e) {
+        console.log(e)
+      }
+     
     };
 
     getTokenBalance();

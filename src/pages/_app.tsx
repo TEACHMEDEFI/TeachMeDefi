@@ -12,6 +12,7 @@ import { TagManagerScript, TagManagerNoScript } from '@/components/TagManager/Ta
 
 // Font inports
 import { Poppins, Roboto } from 'next/font/google'
+// import {wat} from "next/font/local"
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],

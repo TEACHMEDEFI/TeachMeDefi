@@ -14,50 +14,77 @@ export default function AboutUs() {
           Dich weitergeben und Dir mit Tipps und Tricks zur Seite stehen. Wir freuen uns auf Dich!
         </p>
         <div className="flex gap-44 " >
-          <div className="flex flex-col items-center" >
-            <div className="h-64 w-44 relative mb-3" >
-              <Image
-                src={"/home/placeholder_profile_pic.jpg"}
-                className="rounded-3xl"
-                fill
-                loading='lazy' 
-                alt="Profil picture"
-              />
+          <div
+            // className="flex flex-col items-center"
+            className="bg-gradient-to-br
+      from-blue-300 via-purple-300 to-pink-300
+       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+        rounded-3xl relative text-bgDarkGray flex flex-col items-center"
+          >
+            <div className="mx-10 mt-5 w-64 text-center">
+
+              <h4 className="font-bold text-2xl" >Jan</h4>
+              <p>M.Sc. Business & Economics</p>
+              <p>Entrepreneur & Consultant</p>
+              <p>In Krypto Seit 2019</p>
+              <div className="h-64 w-44 relative mb-3" >
+                <Image
+                  src={"/home/placeholder_profile_pic.jpg"}
+                  className="rounded-3xl"
+                  fill
+                  loading='lazy'
+                  alt="Profil picture"
+                />
+              </div>
             </div>
-            <h4 className="font-bold text-2xl" >Jan</h4>
-            <p>M.Sc. Business & Economics</p>
-            <p>Entrepreneur & Consultant</p>
-            <p>In Krypto Seit 2019</p>
           </div>
-          <div className="flex flex-col items-center" >
-            <div className="h-64 w-44 relative mb-3" >
-              <Image
-                src={"/home/placeholder_profile_pic.jpg"}
-                className="rounded-3xl"
-                fill
-                loading='lazy' 
-                alt="Profil picture"
-              />
+          <div
+            // className="flex flex-col items-center"
+            className="bg-gradient-to-br
+      from-blue-300 via-purple-300 to-pink-300
+       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+        rounded-3xl relative text-bgDarkGray flex flex-col items-center"
+          >
+            <div className="mx-10 mt-5 w-64 text-center">
+
+              <h4 className="font-bold text-2xl" >Sohejl</h4>
+              <p>M.Sc. Business Administration</p>
+              <p>Entrepreneur & Consultant</p>
+              <p>In Krypto Seit 2017</p>
+              <div className="h-64 w-44 relative mb-3" >
+                <Image
+                  src={"/home/placeholder_profile_pic.jpg"}
+                  className="rounded-3xl"
+                  fill
+                  loading='lazy'
+                  alt="Profil picture"
+                />
+              </div>
             </div>
-            <h4 className="font-bold text-2xl" >Sohejl</h4>
-            <p>M.Sc. Business Administration</p>
-            <p>Entrepreneur & Consultant</p>
-            <p>In Krypto Seit 2017</p>
           </div>
-          <div className="flex flex-col items-center" >
-            <div className="h-64 w-44 relative mb-3" >
-              <Image
-                src={"/home/placeholder_profile_pic.jpg"}
-                className="rounded-3xl"
-                fill
-                loading='lazy' 
-                alt="Profil picture"
-              />
+          <div
+            // className="flex flex-col items-center"
+            className="bg-gradient-to-br
+      from-blue-300 via-purple-300 to-pink-300
+       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+        rounded-3xl relative text-bgDarkGray flex flex-col items-center"
+          >
+            <div className="mx-10 mt-5 w-64 text-center">
+
+              <h4 className="font-bold text-2xl" >Rustam</h4>
+              <p>B.Sc. Industrial Engineering</p>
+              <p>Entrepreneur & Consultant</p>
+              <p>In Krypto Seit 2017</p>
+              <div className="h-64 w-44 relative mb-3" >
+                <Image
+                  src={"/home/placeholder_profile_pic.jpg"}
+                  className="rounded-3xl"
+                  fill
+                  loading='lazy'
+                  alt="Profil picture"
+                />
+              </div>
             </div>
-            <h4 className="font-bold text-2xl" >Rustam</h4>
-            <p>B.Sc. Industrial Engineering</p>
-            <p>Entrepreneur & Consultant</p>
-            <p>In Krypto Seit 2017</p>
           </div>
         </div>
         <p className="tracking-wide leading-relaxed " >

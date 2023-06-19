@@ -1,35 +1,103 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react';
 import { Lesson } from '@/data/generalLessons'
 import { Quests } from '@/data/generalLessons'
 import { ClaimRewardButton } from '../Buttons/Buttons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
+import QuestClaimModal from '../Modals/QuestClaimModal'
+
 
 type LessonsListProps = {
   lessonsArray: Quests[];
   chain: string;
   title: string;
   isQuestSection?: boolean;
+  isGeneralSection?: boolean;
+  isTheorySection?: boolean;
 }
 
-export default function LessonsList({ chain, lessonsArray, title, isQuestSection }: LessonsListProps) {
-  const [hasProgress, setProgress] = useUserProgress();
 
-  const getImagePath = (id: string, type : string): string => {
-    let imagePath = '';
+type ImageSourceObject = {
+  [key: string]: string
+}
 
-    if (type === 'top' && !hasProgress(id)) {
-      imagePath = '/progress/top-progress-dark.svg';
-    } else if (type === 'top' && hasProgress(id)) {
-      imagePath = '/progress/mid-progress-dark.svg'
-    } else if (type === 'middle' && !hasProgress(id)) {
-      imagePath = '/progress/mid-progress-dark.svg'
+
+type QuestModalShow = {
+  [key: string]: boolean
+}
+
+
+export default function LessonsList({ chain, lessonsArray, title, isQuestSection, isGeneralSection, isTheorySection }: LessonsListProps) {
+  const [hasProgress] = useUserProgress();
+  const [imagePaths, setImagePaths] = useState<ImageSourceObject>()
+  const [showPopup, setShowPopup] = useState<QuestModalShow>();
+  const imageSourceObject: ImageSourceObject = {}
+
+
+
+  useEffect(() => {
+    // Set Start-Knob Progress bar Color
+    const firstQuestId = `${chain}-1`
+    if (isGeneralSection) {
+      setImagePath('general-1', 'top', 'top-slot')
+    } else if (isTheorySection)  {
+      setImagePath(firstQuestId, 'top',  'top-slot')
     }
 
-    return imagePath;
+    // Set Lessons Progress bar Color
+    lessonsArray.forEach((quests: Quests, i) => {
+      const bottomSlotId = quests.lessons[quests.lessons.length - 1].id;
+      if (isQuestSection) {
+        // console.log(hasProgress(quests.lessons[0].id))
+        setImagePath(quests.lessons[0].id, 'top', 'top-slot')
+      }
+      setImagePath(bottomSlotId, 'bot', 'bottom-slot')
+      
+      // Set Progress for all mid slots
+      quests.lessons.forEach((quest: Lesson) => {
+        
+        const questId = quest.id;
+        setImagePath(questId, 'mid', 'none');
 
+        setShowPopup({questId: false})
+        
+      }) 
+    });
+
+    setImagePaths(imageSourceObject);
+  }, [])
+
+
+  const setImagePath = (id: string, type : string, specialSpot: string): void => {
+    let imagePath = '';
+
+    if (!hasProgress(id)) {
+      imagePath = `/progress/${type}-progress-dark.svg`
+    } else {
+      imagePath = `/progress/${type}-progress-rainbow.svg`
+    }
+
+    imageSourceObject[specialSpot !== 'none' ? specialSpot : id] = imagePath
   }
+
+  useEffect(() => {
+
+  }, [showPopup])
+
+
+  const togglePopup = (questId: string) => {
+    const show : QuestModalShow = {};
+    show[questId] = true;
+    setShowPopup(show)
+  }
+
+
+  if (!imagePaths) {
+    return ( <></>)
+  }
+
 
 
   return (
@@ -40,31 +108,33 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
           <div className='w-full border-t-4 h-full  items-center pl-5'>
 
             <div className='font-bold flex items-center'>
-              <Image src={getImagePath(chain === 'eth' ? 'eth-1' : 'dot-1' , i)} width={30} height={30} alt='progress bar' />
+              <Image src={imagePaths['top-slot']} width={30} height={30} alt='progress bar' />
               <h3 className='pl-5' >{quests.questTitle}</h3>
             </div>
 
             {quests.lessons.map((quest: Lesson, i) => (
               <div key={quest.id} >
                 <div className='border-t flex items-center'>
-                  <Image src={"/progress/mid-progress-dark.svg"} width={30} height={30} alt='progress bar mid' />
+                  <Image src={imagePaths[quest.id]} width={30} height={30} alt='progress bar mid' />
                   <div className='pl-5 flex items-center' >
                     <Link href={`/${chain}/${quest.slug}`} >
-                      {quest.title}
+                      {quest.title} {quest.id}
                     </Link>
                   </div>
                 </div>
 
                 {quests.lessons.length === i + 1 &&
                   <div className='flex items-center border-t ' >
-                    <Image src={quest.isLastQuest ? "/progress/bot-progress-dark.svg" : "/progress/progress-line.svg"} width={30} height={30} alt='progress bar' />
+                    <Image src={imagePaths['bottom-slot']} width={30} height={30} alt='progress bar' />
                     {isQuestSection ?
-                      <ClaimRewardButton customClassWrapper='ml-5 my-2' >Claim</ClaimRewardButton>
+                      <ClaimRewardButton onClick={() => togglePopup(quest.id)} customClassWrapper='ml-5 my-2' >Claim</ClaimRewardButton>
                       :
                       <p className='ml-5 font-bold text-sm' >Du hast es geschafft</p>
                     }
                   </div>
                 }
+
+                {showPopup[quest.id] ? <QuestClaimModal questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
 
               </div>
             ))}

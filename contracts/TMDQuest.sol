@@ -15,6 +15,8 @@ contract TMDQuest is ERC721, Ownable {
     Counters.Counter public tokenIds;
 
     mapping(address => bool) private _minted;
+
+    event Mint(address to, uint256 tokenId);
     constructor(string memory _baseUri, string memory _collectionName, string memory _tokenCounter)
         ERC721(_collectionName, _tokenCounter) {
         baseURI = _baseUri;
@@ -44,6 +46,8 @@ contract TMDQuest is ERC721, Ownable {
         _mint(_msgSender(), tokenIds.current());
 
         _minted[_msgSender()] = true;
+
+        emit Mint(_msgSender(), tokenIds.current());
         
     }
 }
