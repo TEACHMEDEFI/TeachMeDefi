@@ -20,7 +20,7 @@ type QuestClaimModalProps = {
 const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccount, selectedAccount} : QuestClaimModalProps) => {
     // const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>();
     // const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
-    const NAME = "GMorDie"
+    const NAME = "Peter"
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useBalance(questSectionId, 'nft');
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token');
@@ -48,7 +48,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
             })
         })()
 
-        // console.log(balances?.toString())
+        console.log('Dot balances are', balances)
     }, [api, selectedAccount])
 
     const setup = async () => {
