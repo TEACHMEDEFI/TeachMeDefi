@@ -5,12 +5,16 @@ import { useState, useEffect } from 'react';
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
 
-const TokenAddresses = {
-  "eth-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH as string, //Sepolia Eth
-  "eth-3": process.env.NEXT_PUBLIC_GOERLI_ETH as string, // Goerli Eth
-  "eth-5": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbi Eth
-  "dot-2": process.env.NEXT_PUBLIC_DOT as string, // Dot
-  "dot-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
+type TokenAddresses = {
+  [key: string]: string
+}
+
+const TokenAddresses: TokenAddresses = {
+  "eth-quest-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH as string, //Sepolia Eth
+  "eth-quest-3": process.env.NEXT_PUBLIC_GOERLI_ETH as string, // Goerli Eth
+  "eth-quest-5": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbi Eth
+  "dot-quest-2": process.env.NEXT_PUBLIC_DOT as string, // Dot
+  "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
 };
 
 // Special cases: GLMR on Moonbeam?!
@@ -26,6 +30,7 @@ const QuestNftContractAddresses: QuestNftContractAddresses = {
   "eth-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
   "eth-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
   "eth-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-7": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
   "dot-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
   "dot-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
   "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
@@ -50,7 +55,7 @@ export const useBalance = (token: Token, tokenType: string): number | null => {
     const getTokenBalance = async (): Promise<void> => {
 
       try {
-        const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: "TokenAddresses[token]"
+        const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: TokenAddresses[token]
 
         console.log('token address is', tokenAddress)
         console.log('token is', token)
@@ -60,6 +65,7 @@ export const useBalance = (token: Token, tokenType: string): number | null => {
         setBalance(balance);
       } catch (e) {
         console.log(e)
+        setBalance(0);
       }
      
     };

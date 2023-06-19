@@ -109,7 +109,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
 
             <div className='font-bold flex items-center'>
               <Image src={imagePaths['top-slot']} width={30} height={30} alt='progress bar' />
-              <h3 className='pl-5' >{quests.questTitle}</h3>
+              <h3 className='pl-5' >{quests.questTitle} {quests.questSectionId}</h3>
             </div>
 
             {quests.lessons.map((quest: Lesson, i) => (
