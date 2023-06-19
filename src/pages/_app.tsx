@@ -8,6 +8,8 @@ import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import { TagManagerScript, TagManagerNoScript } from '@/components/TagManager/TagManager'
 
+import CookieBanner from '@/components/Modals/CookieBanner';
+
 
 
 // Font inports
@@ -44,6 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
 
+        <CookieBanner />
         <Footer />
       </main>
       </ThemeProvider>
