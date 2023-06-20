@@ -102,44 +102,53 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
                 {!selectedPolkaAccount ? 
-                (<> <button
-                    type="button"
-                    className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
-                    onClick={handleConnection}>
-                    <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
-                    Bitte Clicke hier um deine Polka Wallet zu verbinden
-                 </button></>) : 
-                (<>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedPolkaAccount.address}</>)}
+                    (<> 
+                        <button
+                        type="button"
+                        className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+                        onClick={handleConnection}>
+                            <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
+                            Bitte Clicke hier um deine Polka Wallet zu verbinden
+                        </button>
+                    </>) : 
+                    (<>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedPolkaAccount.address}</>)
+                }
 
 
                 {showSpinner ? (
-                <>
-                <p>Your NFT Is On Its Way</p>
-                    <Spinner
-                    thickness='4px'
-                    speed='0.65s'
-                    emptyColor='gray.200'
-                    color='blue.500'
-                    size='xl'
-                /> 
-                <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
-                </>) : null}
-
+                    <>
+                        <p>Your NFT Is On Its Way</p>
+                            <Spinner
+                            thickness='4px'
+                            speed='0.65s'
+                            emptyColor='gray.200'
+                            color='blue.500'
+                            size='xl' /> 
+                    </>
+                    ) : null
+                }
 
                 {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable ? 
-                (
-                <>
-                    <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
-                    <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
-                </>
-                ): 
-                (
+                    (
                     <>
-                        <h3>{nftMintable && !showSpinner ? 'Super! Du hast das Progress NFT für diese Quest bereits gemintet!': 'Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt'}</h3>
-                        <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
+                        <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
                     </>
-                )}
-            
+                    ):  null
+                }
+
+                {!showSpinner && nftMinted ? (
+                    <>
+                        <h3>Super! Du hast das Progress NFT für diese Quest bereits gemintet!</h3>
+                    </>): null
+                }
+
+                {!nftMinted && !nftMintable ? (
+                    <>
+                        <h3>Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt</h3>
+                    </>): null
+                }
+
+                <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
             </div>
         </div>
     )
