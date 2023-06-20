@@ -29,6 +29,10 @@ export const QuestNftContractAddresses: QuestNftContractAddresses = {
     "dot-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string
 };
 
+
+/*
+* Helper function to check wether a user has completed all videos of a certain questId
+*/
 export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: Function): boolean => {
     let userHasAllProgress = true;
     let dataArray = questSectionId.indexOf('eth') > -1 ? ethQuests : dotQuests
@@ -48,6 +52,10 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 }
 
 
+
+/*
+* Checks whether a progress NFT is mintable depending on the requirements
+*/
 export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
@@ -75,6 +83,10 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
     return mintable;
 }
 
+
+/*
+* Hook to mint the progress NFT and take care of Spinner etc.
+*/
 export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  boolean, nftMinted: boolean, mintNft: (questSectionId: string) => void] => {
     const [showSpinner, setShowSpinner] = useState(false)
     const [nftMinted, setNftMinted] = useState(false);
@@ -110,7 +122,6 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
         }
 
     }
-
 
     return [showSpinner, nftMinted, mintNft];
 }

@@ -17,8 +17,7 @@ const TokenAddresses: TokenAddresses = {
   "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
 };
 
-// Special cases: GLMR on Moonbeam?!
-// For BTC https://api.blockchain.com/v3/#/payments/getAccountByTypeAndCurrency
+
 type QuestNftContractAddresses = {
   [key: string]: string
 }
@@ -57,6 +56,10 @@ type config = {
   network: string;
 }
 
+
+/*
+* Check if a user holds a certain Coin on a blockchain
+*/
 export const useTokenBalance = (questSectionId: Token): number => {
   const { account } = useWeb3React();
   const [balance, setBalance] = useState<number>(0);
@@ -93,7 +96,7 @@ export const useTokenBalance = (questSectionId: Token): number => {
 
 
 /*
-* Check if a user holds a certain coin or NFT
+* Check if a user holds a progress NFT of this quest
 */
 export const useNFTBalance = (questSectionId: Token): number => {
   const { account, library } = useWeb3React();
@@ -172,36 +175,6 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
 
   return [hasProgress, setProgress, numCompletedChallenges];
 };
-
-
-
-/*
-* Hook to Mint a progress NFT
-*/
-export const useMintNFT = (questId: keyof typeof QuestNftContractAddresses): [handleMint: () => Promise<void>, txHash: string | null] => {
-  const { library } = useWeb3React();
-  const [txHash, setTxHash] = useState<string | null>(null);
-  
-
-  const handleMint = async (): Promise<void> => {
-    console.log('Starting to Mint for lesson:', questId)
-    try {
-      const contractAddress = QuestNftContractAddresses[questId];
-      const contract = new Contract(contractAddress, QuestABI.abi, library.getSigner());
-
-      
-
-      const tx = await contract.mint();
-      setTxHash(tx.hash);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return [handleMint, txHash];
-};
-
-
 
 /*
 * Check if a transaction url which was provided by the user is a valid address
