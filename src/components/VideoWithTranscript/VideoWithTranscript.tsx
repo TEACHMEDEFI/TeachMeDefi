@@ -10,8 +10,6 @@ import { useUserProgress } from '../../pages/api/ethereum-api'
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);
   const [hasProgress, setProgress] = useUserProgress();
-  // const [handleMint] = useMintNFT('eth-1');
-  // const balance = useBalance('eth-1', 'nft');
   const [showPopup, setShowPopup] = useState(false);
   const toast = useToast();
 
@@ -35,14 +33,6 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
     // Update the progress using setProgress
     setProgress(currentLesson.id, 'check');
   };
-
-
-  // const mintProgressNFT = async () => {
-  //   // Update the progress using setProgress
-  //   const hash = await handleMint();
-
-  //   return hash;
-  // };
 
   return (
     <section className='w-full ' >
@@ -79,19 +69,6 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
             {/* THIS IS FOR TESTING  */}
             <PrimaryButton onClick={() => setShowPopup(!showPopup)}> show popo </PrimaryButton>
           </div>
-
-          {/* {console.log(currentLesson)} */}
-          {/* <div className='w-1/2' >
-            {
-              nextLessonSlug && <button onClick={() => handleButtonClick()}> {userHasProgress() ? 'You Already watched this' : 'Set User Progress'} </button>
-            }
-          </div> */}
-
-          {/* <div className='w-1/2' >
-            {
-              <button onClick={() => mintProgressNFT()}> {balance > 0 ? 'You already minted' : 'Mint Your Progress NFT '} </button>
-            }
-          </div> */}
         </div>
         <div className='flex justify-center' >
           <div className='max-w-5xl' >
