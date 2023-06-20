@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Lesson, Transcript, Links } from '@/data/generalLessons';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { Input, useToast } from '@chakra-ui/react';
-import { useUserProgress, useMintNFT, useBalance } from '../../pages/api/ethereum-api'
+import { useUserProgress } from '../../pages/api/ethereum-api'
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState(false);

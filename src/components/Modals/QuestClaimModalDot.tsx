@@ -6,7 +6,7 @@ import { Spinner } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
-import { useBalance } from '../../pages/api/ethereum-api'
+import { useNFTBalance } from '../../pages/api/ethereum-api'
 import Image from 'next/image'
 
 
@@ -23,7 +23,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     // const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
     const NAME = "Peter"
     const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
-    const nftBalance = useBalance(questSectionId, 'nft');
+    const nftBalance = useNFTBalance(questSectionId);
     const [api, setApi] = useState<ApiPromise>();
     const [balances, setBalances] = useState<BN>();
     const hasSelectedAccount = selectedPolkaAccount ? true : false

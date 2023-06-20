@@ -1,6 +1,7 @@
 const { ethers, Contract } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
+import { Alchemy, Network } from "alchemy-sdk";
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
@@ -45,46 +46,74 @@ type ChainIdPerQuest = {
 }
 
 const chainIdPerQuest: ChainIdPerQuest = {
-  "eth-quest-2": 'sepolia', //Sepolia Eth
-  "eth-quest-3": 'homestead', // WETH
-  "eth-quest-4": 'arbitrum', // Arbitrum
-  "dot-quest-5": 'homestead', // xcDot
+  "eth-quest-2": Network.ETH_SEPOLIA, //Sepolia Eth
+  "eth-quest-3": Network.ETH_MAINNET, // WETH
+  "eth-quest-4": Network.ARB_MAINNET, // Arbitrum
+  "dot-quest-5": Network.ETH_MAINNET, // xcDot
 }
+
+type config = {
+  apiKey: string | undefined;
+  network: string;
+}
+
+export const useTokenBalance = (questSectionId: Token): number => {
+  const { account } = useWeb3React();
+  const [balance, setBalance] = useState<number>(0);
+
+  const tokenAddress :string = TokenAddresses[questSectionId];
+  const blockChainToUse = chainIdPerQuest[questSectionId];
+
+  
+  useEffect(() => {
+    if (!account || !tokenAddress || !blockChainToUse) return;
+    getTokenBalance()
+  },[account])
+
+    const config: config = {
+      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+      network: blockChainToUse,
+    };
+
+    const getTokenBalance = async (): Promise<void> => { 
+      // @ts-ignore: Unreachable code error
+      const alchemy = new Alchemy(config);
+
+      // @ts-ignore: Unreachable code error
+      const data = await alchemy.core.getTokenBalances(account, [tokenAddress]);
+
+      let balance = data ? data.tokenBalances[0].tokenBalance : 0;
+      // @ts-ignore: Unreachable code error
+      balance = balance ? parseFloat(balance) : 0;
+
+      setBalance(balance);
+  };
+  return balance;
+};
 
 
 /*
 * Check if a user holds a certain coin or NFT
 */
-export const useBalance = (token: Token, tokenType: string): number => {
+export const useNFTBalance = (questSectionId: Token): number => {
   const { account, library } = useWeb3React();
   const [balance, setBalance] = useState<number>(0);
 
   useEffect(() => {
-    if (!account || !library || !token) return;
+    if (!account || !library || !questSectionId) return;
 
     const getTokenBalance = async (): Promise<void> => {
 
       try {
-        const tokenAddress = tokenType === 'nft' ? QuestNftContractAddresses[token]: TokenAddresses[token]
+        const tokenAddress = QuestNftContractAddresses[questSectionId]
 
         if (!tokenAddress) return;
 
-        console.log('token address is', tokenAddress)
-        console.log('token is', token)
-        console.log('Account is', account)
-        console.log('Chain is', chainIdPerQuest[token])
-        const abiUrl = `https://api.etherscan.io/api?module=contract&action=getabi&address=${tokenAddress}&apiKey=${process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY}`;
-        const abiResponse = await fetch(abiUrl);
-        
-        const abiJson = await abiResponse.json();
-        console.log('ABI IS', abiJson)
-        const abi = JSON.parse(abiJson.result);
-        
-        const infuraProvider = new ethers.providers.InfuraProvider(chainIdPerQuest[token], process.env.NEXT_PUBLIC_INFURA_API_KEY as string );
-        const tokenContract = new ethers.Contract(tokenAddress, abi, infuraProvider);
+        const tokenContract = new ethers.Contract(tokenAddress, QuestABI.abi, library);
         let balance = await tokenContract.balanceOf(account);
         balance = ethers.BigNumber.from(balance._hex).toNumber()
         setBalance(balance);
+        console.log('Balances Are', balance)
       } catch (e) {
         console.log(e)
         setBalance(0);
@@ -93,7 +122,7 @@ export const useBalance = (token: Token, tokenType: string): number => {
     };
 
     getTokenBalance();
-  }, [account, library, token, tokenType]);
+  }, [account, library]);
 
   return balance;
 };

@@ -1,7 +1,7 @@
 import { useWeb3React } from '@web3-react/core';
 import { useEffect, useState } from 'react'
 const { Contract } = require('ethers')
-import { useBalance, useUserProgress } from '../../pages/api/ethereum-api'
+import { useUserProgress, useTokenBalance } from '../../pages/api/ethereum-api'
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
 import BN from 'bn.js';
@@ -51,7 +51,7 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
-    let tokenBalance = useBalance(questSectionId, token);
+    let tokenBalance = useTokenBalance(questSectionId);
     tokenBalance = !tokenBalance ? 0 : tokenBalance;
     let mintable = false;
 
