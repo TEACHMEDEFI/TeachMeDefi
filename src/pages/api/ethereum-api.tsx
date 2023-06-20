@@ -109,6 +109,8 @@ export const useNFTBalance = (questSectionId: Token): number => {
       try {
         const tokenAddress = QuestNftContractAddresses[questSectionId]
 
+        console.log('NFT Address is', tokenAddress)
+
         if (!tokenAddress) return;
 
         const tokenContract = new ethers.Contract(tokenAddress, QuestABI.abi, library);

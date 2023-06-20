@@ -154,7 +154,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
                   <div className='flex items-center border-t ' >
                     <Image src={imagePaths[isQuestSection ? `bottom-slot-${quests.questSectionId}` : 'bottom-slot']} width={30} height={30} alt='progress bar' />
                     {isQuestSection ?
-                      <ClaimRewardButton onClick={() => togglePopup(quest.id)} customClassWrapper='ml-5 my-2' >Claim</ClaimRewardButton>
+                      <ClaimRewardButton onClick={() => togglePopup(quest.id)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton>
                       :
                       <p className='ml-5 font-bold text-sm' >Du hast es geschafft</p>
                     }
