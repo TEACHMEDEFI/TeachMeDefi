@@ -135,7 +135,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 ): 
                 (
                     <>
-                        <h3>{nftMintable && !showSpinner ? 'Herzlichen Glückwunsch, Sie haben das Progress NFT gemintet!': 'Nicht Mintbar, bitte erfülle zunächst die Herausforderung'}</h3>
+                        <h3>{nftMintable && !showSpinner ? 'Super! Du hast das Progress NFT für diese Quest bereits gemintet!': 'Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt'}</h3>
                         <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
                     </>
                 )}
