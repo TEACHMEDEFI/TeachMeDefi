@@ -8,13 +8,13 @@ import Podcast from '@/components/LandingPageSections/Podcast';
 import Newsletter from '@/components/LandingPageSections/Newsletter';
 import FAQ from '@/components/LandingPageSections/FAQ';
 import AboutUs from '@/components/LandingPageSections/AboutUs';
-
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className='scroll-smooth' >
+    <div className='scroll-smooth relative' >
       <Head>
-        <title>Create Next App</title>
+        <title>TeachMeDefi</title>
         <meta name="description" content="TeachMeDefi teach me defi" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/TDM_logo.png" />
@@ -46,7 +46,9 @@ export default function Home() {
       {/* DOT quests important links fehlen */}
       {/* In LessonBurgerMenu: scrollable machen  */}
 
-
+      <div className="absolute -left-6 bottom-0 w-[400px] h-[244px]">
+        <Image src={"/home/inBackground/sharding.png"} fill alt="ethereum picknick" />
+      </div>
 
     </div>
   )
