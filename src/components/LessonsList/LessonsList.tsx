@@ -2,14 +2,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
+import dynamic from "next/dynamic";
+import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { Lesson } from '@/data/generalLessons'
 import { Quests } from '@/data/generalLessons'
 import { ClaimRewardButton } from '../Buttons/Buttons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
-import dynamic from "next/dynamic";
-import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 
-
+/*
+* Dynamic Imports die to NextJS Server Side Prerendering
+*/
 const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModal'), {
   ssr: false,
 });
@@ -17,7 +19,6 @@ const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModal'), {
 const QuestClaimModalDot = dynamic(() => import('../Modals/QuestClaimModalDot'), {
   ssr: false,
 });
-
 
 
 type LessonsListProps = {
@@ -48,12 +49,18 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
   const imageSourceObject: ImageSourceObject = {}
 
 
+  /*
+  * Helper Function to pass as props
+  */
   const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
     setSelectedAccount(account)
   }
 
 
-
+  /*
+  * Create all imagePaths due to progress in local Storage. Has to be in useEffect hook
+  * Due to nextjs server side prerendering
+  */
   useEffect(() => {
     // Set Start-Knob Progress bar Color
     const firstQuestId = `${chain}-1`
@@ -104,13 +111,16 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
   }, [showPopup, selectedAccount])
 
 
+
+  /*
+  * Handles Modal Toggle and is passed as props
+  */
   const togglePopup = (questId: string) => {
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
   }
 
-  // console.log(imagePaths)
 
 
   if (!imagePaths) {

@@ -1,9 +1,10 @@
 import { Spinner } from '@chakra-ui/react'
+import { useEffect } from 'react'
+import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useEffect, useState } from 'react'
 import { useNFTBalance } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
-import { BN } from 'bn.js';
+
 
 type QuestClaimModalProps = {
     questSectionId: string;

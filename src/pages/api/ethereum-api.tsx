@@ -1,4 +1,4 @@
-const { ethers, Contract } = require('ethers')
+const { ethers } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 import { Alchemy, Network } from "alchemy-sdk";
