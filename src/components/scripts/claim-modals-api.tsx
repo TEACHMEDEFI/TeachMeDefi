@@ -2,34 +2,12 @@ const { Contract } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useEffect, useState } from 'react'
 import BN from 'bn.js';
-import { useUserProgress, useTokenBalance } from '../../pages/api/ethereum-api'
+import { useUserProgress, useTokenBalance, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
 
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
-
-type QuestNftContractAddresses = {
-    [key: string]: string
-}
-
-
-export const QuestNftContractAddresses: QuestNftContractAddresses = {
-    "eth-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "eth-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "eth-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "eth-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "eth-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "eth-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "eth-quest-7": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-    "dot-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string
-};
-
 
 /*
 * Helper function to check wether a user has completed all videos of a certain questId

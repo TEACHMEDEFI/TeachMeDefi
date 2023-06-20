@@ -22,20 +22,19 @@ type QuestNftContractAddresses = {
   [key: string]: string
 }
 
-const QuestNftContractAddresses: QuestNftContractAddresses = {
+export const QuestNftContractAddresses: QuestNftContractAddresses = {
   "eth-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "eth-quest-7": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-quest-1": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
-  "dot-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_ONE as string,
+  "eth-quest-2": process.env.NEXT_PUBLIC_QUEST_ETH_TWO as string,
+  "eth-quest-3": process.env.NEXT_PUBLIC_QUEST_ETH_THREE as string,
+  "eth-quest-4": process.env.NEXT_PUBLIC_QUEST_ETH_FOUR as string,
+  "eth-quest-5": process.env.NEXT_PUBLIC_QUEST_ETH_FIVE as string,
+  "eth-quest-6": process.env.NEXT_PUBLIC_QUEST_ETH_SIX as string,
+
+  "dot-quest-1": process.env.NEXT_PUBLIC_QUEST_DOT_ONE as string,
+  "dot-quest-2": process.env.NEXT_PUBLIC_QUEST_DOT_TWO as string,
+  "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_DOT_THREE as string,
+  "dot-quest-4": process.env.NEXT_PUBLIC_QUEST_DOT_FOUR as string,
+  "dot-quest-5": process.env.NEXT_PUBLIC_QUEST_DOT_FIVE as string,
 };
 
 type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
