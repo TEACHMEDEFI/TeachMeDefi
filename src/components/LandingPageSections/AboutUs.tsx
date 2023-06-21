@@ -17,8 +17,7 @@ export default function AboutUs() {
           <div
             // className="flex flex-col items-center"
             className="bg-gradient-to-br
-      from-blue-300 via-purple-300 to-pink-300
-       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+      from-primaryBlue via-secondaryPurple to-primaryPink
         rounded-3xl relative text-bgDarkGray flex flex-col items-center"
           >
             <div className="mx-10 mt-5 w-64 text-center">
@@ -41,8 +40,7 @@ export default function AboutUs() {
           <div
             // className="flex flex-col items-center"
             className="bg-gradient-to-br
-      from-blue-300 via-purple-300 to-pink-300
-       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+      from-primaryBlue via-secondaryPurple to-primaryPink
         rounded-3xl relative text-bgDarkGray flex flex-col items-center"
           >
             <div className="mx-10 mt-5 w-64 text-center">
@@ -65,8 +63,7 @@ export default function AboutUs() {
           <div
             // className="flex flex-col items-center"
             className="bg-gradient-to-br
-      from-blue-300 via-purple-300 to-pink-300
-       dark:from-blue-300 dark:via-purple-300 dark:to-pink-300 
+      from-primaryBlue via-secondaryPurple to-primaryPink
         rounded-3xl relative text-bgDarkGray flex flex-col items-center"
           >
             <div className="mx-10 mt-5 w-64 text-center">

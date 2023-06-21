@@ -11,7 +11,7 @@ export default function Newsletter() {
           <Image src={"/home/newsletter_mailbox.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
         </div>
         <div className='flex flex-col grow items-center gap-8 '>
-          <h3 className='text-4xl font-bold '> <span className='text-5xl'>Abonniere</span> unseren  Newsletter</h3>
+          <h3 className='text-4xl font-bold '>Abonniere unseren  Newsletter</h3>
           <PrimaryButton href='/' target='_blank' >Starte jetzt </PrimaryButton>
         </div>
       </div>

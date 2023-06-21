@@ -9,9 +9,8 @@ export default function CourseOverview() {
     <section id='courses' className='py-44 flex flex-col items-center' >
 
       <div className="bg-gradient-to-r
-      from-blue-300 via-purple-300 to-pink-300
-       dark:from-blue-500 dark:via-purple-500 dark:to-pink-500 
-        rounded-3xl relative  flex items-center"
+      from-primaryBlue via-secondaryPurple to-primaryPink
+        rounded-3xl relative text-white flex items-center"
       >
        
         <div className="mx-20 mb-20 mt-96" >
@@ -26,11 +25,14 @@ export default function CourseOverview() {
             ))}
           </div>
         </div>
-        <div className="w-[550px] h-[550px]">
+        <div className="w-[550px] h-[800px]">
 
         </div>
         <div className="absolute right-12 bottom-0 w-[500px] h-[750px]">
-          <Image src={"/home/woman-with-folder.png"} fill alt="studying" />
+          <Image src={"/home/sohejl.png"} fill alt="teaching crypto" />
+        </div>
+        <div className="absolute left-36 top-16 w-[438px] h-[300px]">
+          <Image src={"/home/inBackground/enterprise-ethereum.png"} fill alt="ethereum picknick" />
         </div>
       </div>
 

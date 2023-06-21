@@ -1,10 +1,13 @@
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function OurServices() {
   return (
     <section className='flex flex-col justify-center items-center w-full relative mt-20 pb-44' >
+      <div className="absolute right-0 -bottom-28 w-[500px] h-[358px]">
+        <Image src={"/home/inBackground/doge-master.png"} fill alt="ethereum doge robot" />
+      </div>
+
       <div className="flex gap-28 ">
         <div className="">
           <h2 className="text-4xl font-bold mb-6">Entdecke unsere <br />Services!</h2>

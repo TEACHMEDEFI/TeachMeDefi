@@ -10,7 +10,7 @@ import { faqData } from '@/data/faqData'
 
 export default function FAQ() {
   return (
-    <section id='faq' className='mt-44 mb-20 flex flex-col items-center ' >
+    <section id='faq' className='mt-44 pb-20 flex flex-col items-center ' >
       <div className='w-full max-w-5xl py-10 flex gap-20'>
         <div>
           <h3 className='text-4xl font-bold mb-4' >FAQs</h3>
