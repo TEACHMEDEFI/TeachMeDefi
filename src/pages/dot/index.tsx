@@ -1,12 +1,18 @@
 
 import Image from 'next/image'
+import { useEffect } from 'react';
 import { generalLessons } from '@/data/generalLessons'
 import { dotQuests } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
 import LessonsList from '@/components/LessonsList/LessonsList'
+import {switchNetworkIfNeeded} from '../api/ethereum-api'
 
 
-export default function index() {
+export default function Index() {
+  useEffect(() => {
+    switchNetworkIfNeeded()
+  }, [])
+
   return (
     <div className='flex flex-col  w-full justify-center items-center'>
       <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
@@ -39,8 +45,8 @@ export default function index() {
       </section>
       <section className=' w-full flex flex-col items-center justify-center relative z-50' >
         <LessonsList chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
-        <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theroy Section"} isTheorySection />
-        <LessonsList chain={"dot"} lessonsArray={dotQuests} title={"Quest section"} isQuestSection />
+        <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
+        <LessonsList chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
         {/* <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />

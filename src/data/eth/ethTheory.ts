@@ -2,7 +2,7 @@ import { Quests } from "../generalLessons";
 
 export const ethTheory: Quests[] = [
   {
-    questTitle: "Theroy Section",
+    questTitle: "Theorie Sektion",
     questSectionId: 'eth-theory-1',
     lessons: [
       {

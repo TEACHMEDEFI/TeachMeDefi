@@ -2,8 +2,8 @@ import { Spinner } from '@chakra-ui/react'
 import { useEffect } from 'react'
 import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useNFTBalance } from '../../pages/api/ethereum-api'
-import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
+import { useNFTBalance, switchNetworkIfNeeded } from '../../pages/api/ethereum-api'
+import { useIsProgressNftMintable, useMintProgressNFT, } from '../scripts/claim-modals-api'
 
 
 type QuestClaimModalProps = {
@@ -17,6 +17,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
 
     useEffect(() => {
+        switchNetworkIfNeeded()
 
     }, [nftMinted, showSpinner, nftMintable, nftBalance])
 

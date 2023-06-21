@@ -12,7 +12,7 @@ import { useUserProgress } from '../../pages/api/ethereum-api'
 /*
 * Dynamic Imports die to NextJS Server Side Prerendering
 */
-const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModal'), {
+const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModalEth'), {
   ssr: false,
 });
 
@@ -156,7 +156,7 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
                     {isQuestSection ?
                       <ClaimRewardButton onClick={() => togglePopup(quest.id)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton>
                       :
-                      <p className='ml-5 font-bold text-sm' >Du hast es geschafft</p>
+                      null
                     }
                   </div>
                 }

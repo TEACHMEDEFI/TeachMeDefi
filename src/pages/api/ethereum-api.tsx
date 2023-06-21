@@ -200,4 +200,29 @@ export const useFetch = (url: string): boolean => {
 };
 
 
+export const switchNetworkIfNeeded = async (): Promise<void> => {
+  const chainId = Number(process.env.NEXT_PUBLIC_BLOCKCHAIN_ID)
+  if (typeof window !== 'undefined' && window.ethereum.networkVersion !== chainId) {
+
+    console.log('SWITCH NETWORKS')
+
+    // window.ethereum.request({
+    //   method: 'wallet_addEthereumChain',
+    //   params: [
+    //     {
+    //       chainName: 'Sepolia',
+    //       chainId: '11155111',
+    //       nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
+    //       rpcUrls: ['https://rpc2.sepolia.org']
+    //     }
+    //   ]
+    // });
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId: '0xaa36a7' }],
+    });
+  }
+}
+
+
 

@@ -1,12 +1,20 @@
 
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { ethQuests } from '@/data/eth';
 import { ethTheory } from '@/data/eth/ethTheory';
 import { generalLessons } from '@/data/generalLessons';
 import LessonsList from '@/components/LessonsList/LessonsList';
+import LessonsListNew from '@/components/LessonsList/LessonsListNew';
+import {switchNetworkIfNeeded} from '../api/ethereum-api'
 
 
-export default function index() {
+export default function Index() {
+  useEffect(() => {
+    switchNetworkIfNeeded()
+  }, [])
+
+
   return (
     <div className='flex flex-col  w-full justify-center items-center relative mb-32'>
       <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
@@ -37,9 +45,13 @@ export default function index() {
       </section>
 
       <section className=' w-full flex flex-col items-center justify-center relative z-50' >
-        <LessonsList chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
-        <LessonsList chain={"eth"} lessonsArray={ethTheory} title={"Theroy Section"} isTheorySection />
-        <LessonsList chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
+        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
+        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection />
+        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
+
+        {/* <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection /> */}
+
+        
       </section>
         <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
       {/* <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >

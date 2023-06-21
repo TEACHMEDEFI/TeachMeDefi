@@ -2,7 +2,7 @@ import { Quests } from "../generalLessons";
 
 export const dotTheory: Quests[] = [
   {
-    questTitle: "Theroy Section",
+    questTitle: "Theorie Sektion",
     questSectionId: 'dot-theory-1',
     lessons: [
       {
