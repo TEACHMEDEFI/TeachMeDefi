@@ -42,7 +42,6 @@ type listItemsPerQuest = {
 }
 
 
-
 export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, isGeneralSection, isTheorySection }: LessonsListProps) {
 const [hasProgress] = useUserProgress();
 const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
@@ -51,19 +50,7 @@ const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>(
 const imageSourceObject: ImageSourceObject = {}
 
 
-
-
-/*
-* Handles Modal Toggle and is passed as props
-*/
-const togglePopup = (questId: string) => {
-  const show : QuestModalShow = {};
-  show[questId] = true;
-  setShowPopup(show)
-}
-
-
-useEffect(() => {
+  useEffect(() => {
     // Set Lessons Progress bar Color
     lessonsArray.forEach((quests: Quests, i) => {  
       quests.lessons.forEach((quest: Lesson) => {
@@ -75,6 +62,15 @@ useEffect(() => {
 
     setImageClasses(imageSourceObject);
   }, [showPopup])
+
+  /*
+  * Handles Modal Toggle and is passed as props
+  */
+  const togglePopup = (questId: string) => {
+    const show : QuestModalShow = {};
+    show[questId] = true;
+    setShowPopup(show)
+  }
 
 
     /*
@@ -90,6 +86,9 @@ useEffect(() => {
     }
 
 
+    /*
+    * Creates the li Elements for each specific listof Quests
+    */
     const renderList = (questSectionId: string) => {
         console.log(lessonsArray)
         let listItemsPerQuest: listItemsPerQuest = {}
