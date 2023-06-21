@@ -5,6 +5,7 @@ import { generalLessons } from '@/data/generalLessons'
 import { dotQuests } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
 import LessonsList from '@/components/LessonsList/LessonsList'
+import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import {switchNetworkIfNeeded} from '../api/ethereum-api'
 
 
@@ -44,9 +45,9 @@ export default function Index() {
         <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' />
       </section>
       <section className=' w-full flex flex-col items-center justify-center relative z-50' >
-        <LessonsList chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
-        <LessonsList chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
-        <LessonsList chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
         {/* <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />

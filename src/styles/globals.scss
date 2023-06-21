@@ -115,8 +115,8 @@ img {
   box-sizing: border-box;
 }
 .ul-circles {
-  --innerSize: 14rem;
-  --rimSize: 2.5rem;
+  --innerSize: 12rem;
+  --rimSize: 2rem;
 
   display: grid;
   grid-template-columns: repeat(var(--repeatVal, 1), calc(var(--innerSize)));
