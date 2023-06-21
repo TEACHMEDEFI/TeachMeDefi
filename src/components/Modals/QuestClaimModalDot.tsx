@@ -136,7 +136,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     ):  null
                 }
 
-                {!showSpinner && nftMinted ? (
+                {!showSpinner && nftBalance > 0 ? (
                     <>
                         <h3>Super! Du hast das Progress NFT für diese Quest gemintet!</h3>
                     </>): null
