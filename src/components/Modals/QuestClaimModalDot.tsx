@@ -88,6 +88,9 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
        
     }
 
+    /*
+    * handles minting of the Progress NFT  
+    */
     const handleMint = () => {
         try {
             mintNft(questSectionId);
@@ -96,7 +99,9 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         }
     }
 
-
+    /*
+    * handles which message should be printed in the modal
+    */
     const displayMessage = (): string => {
         const notMintableMessage = 'Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt'
         const alreadyMintedMessage = 'Super! Du hast das Progress NFT für diese Quest gemintet!'
