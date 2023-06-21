@@ -109,15 +109,12 @@ export const useNFTBalance = (questSectionId: Token): number => {
       try {
         const tokenAddress = QuestNftContractAddresses[questSectionId]
 
-        console.log('NFT Address is', tokenAddress)
-
         if (!tokenAddress) return;
 
         const tokenContract = new ethers.Contract(tokenAddress, QuestABI.abi, library);
         let balance = await tokenContract.balanceOf(account);
         balance = ethers.BigNumber.from(balance._hex).toNumber()
         setBalance(balance);
-        console.log('Balances Are', balance)
       } catch (e) {
         console.log(e)
         setBalance(0);
@@ -137,7 +134,6 @@ export const useNFTBalance = (questSectionId: Token): number => {
 * Custom Hook to set and get the user's progress to and from local Strorage
 */
 export const useUserProgress = (): [hasProgress: (challengeId: string) => boolean, setProgress: (challengeId: string, value: string) => void, numCompletedChallenges: number] => {
-  console.log('Importing Progress Hook');
   const [userProgressObject, setUserProgressObject] = useState<{ [key: string]: string }>(() => {
     if (typeof window !== 'undefined') {
       const localStorageData = localStorage.getItem('userProgressObject');
@@ -165,7 +161,6 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
         const newState = { ...prevState };
         if (!newState.hasOwnProperty(challengeId)) {
           newState[challengeId] = value;
-          console.log('Setting Progress 2');
           localStorage.setItem('userProgressObject', JSON.stringify(newState));
           setNumCompletedChallenges(Object.values(newState).filter(value => value === 'check').length);
         }
@@ -199,12 +194,12 @@ export const useFetch = (url: string): boolean => {
   return isSuccess;
 };
 
-
+/*
+* Helper Function to force user to switch to sepolia on pageLoad and on opening a modal
+*/
 export const switchNetworkIfNeeded = async (): Promise<void> => {
   const chainId = Number(process.env.NEXT_PUBLIC_BLOCKCHAIN_ID)
   if (typeof window !== 'undefined' && window.ethereum.networkVersion !== chainId) {
-
-    console.log('SWITCH NETWORKS')
 
     // window.ethereum.request({
     //   method: 'wallet_addEthereumChain',

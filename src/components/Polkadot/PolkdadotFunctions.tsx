@@ -43,7 +43,6 @@ const PolkdadotFunctions = () => {
                 
             }
 
-            console.log(allAccounts)
         }
        
     }
@@ -89,7 +88,6 @@ const PolkdadotFunctions = () => {
             // Queries
             const time = await api.query.timestamp.now()
             const period = await api.query.currencies.currentTimePeriod()
-            console.log(period.toPrimitive())
             
         })()
     }, [api]);

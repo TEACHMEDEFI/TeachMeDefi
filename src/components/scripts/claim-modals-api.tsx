@@ -44,7 +44,6 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
 
 
     if (questSectionId === 'eth-quest-1') {
-        console.log(account)
         mintable = account ? true : false
     } else if (questSectionId === 'dot-quest-1') {
         mintable = polkaWalletConnected ? true : false
@@ -56,8 +55,6 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
         mintable = tokenBalance > 0;
     }
 
-
-    console.log('Quest NFT is mintable', mintable)
 
     return mintable;
 }

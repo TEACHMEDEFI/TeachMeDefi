@@ -84,8 +84,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 setSelectedPolkaAccount(allAccounts[0]);
                 
             }
-
-            console.log(allAccounts)
         }
        
     }
