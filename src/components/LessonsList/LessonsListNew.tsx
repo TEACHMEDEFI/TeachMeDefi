@@ -96,7 +96,7 @@ useEffect(() => {
 
         lessonsArray.forEach((quests: Quests, i) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <li key={quest.id} className={imageClasses[quest.id]}><Link href={`/${chain}/${quest.slug}`}><i className="fa-brands fa-ethereum"></i> {quest.title}</Link></li>
+                <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-brands fa-ethereum"></i> <Link href={`/${chain}/${quest.slug}`}>{quest.title}</Link></li>
                 
             ))
         ))
