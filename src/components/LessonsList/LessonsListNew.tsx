@@ -7,7 +7,10 @@ import { Lesson } from '@/data/generalLessons'
 import { Quests } from '@/data/generalLessons'
 import { ClaimRewardButton } from '../Buttons/Buttons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
+import { useIsProgressNftMintable } from '../scripts/claim-modals-api'
 import Image from 'next/image';
+import { BN } from 'bn.js';
+
 
 /*
 * Dynamic Imports die to NextJS Server Side Prerendering
@@ -49,6 +52,8 @@ const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
 const [showPopup, setShowPopup] = useState<QuestModalShow>();
 const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
 const imageSourceObject: ImageSourceObject = {}
+const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
+
 
 
   useEffect(() => {
@@ -104,6 +109,9 @@ const imageSourceObject: ImageSourceObject = {}
         return listItemsPerQuest[questSectionId];
     }
 
+    /*
+    * Creates the li Elements the video descriptions
+    */
     const renderVideoDescriptionsquestSectionId = (questSectionId: string) => {
       console.log(lessonsArray)
       let listItemsPerQuest: listItemsPerQuest = {}
@@ -120,7 +128,8 @@ const imageSourceObject: ImageSourceObject = {}
 
     // <Link href={`/${chain}/${quest.slug}`}>{quest.title}</Link>
 
-    return (    
+    
+    return (
         <div className='lesson-list-container'>
             <h2 className='font-bold text-2xl' >{title}</h2>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
@@ -128,43 +137,34 @@ const imageSourceObject: ImageSourceObject = {}
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
                   
                   <div className="video-description-container">
-                   
                     <ul className="video-description-list ul-plain">
                       {renderVideoDescriptionsquestSectionId(quests.questSectionId)}
 
                     </ul>
-
                   </div>
-
 
                   <div className="progress-container">
                     
                    <h3 className='pl-5' >Dein Fortschritt:</h3>
-                    
 
                     <ul className="ul-circles">
-                    {renderProgressBarItems(quests.questSectionId)}
+                      {renderProgressBarItems(quests.questSectionId)}
 
-                        {isQuestSection ? (
-                        <>
-                          <div className='flex items-center border-t ' ><ClaimRewardButton onClick={() => togglePopup(quests.questSectionId)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton></div>
-                        </>)
-                        
-                        :
-                        null
-                        }
-                    
-                    {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
-
-                    {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
-                        selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
-                    
-
-                  </ul>
-                  <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
-                  </div>
+                          {isQuestSection ? (
+                          <>
+                            <div className='flex items-center border-t claim-button-container' ><ClaimRewardButton onClick={() => togglePopup(quests.questSectionId)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton></div>
+                          </>)
                           
-                </div>
+                          :
+                          null
+                          }
+                      {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
+
+                      {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
+                          selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
+                    </ul>
+                  </div>
+                </div>         
             ))}
         </div>
     )
