@@ -1,17 +1,20 @@
 
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ethQuests } from '@/data/eth';
 import { ethTheory } from '@/data/eth/ethTheory';
 import { generalLessons } from '@/data/generalLessons';
 import LessonsList from '@/components/LessonsList/LessonsList';
 import LessonsListNew from '@/components/LessonsList/LessonsListNew';
 import {switchNetworkIfNeeded} from '../api/ethereum-api'
+import ReactPlayer from "react-player"
 
 
 export default function Index() {
+  const [showPlayer, setShowPlayer] = useState<boolean>(false);
   useEffect(() => {
     switchNetworkIfNeeded()
+    setShowPlayer(true)
   }, [])
 
 
@@ -27,7 +30,7 @@ export default function Index() {
             </span>
           </h1>
           <h2 className='text-xl font-bold' >Hier erfährst du alles über die zweitgrößte <br /> Kryptowährung der Welt.</h2>
-          <h3 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg  backdrop-blur-md' >
+          <h3 className='font-bold tracking-widest max-w-4xl p-2 z-10 rounded-lg  backdrop-blur-md' >
           Ethereum ist eine dezentrale, Open-Source-Blockchain-Plattform,
           die es Entwicklern ermöglicht, Smart Contracts und dezentrale Anwendungen (DApps)
           zu erstellen. Im Gegensatz zu Bitcoin, das hauptsächlich als digitales
@@ -42,9 +45,29 @@ export default function Index() {
         </div>
         
       </section>
+      <section>
+        {showPlayer ? (
+          <>
+              <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
+                <div className='h-[540px] w-[960px] ' >
+                  <ReactPlayer
+                    height="100%"
+                    width="100%"
+                    url="https://youtu.be/oc2jLjw6904"
+                    controls={true}
+                    config={{
+                      youtube: {
+                        playerVars: { fs: 1 }
+                      }
+                    }}
+                  />
+                </div>
+            </div>
+          </>
+          ) : null}
+      </section>
 
       <section className=' w-full flex flex-col justify-center relative z-50' >
-        <h2 className="font-bold text-4xl video-section-heading">Video Section</h2>
         <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
         <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection />
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />

@@ -115,8 +115,8 @@ img {
   box-sizing: border-box;
 }
 .ul-circles {
-  --innerSize: 8rem;
-  --rimSize: 2rem;
+  --innerSize: 6rem;
+  --rimSize: 1.5rem;
 
   display: grid;
   grid-template-columns: repeat(var(--repeatVal, 1), calc(var(--innerSize)));
@@ -203,6 +203,8 @@ img {
 }
 
 
+
+
 .has-progress-circle {
   --accent-color:	#71d099
 }
@@ -251,6 +253,10 @@ img {
 
 .claim-button-container {
   padding: 0.5rem;
+}
+
+.lesson-list-container h3 {
+  text-align: center;
 }
 
 

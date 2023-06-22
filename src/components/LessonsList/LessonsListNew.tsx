@@ -54,10 +54,9 @@ const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>(
 const imageSourceObject: ImageSourceObject = {}
 const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
-
-
   useEffect(() => {
     // Set Lessons Progress bar Color
+    
     lessonsArray.forEach((quests: Quests, i) => {  
       quests.lessons.forEach((quest: Lesson) => {
         const questId = quest.id;
@@ -101,7 +100,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /><a href={`/${chain}/${quest.slug}`}>Play Video {i + 1 }</a></li>
+                <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /><a href={`/${chain}/${quest.slug}`}> 3:32 Min</a></li>
                 
             ))
         ))
@@ -112,44 +111,45 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
     /*
     * Creates the li Elements the video descriptions
     */
-    const renderVideoDescriptionsquestSectionId = (questSectionId: string) => {
-      console.log(lessonsArray)
-      let listItemsPerQuest: listItemsPerQuest = {}
+  //   const renderVideoDescriptionsquestSectionId = (questSectionId: string) => {
+  //     console.log(lessonsArray)
+  //     let listItemsPerQuest: listItemsPerQuest = {}
 
-      lessonsArray.forEach((quests: Quests, i) => (
-          listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-              <li key={quest.id} className={imageClasses[quest.id]}><i className={chain === 'eth' ? 'fa-brands fa-ethereum' : 'fa-sharp fa-regular fa-circle-dot'}></i> Video {i + 1}: {quest.title}</li>
-          ))
-      ))
+  //     lessonsArray.forEach((quests: Quests, j) => (
+  //         listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
+  //             <li key={quest.id} className={imageClasses[quest.id]}><i className={chain === 'eth' ? 'fa-brands fa-ethereum' : 'fa-sharp fa-regular fa-circle-dot'}></i> Video {i + 1}: {quest.title}</li>
+  //         ))
+  //     ))
 
-      return listItemsPerQuest[questSectionId];
-  }
+  //     return listItemsPerQuest[questSectionId];
+  // }
 
     
     return (
         <div className='lesson-list-container'>
             <h2 className='font-bold text-2xl' >{title}</h2>
+            <h3 className='font-italic text-2xl'> 22:52 Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
                 <div className="quest-container" key={quests.questSectionId}>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
                   
-                  <div className="video-description-container">
+                  {/* <div className="video-description-container">
                     <ul className="video-description-list ul-plain">
                       {renderVideoDescriptionsquestSectionId(quests.questSectionId)}
 
                     </ul>
-                  </div>
+                  </div> */}
 
                   <div className="progress-container">
                     
-                   <h3 className='pl-5' >Dein Fortschritt:</h3>
+                   {/* <h3 className='pl-5' >Dein Fortschritt:</h3> */}
 
                     <ul className="ul-circles">
                       {renderProgressBarItems(quests.questSectionId)}
 
                           {isQuestSection ? (
                           <>
-                            <div className='flex items-center border-t claim-button-container' ><ClaimRewardButton onClick={() => togglePopup(quests.questSectionId)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton></div>
+                            <li><i className="fa-regular fa-hexagon-vertical-nft" /><button onClick={() => togglePopup(quests.questSectionId)}>Erhalte hier dein NFT</button></li>
                           </>)
                           
                           :

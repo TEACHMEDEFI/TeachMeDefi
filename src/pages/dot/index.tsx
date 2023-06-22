@@ -1,17 +1,20 @@
 
 import Image from 'next/image'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { generalLessons } from '@/data/generalLessons'
 import { dotQuests } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
 import LessonsList from '@/components/LessonsList/LessonsList'
 import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import {switchNetworkIfNeeded} from '../api/ethereum-api'
+import ReactPlayer from "react-player"
 
 
 export default function Index() {
+  const [showPlayer, setShowPlayer] = useState<boolean>(false);
   useEffect(() => {
     switchNetworkIfNeeded()
+    setShowPlayer(true);
   }, [])
 
   return (
@@ -40,10 +43,31 @@ export default function Index() {
           Kryptowährung namens DOT, die zur Stimmrechtsausübung und Netzwerksicherung verwendet wird.
         </h2>
         <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
-        <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' />
+        {/* <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' /> */}
+      </section>
+
+      <section>
+        {showPlayer ? (
+          <>
+              <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
+                <div className='h-[540px] w-[960px] ' >
+                  <ReactPlayer
+                    height="100%"
+                    width="100%"
+                    url="https://youtu.be/oc2jLjw6904"
+                    controls={true}
+                    config={{
+                      youtube: {
+                        playerVars: { fs: 1 }
+                      }
+                    }}
+                  />
+                </div>
+            </div>
+          </>
+          ) : null}
       </section>
       <section className='w-full flex flex-col justify-center relative z-50' >
-        <h2 className="font-bold text-4xl video-section-heading">Video Section</h2>
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection />
         <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
