@@ -22,6 +22,7 @@ interface CookieBannerInteraction {
   
 const useCookieBannerInteraction = () => {
     const [hasInteracted, setHasInteracted] = useState<boolean>(false);
+    const [cookieTypeAccepted, setCookieTypeAccepted] = useState<string>('');
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -29,6 +30,7 @@ const useCookieBannerInteraction = () => {
             if (cookieBannerInteraction) {
                 const parsedCookieBannerInteraction: acceptedCookies = JSON.parse(cookieBannerInteraction)
                 setHasInteracted(true);
+                setCookieTypeAccepted(parsedCookieBannerInteraction.cookies)
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     trackingCookiesAccepted: parsedCookieBannerInteraction && parsedCookieBannerInteraction.cookies === 'all' ? true : false
@@ -63,16 +65,22 @@ const useCookieBannerInteraction = () => {
 
     return {
         hasInteracted,
+        cookieTypeAccepted,
         handleAcceptAll,
-        handleAcceptNecessary,
+        handleAcceptNecessary
     };
 };
+
+type CookieBannerProps = {
+    linksActive: boolean,
+    handleCookieBannerInteraction: Function
+}
   
 
 
 
-export default function CookieBanner() {
-    const {hasInteracted, handleAcceptAll, handleAcceptNecessary} = useCookieBannerInteraction()
+export default function CookieBanner({linksActive, handleCookieBannerInteraction}: CookieBannerProps) {
+    const {hasInteracted, handleAcceptAll, handleAcceptNecessary, cookieTypeAccepted} = useCookieBannerInteraction()
     const [showBanner, setShowBanner] = useState(false);
 
 
@@ -82,18 +90,25 @@ export default function CookieBanner() {
 
     const handleAll = () => {
         handleAcceptAll();
+        if (typeof handleCookieBannerInteraction !== 'undefined') {
+            handleCookieBannerInteraction();
+        }
     }
 
     const handleNecessary = () => {
         handleAcceptNecessary();
+        if (typeof handleCookieBannerInteraction !== 'undefined') {
+            handleCookieBannerInteraction();
+        }
+        
     }
 
-    if (showBanner) {
+    if (showBanner || linksActive) {
         return (
         
             <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
                 <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-                    <p>Wir verwenden Cookies</p>
+                    <p>Wir verwenden Cookies - Sie haben derzeit {cookieTypeAccepted === 'all' ? 'analyse und notwendige' : 'nur notwendige'} Cookies akzeptiert</p>
 
                     <PrimaryButton data-policy="acceptAll" onClick={() => handleAll()} >Alle Cookies akzeptieren</PrimaryButton>
                     <PrimaryButton data-policy="onlyVitals" onClick={() => handleNecessary()} >Nur Notwendige Cookies verwenden</PrimaryButton>

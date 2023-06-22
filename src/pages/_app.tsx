@@ -10,6 +10,7 @@ import Footer from '@/components/Footer/Footer'
 import { TagManagerScript, TagManagerNoScript } from '@/components/TagManager/TagManager'
 
 import CookieBanner from '@/components/Modals/CookieBanner';
+import CookiePolicyModal from '@/components/Modals/CookiePolicy';
 
 
 
@@ -48,6 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </div>
         
         <CookieBanner />
+        <CookiePolicyModal />
         <Footer />
       </main>
       </ThemeProvider>
