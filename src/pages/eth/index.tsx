@@ -27,33 +27,33 @@ export default function Index() {
             </span>
           </h1>
           <h2 className='text-xl font-bold' >Hier erfährst du alles über die zweitgrößte <br /> Kryptowährung der Welt.</h2>
-        </div>
-        <div className='relative w-2/4 h-full grow'>
-          <Image src={"/eth/eth_hero.png"} fill alt='Ethereum Hero' />
-        </div>
-      </section>
-      <section className='h-96 w-full flex items-center justify-center relative' >
-        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg  backdrop-blur-md' >
+          <h3 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg  backdrop-blur-md' >
           Ethereum ist eine dezentrale, Open-Source-Blockchain-Plattform,
           die es Entwicklern ermöglicht, Smart Contracts und dezentrale Anwendungen (DApps)
           zu erstellen. Im Gegensatz zu Bitcoin, das hauptsächlich als digitales
           Zahlungssystem fungiert, ist Ethereum eher eine Plattform für die Entwicklung
           von Anwendungen und Diensten, die auf der Blockchain-Technologie basieren.
           Ethereum ist auch die zweitgrößte Kryptowährung nach Marktkapitalisierung, hinter Bitcoin.
-        </h2>
-        <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
+        </h3>
+        
+        </div>
+        <div className='relative w-2/4 h-full grow'>
+          <Image src={"/eth/eth_hero.png"} fill alt='Ethereum Hero' />
+        </div>
+        
       </section>
 
-      <section className=' w-full flex flex-col items-center justify-center relative z-50' >
+      <section className=' w-full flex flex-col justify-center relative z-50' >
+        <h2 className="font-bold text-4xl video-section-heading">Video Section</h2>
         <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
         <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection />
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
 
         {/* <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection /> */}
-
+        <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
         
       </section>
-        <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
+        
       {/* <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >
       </section > */}
     </div >

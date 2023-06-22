@@ -7,6 +7,7 @@ import { Lesson } from '@/data/generalLessons'
 import { Quests } from '@/data/generalLessons'
 import { ClaimRewardButton } from '../Buttons/Buttons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
+import Image from 'next/image';
 
 /*
 * Dynamic Imports die to NextJS Server Side Prerendering
@@ -89,13 +90,13 @@ const imageSourceObject: ImageSourceObject = {}
     /*
     * Creates the li Elements for each specific listof Quests
     */
-    const renderList = (questSectionId: string) => {
+    const renderProgressBarItems = (questSectionId: string) => {
         console.log(lessonsArray)
         let listItemsPerQuest: listItemsPerQuest = {}
 
-        lessonsArray.forEach((quests: Quests, i) => (
+        lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-brands fa-ethereum"></i> <Link href={`/${chain}/${quest.slug}`}>{quest.title}</Link></li>
+                <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /><a href={`/${chain}/${quest.slug}`}>Play Video {i + 1 }</a></li>
                 
             ))
         ))
@@ -103,32 +104,66 @@ const imageSourceObject: ImageSourceObject = {}
         return listItemsPerQuest[questSectionId];
     }
 
+    const renderVideoDescriptionsquestSectionId = (questSectionId: string) => {
+      console.log(lessonsArray)
+      let listItemsPerQuest: listItemsPerQuest = {}
+
+      lessonsArray.forEach((quests: Quests, i) => (
+          listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
+              <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-brands fa-ethereum"></i> Video {i + 1}: {quest.title}</li>
+              
+          ))
+      ))
+
+      return listItemsPerQuest[questSectionId];
+  }
+
+    // <Link href={`/${chain}/${quest.slug}`}>{quest.title}</Link>
+
     return (    
-        <div>
+        <div className='lesson-list-container'>
             <h2 className='font-bold text-2xl' >{title}</h2>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
-                <div key={quests.questSectionId}>
-                    <ul className="ul-circles ul-circles-vertical">
-                    
-                    <h2 className='pl-5' >{quests.questTitle}</h2>
-                    {renderList(quests.questSectionId)}
+                <div className="quest-container" key={quests.questSectionId}>
+                  {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
+                  
+                  <div className="video-description-container">
+                   
+                    <ul className="video-description-list ul-plain">
+                      {renderVideoDescriptionsquestSectionId(quests.questSectionId)}
 
-                    <div className='flex items-center border-t ' >
-    
-                        {isQuestSection ?
-                        <ClaimRewardButton onClick={() => togglePopup(quests.questSectionId)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton>
+                    </ul>
+
+                  </div>
+
+
+                  <div className="progress-container">
+                    
+                   <h3 className='pl-5' >Dein Fortschritt:</h3>
+                    
+
+                    <ul className="ul-circles">
+                    {renderProgressBarItems(quests.questSectionId)}
+
+                        {isQuestSection ? (
+                        <>
+                          <div className='flex items-center border-t ' ><ClaimRewardButton onClick={() => togglePopup(quests.questSectionId)} customClassWrapper='ml-5 my-2' >Minte Dein Progress NFT</ClaimRewardButton></div>
+                        </>)
+                        
                         :
                         null
                         }
-                    </div>
-
+                    
                     {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
 
                     {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
                         selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
                     
-                   
-                </ul>
+
+                  </ul>
+                  <Image src={"/eth/eth_hand.png"} height={400} width={400} className='absolute -left-20 -bottom-28' alt='Ethereum Legos Hand' />
+                  </div>
+                          
                 </div>
             ))}
         </div>
