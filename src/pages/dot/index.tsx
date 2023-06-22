@@ -27,13 +27,7 @@ export default function Index() {
           <h2 className='text-xl font-bold' >
           Lerne alles über die skalierbare, interoperable Blockchain für eine dezentrale Zukunft.
           </h2>
-        </div>
-        <div className='relative w-2/4 h-full grow'>
-          <Image src={"/dot/Polkadot_Logo_Vertical.png"} fill alt='Ethereum Hero' />
-        </div>
-        <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
-        <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
-        <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg backdrop-blur-sm' >
+          <h3 className='font-bold tracking-widest max-w-4xl p-2 z-10 rounded-lg backdrop-blur-sm' >
           Polkadot ist eine Blockchain-Plattform, die darauf abzielt, die Interoperabilität und Skalierbarkeit
           von Blockchains zu verbessern. Es ist eine dezentrale Plattform, die es verschiedenen Blockchains ermöglicht,
           miteinander zu kommunizieren und zusammenzuarbeiten. Polkadot verwendet eine innovative Technologie namens
@@ -41,7 +35,14 @@ export default function Index() {
           interagieren können. Dadurch können Entwickler und Anwender von den Vorteilen verschiedener Blockchains
           profitieren, ohne dass sie sich um technische Details kümmern müssen. Polkadot hat auch eine eigene
           Kryptowährung namens DOT, die zur Stimmrechtsausübung und Netzwerksicherung verwendet wird.
-        </h2>
+        </h3>
+        </div>
+        <div className='relative w-2/4 h-full grow'>
+          <Image src={"/dot/Polkadot_Logo_Vertical.png"} fill alt='Ethereum Hero' />
+        </div>
+        <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
+        <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
+        
         <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
         {/* <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' /> */}
       </section>

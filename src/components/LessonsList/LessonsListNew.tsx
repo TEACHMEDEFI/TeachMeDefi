@@ -107,6 +107,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         return listItemsPerQuest[questSectionId];
     }
+    
 
     /*
     * Creates the li Elements the video descriptions
@@ -132,6 +133,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
                 <div className="quest-container" key={quests.questSectionId}>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
+                  <h3>7:32</h3>
                   
                   {/* <div className="video-description-container">
                     <ul className="video-description-list ul-plain">
@@ -148,12 +150,11 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
                       {renderProgressBarItems(quests.questSectionId)}
 
                           {isQuestSection ? (
-                          <>
-                            <li><i className="fa-regular fa-hexagon-vertical-nft" /><button onClick={() => togglePopup(quests.questSectionId)}>Erhalte hier dein NFT</button></li>
-                          </>)
-                          
-                          :
-                          null
+                            <>
+                              <li className="has-no-progress-circle"><i className="fa-solid fa-hexagon-vertical-nft" /><a onClick={() => togglePopup(quests.questSectionId)}></a></li>
+                            </>)
+                            :
+                            null
                           }
                       {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
 

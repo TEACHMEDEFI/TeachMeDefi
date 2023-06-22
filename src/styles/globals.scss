@@ -197,7 +197,13 @@ img {
 }
 
 .ul-circles > li > i {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  align-self: end;
+}
+
+.ul-circles > li > i {
+  font-size: 1.5rem;
   color: var(--accent-color);
   align-self: end;
 }

@@ -1,5 +1,6 @@
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
+import Script from "next/script";
 import { Web3ReactProvider } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -45,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className='pt-24 px-5 w-full max-w-[2000px]' >
           <Component {...pageProps} />
         </div>
-
+        
         <CookieBanner />
         <Footer />
       </main>
