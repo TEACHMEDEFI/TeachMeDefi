@@ -66,7 +66,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
                     </>): null
                 }
 
-                <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
+                <GeneralButton onClick={() => togglePopup({questId: false}, event)}>Modal Schließen</GeneralButton>
             </div>
         </div>
     )

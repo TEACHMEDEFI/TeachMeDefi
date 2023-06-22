@@ -161,7 +161,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
                 <h3>{displayMessage()}</h3>
 
-                <GeneralButton onClick={() => togglePopup({questId: false})}>Modal Schließen</GeneralButton>
+                <GeneralButton onClick={() => togglePopup({questId: false}, event)}>Modal Schließen</GeneralButton>
             </div>
         </div>
     )

@@ -131,7 +131,7 @@ img {
   --repeatVal: 1;
 }
 
-.ul-circles > li {
+.ul-circles > a {
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: calc(var(--rimSize) / 16);
@@ -143,8 +143,8 @@ img {
   text-align: center;
   position: relative;
 }
-.ul-circles > li::before,
-.ul-circles > li::after {
+.ul-circles > a::before,
+.ul-circles > a::after {
   content: "";
   position: absolute;
   aspect-ratio: 1/1;
@@ -152,7 +152,7 @@ img {
   z-index: -1;
 }
 
-.ul-circles > li::before {
+.ul-circles > a::before {
   width: calc(100% + calc(2 * var(--rimSize)));
   left: calc(var(--rimSize) * -1);
   top: calc(var(--rimSize) * -1);
@@ -167,7 +167,7 @@ img {
     inset -2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.ul-circles > li:nth-child(even)::before {
+.ul-circles > a:nth-child(even)::before {
   --clipX1: 50%;
   --clipX2: 100%;
 }
@@ -176,13 +176,13 @@ img {
   .ul-circles {
     --repeatVal: auto-fit;
   }
-  .ul-circles:not(.ul-circles-vertical) > li:nth-child(even)::before {
+  .ul-circles:not(.ul-circles-vertical) > a:nth-child(even)::before {
     --clipX1: 0%;
     --clipY1: 0%;
     --clipX2: 100%;
     --clipY2: 50%;
   }
-  .ul-circles:not(.ul-circles-vertical) > li:nth-child(odd)::before {
+  .ul-circles:not(.ul-circles-vertical) > a:nth-child(odd)::before {
     --clipX1: 0%;
     --clipY1: 50%;
     --clipX2: 100%;
@@ -190,19 +190,19 @@ img {
   }
 }
 
-.ul-circles > li::after {
+.ul-circles > a::after {
   width: 100%;
   background: #fdfdfd;
   box-shadow: -0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 
-.ul-circles > li > i {
+.ul-circles > a > i {
   font-size: 1.5rem;
   color: var(--accent-color);
   align-self: end;
 }
 
-.ul-circles > li > i {
+.ul-circles > a > i {
   font-size: 1.5rem;
   color: var(--accent-color);
   align-self: end;
@@ -217,6 +217,10 @@ img {
 
 .has-no-progress-circle {
   --accent-color:#E2E8F0
+}
+
+.is-nft-mint {
+  --accent-color:#F3A22D
 }
 
 .video-description-container {

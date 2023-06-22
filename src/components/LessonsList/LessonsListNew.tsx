@@ -71,7 +71,8 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
   /*
   * Handles Modal Toggle and is passed as props
   */
-  const togglePopup = (questId: string) => {
+  const togglePopup = (questId: string, event: any) => {
+    event.preventDefault();
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
@@ -100,7 +101,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /><a href={`/${chain}/${quest.slug}`}> 3:32 Min</a></li>
+                <a key={quest.id} href={`/${chain}/${quest.slug}`} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /> 3:32 Min</a>
                 
             ))
         ))
@@ -151,7 +152,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
                           {isQuestSection ? (
                             <>
-                              <li className="has-no-progress-circle"><i className="fa-solid fa-hexagon-vertical-nft" /><a onClick={() => togglePopup(quests.questSectionId)}></a></li>
+                              <a href="" className="is-nft-mint" onClick={() => togglePopup(quests.questSectionId, event)}><i className="fa-solid fa-handshake" />Mint NFT</a>
                             </>)
                             :
                             null
