@@ -36,6 +36,9 @@ function getLibrary(provider: any): Web3Provider {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
+  const handleCookieBannerInteraction = () => {
+    return true;
+  }
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
@@ -48,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
         
-        <CookieBanner />
+        <CookieBanner linksActive={false} handleCookieBannerInteraction={handleCookieBannerInteraction} />
         <CookiePolicyModal />
         <Footer />
       </main>
