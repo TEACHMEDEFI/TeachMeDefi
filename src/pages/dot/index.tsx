@@ -30,8 +30,6 @@ export default function Index() {
         </div>
         <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
         <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
-      </section>
-      <section className=' w-full flex items-center justify-center relative my-36' >
         <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg backdrop-blur-sm' >
           Polkadot ist eine Blockchain-Plattform, die darauf abzielt, die Interoperabilität und Skalierbarkeit
           von Blockchains zu verbessern. Es ist eine dezentrale Plattform, die es verschiedenen Blockchains ermöglicht,
@@ -44,8 +42,9 @@ export default function Index() {
         <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
         <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' />
       </section>
-      <section className=' w-full flex flex-col items-center justify-center relative z-50' >
-        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
+      <section className='w-full flex flex-col justify-center relative z-50' >
+        <h2 className="font-bold text-4xl video-section-heading">Video Section</h2>
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection />
         <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
       </section>

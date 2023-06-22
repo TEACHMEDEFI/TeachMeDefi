@@ -118,15 +118,12 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
       lessonsArray.forEach((quests: Quests, i) => (
           listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-              <li key={quest.id} className={imageClasses[quest.id]}><i className="fa-brands fa-ethereum"></i> Video {i + 1}: {quest.title}</li>
-              
+              <li key={quest.id} className={imageClasses[quest.id]}><i className={chain === 'eth' ? 'fa-brands fa-ethereum' : 'fa-sharp fa-regular fa-circle-dot'}></i> Video {i + 1}: {quest.title}</li>
           ))
       ))
 
       return listItemsPerQuest[questSectionId];
   }
-
-    // <Link href={`/${chain}/${quest.slug}`}>{quest.title}</Link>
 
     
     return (

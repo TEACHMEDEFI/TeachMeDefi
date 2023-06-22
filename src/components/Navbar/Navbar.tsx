@@ -76,7 +76,7 @@ export default function Navbar() {
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"/podcast"} className="hover:underline">PODCAST</Link>
+          <Link data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"} className="hover:underline">PODCAST</Link>
           <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
           <Link data-linktarget="subscribe" onClick={handleTagManagerEventsRedirect} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
