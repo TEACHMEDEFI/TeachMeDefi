@@ -16,10 +16,10 @@ type acceptedCookies = {
 }
 
 type CookieBannerProps = {
-    linksActive: boolean
-    handleCookieBannerInteraction: Function
+    linksActive?: boolean
+    handleCookieBannerInteraction?: Function
     fromCookiePolicyNoobsie: boolean
-    togglePopup: Function
+    togglePopup?: Function
 }
 
 
@@ -100,7 +100,11 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
         if (typeof handleCookieBannerInteraction !== 'undefined') {
             handleCookieBannerInteraction();
         }
-        
+    }
+
+    const toggleModal = () => {
+        if (typeof togglePopup === 'undefined') return
+        togglePopup(false)
     }
 
     if (showBanner || linksActive) {
@@ -115,7 +119,7 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
 
                     {fromCookiePolicyNoobsie ? (
                         <>
-                            <GeneralButton onClick={() => togglePopup(false)}>Modal Schließen</GeneralButton>
+                            <GeneralButton onClick={() => toggleModal}>Modal Schließen</GeneralButton>
                         </>) : null
                     }
 
