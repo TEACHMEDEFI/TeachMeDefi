@@ -1,5 +1,6 @@
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useEffect, useState } from 'react'
+import Link from "next/link";
 
 import {
     Accordion,
@@ -132,7 +133,7 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
                         <AccordionPanel pb={4}>
                             <h2>Derzeit setzen wir keine First-Party Cookies</h2>
                             <h2>Unsere Third-Party Cookies setzen sich zusammen aus den Anbietern: Youtube, GoogleAnalytics und Meta</h2>
-                            <h3> <a href="/privacy">Für Mehr Informationen Clicke Bitte Hier</a></h3>
+                            <Link data-linktarget="faq-section" href={"/privacy"} className="rainbow-text" >Für Mehr Informationen Clicke Bitte Hier</Link>
                         </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
