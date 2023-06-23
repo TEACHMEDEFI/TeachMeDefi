@@ -1,9 +1,10 @@
 export default function Index() {
+    const date = new Date().toLocaleDateString('de-de', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
     return (
       <div>
 
         <h2>Datenschutzerklärung</h2>
-        Stand: 23 Juni 2023
+        Stand: {date}
 
         Wir freuen uns sehr über Ihr Interesse an unserem Unternehmen. Datenschutz hat einen besonders hohen Stellenwert für die
         Geschäftsleitung. Eine Nutzung der Internetseiten ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich.
