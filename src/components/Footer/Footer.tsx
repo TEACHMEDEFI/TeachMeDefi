@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex flex-col border-l-4 pl-5 py-3 rounded " >
-        <Link href={"/"}>Datenschutzerklärung</Link>
+        <Link data-linktarget="privacy-section" href={"/privacy"} className="rainbow-text" >Datenschutzerklärung</Link>
         <Link href={"/"}>Haftungsausschluss</Link>
         <Link href={"/"}>Nutzungsbedingungen</Link>
         <Link href={"/"}>Impressum</Link>

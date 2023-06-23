@@ -1,38 +1,35 @@
-type CookieObject = {
+type Cookies = {
+    cookies: Array<CookieObject>
+}
+    
+
+
+export type CookieObject = {
     setter: string,
-    cookies: cookieType[],
-    statement: StatementSection[],
+    cookies: Array<cookieType>
 
 }
 
 type cookieType = {
-    cookieId: string,
-    reason: string,
+    cookieId: string
+    reason: string
     duration: string
 }
-    
 
-type Cookies = {
-    necessaryCookies: CookieObject[],
-    analysisCookies: CookieObject[]
-    
-}
-
-type StatementSection = {
-    headline: string,
-    text: string[],
-    link: {
-        linkdescription: string,
-        linkUrl: string
-    }
-}
+// type StatementSection = {
+//     headline: string,
+//     text: string[],
+//     link: {
+//         linkdescription: string,
+//         linkUrl: string
+//     }
+// }
 
 
-export const Cookies: Cookies = {
-    analysisCookies: [
+export const Cookies: Cookies =  {
+    cookies: [
         {
             setter: 'Meta-Pixel',
-            statement: [],
             cookies: [
                 {
                     cookieId: '_ga',
@@ -43,7 +40,6 @@ export const Cookies: Cookies = {
         },
         {
             setter: 'Google Analytics',
-            statement: [],
             cookies: [
                 {
                     cookieId: '_ga',
@@ -64,7 +60,6 @@ export const Cookies: Cookies = {
         },
         {
             setter: 'Youtube',
-            statement: [],
             cookies: [
                 {
                     cookieId: 'YSC',
@@ -78,6 +73,5 @@ export const Cookies: Cookies = {
                 }
             ]
         }
-    ],
-    necessaryCookies: []
+    ]
 }

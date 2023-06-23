@@ -22,10 +22,6 @@ type CookieBannerProps = {
     togglePopup?: Function
 }
 
-
-interface CookieBannerInteraction {
-    cookies: 'all' | 'necessary';
-  }
   
 const useCookieBannerInteraction = () => {
     const [hasInteracted, setHasInteracted] = useState<boolean>(false);
@@ -134,7 +130,9 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
                             </AccordionButton>
                         </h2>
                         <AccordionPanel pb={4}>
-                            Hier werden dann die einzelnen Cookies aufgelistet die wir über den TagManager setzen Todo: Jan
+                            <h2>Derzeit setzen wir keine First-Party Cookies</h2>
+                            <h2>Unsere Third-Party Cookies setzen sich zusammen aus den Anbietern: Youtube, GoogleAnalytics und Meta</h2>
+                            <h3> <a href="/privacy">Für Mehr Informationen Clicke Bitte Hier</a></h3>
                         </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
