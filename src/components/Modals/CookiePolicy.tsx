@@ -8,8 +8,7 @@ export default function CookiePolicyModal() {
 
 
   const handleLinksToggle = () => {
-    console.log('setting links active')
-    setShowPopup(true)
+    showPopup ? setShowPopup(false) : setShowPopup(true)
   }
 
   const handleCookieBannerInteraction = () => {
