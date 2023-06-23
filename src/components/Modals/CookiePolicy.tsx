@@ -16,7 +16,7 @@ export default function CookiePolicyModal() {
     setShowPopup(false)
   }
 
-  const togglePopup = (show: boolean, event: any) => {
+  const togglePopup = (show: boolean) => {
     setShowPopup(show)
   }
 
