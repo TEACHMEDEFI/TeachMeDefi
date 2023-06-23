@@ -35,11 +35,11 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex flex-col border-l-4 pl-5 py-3 rounded " >
+      <Link data-linktarget="liability-section" href={"/haftungsausschluss"} className="rainbow-text" >Haftungsausschluss</Link>
         <Link data-linktarget="privacy-section" href={"/privacy"} className="rainbow-text" >Datenschutzerklärung</Link>
-        <Link href={"/"}>Haftungsausschluss</Link>
-        <Link href={"/"}>Nutzungsbedingungen</Link>
-        <Link href={"/"}>Impressum</Link>
-        <Link href={"/"}>FAQ</Link>
+        <Link data-linktarget="terms-section" href={"/termsAndConditions"} className="rainbow-text" >Nutzungsbedingungen</Link>
+        <Link data-linktarget="impressum-section" href={"/privacy"} className="rainbow-text" >Impressum</Link>
+        <Link data-linktarget="faq-section" href={"/privacy"} className="rainbow-text" >FAQ</Link>
       </div>
     </footer>
   )
