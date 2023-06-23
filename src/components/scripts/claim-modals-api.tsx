@@ -72,31 +72,26 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
     const [nftMinted, setNftMinted] = useState(false);
     const { library } = useWeb3React();
 
-    console.log('Starting to Mint for lesson:', questSectionId)
-
     useEffect(() => {
 
     }, [showSpinner, nftMinted])
 
-    const mintNft = () => {
+    const mintNft = async () => {
 
         try {
             const contractAddress = QuestNftContractAddresses[questSectionId];
             const contract = new Contract(contractAddress, QuestABI.abi, library.getSigner());
-            (async() => {
-                // Queries
-                await contract.mint();
-                setShowSpinner(true);
-            })()
+            
+            await contract.mint();
+            setShowSpinner(true);
 
-            let once = true;
+
             contract.on('Transfer', () => { 
                 setShowSpinner(false);
                 setNftMinted(true)
-                once = false;
             })
         } catch (error) {
-            console.error(error);
+            console.error('This is the caught error', error);
             setShowSpinner(false);
             setNftMinted(false)
         }

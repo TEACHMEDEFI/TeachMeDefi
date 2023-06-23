@@ -92,7 +92,6 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
     * Creates the li Elements for each specific listof Quests
     */
     const renderProgressBarItems = (questSectionId: string) => {
-        console.log(lessonsArray)
         let listItemsPerQuest: listItemsPerQuest = {}
 
         lessonsArray.forEach((quests: Quests, j) => (
