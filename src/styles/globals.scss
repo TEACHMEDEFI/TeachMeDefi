@@ -280,3 +280,44 @@ img {
   border: solid black
 }
 
+.impressum {
+  .header {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .sub-header {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .section {
+    margin-bottom: 15px;
+  }
+  
+}
+
+.disclaimer {
+  font-family: Arial, sans-serif;
+}
+
+.disclaimer h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.disclaimer h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.disclaimer p {
+  margin-bottom: 15px;
+}
+
+.disclaimer ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  margin-bottom: 15px;
+}
+
