@@ -51,7 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
         
-        <CookieBanner linksActive={false} handleCookieBannerInteraction={handleCookieBannerInteraction} />
+        <CookieBanner linksActive={false} handleCookieBannerInteraction={handleCookieBannerInteraction} fromCookiePolicyNoobsie={false} />
         <CookiePolicyModal />
         <Footer />
       </main>

@@ -4,36 +4,40 @@ import CookieBanner from "./CookieBanner";
 
 
 export default function CookiePolicyModal() {
-  const [linksActive, setLinksActive] = useState<boolean>(false)
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
 
   const handleLinksToggle = () => {
     console.log('setting links active')
-    setLinksActive(true)
+    setShowPopup(true)
   }
 
   const handleCookieBannerInteraction = () => {
-    setLinksActive(false)
+    setShowPopup(false)
+  }
+
+  const togglePopup = (show: boolean, event: any) => {
+    setShowPopup(show)
   }
 
   useEffect(() => {
    
-  }, [linksActive])
+  }, [showPopup])
 
   return (
-    <div className="fixed right-24 bottom-0 flex flex-col ">
+    <div className="fixed left-24 bottom-0 flex flex-col ">
       <div
         className={`bg-gray-300 dark:bg-bgDarkGray h-12 flex items-center justify-evenly rounded-t-md w-64 `}
       >
-        <button className={`w-full h-full rounded-tl-md px-2 ${!linksActive ? "bg-gray-400 dark:bg-gray-600 rounded-br-md" : "font-bold"}`}
+        <button className={`w-full h-full rounded-tl-md px-2 ${!showPopup ? "bg-gray-400 dark:bg-gray-600 rounded-br-md" : "font-bold"}`}
           onClick={handleLinksToggle} >
           Cookies und Datenschutz
         </button>
       </div>
 
-      {linksActive ? (
+      {showPopup ? (
       <>
-        <CookieBanner linksActive={linksActive} handleCookieBannerInteraction={handleCookieBannerInteraction} />
+        <CookieBanner linksActive={showPopup} handleCookieBannerInteraction={handleCookieBannerInteraction} fromCookiePolicyNoobsie={true} togglePopup ={togglePopup} />
       </>
       ) : null}
 

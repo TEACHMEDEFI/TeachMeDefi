@@ -1,4 +1,4 @@
-import { PrimaryButton } from '../Buttons/Buttons';
+import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useEffect, useState } from 'react'
 
 import {
@@ -13,6 +13,13 @@ import {
 
 type acceptedCookies = {
     cookies: string;
+}
+
+type CookieBannerProps = {
+    linksActive: boolean
+    handleCookieBannerInteraction: Function
+    fromCookiePolicyNoobsie: boolean
+    togglePopup: Function
 }
 
 
@@ -71,15 +78,8 @@ const useCookieBannerInteraction = () => {
     };
 };
 
-type CookieBannerProps = {
-    linksActive: boolean,
-    handleCookieBannerInteraction: Function
-}
-  
 
-
-
-export default function CookieBanner({linksActive, handleCookieBannerInteraction}: CookieBannerProps) {
+export default function CookieBanner({linksActive, handleCookieBannerInteraction, fromCookiePolicyNoobsie, togglePopup}: CookieBannerProps) {
     const {hasInteracted, handleAcceptAll, handleAcceptNecessary, cookieTypeAccepted} = useCookieBannerInteraction()
     const [showBanner, setShowBanner] = useState(false);
 
@@ -112,6 +112,12 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
 
                     <PrimaryButton data-policy="acceptAll" onClick={() => handleAll()} >Alle Cookies akzeptieren</PrimaryButton>
                     <PrimaryButton data-policy="onlyVitals" onClick={() => handleNecessary()} >Nur Notwendige Cookies verwenden</PrimaryButton>
+
+                    {fromCookiePolicyNoobsie ? (
+                        <>
+                            <GeneralButton onClick={() => togglePopup(false)}>Modal Schließen</GeneralButton>
+                        </>) : null
+                    }
 
                     <Accordion allowToggle className='border-y-2 w-full' >
                         <AccordionItem className="border-y-2 py-4" >
