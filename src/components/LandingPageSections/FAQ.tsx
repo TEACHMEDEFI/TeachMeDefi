@@ -6,17 +6,18 @@ import {
   AccordionIcon,
   Box,
 } from '@chakra-ui/react'
+import Image from 'next/image'
 import { faqData } from '@/data/faqData'
 
 export default function FAQ() {
   return (
-    <section id='faq' className='mt-44 pb-20 flex flex-col items-center ' >
-      <div className='w-full max-w-5xl py-10 flex gap-20'>
+    <section id='faq' className='mt-44 pb-20 flex  items-center ' >
+      <div className='w-full max-w-[1240px] py-10 flex flex-col md:flex-row gap-10 z-10'>
         <div>
           <h3 className='text-4xl font-bold mb-4' >FAQs</h3>
           <p className='text-2xl'>Häufig gestellte Fragen</p>
         </div>
-        <Accordion allowToggle className='border-y-2 w-full' >
+        <Accordion allowToggle className='border-y-2 w-full backdrop-blur-xl' >
           {faqData && faqData.map(faqElement => (
             <AccordionItem className="border-y-2 py-4" key={faqElement.id} >
               <h2 className='font-bold' >
@@ -33,6 +34,9 @@ export default function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
+      </div>
+      <div className="absolute max-md:hidden -left-10 2xl:-left-44 bottom-0 w-[600px] h-[366px]">
+        <Image src={"/home/inBackground/sharding.png"} fill alt="ethereum picknick" />
       </div>
     </section>
   )

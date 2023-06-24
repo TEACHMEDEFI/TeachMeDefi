@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-center"  >
-      <nav className=" absolute h-24 w-full max-w-[2000px] font-bold flex justify-between items-center px-12 z-10 backdrop-blur-sm">
+      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-12 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
             <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative" >
@@ -76,7 +76,7 @@ export default function Navbar() {
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"} className="hover:underline">PODCAST</Link>
+          <Link target="_blank" data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"}  className="hover:underline">PODCAST</Link>
           <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
           <Link data-linktarget="subscribe" onClick={handleTagManagerEventsRedirect} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
 
       {/* ______ HAMBRUGER MENU WHEN SCREEN UNDER 1280PX _______ */}
       {openBurgerMenu &&
-        <div className="absolute right-0 top-0 flex flex-col gap-5 h-screen w-52 xl:hidden  backdrop-blur-3xl z-10 pt-16 pl-3 font-bold " >
+        <div className="absolute right-0 top-0 flex flex-col gap-5 h-screen w-52 xl:hidden  backdrop-blur-3xl z-50 pt-16 pl-3 font-bold " >
           <button className="absolute top-4 right-4 font-bold bg-gray-100 dark:bg-bgDarkGray h-8 w-8 rounded-full flex justify-center items-center "
             onClick={toggleBurgerMenu}
           >
@@ -153,7 +153,7 @@ export default function Navbar() {
           >
             <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BTC Section</Link>
+              {/* <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BTC Section</Link> */}
               <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETH Section</Link>
               <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >DOT Section</Link>
             </div>

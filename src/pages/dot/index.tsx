@@ -8,9 +8,11 @@ import LessonsList from '@/components/LessonsList/LessonsList'
 import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import {switchNetworkIfNeeded} from '../api/ethereum-api'
 import ReactPlayer from "react-player"
+import { useTheme } from '@/context/ThemeContext';
 
 
 export default function Index() {
+  const { isDarkMode } = useTheme();
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   useEffect(() => {
     switchNetworkIfNeeded()
@@ -38,11 +40,10 @@ export default function Index() {
         </h3>
         </div>
         <div className='relative w-2/4 h-full grow'>
-          <Image src={"/dot/Polkadot_Logo_Vertical.png"} fill alt='Ethereum Hero' />
+          <Image src={isDarkMode ? "/dot/dot-logo-dark.png" : "/dot/dot-logo-light.png"} fill alt='Ethereum Hero' />
         </div>
         <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
         <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
-        
         <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
         {/* <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' /> */}
       </section>

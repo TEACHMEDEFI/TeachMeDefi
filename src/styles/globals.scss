@@ -69,8 +69,8 @@ img {
 // }
 
 .landing-donut {
-  width: 2000px;
-  height: 2000px;
+  width: 900px;
+  height: 900px;
   background: url(/home/landing_rgb_donut.svg) no-repeat;
   transform-origin: center;
   overflow: visible;
@@ -78,6 +78,22 @@ img {
   right: 0;
   bottom: 0;
   translate: 50% calc(50% - 96px);
+  
+  @media (min-width: 640px) {
+    width: 1200px;
+    height: 1200px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 1600px;
+    height: 1600px;
+  }
+    
+  @media (min-width: 1400px) {
+    width: 2000px;
+    height: 2000px;
+    
+  }
 }
 
 // .landing-bg-2 {
@@ -243,9 +259,9 @@ img {
   text-align: center;
 }
 
-.h-screen {
-  height: 70vh;
-}
+// .h-screen {
+//   height: 70vh;
+// }
 
 .ul-plain {
   -moz-column-count: 2;

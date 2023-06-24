@@ -11,11 +11,11 @@ export default function LandingVideo() {
   }, []);
 
   return (
-    <section className='my-44 flex flex-col items-center relative z-20' >
-      <h3 className="text-4xl font-bold text-center max-w-5xl mb-5" >Entdecke die faszinierende Welt der Kryptowährungen: Starte deine Reise zu finanziellem Erfolg mit unserem Einführungsvideo!</h3>
+    <section className='mt-22 flex flex-col items-center relative' >
+      {/* <h3 className="text-4xl font-bold text-center max-w-5xl mb-5" >Entdecke die faszinierende Welt der Kryptowährungen: Starte deine Reise zu finanziellem Erfolg mit unserem Einführungsvideo!</h3> */}
       {showPlayer &&
-        <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
-          <div className='h-[540px] w-[960px] ' >
+        <div className='bg-slate-100 dark:bg-bgDarkGray p-2 xl:p-5 rounded-xl'>
+          <div className=' w-full h-[50vw] aspect-video xl:px-0 xl:h-[676px] xl:w-[1200px] ' >
             <ReactPlayer
               height="100%"
               width="100%"

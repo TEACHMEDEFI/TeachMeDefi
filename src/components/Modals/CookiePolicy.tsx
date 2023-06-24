@@ -24,13 +24,13 @@ export default function CookiePolicyModal() {
   }, [showPopup])
 
   return (
-    <div className="fixed left-24 bottom-0 flex flex-col ">
+    <div className="fixed left-16 bottom-0 flex flex-col z-50">
       <div
         className={`bg-gray-300 dark:bg-bgDarkGray h-12 flex items-center justify-evenly rounded-t-md w-64 `}
       >
-        <button className={`w-full h-full rounded-tl-md px-2 ${!showPopup ? "bg-gray-400 dark:bg-gray-600 rounded-br-md" : "font-bold"}`}
+        <button className={`w-full h-full rounded-t-md px-2 ${!showPopup ? "bg-gray-200 dark:bg-gray-600 " : "font-bold"}`}
           onClick={handleLinksToggle} >
-          Cookies und Datenschutz
+          Cookies & Datenschutz
         </button>
       </div>
 

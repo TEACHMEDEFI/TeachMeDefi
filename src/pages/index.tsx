@@ -24,31 +24,36 @@ export default function Home() {
       <LandingVideo />
       <OurServices />
       <CourseOverview />
-      {/* Course videos Bilder = thumbnails von rustam jan und sohel  */}
       <Podcast />
       <Newsletter />
       <AboutUs />
       <FAQ />
-      {/* video, more than just learning our services, improve yourself (section overview), our member experience (über uns) */}
-      {/* FAQ kommen +50 Fragen Faq, ausklappbar machen? */}
-      {/* Popup from Videos also into Section overview to each quest */}
 
 
       {/* RESPONSIVE MACHEN  */}
       {/* LINKS (href) FEHLEN: FOOTER, NEWSLETTER, PODCAST, SUBSCRIBE ... */}
 
 
-      {/* Bild für SectionOverview */}
+
       {/* Bild für unsere Service Component  */}
-      {/* Eth brand assets auf die landing page so wie im Eth section, als hintergrund */}
       {/* Zeitaufwand zu den Quest titles */}
       {/* DOT Theory teil fehlt */}
       {/* DOT quests important links fehlen */}
-      {/* In LessonBurgerMenu: scrollable machen  */}
 
-      <div className="absolute -left-6 bottom-0 w-[400px] h-[244px]">
-        <Image src={"/home/inBackground/sharding.png"} fill alt="ethereum picknick" />
-      </div>
+
+      {/* icons in würfel ändern, nft mail and podcast und epaper box noch erstellen */}
+      
+      {/* target=_blank funkt net bei nav podcasts */}
+      {/* Insta, Tiktok und Podcast icon zu hero text CTA */}
+      {/* cookigs model zindex in dogt section */}
+      {/* cookie mehr infomation automatisch schließen */}
+      {/* mint nft popup styling  */}
+      {/* nft claim spinner fix bug */}
+      {/* cookies button weniger auffällig fabe wie podcast box */}
+      {/* cookies tab/btn responsive, on mobile just a cookie? more to the left and smaller */}
+
+
+     
 
     </div>
   )
