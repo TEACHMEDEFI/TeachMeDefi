@@ -1,8 +1,13 @@
 
+import { useState } from 'react'
+import {useDisclosure} from '@chakra-ui/react'
 import { SecondaryButton } from "../Buttons/Buttons"
 import Image from "next/image"
 
 export default function AboutUs() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [popupIsOpen, setPopupIsOpen] = useState();
+
   return (
     <section id='about-us' className='flex flex-col items-center mb-5' >
       <div className="w-full flex flex-col items-center gap-16 max-w-[1240px]"  >
@@ -84,7 +89,10 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-        <p className="tracking-wide leading-relaxed text-center" >
+        <SecondaryButton onClick={onOpen}>Mehr lesen</SecondaryButton>
+
+   
+        {/* <p className="tracking-wide leading-relaxed text-center" >
           Wir befinden uns in einem Zeitalter der Entwicklung. Während das Web 1.0 in seiner Ursprungsphase
           noch statisch und ohne Interaktionsmöglichkeiten die ersten Websites präsentierte, revolutionierte
           das Web 2.0 bereits alles bisher Dagewesene. Jede Person kann frei durch verschiedenste Websites
@@ -100,7 +108,7 @@ export default function AboutUs() {
           dabei, positioniere Dich und profitiere von den Möglichkeiten. Bei TeachMeDeFi unterstützen wir
           Dich dabei, diese Chancen zu erkennen und Deine Position in der aufstrebenden Krypto-Welt zu stärken.
           Lass uns gemeinsam die Zukunft der Finanzen gestalten und keine Gelegenheit verpassen.
-        </p>
+        </p> */}
       </div>
     </section>
   )

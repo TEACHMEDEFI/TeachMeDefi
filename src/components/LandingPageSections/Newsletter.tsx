@@ -13,8 +13,8 @@ export default function Newsletter() {
           <h3 className=' text-2xl sm:text-4xl font-bold text-center '>Abonniere <br className="xl:hidden" /> unseren  Newsletter</h3>
           <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target='_blank' >Starte jetzt </PrimaryButton>
         </div>
-      <div className="absolute -right-52 -bottom-80 w-[450px] h-[600px]">
-        <Image className="max-lg:hidden" src={"/home/inBackground/eth-robot.png"} fill alt="ethereum picknick" />
+      <div className="absolute -right-52 -bottom-80 w-0 lg:w-[450px] h-0 lg:h-[600px]">
+        <Image className="max-lg:hidden" src={"/home/inBackground/eth-robot.png"} fill alt="ethereum robot" />
       </div>
       </div>
     </section>
