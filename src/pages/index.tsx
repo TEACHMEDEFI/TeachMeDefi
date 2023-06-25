@@ -42,9 +42,9 @@ export default function Home() {
 
 
       {/* icons in würfel ändern, nft mail and podcast und epaper box noch erstellen */}
+      {/* Insta, Tiktok und Podcast icon zu hero text CTA */}
       
       {/* target=_blank funkt net bei nav podcasts */}
-      {/* Insta, Tiktok und Podcast icon zu hero text CTA */}
       {/* cookigs model zindex in dogt section */}
       {/* cookie mehr infomation automatisch schließen */}
       {/* mint nft popup styling  */}

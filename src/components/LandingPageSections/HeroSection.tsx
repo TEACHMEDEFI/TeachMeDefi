@@ -7,7 +7,7 @@ import { useTheme } from '@/context/ThemeContext';
 export default function HeroSection() {
   const { isDarkMode } = useTheme();
   return (
-    <section className='landing flex flex-col lg:flex-row  items-center h-screen w-full gap-x-32 relative' >
+    <section className='landing flex flex-col lg:flex-row  items-center  lg:h-screen w-full gap-x-32 relative' >
       <div className='w-11/12 lg:w-5/12 xl:w-4/12 h-11/12 space-y-5 xl:ml-24 lg:ml-16 z-10 
       lg:mb-36  md:ml-10 mt-10 sm:mt-32 md:w-2/3 '
       >
