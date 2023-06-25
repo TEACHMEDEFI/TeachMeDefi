@@ -20,11 +20,11 @@ export default function Navbar() {
   const [connectWalletBtn, toggleConnectWalletBtn] = useState<boolean>(false)
   const [openBurgerMenu, setOpenBurgerMenu] = useState<boolean>(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (typeof window.ethereum !== 'undefined') {
       setEthereumIsThere(true)
     }
-  },[])
+  }, [])
 
   const onClickDisconnect = () => {
     deactivate()
@@ -43,7 +43,7 @@ export default function Navbar() {
     window.location = href;
   }
 
-  const handleTagManagerClickEvents =(event: any) => {
+  const handleTagManagerClickEvents = (event: any) => {
     reportLinkClick(event.target);
   }
 
@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-center"  >
-      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-12 z-10 backdrop-blur-sm">
+      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
             <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative" >
@@ -76,7 +76,7 @@ export default function Navbar() {
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link target="_blank" data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"}  className="hover:underline">PODCAST</Link>
+          <Link target="_blank" data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"} className="hover:underline">PODCAST</Link>
           <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
           <Link data-linktarget="subscribe" onClick={handleTagManagerEventsRedirect} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
@@ -138,16 +138,18 @@ export default function Navbar() {
             }
           </button>
           {/* _______ HAMBURGER CONNECT / WALLET BUTTON ______________ */}
-          <div className="sm:hidden block" >
-            {
-              active && typeof account === 'string' ?
-                <button className="mb-5 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent " onClick={() => toggleConnectWalletBtn(true)} >
-                  {formatAddress(account, 4)}
-                </button>
-                :
-                <button className="mb-5 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent " onClick={() => toggleConnectWalletBtn(true)}>CONNECT</button>
-            }
-          </div>
+          {ethereumIsThere &&
+            <div className="sm:hidden block" >
+              {
+                active && typeof account === 'string' ?
+                  <button className="mb-5 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent " onClick={() => toggleConnectWalletBtn(true)} >
+                    {formatAddress(account, 4)}
+                  </button>
+                  :
+                  <button className="mb-5 bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent " onClick={() => toggleConnectWalletBtn(true)}>CONNECT</button>
+              }
+            </div>
+          }
           <div
             className="relative "
           >

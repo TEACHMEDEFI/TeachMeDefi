@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <section className='landing flex flex-col lg:flex-row  items-center  lg:h-screen w-full gap-x-32 relative' >
       <div className='w-11/12 lg:w-5/12 xl:w-4/12 h-11/12 space-y-5 xl:ml-24 lg:ml-16 z-10 
-      lg:mb-36  md:ml-10 mt-10 sm:mt-32 md:w-2/3 '
+      lg:mb-36  md:ml-10 mt-10 sm:mt-32 md:w-2/3 max-sm:w-full max-sm:px-5'
       >
         <h1 className='xl:text-5xl text-4xl font-bold' >
           Krypto leicht gemacht!
@@ -58,7 +58,7 @@ export default function HeroSection() {
               </Link>
               <Link href={"https://www.tiktok.com/@teachmedefi_official"} target="_blank" >
                 <div className="h-6 w-6 relative">
-                  <Image src={isDarkMode ? "/icons/tiktok.svg" : "/icons/tiktok-dark.svg"}
+                  <Image src={isDarkMode ? "/icons/tiktok-light.svg" : "/icons/tiktok-dark.svg"}
                     alt="tiktok" fill sizes="60px"
                   />
                 </div>
@@ -72,7 +72,7 @@ export default function HeroSection() {
               </Link>
               <Link href={"https://podcasters.spotify.com/pod/show/teachmedefi"} target="_blank" >
                 <div className="h-6 w-6 relative">
-                  <Image src={isDarkMode ? "/icons/podcast.svg" : "/icons/podcast-dark.svg"}
+                  <Image src={isDarkMode ? "/icons/podcast-light.svg" : "/icons/podcast-dark.svg"}
                     alt="podcast" fill sizes="60px"
                   />
                 </div>

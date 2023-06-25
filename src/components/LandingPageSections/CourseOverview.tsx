@@ -14,7 +14,7 @@ export default function CourseOverview() {
       from-primaryBlue via-secondaryPurple to-primaryPink
         rounded-3xl relative text-white flex items-center "
       >
-       <div className="absolute -right-72 -top-72 w-[500px] h-[358px] z-10">
+       <div className="absolute  -right-72 -top-72 w-[500px] h-[358px] z-10">
         <Image src={"/home/inBackground/doge-master.png"} fill alt="ethereum doge robot" />
       </div>
         <div className="mx-20 mb-20 mt-96" >
