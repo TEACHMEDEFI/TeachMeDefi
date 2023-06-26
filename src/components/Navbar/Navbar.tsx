@@ -39,8 +39,15 @@ export default function Navbar() {
     event.preventDefault();
     reportLinkClick(event.target);
     const href = event.target.href
+    const {linktarget} = event.target.dataset;
 
-    window.location = href;
+    if (linktarget === 'podcast') {
+      window.open(href,'_blank');
+    } else {
+      window.location = href;
+    }
+
+    
   }
 
   const handleTagManagerClickEvents = (event: any) => {
