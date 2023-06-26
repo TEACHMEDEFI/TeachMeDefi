@@ -27,7 +27,8 @@ export default function Home() {
       <Podcast />
       <Newsletter />
       <AboutUs />
-      <FAQ />
+      {/* <FAQ /> */}
+      <div className='py-24'></div>
 
 
       {/* RESPONSIVE MACHEN  */}
@@ -51,6 +52,14 @@ export default function Home() {
       {/* nft claim spinner fix bug */}
       {/* cookies button weniger auffällig fabe wie podcast box */}
       {/* cookies tab/btn responsive, on mobile just a cookie? more to the left and smaller */}
+
+
+{/* links in navbar */}
+{/* e-paper link  */}
+{/* podcast und newsletter component links  */}
+{/* über uns mehr über uns modal größe anpassen */}
+{/* faq data fehlt */}
+{/* footer fehlen die 3 neuen icons/links */}
 
 
      

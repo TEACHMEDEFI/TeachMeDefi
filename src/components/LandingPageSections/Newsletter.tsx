@@ -4,9 +4,9 @@ import { PrimaryButton } from "@/components/Buttons/Buttons";
 
 export default function Newsletter() {
   return (
-    <section id='newsletter' className='pb-44 flex flex-col items-center'  >
-      <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col md:flex-row items-center justify-between rounded-lg md:w-11/12 xl:w-[1240px] relative' >
-        <div className='relative h-80 sm:h-96 md:h-60 lg:h-96 w-80 sm:w-96 md:w-60 lg:w-96 ' >
+    <section id='newsletter' className='pb-24 lg:pb-44 flex flex-col items-center px-5'  >
+      <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col md:flex-row items-center justify-between rounded-lg w-full xl:w-[1240px] relative' >
+        <div className='relative aspect-square md:h-60 lg:h-96 w-full lg:w-96 ' >
           <Image src={"/home/newsletter_mailbox.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
         </div>
         <div className='flex flex-col grow items-center gap-8 max-md:py-10 '>

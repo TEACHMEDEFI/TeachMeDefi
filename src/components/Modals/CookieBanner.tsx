@@ -132,8 +132,26 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
                         </h2>
                         <AccordionPanel pb={4}>
                             <h2>Derzeit setzen wir keine First-Party Cookies</h2>
-                            <h2>Unsere Third-Party Cookies setzen sich zusammen aus den Anbietern: Youtube, GoogleAnalytics und Meta</h2>
-                            <Link onClick={toggleModal} data-linktarget="faq-section" href={"/privacy"} className="rainbow-text" >Für Mehr Informationen Clicke Bitte Hier</Link>
+                            <h2 className='pb-5'>Unsere Third-Party Cookies setzen sich zusammen aus den Anbietern: Youtube, GoogleAnalytics und Meta</h2>
+                              <span className='flex gap-1'>
+                              
+                              <Link onClick={toggleModal} data-linktarget="faq-section" href={"/privacy"} 
+                              className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+                               >Datenschutzerklärung, 
+                               </Link> 
+                              <Link onClick={toggleModal} data-linktarget="faq-section" href={"/termsAndConditions"} 
+                              className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+                               >AGBs
+                                </Link> 
+                              <p>und</p>
+                              <Link onClick={toggleModal} data-linktarget="faq-section" href={"/haftungsausschluss"} 
+                              className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+                               > Haftungsauschluss 
+                               </Link> 
+
+                                </span>
+                            {/* <p>Für mehr Informationen zu unserer Datenschutzerklärung, zu unseren AGBs</p>
+                            <Link onClick={toggleModal} data-linktarget="faq-section" href={"/privacy"} className="rainbow-text" >Für Mehr Informationen Clicke Bitte Hier</Link> */}
                         </AccordionPanel>
                         </AccordionItem>
                     </Accordion>

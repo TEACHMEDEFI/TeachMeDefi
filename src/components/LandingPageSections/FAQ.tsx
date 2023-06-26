@@ -11,7 +11,7 @@ import { faqData } from '@/data/faqData'
 
 export default function FAQ() {
   return (
-    <section id='faq' className='mt-44 pb-20 flex justify-center items-center ' >
+    <section id='faq' className='mt-24 lg:mt-44 pb-20 flex justify-center items-center px-5' >
       <div className='w-full max-w-[1240px] py-10 flex flex-col md:flex-row gap-10 z-10'>
         <div>
           <h3 className='text-4xl font-bold mb-4' >FAQs</h3>

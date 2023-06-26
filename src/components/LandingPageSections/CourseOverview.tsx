@@ -6,7 +6,7 @@ import { courseSections } from "@/data/coursesOverviewLinks";
 
 export default function CourseOverview() {
   return (
-    <section id='courses' className=' flex flex-col items-center relative pb-44' >
+    <section id='courses' className=' flex flex-col items-center relative pb-24 lg:pb-44 px-5' >
 
 
 
@@ -17,7 +17,7 @@ export default function CourseOverview() {
        <div className="absolute max-xl:hidden -right-72 -top-72 w-0 xl:w-[500px] h-0 xl:h-[358px] z-10">
         <Image src={"/home/inBackground/doge-master.png"} fill alt="ethereum doge robot" />
       </div>
-        <div className=" mx-10 lg:mx-20 mb-auto lg:mb-20 mt-10 sm:mt-16 lg:mt-96 z-10 backdrop-blur-md " >
+        <div className=" mx-10 lg:mx-20 mb-10 lg:mb-20 mt-10 sm:mt-16 lg:mt-96 z-10 backdrop-blur-md " >
           <h2 className=" text-2xl sm:text-4xl font-bold mb-6" >Krypto Bootcamp: <br />Dein Start in Krypto</h2>
           <p className="tracking-wider  md:w-[360px] lg:w-[420px] xl:w-[500px] mb-5" >
           {/* Unser Krypto Bootcamp führt dich in nur 90 Minuten durch die Grundlagen von Blockchains wie Bitcoin,  */}
@@ -34,10 +34,10 @@ export default function CourseOverview() {
             ))}
           </div>
         </div>
-        <div className="xl:w-[550px] h-[840px] sm:h-[800px]">
+        <div className="xl:w-[550px] h-[840px] sm:h-[800px] max-lg:hidden ">
 
         </div>
-        <div className="absolute right-4 sm:right-12 bottom-0 w-[260px] md:w-[420px] lg:w-[460px] xl:w-[500px] h-[390px] md:h-[630px] lg:h-[690px] xl:h-[750px]">
+        <div className="absolute max-lg:hidden right-4 sm:right-12 bottom-0 w-[260px] md:w-[420px] lg:w-[460px] xl:w-[500px] h-[390px] md:h-[630px] lg:h-[690px] xl:h-[750px]">
           <Image src={"/home/sohejl.png"} fill alt="teaching crypto" />
         </div>
         <div className="absolute max-lg:hidden left-16 top-16 lg:w-[438px] lg:h-[300px]">
