@@ -1,12 +1,30 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {useDisclosure} from '@chakra-ui/react'
 import { SecondaryButton } from "../Buttons/Buttons"
 import Image from "next/image"
+import AboutUsModal from '../Modals/AboutUsModal'
 
 export default function AboutUs() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [popupIsOpen, setPopupIsOpen] = useState();
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+
+
+  useEffect(() => {
+
+  }, [showPopup]);
+
+
+  /*
+  * Handles Modal Toggle and is passed as props
+  */
+  const togglePopup = (show: boolean) => {
+    setShowPopup(show)
+  }
+
+  const onOpen = () => {
+    setShowPopup(true)
+  }
+
 
   return (
     <section id='about-us' className='flex flex-col items-center mb-5' >
@@ -91,24 +109,11 @@ export default function AboutUs() {
         </div>
         <SecondaryButton onClick={onOpen}>Mehr lesen</SecondaryButton>
 
-   
-        {/* <p className="tracking-wide leading-relaxed text-center" >
-          Wir befinden uns in einem Zeitalter der Entwicklung. Während das Web 1.0 in seiner Ursprungsphase
-          noch statisch und ohne Interaktionsmöglichkeiten die ersten Websites präsentierte, revolutionierte
-          das Web 2.0 bereits alles bisher Dagewesene. Jede Person kann frei durch verschiedenste Websites
-          navigieren. User können sogar selbst Content erstellen und mit der ganzen Welt teilen - das ist
-          unser heutiger Stand. Aber die Entwicklung ist noch nicht abgeschlossen. Unsere Gesellschaft
-          befindet sich auf dem Weg zu einer neuen Revolution - dem Web 3.0. Dies ist das Zeitalter des
-          dezentralen Finanzsystems (DeFi), des neuen Bankings und des digitalen Eigentums.
-        </p>
-        <p className="tracking-wide leading-relaxed text-center" >
-          Die Krypto-Industrie ist zwar momentan noch jung, doch in ihr steckt viel Potenzial - sie wird in
-          den nächsten Jahren kontinuierlich wachsen. Daher ist es ratsam, Dir schon jetzt die Zeit zu nehmen
-          und nicht der Letzte zu sein, der den Markt betritt. Nutze stattdessen die Chance, sei frühzeitig
-          dabei, positioniere Dich und profitiere von den Möglichkeiten. Bei TeachMeDeFi unterstützen wir
-          Dich dabei, diese Chancen zu erkennen und Deine Position in der aufstrebenden Krypto-Welt zu stärken.
-          Lass uns gemeinsam die Zukunft der Finanzen gestalten und keine Gelegenheit verpassen.
-        </p> */}
+        {showPopup ? (
+          <>
+            <AboutUsModal togglePopup ={togglePopup} />
+          </>) 
+          : null}
       </div>
     </section>
   )
