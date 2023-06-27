@@ -41,7 +41,7 @@ export default function Navbar() {
     const href = event.target.href
     const {linktarget} = event.target.dataset;
 
-    if (linktarget === 'podcast') {
+    if (linktarget === 'podcast' || linktarget === 'newsletter') {
       window.open(href,'_blank');
     } else {
       window.location = href;
@@ -84,7 +84,7 @@ export default function Navbar() {
             </div>
           </div>
           <Link target="_blank" data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"} className="hover:underline">PODCAST</Link>
-          <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"/newsletter"} className="hover:underline">NEWSLETTER</Link>
+          <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"https://www.newsletter.teachmedefi.de/"} className="hover:underline">NEWSLETTER</Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
           <Link data-linktarget="subscribe" onClick={handleTagManagerEventsRedirect} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
         </div>

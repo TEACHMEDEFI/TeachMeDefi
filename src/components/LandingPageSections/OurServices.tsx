@@ -101,7 +101,7 @@ export default function OurServices() {
             <div className="max-sm:w-full" >
               <h4 className="text-2xl " >E-Paper  </h4>
               <p className='mt-2 tracking-wider text-sm w-full md:w-64 lg:w-80 xl:w-96'>
-                Stürze dich ins Krypto-Abenteuer - schnapp dir unser E-Paper und starte deine Entdeckungsreise jetzt!
+                Blättere durch dein kostenloses Starter-Paket mit allen Infos zu Bitcoin, Ethereum und Polkadot. Abonniere unseren Newsletter und erhalte per Email deinen Download-Link zu drei kostenfreien e-books
               </p>
               <Link
                 href={"/"}

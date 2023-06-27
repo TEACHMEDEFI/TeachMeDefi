@@ -21,7 +21,13 @@ export default function Index() {
 
   return (
     <div className='flex flex-col  w-full justify-center items-center'>
-      <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
+      <h1 className='text-7xl font-bold mb-5 mt-6' >
+            Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
+          </h1>
+          <h2 className='text-4xl font-bold mb-5' >
+            Coming Soon!
+          </h2>
+      {/* <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
         <div className='w-2/4 space-y-10  backdrop-blur-sm rounded-lg' >
           <h1 className='text-7xl font-bold mb-5' >
             Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
@@ -45,10 +51,10 @@ export default function Index() {
         <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
         <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
         <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
-        {/* <Image src={"/dot/polka_corner.svg"} width={397/2} height={294/2} alt='polkadot ' className='absolute left-60 -bottom-32 ' /> */}
-      </section>
+       
+      </section> */}
 
-      <section>
+      {/* <section>
         {showPlayer ? (
           <>
               <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
@@ -68,20 +74,17 @@ export default function Index() {
             </div>
           </>
           ) : null}
-      </section>
-      <section className='w-full flex flex-col justify-center relative z-50' >
+      </section> */}
+      {/* <section className='w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection />
         <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-        {/* <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Was ist eine Blockchain"} section={0} />
-        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Theory Ethereum"} section={1} />
-        <LessonsOverview chain={"dot"} lessonsArray={dotLessons} title={"Praktisch Ethereum"} section={2} /> */}
 
         <Image src={"/dot/polka_z.svg"} width={261/2} height={261/2} alt='polkadot ' className='absolute left-36 -bottom-36 ' />
         <Image src={"/dot/polka_polygon.svg"} width={455/2} height={437/2} alt='polkadot ' className='absolute -right-16 bottom-12 ' />
-      </section >
+      </section > */}
       {/* <section className='h-screen' >
 
       </section> */}
