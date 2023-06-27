@@ -20,7 +20,7 @@ type QuestClaimModalProps = {
 
 const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccount, selectedPolkaAccount} : QuestClaimModalProps) => {
     const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>();
-    const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
+    const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
     const [api, setApi] = useState<ApiPromise>();
     const [balances, setBalances] = useState<BN>();
     const hasSelectedAccount = selectedPolkaAccount ? true : false

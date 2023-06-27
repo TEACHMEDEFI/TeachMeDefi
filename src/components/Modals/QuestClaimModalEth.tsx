@@ -12,7 +12,7 @@ type QuestClaimModalProps = {
 }
 
 const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps) => {
-    const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
+    const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useNFTBalance(questSectionId);
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
 
