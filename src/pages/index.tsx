@@ -28,21 +28,13 @@ export default function Home() {
       <Newsletter />
       <AboutUs />
       {/* <FAQ /> */}
-      <div className='py-24'></div>
+      <div className='py-24'></div> {/* solange FAQ auscommentiert, drinlassen */}
 
-
-      {/* RESPONSIVE MACHEN  */}
-      {/* LINKS (href) FEHLEN: FOOTER, NEWSLETTER, PODCAST, SUBSCRIBE ... */}
-
-
-
-      {/* Bild für unsere Service Component  */}
       {/* Zeitaufwand zu den Quest titles */}
       {/* DOT Theory teil fehlt */}
       {/* DOT quests important links fehlen */}
 
 
-      {/* icons in würfel ändern, nft mail and podcast und epaper box noch erstellen */}
       {/* Insta, Tiktok und Podcast icon zu hero text CTA */}
       
       {/* target=_blank funkt net bei nav podcasts */}

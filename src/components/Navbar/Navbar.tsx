@@ -39,15 +39,15 @@ export default function Navbar() {
     event.preventDefault();
     reportLinkClick(event.target);
     const href = event.target.href
-    const {linktarget} = event.target.dataset;
+    const { linktarget } = event.target.dataset;
 
     if (linktarget === 'podcast' || linktarget === 'newsletter') {
-      window.open(href,'_blank');
+      window.open(href, '_blank');
     } else {
       window.location = href;
     }
 
-    
+
   }
 
   const handleTagManagerClickEvents = (event: any) => {
@@ -57,6 +57,11 @@ export default function Navbar() {
   // const toggleBurgerTeachMe = () => {
   //   toggleTeachMeButton(!openBurgerMenu)
   // }
+
+  const handleMobileNavClick = (e: any) => {
+    handleTagManagerEventsRedirect(e)
+    setOpenBurgerMenu(false)
+  }
 
   return (
     <div className="flex justify-center"  >
@@ -83,10 +88,34 @@ export default function Navbar() {
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link target="_blank" data-linktarget="podcast" onClick={handleTagManagerEventsRedirect} href={"https://podcasters.spotify.com/pod/show/teachmedefi"} className="hover:underline">PODCAST</Link>
-          <Link data-linktarget="newsletter" onClick={handleTagManagerEventsRedirect} href={"https://www.newsletter.teachmedefi.de/"} className="hover:underline">NEWSLETTER</Link>
+          <Link
+            target="_blank"
+            data-linktarget="podcast"
+            onClick={handleTagManagerEventsRedirect}
+            href={"https://podcasters.spotify.com/pod/show/teachmedefi"}
+            className="hover:underline"
+          >
+            PODCAST
+          </Link>
+          <Link
+            target="_blank"
+            data-linktarget="newsletter"
+            onClick={handleTagManagerEventsRedirect}
+            href={"https://www.newsletter.teachmedefi.de/"}
+            className="hover:underline"
+          >
+            NEWSLETTER
+          </Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
-          <Link data-linktarget="subscribe" onClick={handleTagManagerEventsRedirect} href={"/subscribe"} className="hover:underline" >SUBSCRIBE</Link>
+          <Link
+            target="_blank"
+            data-linktarget="subscribe"
+            onClick={handleTagManagerEventsRedirect}
+            href={"https://www.newsletter.teachmedefi.de/"}
+            className="hover:underline"
+          >
+            SUBSCRIBE
+          </Link>
         </div>
         <div className="flex gap-5 items-center " >
           <button onClick={toggleDarkMode} className="border-2 hidden dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:flex items-center justify-center" >
@@ -167,10 +196,36 @@ export default function Navbar() {
               <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >DOT Section</Link>
             </div>
           </div>
-          <Link href={"/podcast"} onClick={() => setOpenBurgerMenu(false)} >PODCAST</Link>
-          <Link href={"/newsletter"} onClick={() => setOpenBurgerMenu(false)}  >NEWSLETTER</Link>
-          {/* <Link href={"/merch"} onClick={()=>setOpenBurgerMenu(false)}   >MERCH</Link> */}
-          <Link href={"/subscribe"} onClick={() => setOpenBurgerMenu(false)}   >SUBSCRIBE</Link>
+          <Link
+            target="_blank"
+            data-linktarget="podcast"
+            onClick={e => handleMobileNavClick(e)}
+            href={"https://podcasters.spotify.com/pod/show/teachmedefi"}
+          >
+            PODCAST
+          </Link>
+          <Link
+            target="_blank"
+            data-linktarget="newsletter"
+            onClick={e => handleMobileNavClick(e)}
+            href={"https://www.newsletter.teachmedefi.de/"}
+          >
+            NEWSLETTER
+          </Link>
+          {/* <Link 
+          href={"/merch"} 
+          onClick={()=>setOpenBurgerMenu(false)}   
+          >
+          MERCH
+        </Link> */}
+          <Link
+            target="_blank"
+            data-linktarget="subscribe"
+            onClick={e => handleMobileNavClick(e)}
+            href={"https://www.newsletter.teachmedefi.de/"}
+          >
+            SUBSCRIBE
+          </Link>
         </div>
       }
 

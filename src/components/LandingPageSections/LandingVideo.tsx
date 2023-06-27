@@ -14,8 +14,8 @@ export default function LandingVideo() {
     <section className='mt-22 flex flex-col items-center relative px-5' >
       {/* <h3 className="text-4xl font-bold text-center max-w-5xl mb-5" >Entdecke die faszinierende Welt der Kryptowährungen: Starte deine Reise zu finanziellem Erfolg mit unserem Einführungsvideo!</h3> */}
       {showPlayer &&
-        <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl'>
-          <div className=' w-full aspect-video xl:px-0 xl:h-[676px] xl:w-[1200px] ' >
+        <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl max-w-[1240px]'>
+          <div className=' w-full aspect-video xl:pb-5 ' >
             <ReactPlayer
               height="100%"
               width="100%"

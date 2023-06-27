@@ -37,7 +37,7 @@ export default function CourseOverview() {
         <div className="xl:w-[550px] h-[840px] sm:h-[800px] max-lg:hidden ">
 
         </div>
-        <div className="absolute max-lg:hidden right-4 sm:right-12 bottom-0 w-[260px] md:w-[420px] lg:w-[460px] xl:w-[500px] h-[390px] md:h-[630px] lg:h-[690px] xl:h-[750px]">
+        <div className="absolute max-md:hidden right-4 sm:right-12 bottom-0 w-[260px]  lg:w-[460px] xl:w-[500px] h-[390px]  lg:h-[690px] xl:h-[750px]">
           <Image src={"/home/sohejl.png"} fill alt="teaching crypto" />
         </div>
         <div className="absolute max-lg:hidden left-16 top-16 lg:w-[438px] lg:h-[300px]">

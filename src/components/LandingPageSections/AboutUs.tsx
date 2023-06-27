@@ -53,12 +53,9 @@ export default function AboutUs() {
               from-primaryBlue via-secondaryPurple to-primaryPink
               rounded-3xl relative text-bgDarkGray flex flex-col items-center"
           >
-            <div className="lg:mx-3 xl:mx-10 mt-5 w-64 text-center flex flex-col items-center text-white">
+            <div className=" mt-5 w-64 text-center flex flex-col items-center text-white">
 
               <h4 className="font-bold mb-2 text-2xl" >Jan</h4>
-              <p>M.Sc. Business & Economics</p>
-              <p>Entrepreneur & Consultant</p>
-              <p>In Krypto seit 2019</p>
               <div className="h-64 w-48 relative mt-3" >
                 <Image
                   src={"/home/aboutUs/jan.png"}
@@ -76,12 +73,8 @@ export default function AboutUs() {
               from-primaryBlue via-secondaryPurple to-primaryPink
               rounded-3xl relative text-bgDarkGray flex flex-col items-center"
           >
-            <div className="lg:mx-3 xl:mx-10 mt-5 w-64 text-center flex flex-col items-center text-white">
-
+            <div className=" mt-5 w-64 text-center flex flex-col items-center text-white">
               <h4 className="font-bold mb-2 text-2xl" >Sohejl</h4>
-              <p>M.Sc. Business Administration</p>
-              <p>Entrepreneur & Consultant</p>
-              <p>In Krypto seit 2017</p>
               <div className="h-64 w-52 relative mt-3" >
                 <Image
                   src={"/home/aboutUs/sohejl.png"}
@@ -99,12 +92,8 @@ export default function AboutUs() {
               from-primaryBlue via-secondaryPurple to-primaryPink
               rounded-3xl relative text-bgDarkGray flex flex-col items-center"
           >
-            <div className="lg:mx-3 xl:mx-10 mt-5 w-64 text-center flex flex-col items-center text-white">
-
+            <div className=" mt-5 w-64 text-center flex flex-col items-center text-white">
               <h4 className="font-bold mb-2 text-2xl" >Rustam</h4>
-              <p>B.Sc. Industrial Engineering</p>
-              <p>Entrepreneur & Consultant</p>
-              <p>In Krypto seit 2017</p>
               <div className="h-64 w-52 relative mt-3" >
                 <Image
                   src={"/home/aboutUs/rustam.png"}
