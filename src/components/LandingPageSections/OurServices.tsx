@@ -103,8 +103,8 @@ export default function OurServices() {
               <p className='mt-2 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
                 Stürze dich ins Krypto-Abenteuer - schnapp dir unser E-Paper und starte deine Entdeckungsreise jetzt!
               </p>
-              <Link
-                href={"/"}
+              <Link target="_blank"
+                href={"https://www.newsletter.teachmedefi.de/"}
                 // target="_blank"
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
               >
