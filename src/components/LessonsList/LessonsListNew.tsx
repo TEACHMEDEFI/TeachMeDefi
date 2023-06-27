@@ -6,6 +6,7 @@ import { Quests } from '@/data/generalLessons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable } from '../scripts/claim-modals-api'
 import { BN } from 'bn.js';
+import Link from 'next/link';
 
 
 /*
@@ -68,7 +69,10 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
   * Handles Modal Toggle and is passed as props
   */
   const togglePopup = (questId: string, event: any) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
+    
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
@@ -96,7 +100,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <a key={quest.id} href={`/${chain}/${quest.slug}`} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /> 3:32 Min</a>
+                <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={imageClasses[quest.id]}><i className="fa-regular fa-play" /> 3:32 Min</Link>
                 
             ))
         ))
@@ -121,7 +125,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
                           {isQuestSection ? (
                             <>
-                              <a href="" className="is-nft-mint" onClick={() => togglePopup(quests.questSectionId, event)}><i className="fa-solid fa-handshake" />Mint NFT</a>
+                              <Link href="" className="is-nft-mint" onClick={() => togglePopup(quests.questSectionId, null)}><i className="fa-solid fa-handshake" />Mint NFT</Link>
                             </>)
                             :
                             null
