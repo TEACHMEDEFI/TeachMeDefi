@@ -8,13 +8,13 @@ export default function HeroSection() {
   const { isDarkMode } = useTheme();
   return (
     <section className='landing flex flex-col lg:flex-row  items-center  lg:h-screen w-full gap-x-32 relative' >
-      <div className='w-11/12 lg:w-5/12 xl:w-4/12 h-11/12 space-y-5 xl:ml-24 lg:ml-16 z-10 
-      lg:mb-36  md:ml-10 mt-10 sm:mt-32 md:w-2/3 max-sm:w-full max-sm:px-5'
+      <div className='w-full lg:w-5/12 xl:w-4/12 h-11/12 space-y-5 xl:ml-24 lg:ml-16 z-10 
+      lg:mb-36  mt-10 sm:mt-32 max-sm:w-full max-md:px-5'
       >
         <h1 className='xl:text-5xl text-4xl font-bold' >
           Krypto leicht gemacht!
         </h1>
-        <h2 className='xl:text-lg text-sm pb-10 backdrop-blur-lg rounded-3xl pr-3 ' >
+        <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-3 ' >
           Egal, ob du ganz neu im Krypto-Bereich bist oder bereits ein erfahrener Nutzer -
           wir machen Kryptowährungen und Blockchain einfach und zugänglich für alle.
           Entdecke, lerne und verstehe die Welt der digitalen Währungen und nutze sie zu deinem Vorteil.
@@ -26,7 +26,11 @@ export default function HeroSection() {
             </PrimaryButton>
           </div> */}
           <div>
-
+          <div className="w-64 mb-5">
+              <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
+                Kostenlos anmelden
+              </PrimaryButton>
+            </div>
             <div className="flex gap-5 mb-5 items-center " >
               <Link href={"https://www.linkedin.com/company/teachmedefi"} target="_blank" >
                 <div className="h-6 w-6 relative">
@@ -103,11 +107,7 @@ export default function HeroSection() {
               </Link>
 
             </div> */}
-            <div className="w-64 mb-5">
-              <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
-                Kostenlos anmelden
-              </PrimaryButton>
-            </div>
+            
           </div>
         </div>
       </div>
