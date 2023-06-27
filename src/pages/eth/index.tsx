@@ -19,15 +19,15 @@ export default function Index() {
 
 
   return (
-    <div className='flex flex-col  w-full justify-center items-center relative mb-32'>
-      <h1 className='text-7xl font-bold mb-5 mt-6' >
+    <div className='flex flex-col h-screen w-full justify-center items-center relative mb-32'>
+      <h1 className=' text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-6' >
       Willkommen bei <span
               className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent'
             >
               Ethereum!
             </span>
       </h1>
-      <h2 className='text-4xl font-bold mb-5'>Coming Soon!</h2>
+      <h2 className='text-xl md:text-4xl font-bold mb-5 mt-16 '>Coming Soon!</h2>
 
       {/* <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
         <div className='w-2/4 space-y-10' >
