@@ -6,7 +6,7 @@ import { dotQuests } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
 import LessonsList from '@/components/LessonsList/LessonsList'
 import LessonsListNew from '@/components/LessonsList/LessonsListNew'
-import {switchNetworkIfNeeded} from '../api/ethereum-api'
+import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
 
@@ -20,13 +20,13 @@ export default function Index() {
   }, [])
 
   return (
-    <div className='flex flex-col  w-full justify-center items-center'>
-      <h1 className='text-7xl font-bold mb-5 mt-6' >
-            Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
-          </h1>
-          <h2 className='text-4xl font-bold mb-5' >
-            Coming Soon!
-          </h2>
+    <div className='flex flex-col h-screen w-full justify-center items-center'>
+      <h1 className='text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-6' >
+        Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
+      </h1>
+      <h2 className=' text-xl md:text-4xl font-bold mb-5' >
+        Coming Soon!
+      </h2>
       {/* <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
         <div className='w-2/4 space-y-10  backdrop-blur-sm rounded-lg' >
           <h1 className='text-7xl font-bold mb-5' >
