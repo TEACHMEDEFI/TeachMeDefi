@@ -68,7 +68,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
   /*
   * Handles Modal Toggle and is passed as props
   */
-  const togglePopup = (questId: string, event: any) => {
+  const togglePopup = (questId: string, event: Event | undefined) => {
     if (event) {
       event.preventDefault();
     }
@@ -125,7 +125,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
                           {isQuestSection ? (
                             <>
-                              <Link href="" className="is-nft-mint" onClick={() => togglePopup(quests.questSectionId, null)}><i className="fa-solid fa-handshake" />Mint NFT</Link>
+                              <Link href="" className="is-nft-mint" onClick={() => togglePopup(quests.questSectionId, event)}><i className="fa-solid fa-handshake" />Mint NFT</Link>
                             </>)
                             :
                             null
