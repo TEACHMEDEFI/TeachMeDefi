@@ -36,10 +36,8 @@ export default function Home() {
 
 
       {/* Insta, Tiktok und Podcast icon zu hero text CTA */}
-      
-      {/* target=_blank funkt net bei nav podcasts */}
-      {/* cookigs model zindex in dogt section */}
-      {/* cookie mehr infomation automatisch schließen */}
+
+      {/* cookigs model zindex in dot section */}
       {/* mint nft popup styling  */}
       {/* nft claim spinner fix bug */}
       {/* cookies button weniger auffällig fabe wie podcast box */}
