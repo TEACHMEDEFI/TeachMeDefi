@@ -67,16 +67,22 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
 /*
 * Hook to mint the progress NFT and take care of Spinner etc.
 */
-export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  boolean, nftMinted: boolean, mintNft: (questSectionId: string) => void] => {
+export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  boolean, nftMinted: boolean, accountError: boolean, mintNft: (questSectionId: string) => void] => {
     const [showSpinner, setShowSpinner] = useState(false)
     const [nftMinted, setNftMinted] = useState(false);
+    const [accountError, setAccountError] = useState(false)
     const { library } = useWeb3React();
 
     useEffect(() => {
 
-    }, [showSpinner, nftMinted])
+    }, [showSpinner, nftMinted, accountError])
 
     const mintNft = async () => {
+
+        if (!library || !library.getSigner()) {
+            setAccountError(true)
+            return;
+        }
 
         try {
             const contractAddress = QuestNftContractAddresses[questSectionId];
@@ -98,18 +104,18 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
 
     }
 
-    return [showSpinner, nftMinted, mintNft];
+    return [showSpinner, nftMinted, accountError, mintNft];
 }
 
 
 
 
-type mintableOverview = {
-    [key: string]: boolean
-}
+// type mintableOverview = {
+//     [key: string]: boolean
+// }
 
 
-type key = keyof Lesson
+// type key = keyof Lesson
 
 /*
 * Checks whether a progress NFT is mintable depending on the requirements
