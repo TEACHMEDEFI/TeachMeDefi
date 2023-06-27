@@ -69,10 +69,8 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
   * Handles Modal Toggle and is passed as props
   */
   const togglePopup = (questId: string, event: Event | undefined) => {
-    if (event) {
-      event.preventDefault();
-    }
-    
+    event?.preventDefault();
+
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)

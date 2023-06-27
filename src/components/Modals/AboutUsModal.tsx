@@ -13,6 +13,7 @@ export default function AboutUsModal({togglePopup}: ModalProps) {
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
 
+                <div className="about-us-container">
                 <h3 className="text-4xl font-bold">Über uns</h3>
                 <p className="tracking-wide leading-relaxed text-center ">
                     Seit 2017 setzen wir uns intensiv mit dem Thema DeFi und der Krypto-Welt auseinander.
@@ -37,6 +38,9 @@ export default function AboutUsModal({togglePopup}: ModalProps) {
                     Dich dabei, diese Chancen zu erkennen und Deine Position in der aufstrebenden Krypto-Welt zu stärken.
                     Lass uns gemeinsam die Zukunft der Finanzen gestalten und keine Gelegenheit verpassen.
                 </p>
+                </div>
+
+                
 
                 <GeneralButton onClick={() => handleToggle(false)}>Modal Schließen</GeneralButton>
             </div>
