@@ -116,7 +116,7 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
 
                     {fromCookiePolicyNoobsie ? (
                         <>
-                            <GeneralButton onClick={() => toggleModal()}>Modal Schließen</GeneralButton>
+                            <GeneralButton onClick={() => toggleModal()}>Schließen</GeneralButton>
                         </>) : null
                     }
 

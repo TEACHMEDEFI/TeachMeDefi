@@ -62,7 +62,7 @@ export default function AboutUsModal({ togglePopup }: ModalProps) {
         </div>
 
 
-        <GeneralButton onClick={() => handleToggle(false)}>Modal Schließen</GeneralButton>
+        <GeneralButton onClick={() => handleToggle(false)}>Schließen</GeneralButton>
       </div>
     </div>
   )
