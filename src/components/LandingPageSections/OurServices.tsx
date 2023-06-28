@@ -38,7 +38,7 @@ export default function OurServices() {
               <Image src={"/home/ourServices/bullet-square-nft.svg"} fill alt="bullet point icon 1" />
             </div>
             <div className="max-lg:w-full" >
-              <h4 className="text-2xl " >Onboarding Quest</h4>
+              <h4 className="text-2xl " >Krypto Bootcamp</h4>
               <p className='mt-2 tracking-wider text-sm w-full lg:w-80 xl:w-96'>
                 In nur 90 Minuten fit für Bitcoin, Ethereum und Polkadot. Lerne die Grundlagen und
                 erhalte Belohnungen für deine Lernerfolge! Unsere E-Learning-Plattform ist jederzeit
@@ -101,7 +101,7 @@ export default function OurServices() {
             <div className="max-md:w-full" >
               <h4 className="text-2xl " >E-Paper  </h4>
               <p className='mt-2 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
-                Stürze dich ins Krypto-Abenteuer - schnapp dir unser E-Paper und starte deine Entdeckungsreise jetzt!
+              Blättere durch dein kostenloses Starter-Paket mit allen Infos zu Bitcoin, Ethereum und Polkadot. Abonniere unseren Newsletter und erhalte per Email deinen Download-Link zu drei kostenfreien e-books!
               </p>
               <Link target="_blank"
                 href={"https://www.newsletter.teachmedefi.de/"}
