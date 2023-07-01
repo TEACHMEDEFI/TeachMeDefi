@@ -109,14 +109,14 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
         
             <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
                 <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-                    <p>Wir verwenden Cookies - Sie haben derzeit {cookieTypeAccepted === 'all' ? 'analyse und notwendige' : 'nur notwendige'} Cookies akzeptiert</p>
+                    <p>Wir verwenden Cookies - Du hast derzeit {cookieTypeAccepted === 'all' ? 'analyse und notwendige' : 'nur notwendige'} Cookies akzeptiert</p>
 
                     <PrimaryButton data-policy="acceptAll" onClick={() => handleAll()} >Alle Cookies akzeptieren</PrimaryButton>
                     <PrimaryButton data-policy="onlyVitals" onClick={() => handleNecessary()} >Nur Notwendige Cookies verwenden</PrimaryButton>
 
                     {fromCookiePolicyNoobsie ? (
                         <>
-                            <GeneralButton onClick={() => toggleModal()}>Modal Schließen</GeneralButton>
+                            <GeneralButton onClick={() => toggleModal()}>Schließen</GeneralButton>
                         </>) : null
                     }
 
