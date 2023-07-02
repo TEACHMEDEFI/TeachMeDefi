@@ -51,8 +51,16 @@ export default function Home() {
 {/* faq data fehlt */}
 {/* footer fehlen die 3 neuen icons/links */}
 
+{/* 
+     Styling allgemeint
+     claim nft modal schöner mit Jan
+     QuestClaimModalEth mit Jan
+     QuestClaimModalDot mit Jan
+     Time for Quest
+     Toastmesages 
+     Text Block unterhalb von section image fonts anpassen
 
-     
+      */}
 
     </div>
   )

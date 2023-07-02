@@ -1,4 +1,5 @@
-import { Spinner } from '@chakra-ui/react'
+// import { Spinner } from '@chakra-ui/react'
+import Spinner from '../Spinner/Spinner';
 import { useEffect } from 'react'
 import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
@@ -38,12 +39,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
                 {showSpinner ? (
                     <>
                     <p>Your NFT Is On Its Way</p>
-                        <Spinner
-                        thickness='4px'
-                        speed='0.65s'
-                        emptyColor='gray.200'
-                        color='blue.500'
-                        size='xl' /> 
+                        <Spinner /> 
                     </>) : null
                 }
 

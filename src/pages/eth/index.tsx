@@ -19,7 +19,7 @@ export default function Index() {
 
 
   return (
-    <div className='flex flex-col h-screen w-full justify-center items-center relative mb-32'>
+    <div className='flex flex-col  w-full justify-center items-center relative mb-32'>
       <h1 className=' text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-6' >
       Willkommen bei <span
               className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent'
@@ -27,9 +27,9 @@ export default function Index() {
               Ethereum!
             </span>
       </h1>
-      <h2 className='text-xl md:text-4xl font-bold mb-5 mt-16 '>Coming Soon!</h2>
+      {/* <h2 className='text-xl md:text-4xl font-bold mb-5 mt-16 '>Coming Soon!</h2> */}
 
-      {/* <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
+      <section className=' h-screen w-full flex  justify-center items-center max-w-7xl' >
         <div className='w-2/4 space-y-10' >
           <h1 className='text-7xl font-bold mb-5' >
             Willkommen bei <span
@@ -53,8 +53,8 @@ export default function Index() {
           <Image src={"/eth/eth_hero.png"} fill alt='Ethereum Hero' />
         </div>
         
-      </section> */}
-      {/* <section>
+      </section>
+      <section>
         {showPlayer ? (
           <>
               <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
@@ -74,9 +74,9 @@ export default function Index() {
             </div>
           </>
           ) : null}
-      </section> */}
+      </section>
 
-      {/* <section className=' w-full flex flex-col justify-center relative z-50' >
+      <section className=' w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
         <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection />
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
@@ -84,7 +84,7 @@ export default function Index() {
         
         <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
         
-      </section> */}
+      </section>
         
       {/* <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >
       </section > */}

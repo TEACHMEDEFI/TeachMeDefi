@@ -1,4 +1,5 @@
 
+import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -65,6 +66,11 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-center"  >
+      <Head>
+        <meta name="theme-color" content={isDarkMode ? '#0b111b' : '#ffffff'} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ff0000" />
+      </Head>
       <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >

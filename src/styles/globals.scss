@@ -49,14 +49,12 @@ body {
   overflow-x: hidden;
   // background-color: var(--background-dark-blue);
   // color: var(--primary-white);
-  background-color: var(--primary-white);
+  // background-color: var(--primary-white);
   color: var(--primary-dark-gray);
   scroll-behavior: smooth;
 }
 
-html{
-  background-color: var(--background-dark-blue);
-}
+
 
 img {
   object-fit: contain;
@@ -74,7 +72,7 @@ img {
   background: url(/home/landing-stripe-sm.svg) no-repeat;
   transform-origin: center;
   overflow: visible;
-  
+
 
   @media (min-width: 640px) {
     width: 768px;
@@ -86,7 +84,7 @@ img {
     width: 1024px;
     height: 500px;
   }
-  
+
   @media (min-width: 1024px) {
     right: -25px;
     bottom: 0;
@@ -96,7 +94,7 @@ img {
     width: 1600px;
     height: 1600px;
   }
-    
+
   @media (min-width: 1400px) {
     width: 2000px;
     height: 2000px;
@@ -133,10 +131,11 @@ img {
 @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
 
 .ul-circles * {
-  margin: 0;
+  // margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .ul-circles {
   --innerSize: 6rem;
   --rimSize: 1.5rem;
@@ -150,11 +149,12 @@ img {
   font-family: sans-serif;
   list-style: none;
 }
+
 .ul-circles.ul-circles-vertical {
   --repeatVal: 1;
 }
 
-.ul-circles > a {
+.ul-circles>a {
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: calc(var(--rimSize) / 16);
@@ -166,8 +166,9 @@ img {
   text-align: center;
   position: relative;
 }
-.ul-circles > a::before,
-.ul-circles > a::after {
+
+.ul-circles>a::before,
+.ul-circles>a::after {
   content: "";
   position: absolute;
   aspect-ratio: 1/1;
@@ -175,22 +176,20 @@ img {
   z-index: -1;
 }
 
-.ul-circles > a::before {
+.ul-circles>a::before {
   width: calc(100% + calc(2 * var(--rimSize)));
   left: calc(var(--rimSize) * -1);
   top: calc(var(--rimSize) * -1);
   background: var(--accent-color);
-  clip-path: polygon(
-    var(--clipX1, 0%) var(--clipY1, 0%),
-    var(--clipX2, 50%) var(--clipY1, 0%),
-    var(--clipX2, 50%) var(--clipY2, 100%),
-    var(--clipX1, 0%) var(--clipY2, 100%)
-  );
+  clip-path: polygon(var(--clipX1, 0%) var(--clipY1, 0%),
+      var(--clipX2, 50%) var(--clipY1, 0%),
+      var(--clipX2, 50%) var(--clipY2, 100%),
+      var(--clipX1, 0%) var(--clipY2, 100%));
   box-shadow: inset 2px -2px 10px rgba(255, 255, 255, 0.25),
     inset -2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.ul-circles > a:nth-child(even)::before {
+.ul-circles>a:nth-child(even)::before {
   --clipX1: 50%;
   --clipX2: 100%;
 }
@@ -199,13 +198,15 @@ img {
   .ul-circles {
     --repeatVal: auto-fit;
   }
-  .ul-circles:not(.ul-circles-vertical) > a:nth-child(even)::before {
+
+  .ul-circles:not(.ul-circles-vertical)>a:nth-child(even)::before {
     --clipX1: 0%;
     --clipY1: 0%;
     --clipX2: 100%;
     --clipY2: 50%;
   }
-  .ul-circles:not(.ul-circles-vertical) > a:nth-child(odd)::before {
+
+  .ul-circles:not(.ul-circles-vertical)>a:nth-child(odd)::before {
     --clipX1: 0%;
     --clipY1: 50%;
     --clipX2: 100%;
@@ -213,21 +214,21 @@ img {
   }
 }
 
-.ul-circles > a::after {
+.ul-circles>a::after {
   width: 100%;
-  background: #fdfdfd;
+  // background: #fdfdfd;
   box-shadow: -0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 
-.ul-circles > a > i {
+.ul-circles>a>i {
   font-size: 1.5rem;
-  color: var(--accent-color);
+  // color: var(--primary-dark-gray);
   align-self: end;
 }
 
-.ul-circles > a > i {
+.ul-circles>a>i {
   font-size: 1.5rem;
-  color: var(--accent-color);
+  // color: var(--primary-dark-gray);
   align-self: end;
 }
 
@@ -235,15 +236,31 @@ img {
 
 
 .has-progress-circle {
-  --accent-color:	#71d099
+  --accent-color: linear-gradient(0deg,
+      rgba(38, 175, 230, 1) 0%,
+      rgba(153, 137, 255, 1) 25%,
+      rgba(254, 61, 206, 1) 45%,
+      rgba(254, 61, 206, 1) 55%,
+      rgba(153, 137, 255, 1) 75%,
+      rgba(38, 175, 230, 1) 100%);
+
+  @media (min-width: 640px) {
+    --accent-color: linear-gradient(90deg,
+        rgba(38, 175, 230, 1) 0%,
+        rgba(153, 137, 255, 1) 25%,
+        rgba(254, 61, 206, 1) 45%,
+        rgba(254, 61, 206, 1) 55%,
+        rgba(153, 137, 255, 1) 75%,
+        rgba(38, 175, 230, 1) 100%);
+  }
 }
 
 .has-no-progress-circle {
-  --accent-color:#E2E8F0
+  --accent-color: #E2E8F0
 }
 
 .is-nft-mint {
-  --accent-color:#F3A22D
+  --accent-color: #F3A22D
 }
 
 .video-description-container {
@@ -277,11 +294,13 @@ img {
   -webkit-column-gap: 1rem;
   column-count: 2;
   column-gap: 1rem;
-  padding: 0; /* Reset the default padding */
+  padding: 0;
+  /* Reset the default padding */
 }
 
 .ul-plain li {
-  padding: 0.5rem; /* Adjust the padding value as per your preference */
+  padding: 0.5rem;
+  /* Adjust the padding value as per your preference */
 }
 
 .claim-button-container {
@@ -293,11 +312,11 @@ img {
 }
 
 
-.gdpr-container > p {
+.gdpr-container>p {
   padding: 1rem;
 }
 
-.gdpr-container > table {
+.gdpr-container>table {
   margin-bottom: 2rem;
   margin-top: 2rem;
   border: solid black
@@ -308,16 +327,16 @@ img {
     font-size: 24px;
     margin-bottom: 10px;
   }
-  
+
   .sub-header {
     font-size: 20px;
     margin-bottom: 5px;
   }
-  
+
   .section {
     margin-bottom: 15px;
   }
-  
+
 }
 
 .disclaimer {
@@ -350,4 +369,3 @@ img {
   overflow: scroll;
   text-align: center;
 }
-
