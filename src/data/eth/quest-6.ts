@@ -37,6 +37,7 @@ export const quest6: Lesson[] = [
     ],
     section: 7,
     questNumber: 6,
+    videoTime: '05:26',
     transcript: [
       {
         title: "DAOs und Governance Tokens: Eine Anleitung zum Einstieg mit Aave",

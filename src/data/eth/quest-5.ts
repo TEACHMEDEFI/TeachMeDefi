@@ -42,6 +42,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '03:22',
     transcript: [
       {
         title: "Anleitung zu DeFi und Yield Farming: So funktioniert es",
@@ -134,6 +135,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '04:15',
     transcript: [
       {
         title: "Anleitung zum DeFi-Überblick: DeFiLlama und DeFiPrime",
@@ -224,6 +226,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '07:29',
     transcript: [
       {
         title: "Wie man ein Liquidity Provider auf Uniswap wird: Ein einfacher Leitfaden zum Liquidity Mining und Impermanent Loss",
@@ -311,6 +314,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '04:15',
     transcript: [
       {
         title: "Anleitung zu wie nutzt man eine dezentrale Kreditplattform wie AAVE?",
@@ -397,6 +401,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '01:50',
     transcript: [
       {
         title: "Anleitung: Wie man Staking auf Lido Finance und anderen Ethereum Staking Plattformen betreibt",
@@ -481,6 +486,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '01:06',
     transcript: [
       {
         title: "Leverage Trading in der Dezentralisierten Finanzwelt: Ein praktischer Leitfaden",

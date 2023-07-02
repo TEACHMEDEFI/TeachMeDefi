@@ -22,6 +22,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2, // danach 3 und 4
     questNumber: 1,
+    videoTime: '06:02',
     transcript: [
       {
         subline: "1. Talisman Wallet herunterladen und einrichten",
@@ -151,6 +152,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2, // danach 3 und 4
     questNumber: 2,
+    videoTime: '03:56',
     transcript: [
       {
         subline: "1. Vorbereitung für den Erhalt von NFTs auf dem Sepolia Testnet",

@@ -17,6 +17,7 @@ export const quest5: Lesson[] = [
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 8,
+    videoTime: '06:09',
     transcript: [
       {
         subline: "Krypto handeln auf einer DEX",
@@ -141,6 +142,7 @@ export const quest5: Lesson[] = [
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 9,
+    videoTime: '07:00',
     transcript: [
       {
         subline: "Anleitung zur Bereitstellung von Liquidität auf StellaSwap",
@@ -245,6 +247,7 @@ export const quest5: Lesson[] = [
     section: 2, // danach 3 und 4
     questNumber: 9,
     isLastQuest: true,
+    videoTime: '03:14',
     transcript: [
       {
         subline: "Schritt-für-Schritt Anleitung zum “Rückgängig”-machen der getätigten Aktionen und Rücksenden von DOT zur Relay Chain:",

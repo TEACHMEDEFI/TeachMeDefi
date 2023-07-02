@@ -17,6 +17,7 @@ export const quest3: Lesson[] = [
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 6,
+    videoTime: '03:33',
     transcript: [
       {
         subline: "Staking",

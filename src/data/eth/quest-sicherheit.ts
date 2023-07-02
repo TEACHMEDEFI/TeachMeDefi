@@ -30,6 +30,7 @@ export const questSicherheit: Lesson[] = [
     ],
     section: 8,
     questNumber: 7,
+    videoTime: '12:15',
     transcript: [
       {
         title: "Sicherheit bei Kryptowährungen: Ein praktischer Leitfaden zur Einrichtung von Cold Wallets wie Ledger und Trezor",
@@ -107,6 +108,7 @@ export const questSicherheit: Lesson[] = [
     ],
     section: 8,
     questNumber: 7,
+    videoTime: '06:30',
     transcript: [
       {
         title: "Anleitung: Wie man Multisig-Wallets einrichtet - Erhöhe deine Kryptosicherheit",
@@ -210,6 +212,7 @@ export const questSicherheit: Lesson[] = [
     ],
     section: 8,
     questNumber: 7,
+    videoTime: '03:02',
     transcript: [
       {
         title: "Sicherheit in der Krypto-Welt: Dein umfassender Leitfaden zur Vermeidung von Betrug und Phishing",
@@ -301,6 +304,7 @@ export const questSicherheit: Lesson[] = [
     section: 8,
     questNumber: 7,
     isLastQuest: true,
+    videoTime: '06:00',
     transcript: [
       {
         title: "Anleitung: Wie man Krypto-Transaktionen rückgängig macht",
