@@ -8,6 +8,7 @@ import LessonsList from '@/components/LessonsList/LessonsList';
 import LessonsListNew from '@/components/LessonsList/LessonsListNew';
 import {switchNetworkIfNeeded} from '../api/ethereum-api'
 import ReactPlayer from "react-player"
+import { PrimaryButton } from "@/components/Buttons/Buttons";
 
 
 export default function Index() {
@@ -85,7 +86,23 @@ export default function Index() {
         <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
         
       </section>
-        
+
+
+      <section id='podcast' className='pb-10 flex flex-col items-center px-5 pt-20' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'>
+          <div className='flex flex-col grow items-center gap-8 max-md:py-10'>
+            <h4 className='text-2xl sm:text-4xl font-bold text-center  '> Persönliche Online-Coachings: Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen Krypto-Fragen.</h4>
+            <PrimaryButton href='https://calendly.com/teachmedefi/1std' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
+          </div>
+          <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
+            <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+          </div>
+        <div className="absolute max-xl:hidden -left-44 -top-60 w-[410px] h-[300px]">
+          <Image className="max-md:hidden" src={"/home/inBackground/merge-ship.png"} fill alt="ethereum picknick" />
+        </div>
+        </div>
+      </section>
+
       {/* <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >
       </section > */}
     </div >
