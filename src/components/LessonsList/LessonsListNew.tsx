@@ -119,7 +119,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
+                <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
                 
             ))
         ))
@@ -130,12 +130,12 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
     
     return (
         <div className='lesson-list-container'>
-            <h2 className='font-bold text-2xl' >{title}</h2>
-            <h3 className='font-italic text-2xl'> {totalVideoTime} Min</h3>
+            <h2 className='text-2xl' >{title}</h2>
+            <h3 className='italic text-2xl'> {totalVideoTime} Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
                 <div className="quest-container" key={quests.questSectionId}>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
-                  {isQuestSection ? (<><h3 className=" text-xl">{questVideoTimes[quests.questSectionId]}</h3></>) : null}
+                  {isQuestSection ? (<><h3 className=" text-xl italic">{questVideoTimes[quests.questSectionId]}</h3></>) : null}
 
                   <div className="progress-container">
 

@@ -59,6 +59,16 @@ export default function Home() {
      Time for Quest
      Toastmesages 
      Text Block unterhalb von section image fonts anpassen
+
+
+
+     quest Questsection rainbow font und section weg und Quests
+     quest titelt so wie oben theroie
+      Zeiten in italic
+      denzentralisierung die vorteile falshc typo
+      Du hast noch fragen groß? groß schreiben und dann in klein was da jetzt steht coachin
+
+      in VideoWithTranscript com on video finsih set Show nextButton to true
       */}
 
     </div>
