@@ -194,6 +194,13 @@ export const useFetch = (url: string): boolean => {
   return isSuccess;
 };
 
+
+export const useConnectedToMetaMask = (): boolean => {
+  const { account } = useWeb3React();
+
+  return account ? true : false;
+}
+
 /*
 * Helper Function to force user to switch to sepolia on pageLoad and on opening a modal
 */

@@ -12,6 +12,7 @@ export type Lesson = {
   questNumber?: number;
   transcript?: string[] | Transcript[]; // JSX ON getStaticProps doesnt work !
   isLastQuest?: boolean;
+  videoTime: string;
 }
 
 export type Transcript = {
@@ -51,6 +52,7 @@ export const generalLessons: Quests[] = [
         // importantLinks: [],
         section: 0,
         nftCanBeClaimed: true,
+        videoTime: '02:26',
         questNumber: 1,
         transcript:
           [
@@ -76,6 +78,7 @@ export const generalLessons: Quests[] = [
         section: 0,
         popupHasInput: true,
         nftCanBeClaimed: true,
+        videoTime: '01:44',
         questNumber: 2,
         transcript:
           [
@@ -100,6 +103,7 @@ export const generalLessons: Quests[] = [
         section: 0,
         popupHasInput: true,
         nftCanBeClaimed: true,
+        videoTime: '02:39',
         questNumber: 3,
         transcript: [
           'Eine Blockchain ist wie eine dezentrale Buchhaltung oder Datenbank, die auf einem Netzwerk von vielen Benutzern, sogenannten Nodes, basiert. Statt alle Transaktionen und Daten zentral bei Banken zu speichern, verteilt sich die Speicherung aller Informationen in einer Blockchain auf viele Teilnehmer, also Nodes. Jede Node besitzt eine Kopie aller Transaktionen, die auf einer Blockchain stattfinden, und sorgt so für ein transparentes und sicheres System.',
@@ -123,6 +127,7 @@ export const generalLessons: Quests[] = [
         // importantLinks: [],
         section: 0,
         nftCanBeClaimed: true,
+        videoTime: '02:45',
         questNumber: 4,
         transcript:
           [
@@ -144,6 +149,7 @@ export const generalLessons: Quests[] = [
         // importantLinks: [],
         section: 0,
         nftCanBeClaimed: true,
+        videoTime: '02:20',
         questNumber: 5,
         transcript: [
           'In diesem Video wollen wir uns den Konsensmechanismus, das Herzstück einer Blockchain, genauer ansehen. Der Konsensmechanismus stellt sicher, dass alle Teilnehmer im Netzwerk übereinstimmen und eine gemeinsame Wahrheit teilen, ohne auf eine zentrale Autorität angewiesen zu sein. Du wirst erfahren, wie Transaktionen in einem dezentralen Netzwerk verifiziert und abgeschlossen werden.',
@@ -165,6 +171,7 @@ export const generalLessons: Quests[] = [
         section: 0,
         isLastQuest: true,
         questNumber: 6,
+        videoTime: '02:20',
         transcript: [
           'In diesem Video zeigen wir dir, wie du als Nutzer Transaktionen auf der Blockchain einleiten kannst. Dabei spielt das Kryptowährungs-Wallet eine entscheidende Rolle.',
           'Ein Kryptowährungs-Wallet ist deine digitale Geldbörse, mit der du Kryptowährungen verwalten, speichern, senden und empfangen kannst. Wallets bieten dir Zugang zur Blockchain und ermöglichen es dir, Transaktionen mit Kryptowährungen durchzuführen. Dabei gibt es verschiedene Formen von Wallets, wie Software-Wallets, Hardware-Wallets oder sogar als Papier-Wallets.',

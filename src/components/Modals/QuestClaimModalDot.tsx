@@ -7,7 +7,7 @@ import { Spinner } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
-import { useNFTBalance, switchNetworkIfNeeded } from '../../pages/api/ethereum-api'
+import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
 
 
 type QuestClaimModalProps = {
@@ -26,19 +26,24 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const hasSelectedAccount = selectedPolkaAccount ? true : false
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
     const nftBalance = useNFTBalance(questSectionId);
+    const isConnected = useConnectedToMetaMask();
     const NAME = "Peter"
 
 
     useEffect(() => {
 
-        const nodeURL = questSectionId === 'dot-quest-6' ? 'https://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
-        setup(nodeURL)
-        switchNetworkIfNeeded()
+        if (isConnected) {
+            const nodeURL = questSectionId === 'dot-quest-6' ? 'https://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
+            setup(nodeURL)
+    
+            switchNetworkIfNeeded()
+        }
+       
 
-    }, [nftMinted, showSpinner])
+    }, [nftMinted, showSpinner, isConnected])
 
     useEffect(() => {
-        if (!selectedPolkaAccount || !api) return
+        if (!selectedPolkaAccount || !api || !isConnected) return
 
         (async() => {
             // Queries
@@ -150,6 +155,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     </>
                     ) : null
                 }
+
+                {!isConnected ? (<>Bitte Verbinde dich zunächst mit Metamask</>) : null}
 
                 {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable ? 
                     (

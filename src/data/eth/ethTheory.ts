@@ -14,6 +14,7 @@ export const ethTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 1,
         section: 1,
+        videoTime: '01:40',
         transcript:
           [
             'Lass uns jetzt gemeinsam herausfinden, was die Ethereum Blockchain so besonders macht.',
@@ -31,6 +32,7 @@ export const ethTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 2,
         section: 1,
+        videoTime: '01:32',
         transcript:
           [
             'Bevor wir nun an eingemachte gehen beachte, dass Ethereum im Jahr 2022 einen bedeutenden Übergang vom Proof-of-Work (PoW) zum Proof-of-Stake (PoS) Konsensmechanismus vollzogen. Dieser Wechsel verbessert die Energieeffizienz und Skalierbarkeit des Netzwerks.',
@@ -49,6 +51,7 @@ export const ethTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 3,
         section: 1,
+        videoTime: '01:52',
         transcript:
           [
             'Ether ist die native Kryptowährung von Ethereum, der als Treibstoff für die Plattform dient.',
@@ -70,6 +73,7 @@ export const ethTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 4,
         section: 1,
+        videoTime: '03:15',
         transcript:
           [
             'Eine der großen Unterschiede der Ethereum Blockchain zur Bitcoin Blockchain ist die Möglichkeit intelliegente Verträge - sogenannte Smart contracts - zu nutzen.',
@@ -92,6 +96,7 @@ export const ethTheory: Quests[] = [
         youtubeThumbnail: "https://img.youtube.com/vi/2VHPOGq0qfw/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 5,
+        videoTime: '01:18',
         section: 1,
         transcript:
           [
@@ -110,6 +115,7 @@ export const ethTheory: Quests[] = [
         youtubeThumbnail: "https://img.youtube.com/vi/QD2RCTvh97o/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 6,
+        videoTime: '01:45',
         section: 1,
         transcript:
           [
@@ -130,6 +136,7 @@ export const ethTheory: Quests[] = [
         youtubeThumbnail: "https://img.youtube.com/vi/3ng1K8eEfnU/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 7,
+        videoTime: '02:27',
         section: 1,
         transcript:
           [
@@ -150,6 +157,7 @@ export const ethTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 8,
         isLastQuest: true,
+        videoTime: '02:25',
         section: 1,
         transcript:
           [

@@ -28,6 +28,7 @@ type LessonsListProps = {
     isQuestSection?: boolean;
     isGeneralSection?: boolean;
     isTheorySection?: boolean;
+    totalVideoTime: string;
   }
 
 type ImageSourceObject = {
@@ -42,8 +43,28 @@ type listItemsPerQuest = {
     [key: string]: Array<any>
 }
 
+type QuestVideoTimes = {
+  [key: string]: string
+}
 
-export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, isGeneralSection, isTheorySection }: LessonsListProps) {
+const questVideoTimes: QuestVideoTimes = {
+  'dot-quest-1': '09:58',
+  'dot-quest-2': '14:18',
+  'dot-quest-3': '03:33',
+  'dot-quest-4': '04:09',
+  'dot-quest-5': '16:23',
+
+  'eth-quest-1': '22:09',
+  'eth-quest-2': '22:39',
+  'eth-quest-3': '07:12',
+  'eth-quest-4': '11:49',
+  'eth-quest-5': '22:17',
+  'eth-quest-6': '05:26',
+  'eth-quest-7': '27:47'
+}
+
+
+export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, isGeneralSection, isTheorySection, totalVideoTime }: LessonsListProps) {
 const [hasProgress] = useUserProgress();
 const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
 const [showPopup, setShowPopup] = useState<QuestModalShow>();
@@ -98,7 +119,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7` }><i className="fa-regular fa-play" /> 3:32 Min</Link>
+                <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
                 
             ))
         ))
@@ -110,11 +131,11 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
     return (
         <div className='lesson-list-container'>
             <h2 className='font-bold text-2xl' >{title}</h2>
-            <h3 className='font-italic text-2xl'> 22:52 Min</h3>
+            <h3 className='font-italic text-2xl'> {totalVideoTime} Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
                 <div className="quest-container" key={quests.questSectionId}>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
-                  <h3>7:32</h3>
+                  {isQuestSection ? (<><h3 className=" text-xl">{questVideoTimes[quests.questSectionId]}</h3></>) : null}
 
                   <div className="progress-container">
 

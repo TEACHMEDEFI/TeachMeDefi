@@ -14,6 +14,7 @@ export const dotTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 1,
         section: 1,
+        videoTime: '01:45',
         transcript:
           [
             'Hallo und herzlich willkommen zu diesem Kurs für Kryptowährungen für Einsteiger! Heute sprechen wir über Polkadot. Also, was ist Polkadot?',
@@ -34,6 +35,7 @@ export const dotTheory: Quests[] = [
         youtubeThumbnail: "https://youtu.be/uXqMwhZeyio/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 2,
+        videoTime: '02:21',
         section: 1,
         transcript:
           [
@@ -57,6 +59,7 @@ export const dotTheory: Quests[] = [
         youtubeThumbnail: "https://youtu.be/e-wlyU-yk2Q/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 3,
+        videoTime: '04:19',
         section: 1,
         transcript:
           [
@@ -82,6 +85,7 @@ export const dotTheory: Quests[] = [
         youtubeThumbnail: "https://youtu.be/eSaSPSZdF9A/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 4,
+        videoTime: '02:30',
         section: 1,
         transcript:
           [
@@ -102,6 +106,7 @@ export const dotTheory: Quests[] = [
         youtubeThumbnail: "https://youtu.be/KBpxDliWqBM/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 5,
+        videoTime: '02:18',
         section: 1,
         transcript:
           [
@@ -122,6 +127,7 @@ export const dotTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 6,
         section: 1,
+        videoTime: '02:04',
         transcript:
           [
             'In diesem Video sprechen wir über Polkadot-Adressen und Transaktionen.',
@@ -141,6 +147,7 @@ export const dotTheory: Quests[] = [
         youtubeThumbnail: "https://youtu.be/0DlttXMMDEQ/hqdefault.jpg",
         // importantLinks: [],
         questNumber: 7,
+        videoTime: '02:24',
         section: 1,
         transcript:
           [
@@ -162,6 +169,7 @@ export const dotTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 8,
         isLastQuest: true,
+        videoTime: '01:08',
         section: 1,
         transcript:
           [
@@ -180,6 +188,7 @@ export const dotTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 8,
         isLastQuest: true,
+        videoTime: '04:10',
         section: 1,
         transcript:
           [
@@ -203,6 +212,7 @@ export const dotTheory: Quests[] = [
         // importantLinks: [],
         questNumber: 8,
         isLastQuest: true,
+        videoTime: '02:35',
         section: 1,
         transcript:
           [

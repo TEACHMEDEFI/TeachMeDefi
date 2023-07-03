@@ -50,6 +50,7 @@ export const quest4: Lesson[] = [
     ],
     section: 5,
     questNumber: 4,
+    videoTime: '08:59',
     transcript: [
       {
         title: "Wie man Layer 2 Solution mit Arbitrum One einrichtet: Deine Schritt-für-Schritt-Anleitung",
@@ -135,6 +136,7 @@ export const quest4: Lesson[] = [
     ],
     section: 5,
     questNumber: 4,
+    videoTime: '02:50',
     transcript: [
       {
         title: "Wie man einen DEX-Aggregator nutzt: Ein Leitfaden zur Nutzung von One Inch und anderen Alternativen",

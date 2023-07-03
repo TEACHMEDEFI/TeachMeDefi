@@ -41,6 +41,7 @@ export const quest3: Lesson[] = [
     ],
     section: 4,
     questNumber: 3,
+    videoTime: '07:12',
     transcript: [
       {
         title: " Anleitung zur Nutzung von Uniswap - Die Dezentrale Handelsplattform",

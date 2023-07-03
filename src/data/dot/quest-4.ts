@@ -17,6 +17,7 @@ export const quest4: Lesson[] = [
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 7,
+    videoTime: '04:09',
     transcript: [
       {
         subline: "Dot Bridgen",

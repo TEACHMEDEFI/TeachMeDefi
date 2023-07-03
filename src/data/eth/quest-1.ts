@@ -34,6 +34,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '03:50',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -104,6 +105,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '08:31',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -179,6 +181,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '06:15',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -256,6 +259,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '02:39',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -323,6 +327,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '01:33',
     transcript: [
       {
         title: "Anleitung zum Video",

@@ -9,6 +9,7 @@ import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
+import { PrimaryButton } from "@/components/Buttons/Buttons";
 
 
 export default function Index() {
@@ -76,9 +77,9 @@ export default function Index() {
           ) : null}
       </section> */}
       {/* <section className='w-full flex flex-col justify-center relative z-50' >
-        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
-        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection totalVideoTime="25:34" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection totalVideoTime="49:21" />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
 
@@ -88,6 +89,18 @@ export default function Index() {
       {/* <section className='h-screen' >
 
       </section> */}
+
+    <section id='calendly' className='pb-10 flex flex-col items-center px-5 pt-20' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'>
+          <div className='flex flex-col grow items-center gap-8 max-md:py-10'>
+            <h4 className='text-2xl sm:text-4xl font-bold text-center  '> Persönliche Online-Coachings: Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen Krypto-Fragen.</h4>
+            <PrimaryButton href='https://calendly.com/teachmedefi/1std' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
+          </div>
+          <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
+            <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+          </div>
+        </div>
+      </section>
 
 
     </div >

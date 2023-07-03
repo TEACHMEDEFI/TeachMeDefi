@@ -3,7 +3,7 @@ import Spinner from '../Spinner/Spinner';
 import { useEffect } from 'react'
 import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useNFTBalance, switchNetworkIfNeeded } from '../../pages/api/ethereum-api'
+import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable, useMintProgressNFT, } from '../scripts/claim-modals-api'
 
 
@@ -16,10 +16,12 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
     const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useNFTBalance(questSectionId);
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
+    const isConnected = useConnectedToMetaMask();
 
     useEffect(() => {
-        switchNetworkIfNeeded()
-
+        if (isConnected) {
+            switchNetworkIfNeeded()
+        }
     }, [nftMinted, showSpinner, nftMintable, nftBalance])
 
 
@@ -38,7 +40,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
 
                 {showSpinner ? (
                     <>
-                    <p>Your NFT Is On Its Way</p>
+                    <p>Dein NFT Ist Auf Dem Weg!</p>
                         <Spinner /> 
                     </>) : null
                 }
@@ -56,13 +58,16 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
                     <h3>Super! Du hast das Progress NFT für diese Quest gemintet!</h3>
                 </>): null}
 
-                {!nftMinted && !nftMintable ? (
+
+                {!isConnected ? (<>Bitte Verbinde dich zunächst mit Metamask</>) : null}
+
+                {!nftMinted && !nftMintable && isConnected ? (
                     <>
                         <h3>Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt</h3>
                     </>): null
                 }
 
-                <GeneralButton onClick={() => togglePopup({questId: false}, event)}>Schließen</GeneralButton>
+                <GeneralButton onClick={() => togglePopup({questId: questSectionId}, event)}>Schließen</GeneralButton>
             </div>
         </div>
     )
