@@ -112,9 +112,30 @@ export default function OurServices() {
               </Link>
             </div>
           </div>
+          <div className="flex ">
+            <div className="h-16 w-16 aspect-square relative mr-5">
+              <Image src={"/home/ourServices/bullet-square-nft.svg"} fill alt="bullet point icon 1" />
+            </div>
+            <div className="max-lg:w-full" >
+              <h4 className="text-2xl " >Persönliche Online-Coachings</h4>
+              <p className='mt-2 tracking-wider text-sm w-full lg:w-80 xl:w-96'>
+                Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen Krypto-Fragen.
+              </p>
+              <Link
+                href="https://calendly.com/teachmedefi/1std"
+                className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+                target="_blank"
+              >
+                Nutze unser limitiertes Angebot!
+              </Link>
+            </div>
+          </div>
+          
 
         </div>
+        
       </div>
+      
 
 
     </section>
