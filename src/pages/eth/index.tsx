@@ -83,7 +83,7 @@ export default function Index() {
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
 
         
-        <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
+        {/* <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' /> */}
         
       </section>
 
@@ -97,9 +97,6 @@ export default function Index() {
           <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
             <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
           </div>
-        <div className="absolute max-xl:hidden -left-44 -top-60 w-[410px] h-[300px]">
-          <Image className="max-md:hidden" src={"/home/inBackground/merge-ship.png"} fill alt="ethereum picknick" />
-        </div>
         </div>
       </section>
 
