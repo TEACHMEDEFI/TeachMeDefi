@@ -9,6 +9,7 @@ import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
+import { PrimaryButton } from "@/components/Buttons/Buttons";
 
 
 export default function Index() {
