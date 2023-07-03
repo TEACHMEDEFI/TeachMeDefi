@@ -76,13 +76,13 @@ export default function Index() {
           ) : null}
       </section>
 
-      <section className=' w-full flex flex-col justify-center relative z-50' >
+      <section className=' w-full flex flex-col justify-center relative z-50  sm:pb-72' >
         <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
         <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection />
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
 
         
-        <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
+        <Image src={"/eth/eth_windows.png"} className='absolute max-sm:hidden -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' />
         
       </section>
         

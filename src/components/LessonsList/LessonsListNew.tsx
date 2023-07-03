@@ -123,7 +123,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
                           {isQuestSection ? (
                             <>
-                              <Link href="" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(quests.questSectionId, event)}><i className="fa-solid fa-handshake" />Mint NFT</Link>
+                              <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(quests.questSectionId, event)}><i className="fa-solid fa-handshake" />Mint NFT</Link>
                             </>)
                             :
                             null

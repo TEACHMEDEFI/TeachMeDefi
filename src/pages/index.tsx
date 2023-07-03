@@ -59,7 +59,6 @@ export default function Home() {
      Time for Quest
      Toastmesages 
      Text Block unterhalb von section image fonts anpassen
-
       */}
 
     </div>
