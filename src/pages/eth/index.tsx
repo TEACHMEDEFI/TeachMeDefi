@@ -78,9 +78,9 @@ export default function Index() {
       </section>
 
       <section className=' w-full flex flex-col justify-center relative z-50' >
-        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} isGeneralSection />
-        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection />
-        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection />
+        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection />
+        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Theorie Sektion"} isTheorySection totalVideoTime="15:47" />
+        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} title={"Quest section"} isQuestSection totalVideoTime="1:32:11" />
 
         
         {/* <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' /> */}

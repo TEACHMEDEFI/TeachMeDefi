@@ -76,9 +76,9 @@ export default function Index() {
           ) : null}
       </section> */}
       {/* <section className='w-full flex flex-col justify-center relative z-50' >
-        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
-        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection totalVideoTime="25:34" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection totalVideoTime="49:21" />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
 
