@@ -59,7 +59,8 @@ const questVideoTimes: QuestVideoTimes = {
   'eth-quest-3': '07:12',
   'eth-quest-4': '11:49',
   'eth-quest-5': '22:17',
-  'eth-quest-6': '05:26'
+  'eth-quest-6': '05:26',
+  'eth-quest-7': '27:47'
 }
 
 
