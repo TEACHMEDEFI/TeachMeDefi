@@ -167,7 +167,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 </>): null}
 
 
-                {!nftMinted && !nftMintable && isConnected ? (
+                {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount ? (
                     <>
                         <h3>Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt</h3>
                     </>): null
