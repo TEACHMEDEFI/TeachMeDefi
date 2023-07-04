@@ -10,6 +10,7 @@ import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
 import { PrimaryButton } from "@/components/Buttons/Buttons";
+import StickyHelpButton from '@/components/Buttons/StickyHelpButton'
 
 
 export default function Index() {
@@ -101,6 +102,8 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <StickyHelpButton />
 
 
     </div >

@@ -9,6 +9,7 @@ import LessonsListNew from '@/components/LessonsList/LessonsListNew';
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { PrimaryButton } from "@/components/Buttons/Buttons";
+import StickyHelpButton from '@/components/Buttons/StickyHelpButton'
 
 
 export default function Index() {
@@ -113,6 +114,7 @@ export default function Index() {
           </div>
         </div>
       </section>
+      <StickyHelpButton />
 
       {/* <section className='w-full flex flex-col items-center gap-10 justify-center mb-36 relative pb-80' >
       </section > */}
