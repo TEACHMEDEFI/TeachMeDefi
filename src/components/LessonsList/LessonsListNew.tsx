@@ -24,7 +24,7 @@ const QuestClaimModalDot = dynamic(() => import('../Modals/QuestClaimModalDot'),
 type LessonsListProps = {
     lessonsArray: Quests[];
     chain: string;
-    title: string;
+    title?: string;
     isQuestSection?: boolean;
     isGeneralSection?: boolean;
     isTheorySection?: boolean;
@@ -130,7 +130,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
     
     return (
         <div className='lesson-list-container'>
-            <h2 className='text-2xl' >{title}</h2>
+            { title && <h2 className='text-2xl' >{title}</h2>}
             <h3 className='italic text-2xl'> {totalVideoTime} Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
                 <div className="quest-container" key={quests.questSectionId}>
