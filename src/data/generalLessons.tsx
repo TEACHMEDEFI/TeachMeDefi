@@ -120,7 +120,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-4",
-        title: 'Dezentrlisierung - Die Vorteile.',
+        title: 'Dezentralisierung - Die Vorteile.',
         slug: 'dezentralisierung-die-vorteile',
         youtubeUrl: 'https://www.youtube.com/watch?v=v9xNMZ-3xZk',
         youtubeThumbnail: "https://img.youtube.com/vi/v9xNMZ-3xZk/hqdefault.jpg",

@@ -8,27 +8,27 @@ import { quest5 } from "./quest-5";
 
 export const dotQuests:Quests[] = [
   {
-    questTitle: "Quest Title 1",
+    questTitle: "Quest 1: Wallet Einrichten",
     questSectionId: "dot-quest-1",
     lessons: [...quest1]
   },
   {
-    questTitle: "Quest Title 2",
+    questTitle: "Quest 2: DOT kaufen & senden",
     questSectionId: "dot-quest-2",
     lessons: [...quest2]
   },
   {
-    questTitle: "Quest Title 3",
+    questTitle: "Quest 3: Staking",
     questSectionId: "dot-quest-3",
     lessons: [...quest3]
   },
   {
-    questTitle: "Quest Title 4",
+    questTitle: "Quest 4: Kryptowährungen “bridgen”",
     questSectionId: "dot-quest-4",
     lessons: [...quest4]
   },
   {
-    questTitle: "Quest Title 5",
+    questTitle: "Quest 5: Dezentrale Handelsbörsen (DEX) nutzen",
     questSectionId: "dot-quest-5",
     lessons: [...quest5]
   },

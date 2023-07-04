@@ -23,79 +23,101 @@ export default function Index() {
 
   return (
     <div className='flex flex-col w-full justify-center items-center'>
-      <h1 className='text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-6' >
-        Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
-      </h1>
-      {/* <h2 className=' text-xl md:text-4xl font-bold mb-5' >
-        Coming Soon!
-      </h2> */}
-      <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
-        <div className='w-2/4 space-y-10  backdrop-blur-sm rounded-lg' >
-          <h1 className='text-7xl font-bold mb-5' >
+      <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
+        <div className='my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg ' >
+          <h1 className='xl:text-5xl text-4xl font-bold' >
             Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
           </h1>
-          <h2 className='text-xl font-bold' >
-          Lerne alles über die skalierbare, interoperable Blockchain für eine dezentrale Zukunft.
+          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-10 ' >
+            Steig ein in die aufregende Welt von Polkadot, dem Internet der Blockchains! Polkadot ist eine revolutionäre “Multi-Chain”-Plattform, die es ermöglicht, dass verschiedene Blockchains nahtlos und sicher zusammenarbeiten.
+            Auf dieser Seite erlebst du eine Mischung aus fundiertem theoretischen Wissen und praktischen Anleitungen, verpackt in leicht verständliche Module.
+            Fange jetzt an, entdecke das Potenzial von Polkadot und verdiene NFTs während deiner Lernreise!
+
           </h2>
-          <h3 className='font-bold tracking-widest max-w-4xl p-2 z-10 rounded-lg backdrop-blur-sm' >
-          Polkadot ist eine Blockchain-Plattform, die darauf abzielt, die Interoperabilität und Skalierbarkeit
-          von Blockchains zu verbessern. Es ist eine dezentrale Plattform, die es verschiedenen Blockchains ermöglicht,
-          miteinander zu kommunizieren und zusammenzuarbeiten. Polkadot verwendet eine innovative Technologie namens
-          &quot;Parachains&quot;, die es ermöglicht, dass mehrere Blockchains parallel auf der Plattform laufen und miteinander
-          interagieren können. Dadurch können Entwickler und Anwender von den Vorteilen verschiedener Blockchains
-          profitieren, ohne dass sie sich um technische Details kümmern müssen. Polkadot hat auch eine eigene
-          Kryptowährung namens DOT, die zur Stimmrechtsausübung und Netzwerksicherung verwendet wird.
-        </h3>
+
         </div>
-        <div className='relative w-2/4 h-full grow'>
+        <div className='relative w-full lg:w-2/4 h-full grow'>
           <Image src={isDarkMode ? "/dot/dot-logo-dark.png" : "/dot/dot-logo-light.png"} fill alt='Ethereum Hero' />
         </div>
-        <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
-        <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
-        <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
-       
+        <Image src={"/dot/polka_x.svg"} width={392 / 2} height={400 / 2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
+        <Image src={"/dot/polka_line.svg"} width={289 / 2} height={258 / 2} alt='polkadot ' className='absolute max-md:hidden -right-8 bottom-20 ' />
+        <Image src={"/dot/polka_net.svg"} width={706 / 2} height={487 / 2} alt='polkadot ' className='absolute max-lg:hidden -right-6 top-0 ' />
+
       </section>
 
-      <section>
-        {showPlayer ? (
-          <>
-              <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
-                <div className='h-[540px] w-[960px] ' >
-                  <ReactPlayer
-                    height="100%"
-                    width="100%"
-                    url="https://youtu.be/oc2jLjw6904"
-                    controls={true}
-                    config={{
-                      youtube: {
-                        playerVars: { fs: 1 }
-                      }
-                    }}
-                  />
-                </div>
+      <section className='mt-22 flex flex-col items-center relative px-5 w-full mb-44'>
+        {showPlayer &&
+          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl max-w-[1240px]'>
+            <div className=' w-full aspect-video xl:pb-5 ' >
+              <ReactPlayer
+                height="100%"
+                width="100%"
+                url="https://youtu.be/oc2jLjw6904"
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: { fs: 1 }
+                  }
+                }}
+              />
             </div>
-          </>
-          ) : null}
+          </div>
+        }
+
       </section>
+      <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue
+       via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center'
+      >
+        Polkadot verstehen: Theoretische Grundlagen
+      </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
         <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection totalVideoTime="25:34" />
-        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection totalVideoTime="49:21" />
+        <span className='mx-auto mt-28'>
+          <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max'
+          >
+            Polkadot nutzen: Praktische Quests
+          </h3>
+        </span>
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" />
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-
-        <Image src={"/dot/polka_z.svg"} width={261/2} height={261/2} alt='polkadot ' className='absolute left-36 -bottom-36 ' />
-        <Image src={"/dot/polka_polygon.svg"} width={455/2} height={437/2} alt='polkadot ' className='absolute -right-16 bottom-12 ' />
+        {/* {showPlayer &&
+          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl max-w-[1240px] z-50'>
+            <div className=' w-full aspect-video xl:pb-5 ' >
+              <ReactPlayer
+                height="100%"
+                width="100%"
+                url="https://youtu.be/_WGuKCnW6ro"
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: { fs: 1 }
+                  }
+                }}
+              />
+            </div>
+          </div>
+        } */}
+        <Image src={"/dot/polka_z.svg"} width={261 / 2} height={261 / 2} alt='polkadot ' className='absolute left-16 -bottom-36 ' />
+        <Image src={"/dot/polka_polygon.svg"} width={455 / 2} height={437 / 2} alt='polkadot ' className='absolute max-lg:hidden  -right-16 bottom-12 ' />
       </section >
-      {/* <section className='h-screen' >
 
-      </section> */}
 
-    <section id='calendly' className='pb-10 flex flex-col items-center px-5 pt-20' >
-        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'>
-          <div className='flex flex-col grow items-center gap-8 max-md:py-10'>
-            <h4 className='text-2xl sm:text-4xl font-bold text-center  '> Persönliche Online-Coachings: Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen Krypto-Fragen.</h4>
-            <PrimaryButton href='https://calendly.com/teachmedefi/1std' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
+      <section id='calendly' className='pb-10 flex flex-col items-center sm:px-5 pt-20' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
+        md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
+        >
+          <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-6 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
+            <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>
+              Du hast noch Fragen?
+            </h4>
+            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-6'>
+              Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
+              Krypto-Fragen in unseren persönlichen Online-Coachings.
+            </p>
+            <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
           </div>
           <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
             <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
