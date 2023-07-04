@@ -1,6 +1,7 @@
 import {WsProvider, ApiPromise} from '@polkadot/api'
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
 import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
+import ReactPlayer from "react-player";
 import BN from 'bn.js';
 import Image from 'next/image'
 import { Spinner } from '@chakra-ui/react'
@@ -32,18 +33,17 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
     useEffect(() => {
 
-        if (isConnected) {
-            const nodeURL = questSectionId === 'dot-quest-6' ? 'https://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
-            setup(nodeURL)
-    
-            switchNetworkIfNeeded()
-        }
+        const nodeURL = questSectionId === 'dot-quest-6' ? 'https://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
+        setup(nodeURL)
+
+        switchNetworkIfNeeded()
+
        
 
     }, [nftMinted, showSpinner, isConnected])
 
     useEffect(() => {
-        if (!selectedPolkaAccount || !api || !isConnected) return
+        if (!selectedPolkaAccount || !api) return
 
         (async() => {
             // Queries
@@ -129,17 +129,41 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-                {!selectedPolkaAccount ? 
-                    (<> 
-                        <button
-                        type="button"
-                        className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
-                        onClick={handleConnection}>
-                            <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
-                            Bitte Clicke hier um deine Polka Wallet zu verbinden
-                        </button>
-                    </>) : 
-                    (<>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedPolkaAccount.address}</>)
+
+            {!isConnected ? (
+                    <>
+                        <div className='w-full relative' >
+                            <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
+                                <h3>Bitte verbinde zunächst deine Wallet mit der Seite. Im Video erfährst du wie das gemacht wird</h3>
+                                <ReactPlayer
+                                        height="100%"
+                                        width="100%"
+                                        url={'https://www.youtube.com/watch?v=WPjQoU4aXnU'}
+                                        controls={true}
+                                        config={{
+                                        youtube: {
+                                            playerVars: { fs: 1 }
+                                        }
+                                        }}
+                                    />
+                            </div>
+                        </div>
+                    </>) 
+                : null}
+
+
+                {isConnected && !selectedPolkaAccount && 
+                    <button
+                    type="button"
+                    className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
+                    onClick={handleConnection}>
+                        <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
+                        Bitte Clicke hier um deine Polka Wallet zu verbinden
+                    </button>
+                }
+
+                {isConnected && selectedPolkaAccount && !showSpinner &&
+                    <p>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedPolkaAccount ? selectedPolkaAccount.address : ''}</p>
                 }
 
 
@@ -156,9 +180,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     ) : null
                 }
 
-                {!isConnected ? (<>Bitte Verbinde dich zunächst mit Metamask</>) : null}
-
-                {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable ? 
+                {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected ? 
                     (
                     <>
                         <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
