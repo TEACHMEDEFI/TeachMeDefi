@@ -4,7 +4,7 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import ReactPlayer from "react-player";
 import BN from 'bn.js';
 import Image from 'next/image'
-import { Spinner } from '@chakra-ui/react'
+import Spinner from '../Spinner/Spinner';
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
@@ -147,7 +147,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
                 {showSpinner ? (
                     <>
-                        <p>Your NFT Is On Its Way</p>
+                        <p>Dein NFT Ist Auf Dem Weg!</p>
                             <Spinner
                             thickness='4px'
                             speed='0.65s'
