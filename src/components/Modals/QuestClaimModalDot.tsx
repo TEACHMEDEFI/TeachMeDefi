@@ -198,9 +198,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         <h3>Ein kleiner Schritt noch!</h3>
                         <h3>Bitte kopiere die Transaktions Id deines Staking Calls in das Eingabefeld und bestätige. 
                             Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
-                        <input id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
-                        <PrimaryButton> Bestätigen</PrimaryButton>
-
+                        <input className={transactionId ? 'red-border' : ''} id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
                     </>): null
                 }
 
