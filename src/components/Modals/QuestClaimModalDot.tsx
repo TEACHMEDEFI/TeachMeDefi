@@ -134,12 +134,12 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
                     onClick={handleConnection}>
                         <Image src={"/icons/talisman-red.svg"} width={60} height={60} alt='Talisman Wallet Brand' />
-                        Bitte Clicke hier um deine Polka Wallet zu verbinden
+                        Bitte klicke hier, um deine Polkadot Wallet zu verbinden.
                     </button>
                 }
 
                 {isConnected && selectedPolkaAccount && !showSpinner &&
-                    <p>Du Bist Verbunden mit dem Polkadot Netzwerk: {selectedPolkaAccount ? selectedPolkaAccount.address : ''}</p>
+                    <p>Du bist verbunden mit dem Polkadot Netzwerk. Die Addresse deiner verbundenen Wallet lautet: {selectedPolkaAccount ? selectedPolkaAccount.address : ''}</p>
                 }
 
 
@@ -156,7 +156,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     <>
                         <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
                             Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
-                        <h3>Und so geht's weiter:</h3>
+                        <h3>Und so gehts weiter:</h3>
                         <ul>
                             <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
                             <li>2. Es öffnet sich ein Fenster deiner Wallet, in dem du die Transaktion bestätigen musst. </li>
@@ -178,14 +178,16 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 }
 
                 {!showSpinner && nftMinted ? (<>
-                    <h3>Super! Du hast das Progress NFT für diese Quest gemintet!</h3>
-                    <p>Die Contract Adresse, die du benötigst um das NFT deiner Wallet hinzuzufügen lautet: {QuestNftContractAddresses[questSectionId]}</p>
+                    <h3>Super, du hast dein NFT erhalten! Anbei findest du eine kurze Video-Anleitung dazu, wie du dir dein Sammlerstück anschauen kannst.</h3>
+                    <p>Hinweis: Die Contract-Adresse, die du benötigst (siehe Video-Anleitung), um dein NFT in deiner Wallet anzuzeigen, lautet: {QuestNftContractAddresses[questSectionId]}</p>
                 </>): null}
 
 
                 {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount ? (
                     <>
-                        <h3>Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt</h3>
+                        <h3>Ein kleiner Schritt noch!</h3>
+                        <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
+                        <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geht's, dein NFT wartet schon auf dich!</h3>
                     </>): null
                 }
 
