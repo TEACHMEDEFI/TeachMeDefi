@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import ReactPlayer from "react-player";
 import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
-import { useIsProgressNftMintable, useMintProgressNFT, } from '../scripts/claim-modals-api'
+import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
+import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
 
 
 type QuestClaimModalProps = {
@@ -15,7 +15,6 @@ type QuestClaimModalProps = {
 
 const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps) => {
     const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
-    const [showPlayer, setShowPlayer] = useState(false);
     const nftBalance = useNFTBalance(questSectionId);
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
     const isConnected = useConnectedToMetaMask();
@@ -79,6 +78,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
 
                 {!showSpinner && nftMinted ? (<>
                     <h3>Super! Du hast das Progress NFT für diese Quest gemintet!</h3>
+                    <p>Die Contract Adresse, die du benötigst um das NFT deiner Wallet hinzuzufügen lautet: {QuestNftContractAddresses[questSectionId]}</p>
                 </>): null}
 
                 {!nftMinted && !nftMintable && isConnected ? (
