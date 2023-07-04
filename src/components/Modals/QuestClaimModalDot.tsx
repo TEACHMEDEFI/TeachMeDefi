@@ -38,8 +38,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
         switchNetworkIfNeeded()
 
-       
-
     }, [nftMinted, showSpinner, isConnected])
 
     useEffect(() => {
@@ -156,7 +154,25 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected ? 
                     (
                     <>
-                        <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
+                        <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
+                            Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
+                        <h3>Und so geht's weiter:</h3>
+                        <ul>
+                            <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
+                            <li>2. Es öffnet sich ein Fenster deiner Wallet, in dem du die Transaktion bestätigen musst. </li>
+                        </ul>
+                        <h3>Hinweis: Keine Sorge, es entstehen keine realen Kosten, da wir uns im Testnetz befinden. Für die Transaktionsgebühr brauchst du aber sogenanntes Testnet-ETH, welches kostenlos erhältlich ist. Falls dein Guthaben leer ist, siehst du hier wie du dir welches besorgst: </h3>
+
+                        <h3><a href="https://youtu.be/zx422X70950">Mit der Talisman Wallet</a></h3>
+                        <h3><a href="https://youtu.be/lfd6o6NO4KM">Mit der Metamask Wallet</a></h3>
+
+                        <ul>
+                            <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
+                        </ul>
+
+                        <h3>Los geht's!</h3>
+
+                        <PrimaryButton onClick={() => handleMint()} >NFT erhalten</PrimaryButton>
                     </>
                     ):  null
                 }
