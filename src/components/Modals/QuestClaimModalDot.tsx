@@ -110,7 +110,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     <>
                         <div className='w-full relative' >
                             <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-                                <h3>Bitte verbinde zunächst deine Wallet mit der Seite. Im Video erfährst du wie das gemacht wird</h3>
+                                <h3>Bitte verbinde deine Wallet zunächst mit der Webseite. Eine kurze Video-Anleitung dafür findest du anbei.</h3>
                                 <ReactPlayer
                                         height="100%"
                                         width="100%"
@@ -170,7 +170,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                             <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
                         </ul>
 
-                        <h3>Los geht's!</h3>
+                        <h3>Los gehts!</h3>
 
                         <PrimaryButton onClick={() => handleMint()} >NFT erhalten</PrimaryButton>
                     </>

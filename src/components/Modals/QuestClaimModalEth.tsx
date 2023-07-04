@@ -43,7 +43,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
                     <>
                         <div className='w-full relative' >
                             <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-                                <h3>Bitte verbinde zunächst deine Wallet mit der Seite. Im Video erfährst du wie das gemacht wird</h3>
+                                <h3>Bitte verbinde deine Wallet zunächst mit der Webseite. Eine kurze Video-Anleitung dafür findest du anbei.</h3>
                                 <ReactPlayer
                                         height="100%"
                                         width="100%"
@@ -71,19 +71,39 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
                 {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected ? 
                     (
                         <>
-                            <PrimaryButton onClick={() => handleMint()} >Minte Jetzt Dein Progress NFT</PrimaryButton>
+                        <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
+                            Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
+                        <h3>Und so gehts weiter:</h3>
+                        <ul>
+                            <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
+                            <li>2. Es öffnet sich ein Fenster deiner Wallet, in dem du die Transaktion bestätigen musst. </li>
+                        </ul>
+                        <h3>Hinweis: Keine Sorge, es entstehen keine realen Kosten, da wir uns im Testnetz befinden. Für die Transaktionsgebühr brauchst du aber sogenanntes Testnet-ETH, welches kostenlos erhältlich ist. Falls dein Guthaben leer ist, siehst du hier wie du dir welches besorgst: </h3>
+
+                        <h3><a href="https://youtu.be/zx422X70950">Mit der Talisman Wallet</a></h3>
+                        <h3><a href="https://youtu.be/lfd6o6NO4KM">Mit der Metamask Wallet</a></h3>
+
+                        <ul>
+                            <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
+                        </ul>
+
+                        <h3>Los gehts!</h3>
+
+                        <PrimaryButton onClick={() => handleMint()} >NFT erhalten</PrimaryButton>
                         </>
                     ):  null
                 }
 
                 {!showSpinner && nftMinted ? (<>
-                    <h3>Super! Du hast das Progress NFT für diese Quest gemintet!</h3>
-                    <p>Die Contract Adresse, die du benötigst um das NFT deiner Wallet hinzuzufügen lautet: {QuestNftContractAddresses[questSectionId]}</p>
+                    <h3>Super, du hast dein NFT erhalten! Anbei findest du eine kurze Video-Anleitung dazu, wie du dir dein Sammlerstück anschauen kannst.</h3>
+                    <p>Hinweis: Die Contract-Adresse, die du benötigst (siehe Video-Anleitung), um dein NFT in deiner Wallet anzuzeigen, lautet: {QuestNftContractAddresses[questSectionId]}</p>
                 </>): null}
 
                 {!nftMinted && !nftMintable && isConnected ? (
                     <>
-                        <h3>Das Progress NFT ist im Moment nicht Mintbar, bitte erfülle zunächst die Herausforderungen - Diese werden dir in den Videos erklärt</h3>
+                        <h3>Ein kleiner Schritt noch!</h3>
+                        <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
+                        <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geht's, dein NFT wartet schon auf dich!</h3>
                     </>): null
                 }
 
