@@ -25,15 +25,17 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const [api, setApi] = useState<ApiPromise>();
     const [balances, setBalances] = useState<BN>();
     const hasSelectedAccount = selectedPolkaAccount ? true : false
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
     const nftBalance = useNFTBalance(questSectionId);
     const isConnected = useConnectedToMetaMask();
+    const [transactionId, setTransactionId] = useState<string>();
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount, transactionId);
     const NAME = "Peter"
 
 
     useEffect(() => {
-
-        const nodeURL = questSectionId === 'dot-quest-6' ? 'https://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
+        // Quest 3 transactions ID eingeben
+        // Quest 4 xcdot auf moonbeam balance größer 0
+        const nodeURL = questSectionId === 'dot-quest-5' ? 'wss://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
         setup(nodeURL)
 
         switchNetworkIfNeeded()
@@ -55,6 +57,14 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         })()
 
     }, [api, selectedPolkaAccount])
+
+
+    /*
+    * Check transaction Id for Staking Call
+    */
+    const handleUserInput = (event: any) => {
+        setTransactionId(event.target.value)
+    }
 
 
     /*
@@ -183,7 +193,20 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                 </>): null}
 
 
-                {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount ? (
+                {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount && questSectionId === 'dot-quest-3' ? (
+                    <>
+                        <h3>Ein kleiner Schritt noch!</h3>
+                        <h3>Bitte kopiere die Transaktions Id deines Staking Calls in das Eingabefeld und bestätige. 
+                            Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
+                        <input id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
+                        <PrimaryButton> Bestätigen</PrimaryButton>
+
+                    </>): null
+                }
+
+
+
+                {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount && questSectionId !== 'dot-quest-3' ? (
                     <>
                         <h3>Ein kleiner Schritt noch!</h3>
                         <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
