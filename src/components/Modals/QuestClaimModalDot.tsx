@@ -119,8 +119,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
                 {nftBalance > 0 && isConnected && 
                         <>
-                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Anbei findest du eine kurze Video-Anleitung dazu, wie du dir dein Sammlerstück anschauen kannst.</h3>
-                            <h3>Hinweis: Die Contract-Adresse, die du benötigst (siehe Video-Anleitung), um dein NFT in deiner Wallet anzuzeigen, lautet: {QuestNftContractAddresses[questSectionId]}</h3>
+                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen..</h3>
                         </>
                     }
 
@@ -196,8 +195,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     }
 
                     {!showSpinner && nftMinted ? (<>
-                        <h3>Super, du hast dein NFT erhalten! Anbei findest du eine kurze Video-Anleitung dazu, wie du dir dein Sammlerstück anschauen kannst.</h3>
-                        <p>Hinweis: Die Contract-Adresse, die du benötigst (siehe Video-Anleitung), um dein NFT in deiner Wallet anzuzeigen, lautet: {QuestNftContractAddresses[questSectionId]}</p>
+                        <h3>Super, du hast dein NFT erhalten! Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen.</h3>
                     </>): null}
 
 
