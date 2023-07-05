@@ -21,7 +21,7 @@ export default function Index() {
             </span>
           </h1>
           <h2>Wenn du schon Fortschritt NFTs auf unserer Seite gemintet hast, dann werden sie dir hier angezeigt.
-            Verbinde bitte deine Wallet mit unserer Seite, damit dir deine Collectibles angezeigt werden können</h2>
+            Verbinde bitte deine Wallet mit unserer Seite, damit dir deine Sammlerstücke angezeigt werden können</h2>
          
         </div>
 
