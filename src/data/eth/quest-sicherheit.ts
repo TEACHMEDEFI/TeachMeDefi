@@ -93,18 +93,6 @@ export const questSicherheit: Lesson[] = [
         linkText: "Gnosis Safe",
         href: "https://gnosis-safe.io/app/"
       },
-      {
-        linkText: "BitGo: Ein guter Anbieter mit Unterstützung für verschiedene Kryptowährungen.",
-        href: "https://www.bitgo.com/"
-      },
-      {
-        linkText: "Armory: Ein Open-Source-Bitcoin-Wallet mit Multisig-Funktionen.",
-        href: "https://www.bitcoinarmory.com/"
-      },
-      {
-        linkText: "Electrum: Ein leichtgewichtiges Bitcoin-Wallet, das Multisig unterstützt.",
-        href: "https://electrum.org/"
-      }
     ],
     section: 8,
     questNumber: 7,
@@ -142,24 +130,6 @@ export const questSicherheit: Lesson[] = [
       },
       {
         subline: 'Es ist wichtig zu beachten, dass für optimale Sicherheit jedes "Besitzer"-Wallet auf einem separaten Gerät oder sogar einer separaten Plattform (z.B. Hardware-Wallet, andere Browser-Erweiterung) gehalten werden sollte.'
-      },
-      {
-        subline: 'Weitere Anbieter von Multisig-Wallets',
-        text: 'Neben Gnosis Safe gibt es noch andere Anbieter von Multisig-Wallets. Hier sind einige davon:',
-        links: [
-          {
-            linkText: "BitGo: Ein guter Anbieter mit Unterstützung für verschiedene Kryptowährungen.",
-            href: "https://www.bitgo.com/"
-          },
-          {
-            linkText: "Armory: Ein Open-Source-Bitcoin-Wallet mit Multisig-Funktionen.",
-            href: "https://www.bitcoinarmory.com/"
-          },
-          {
-            linkText: "Electrum: Ein leichtgewichtiges Bitcoin-Wallet, das Multisig unterstützt.",
-            href: "https://electrum.org/"
-          }
-        ]
       },
       {
         subline: "Durch das Einrichten eines Multisig-Wallets kannst du deine Krypto-Assets besser schützen und deine Sicherheitsstufe erhöhen. Denke jedoch immer daran, deine privaten Schlüssel sicher aufzubewahren und vorsichtig zu sein, wenn du Transaktionen durchführst. Denn in der Welt der Kryptowährungen bist du für deine eigene Sicherheit verantwortlich."
@@ -299,7 +269,7 @@ export const questSicherheit: Lesson[] = [
       {
         linkText: "revoke.cash",
         href: "https://revoke.cash/"
-      }
+      },
     ],
     section: 8,
     questNumber: 7,

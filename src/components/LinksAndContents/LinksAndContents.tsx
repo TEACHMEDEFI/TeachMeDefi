@@ -15,6 +15,7 @@ export default function LinksAndIndexBurger() {
   const [linksActive, setLinksActive] = useState<boolean>(true)
   const pathname = usePathname();
 
+  console.log(ethLessons)
 
   const handleLinksToggle = () => {
     setLinksActive(true)

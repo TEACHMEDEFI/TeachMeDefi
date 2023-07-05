@@ -22,13 +22,13 @@ export default function Index() {
   }, [])
 
   return (
-    <div className='flex flex-col w-full justify-center items-center'>
-      <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
+    <div className='flex flex-col w-full justify-center items-center max-sm:px-5'>
+      <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24 ' >
         <div className='my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
-            Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
+            Entdecke die Welt von <span className='text-polkaPink'> Polkadot!</span>
           </h1>
-          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-10 ' >
+          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10 ' >
             Steig ein in die aufregende Welt von Polkadot, dem Internet der Blockchains! Polkadot ist eine revolutionäre “Multi-Chain”-Plattform, die es ermöglicht, dass verschiedene Blockchains nahtlos und sicher zusammenarbeiten.
             Auf dieser Seite erlebst du eine Mischung aus fundiertem theoretischen Wissen und praktischen Anleitungen, verpackt in leicht verständliche Module.
             Fange jetzt an, entdecke das Potenzial von Polkadot und verdiene NFTs während deiner Lernreise!
@@ -45,9 +45,9 @@ export default function Index() {
 
       </section>
 
-      <section className='mt-22 flex flex-col items-center relative px-5 w-full mb-44'>
+      <section className='mt-22 flex flex-col items-center relative sm:px-5 w-full mb-44'>
         {showPlayer &&
-          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl max-w-[1240px]'>
+          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >
               <ReactPlayer
                 height="100%"

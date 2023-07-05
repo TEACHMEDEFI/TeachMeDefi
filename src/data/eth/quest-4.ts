@@ -17,7 +17,7 @@ export const quest4: Lesson[] = [
     importantLinks: [
       {
         linkText: "Arbitrum One",
-        href: "https://offchainlabs.com/arbitrum-one"
+        href: "https://arbitrum.io/"
       },
       {
         linkText: "Arbitrum Bridge",
@@ -30,10 +30,6 @@ export const quest4: Lesson[] = [
       {
         linkText: "SushiSwap",
         href: "https://app.sushi.com/swap"
-      },
-      {
-        linkText: "QuickSwap",
-        href: "https://quickswap.exchange/#/swap"
       },
       {
         linkText: "Optimism",
@@ -62,7 +58,7 @@ export const quest4: Lesson[] = [
         links: [
           {
             linkText: "Arbitrum One",
-            href: "https://offchainlabs.com/arbitrum-one"
+            href: "https://arbitrum.io/"
           },
         ]
       },
@@ -78,7 +74,7 @@ export const quest4: Lesson[] = [
       },
       {
         subline: '3. DEXs nutzen',
-        text: 'Sobald deine Coins erfolgreich auf Arbitrum One übertragen wurden, kannst du dezentrale Börsen (DEXs) nutzen, um sie zu handeln. DEXs wie Uniswap, Sushiswap und Quickswap unterstützen Arbitrum One und bieten nahtlose Handelserfahrungen auf Layer 2. Du kannst die gewünschte DEX besuchen und die Chain auf Arbitrum One umstellen, um loszulegen.',
+        text: 'Sobald deine Coins erfolgreich auf Arbitrum One übertragen wurden, kannst du dezentrale Börsen (DEXs) nutzen, um sie zu handeln. DEXs wie Uniswap und Sushiswap unterstützen Arbitrum One und bieten nahtlose Handelserfahrungen auf Layer 2. Du kannst die gewünschte DEX besuchen und die Chain auf Arbitrum One umstellen, um loszulegen.',
         links: [
           {
             linkText: "Uniswap",
@@ -87,10 +83,6 @@ export const quest4: Lesson[] = [
           {
             linkText: "SushiSwap",
             href: "https://app.sushi.com/swap"
-          },
-          {
-            linkText: "QuickSwap",
-            href: "https://quickswap.exchange/#/swap"
           },
         ]
       },

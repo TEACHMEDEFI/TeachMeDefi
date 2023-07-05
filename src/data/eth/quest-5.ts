@@ -17,7 +17,7 @@ export const quest5: Lesson[] = [
     importantLinks: [
       {
         linkText: "Uniswap",
-        href: "https://uniswap.org/"
+        href: "https://app.uniswap.org/#/pools"
       },
       {
         linkText: "Aave",
@@ -58,7 +58,7 @@ export const quest5: Lesson[] = [
         links: [
           {
             linkText: "Uniswap",
-            href: "https://uniswap.org/"
+            href: "https://app.uniswap.org/#/pools"
           }
         ]
       },
@@ -121,12 +121,8 @@ export const quest5: Lesson[] = [
         href: "https://defiprime.com/"
       },
       {
-        linkText: "Mutual",
+        linkText: "Nexus Mutual",
         href: "https://nexusmutual.io/"
-      },
-      {
-        linkText: "Cover Protocol",
-        href: "https://www.coverprotocol.com/)"
       },
       {
         linkText: "InsurAce",
@@ -167,15 +163,11 @@ export const quest5: Lesson[] = [
       },
       {
         subline: 'DeFi Versicherungen',
-        text: 'Eines der bemerkenswertesten Merkmale von DeFiPrime ist seine Kategorie "Insurance". Hier werden Plattformen vorgestellt, die Versicherungen gegen Contract Fehler und Governance Angriffe anbieten. Einige der vorgestellten Anbieter sind Nexus Mutual, Cover Protocol und InsurAce. Diese Dienstleistungen können besonders wichtig sein, wenn du mit hohen Beträgen im DeFi-Bereich agierst.',
+        text: 'Eines der bemerkenswertesten Merkmale von DeFiPrime ist seine Kategorie "Insurance". Hier werden Plattformen vorgestellt, die Versicherungen gegen Contract Fehler und Governance Angriffe anbieten. Einige der vorgestellten Anbieter sind Nexus Mutual und InsurAce. Diese Dienstleistungen können besonders wichtig sein, wenn du mit hohen Beträgen im DeFi-Bereich agierst.',
         links: [
           {
-            linkText: "Mutual",
+            linkText: "Nexus Mutual",
             href: "https://nexusmutual.io/"
-          },
-          {
-            linkText: "Cover Protocol",
-            href: "https://www.coverprotocol.com/)"
           },
           {
             linkText: "InsurAce",
@@ -200,23 +192,19 @@ export const quest5: Lesson[] = [
     youtubeThumbnail: "https://img.youtube.com/vi/hQ9mBsb5cHQ/hqdefault.jpg",
     importantLinks: [
       {
-        linkText: "Uniswap",
-        href: "https://uniswap.org/"
+        linkText: "Uniswap-Pool",
+        href: "https://app.uniswap.org/#/pool"
       },
       {
         linkText: 'MetaMask',
         href: 'https://metamask.io/'
       },
       {
-        linkText: "Uniswap-Pool",
-        href: "https://app.uniswap.org/#/pool"
-      },
-      {
         linkText: "Gaspreise und Transaktionen: EtherScan",
-        href: "https://etherscan.io/"
+        href: "https://ethereum.org/en/developers/docs/gas/#:~:text=Gas%20refers%20to%20the%20fee,of%20transaction%20success%20or%20failure.&text=Gas%20fees%20are%20paid%20in,(10%2D9%20ETH)"
       },
       {
-        linkText: "Alternative DeFi-Plattform: Curv Finance",
+        linkText: "Alternative DeFi-Plattform: Curve Finance",
         href: "https://curve.fi/"
       },
       {
@@ -233,9 +221,9 @@ export const quest5: Lesson[] = [
         text: 'Dezentralisierte Finanzmärkte (DeFi) revolutionieren die Art und Weise, wie wir mit Geld umgehen. Eines der Schlüsselelemente in diesem Ökosystem sind Liquidity Provider (LPs). In diesem Leitfaden zeigen wir dir, wie du ein LP auf Uniswap Uniswap werden kannst und was ein Impermanent Loss ist.',
         links: [
           {
-            linkText: "Uniswap",
-            href: "https://uniswap.org/"
-          }
+            linkText: "Uniswap-Pool",
+            href: "https://app.uniswap.org/#/pool"
+          },
         ]
       },
       {
@@ -274,10 +262,10 @@ export const quest5: Lesson[] = [
           },
           {
             linkText: "Gaspreise und Transaktionen: EtherScan",
-            href: "https://etherscan.io/"
+            href: "https://ethereum.org/en/developers/docs/gas/#:~:text=Gas%20refers%20to%20the%20fee,of%20transaction%20success%20or%20failure.&text=Gas%20fees%20are%20paid%20in,(10%2D9%20ETH)"
           },
           {
-            linkText: "Alternative DeFi-Plattform: Curv Finance",
+            linkText: "Alternative DeFi-Plattform: Curve Finance",
             href: "https://curve.fi/"
           },
           {

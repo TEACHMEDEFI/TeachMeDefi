@@ -156,7 +156,7 @@ export const quest1: Lesson[] = [
       },
       {
         linkText: "RPC Nodes",
-        href: "https://www.coindesk.com/learn/ethereum-101/ethereum-node-types"
+        href: "https://www.alchemy.com/overviews/rpc-node"
       },
       {
         linkText: "Infura",
@@ -168,15 +168,11 @@ export const quest1: Lesson[] = [
       },
       {
         linkText: "Arbitrum",
-        href: "https://offchainlabs.com/arbitrum"
+        href: "https://support.metamask.io/hc/en-us/articles/4415758358299-Network-profile-Arbitrum"
       },
       {
-        linkText: "Aurora",
-        href: "https://aurora.dev/"
-      },
-      {
-        linkText: "Avalon",
-        href: "https://avalon.cocos.com/"
+        linkText: "Optimism",
+        href: "https://support.metamask.io/hc/en-us/articles/4415758352667-Network-profile-Optimism"
       },
     ],
     section: 2,
@@ -194,7 +190,7 @@ export const quest1: Lesson[] = [
         links: [
           {
             linkText: "RPC Nodes",
-            href: "https://www.coindesk.com/learn/ethereum-101/ethereum-node-types"
+            href: "https://www.alchemy.com/overviews/rpc-node"
           },
         ]
       },
@@ -214,19 +210,15 @@ export const quest1: Lesson[] = [
       },
       {
         subline: '3. Hinzufügen von Layer-2-Netzwerken',
-        text: 'Um die Skalierbarkeit deines Wallets zu verbessern und die Transaktionskosten zu senken, kannst du Layer-2-Lösungen wie Arbitrum, Aurora und Avalon hinzufügen. Diese Netzwerke bauen auf Ethereum auf und erweitern die Möglichkeiten deines Wallets.',
+        text: 'Um die Skalierbarkeit deines Wallets zu verbessern und die Transaktionskosten zu senken, kannst du Layer-2-Lösungen wie Arbitrum und Optimism hinzufügen. Diese Netzwerke bauen auf Ethereum auf und erweitern die Möglichkeiten deines Wallets.',
         links: [
           {
             linkText: "Arbitrum",
-            href: "https://offchainlabs.com/arbitrum"
+            href: "https://support.metamask.io/hc/en-us/articles/4415758358299-Network-profile-Arbitrum"
           },
           {
-            linkText: "Aurora",
-            href: "https://aurora.dev/"
-          },
-          {
-            linkText: "Avalon",
-            href: "https://avalon.cocos.com/"
+            linkText: "Optimism",
+            href: "https://support.metamask.io/hc/en-us/articles/4415758352667-Network-profile-Optimism"
           },
         ]
       },
