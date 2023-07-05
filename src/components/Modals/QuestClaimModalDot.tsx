@@ -131,7 +131,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                                     <ReactPlayer
                                             height="100%"
                                             width="100%"
-                                            url={'https://www.youtube.com/watch?v=WPjQoU4aXnU'}
+                                            url={'https://youtu.be/EfqgG7yga-E'}
                                             controls={true}
                                             config={{
                                             youtube: {
