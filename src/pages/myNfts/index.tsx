@@ -28,7 +28,7 @@ export default function Index() {
 
   return (
     <div className='flex flex-col  w-full justify-center items-center relative mb-32'>
-      <section className='h-[90vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
+      <section className='h-[20vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
         <div className=' my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
             Meine Gesammelten <span
@@ -37,14 +37,7 @@ export default function Index() {
               NFTs
             </span>
           </h1>
-          {/* <h2 className='text-xl font-bold' >Hier erfährst du alles über die zweitgrößte <br /> Kryptowährung der Welt.</h2> */}
-          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-10 ' >
-            Verbinde einfach deine Wallet mit unserer Page, und schon kannst du hier deine NFTs sehen!
-
-          </h2>
-        </div>
-        <div className='relative w-full lg:w-2/4 h-full grow'>
-          <Image src={"/eth/eth_hero.png"} fill alt='Ethereum Hero' />
+         
         </div>
 
       </section>
