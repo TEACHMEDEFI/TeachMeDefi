@@ -29,6 +29,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const isConnected = useConnectedToMetaMask();
     const [transactionId, setTransactionId] = useState<string>();
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
+    const [specialChallengeDone, setSpecialChallengeDone] = useState<boolean>(false);
     const NAME = "Peter"
 
 
@@ -40,7 +41,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
         switchNetworkIfNeeded()
 
-    }, [nftMinted, showSpinner, isConnected, questSectionId])
+    }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
 
     useEffect(() => {
         if (!selectedPolkaAccount || !api) return
@@ -64,6 +65,13 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     */
     const handleUserInput = (event: any) => {
         setTransactionId(event.target.value)
+
+
+        if (event.target.value === 'peter') {
+
+            console.log('Done')
+            setSpecialChallengeDone(true)
+        }
     }
 
 
@@ -205,6 +213,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                             <h3>Bitte kopiere die Transaktions Id deines Staking Calls in das Eingabefeld und bestätige. 
                                 Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
                             <input className={transactionId ? 'red-border' : ''} id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
+                            {transactionId && <p>Keine Transaktion unter dieser ID gefunden</p>}
                         </>): null
                     }
 

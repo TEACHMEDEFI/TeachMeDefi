@@ -58,7 +58,7 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
         mintable = stringNumber && parseInt(stringNumber) > 0 ? true : false;
     } else if (questSectionId == 'dot-quest-3') {
 
-        mintable = true
+        mintable = false
 
     } else {
         mintable = tokenBalance > 0;
