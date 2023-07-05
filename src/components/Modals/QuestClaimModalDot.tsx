@@ -28,7 +28,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const nftBalance = useNFTBalance(questSectionId);
     const isConnected = useConnectedToMetaMask();
     const [transactionId, setTransactionId] = useState<string>();
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount, transactionId);
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
     const NAME = "Peter"
 
 
@@ -40,7 +40,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
         switchNetworkIfNeeded()
 
-    }, [nftMinted, showSpinner, isConnected])
+    }, [nftMinted, showSpinner, isConnected, questSectionId])
 
     useEffect(() => {
         if (!selectedPolkaAccount || !api) return
@@ -216,7 +216,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         <>
                             <h3>Ein kleiner Schritt noch!</h3>
                             <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
-                            <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geht's, dein NFT wartet schon auf dich!</h3>
+                            <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf gehts, dein NFT wartet schon auf dich!</h3>
                         </>): null
                     }
 

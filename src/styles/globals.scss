@@ -373,3 +373,9 @@ img {
 .red-border {
   border: solid red;
 }
+
+.nft-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
