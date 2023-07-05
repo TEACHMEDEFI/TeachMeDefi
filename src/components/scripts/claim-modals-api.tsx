@@ -39,7 +39,7 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 /*
 * Checks whether a progress NFT is mintable depending on the requirements
 */
-export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean, transactionId: string): boolean => {
+export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean, transactionId: string | undefined): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
     let tokenBalance = useTokenBalance(questSectionId);

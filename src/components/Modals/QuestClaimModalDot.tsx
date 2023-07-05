@@ -28,7 +28,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const nftBalance = useNFTBalance(questSectionId);
     const isConnected = useConnectedToMetaMask();
     const [transactionId, setTransactionId] = useState<string>();
-    const nftMintable = typeof transactionId === "string" && useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount, transactionId);
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount, transactionId);
     const NAME = "Peter"
 
 
