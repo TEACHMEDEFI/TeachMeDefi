@@ -1,14 +1,4 @@
-
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { ethQuests } from '@/data/eth';
-import { ethTheory } from '@/data/eth/ethTheory';
-import { generalLessons } from '@/data/generalLessons';
-import LessonsList from '@/components/LessonsList/LessonsList';
-import LessonsListNew from '@/components/LessonsList/LessonsListNew';
-import ReactPlayer from "react-player"
-import { PrimaryButton } from "@/components/Buttons/Buttons";
-import StickyHelpButton from '@/components/Buttons/StickyHelpButton'
+import { useEffect } from 'react';
 import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
 import NftCard from '@/components/NftCards/NftCard';
 
@@ -18,13 +8,6 @@ export default function Index() {
     switchNetworkIfNeeded()
 
   }, [])
-
-
-  const renderNftCards = () => {
-   
-  }
-
-
 
   return (
     <div className='flex flex-col  w-full justify-center items-center relative mb-32'>

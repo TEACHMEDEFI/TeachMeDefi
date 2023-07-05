@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useNFTBalance, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
+import { useNFTBalance } from '../../pages/api/ethereum-api'
 
 type NftCardProps = {
     questSectionId: string
