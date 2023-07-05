@@ -145,7 +145,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     : null}
 
 
-                    {isConnected && !selectedPolkaAccount && 
+                    {isConnected && !selectedPolkaAccount && nftBalance === 0 && 
                         <button
                         type="button"
                         className="bg-gray-100 dark:bg-bgDarkGray rounded-md h-20 w-full px-5  flex justify-between items-center"
