@@ -16,13 +16,17 @@ type QuestClaimModalProps = {
 const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps) => {
     const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
     const nftBalance = useNFTBalance(questSectionId);
-    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
+    const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false, '');
     const isConnected = useConnectedToMetaMask();
 
     useEffect(() => {
         if (isConnected) {
             switchNetworkIfNeeded()
         }
+        console.log('isMintable', nftMintable)
+        console.log('nft Balance', nftBalance)
+        console.log('nft Minted', nftMinted)
+
     }, [nftMinted, showSpinner, nftMintable, nftBalance])
 
 
@@ -38,6 +42,13 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
+
+                {nftBalance > 0 && isConnected && 
+                    <>
+                        <h3>Super! Du hast das NFT für diese Quest bereits geminted. Anbei findest du eine kurze Video-Anleitung dazu, wie du dir dein Sammlerstück anschauen kannst.</h3>
+                        <h3>Hinweis: Die Contract-Adresse, die du benötigst (siehe Video-Anleitung), um dein NFT in deiner Wallet anzuzeigen, lautet: {QuestNftContractAddresses[questSectionId]}</h3>
+                    </>
+                }
 
                 {!isConnected ? (
                     <>
