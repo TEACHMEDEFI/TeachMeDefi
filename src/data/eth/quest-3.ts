@@ -32,7 +32,7 @@ export const quest3: Lesson[] = [
       },
       {
         linkText: "SushiSwap",
-        href: "https://sushiswap.fi/"
+        href: "https://www.sushi.com/"
       },
       {
         linkText: "QuickSwap",
@@ -106,7 +106,7 @@ export const quest3: Lesson[] = [
         links: [
           {
             linkText: "SushiSwap",
-            href: "https://sushiswap.fi/"
+            href: "https://www.sushi.com/"
           },
           {
             linkText: "QuickSwap",

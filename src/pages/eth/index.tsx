@@ -22,7 +22,7 @@ export default function Index() {
 
 
   return (
-    <div className='flex flex-col  w-full justify-center items-center relative mb-32'>
+    <div className='flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5'>
       <section className='h-[90vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
         <div className=' my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
@@ -33,7 +33,7 @@ export default function Index() {
             </span>
           </h1>
           {/* <h2 className='text-xl font-bold' >Hier erfährst du alles über die zweitgrößte <br /> Kryptowährung der Welt.</h2> */}
-          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-10 ' >
+          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10 ' >
             Du möchtest mehr über Ethereum erfahren, weißt aber nicht, wo du anfangen sollst? Kein Problem, wir führen dich Schritt für
             Schritt durch diese revolutionäre Blockchain-Technologie. Unser Ziel ist es, dich zu befähigen, mit Sicherheit und Vertrauen
             in die Welt von Ethereum einzusteigen. Fange jetzt an, entdecke die Welt von Ethereum und verdiene NFTs während deiner Lernreise!
@@ -46,10 +46,10 @@ export default function Index() {
 
       </section>
 
-      <section className='mt-22 flex flex-col items-center relative px-5 w-full mb-44' >
+      <section className='mt-22 flex flex-col items-center relative sm:px-5 w-full mb-44' >
         {/* <h3 className="text-4xl font-bold text-center max-w-5xl mb-5" >Entdecke die faszinierende Welt der Kryptowährungen: Starte deine Reise zu finanziellem Erfolg mit unserem Einführungsvideo!</h3> */}
         {showPlayer &&
-          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl max-w-[1240px]'>
+          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >
               <ReactPlayer
                 height="100%"
