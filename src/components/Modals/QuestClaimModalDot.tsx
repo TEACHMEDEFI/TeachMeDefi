@@ -180,8 +180,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                             </ul>
                             <h3>Hinweis: Keine Sorge, es entstehen keine realen Kosten, da wir uns im Testnetz befinden. Für die Transaktionsgebühr brauchst du aber sogenanntes Testnet-ETH, welches kostenlos erhältlich ist. Falls dein Guthaben leer ist, siehst du hier wie du dir welches besorgst: </h3>
 
-                            <h3><a href="https://youtu.be/zx422X70950">Mit der Talisman Wallet</a></h3>
-                            <h3><a href="https://youtu.be/lfd6o6NO4KM">Mit der Metamask Wallet</a></h3>
+                            <h3><a href="https://youtu.be/zx422X70950" target="_blank">Mit der Talisman Wallet</a></h3>
+                            <h3><a href="https://youtu.be/lfd6o6NO4KM" target="_blank">Mit der Metamask Wallet</a></h3>
 
                             <ul>
                                 <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
