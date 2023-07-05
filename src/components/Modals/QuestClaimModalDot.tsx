@@ -123,7 +123,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         </>
                     }
 
-                    {!isConnected ? (
+                    {!isConnected || !selectedPolkaAccount ? (
                         <>
                             <div className='w-full relative' >
                                 <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
