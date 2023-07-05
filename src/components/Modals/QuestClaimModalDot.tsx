@@ -168,7 +168,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         ) : null
                     }
 
-                    {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected ? 
+                    {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected && selectedPolkaAccount ? 
                         (
                         <>
                             <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
