@@ -26,7 +26,7 @@ export default function Index() {
       <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
         <div className='my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
-            Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
+            Entdecke die Welt von <span className='text-polkaPink'> Polkadot!</span>
           </h1>
           <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-10 ' >
             Steig ein in die aufregende Welt von Polkadot, dem Internet der Blockchains! Polkadot ist eine revolutionäre “Multi-Chain”-Plattform, die es ermöglicht, dass verschiedene Blockchains nahtlos und sicher zusammenarbeiten.
