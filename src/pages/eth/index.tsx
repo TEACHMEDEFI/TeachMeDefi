@@ -46,7 +46,7 @@ export default function Index() {
 
       </section>
 
-      <section className='mt-22 flex flex-col items-center relative sm:px-5 w-full mb-44' >
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44' >
         {/* <h3 className="text-4xl font-bold text-center max-w-5xl mb-5" >Entdecke die faszinierende Welt der Kryptowährungen: Starte deine Reise zu finanziellem Erfolg mit unserem Einführungsvideo!</h3> */}
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
@@ -70,7 +70,7 @@ export default function Index() {
       <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue
        via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center'
       >
-        Ethereum verstehen: Theoretische Grundlagen
+        Ethereum verstehen
       </h3>
       <section className=' w-full flex flex-col justify-center relative z-50' >
 
@@ -81,7 +81,7 @@ export default function Index() {
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max'
           >
-            Ethereum nutzen: Praktische Quests
+            Ethereum nutzen
           </h3>
         </span>
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests}  isQuestSection totalVideoTime="1:32:11" />
