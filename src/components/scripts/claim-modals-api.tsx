@@ -113,44 +113,19 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
 }
 
 
+export const specialQuestMintable = async (args: string): Promise<boolean> => {
+    let success = false;
+    const url = `https://polkadot.subscan.io/extrinsic/${args}`
+    console.log(url)
+
+    try {
+        const response = await fetch(url);
+        console.log('From Fetching', response)
+        success = response.status === 200;
+    } catch (error) {
+        success = false;
+    }
 
 
-// type mintableOverview = {
-//     [key: string]: boolean
-// }
-
-
-// type key = keyof Lesson
-
-/*
-* Checks whether a progress NFT is mintable depending on the requirements
-*/
-// export const useIsProgressNftMintableOverview = (quests: Lesson, chain: string, balances: BN | undefined, polkaWalletConnected: boolean): mintableOverview => {
-//     const [hasProgress] = useUserProgress();
-//     const { account } = useWeb3React();
-//     let tokenBalance = useTokenBalance('');
-//     tokenBalance = !tokenBalance ? 0 : tokenBalance;
-//     const mintableOverview: mintableOverview = {}
-//     let questSectionId
-
-
-//     Object.keys(quests).forEach((key: key): mintableOverview  => {
-//         const quest = quests[key];
-//         questSectionId = quest.questSectionId;
-
-//         if (questSectionId === 'eth-quest-1') {
-//             mintableOverview[questSectionId] = account ? true : false
-//         } else if (questSectionId === 'dot-quest-1') {
-//             mintableOverview[questSectionId] = polkaWalletConnected ? true : false
-//         } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6' || questSectionId == 'dot-quest-3' || questSectionId == 'dot-quest-5') {
-//             mintableOverview[questSectionId] = checkQuestsForCompleteView(questSectionId, hasProgress)
-//         } else if (questSectionId == 'dot-quest-2') {
-//             mintableOverview[questSectionId] = balances ? true : false;
-//         } else {
-//             mintableOverview[questSectionId] = tokenBalance > 0;
-//         }
-
-
-//         return mintableOverview;
-//     })
-// }
+    return success;
+}

@@ -7,8 +7,8 @@ import Image from 'next/image'
 import Spinner from '../Spinner/Spinner';
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
-import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
+import { useIsProgressNftMintable, useMintProgressNFT, specialQuestMintable } from '../scripts/claim-modals-api'
+import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
 
 
 type QuestClaimModalProps = {
@@ -27,7 +27,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const hasSelectedAccount = selectedPolkaAccount ? true : false
     const nftBalance = useNFTBalance(questSectionId);
     const isConnected = useConnectedToMetaMask();
-    const [transactionId, setTransactionId] = useState<string>();
+    const [transactionId, setTransactionId] = useState<string>('');
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
     const [specialChallengeDone, setSpecialChallengeDone] = useState<boolean>(false);
     const NAME = "Peter"
@@ -60,18 +60,46 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     }, [api, selectedPolkaAccount])
 
 
+
+        const checkExtrinsic = async (extrinsic: string) => {
+        // no blockHash is specified, so we retrieve the latest
+        const signedBlock = await api?.rpc.chain.getBlock();
+
+        // the information for each of the contained extrinsics
+        signedBlock?.block.extrinsics.forEach((ex, index) => {
+            // the extrinsics are decoded by the API, human-like view
+            console.log(index, ex.toHuman());
+
+            const { isSigned, meta, method: { args, method, section } } = ex;
+
+            // // explicit display of name, args & documentation
+            // console.log(`${section}.${method}(${args.map((a) => a.toString()).join(', ')})`);
+            // console.log(meta.documentation.map((d) => d.toString()).join('\n'));
+
+            // // signer/nonce info
+            // if (isSigned) {
+            //     console.log(`signer=${ex.signer.toString()}, nonce=${ex.nonce.toString()}`);
+            // }
+        });
+    }
+
+
     /*
     * Check transaction Id for Staking Call
     */
     const handleUserInput = (event: any) => {
         setTransactionId(event.target.value)
+    }
 
 
-        if (event.target.value === 'peter') {
+    const handleUserSubmit = async () => {
+        await checkExtrinsic(transactionId)
+        // const inputValid = await specialQuestMintable(transactionId);
 
-            console.log('Done')
-            setSpecialChallengeDone(true)
-        }
+        // if (inputValid) {
+        //     console.log('Done')
+        //     setSpecialChallengeDone(true)
+        // }
     }
 
 
@@ -176,7 +204,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         ) : null
                     }
 
-                    {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected && selectedPolkaAccount ? 
+                    {!showSpinner && !nftMinted &&  nftBalance === 0 && isConnected && selectedPolkaAccount &&  (specialChallengeDone || nftMintable) ? 
                         (
                         <>
                             <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
@@ -207,13 +235,13 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     </>): null}
 
 
-                    {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount && questSectionId === 'dot-quest-3' ? (
+                    {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount && !specialChallengeDone && questSectionId === 'dot-quest-3' ? (
                         <>
                             <h3>Ein kleiner Schritt noch!</h3>
                             <h3>Bitte kopiere die Transaktions Id deines Staking Calls in das Eingabefeld und bestätige. 
                                 Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
-                            <input className={transactionId ? 'red-border' : ''} id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
-                            {transactionId && <p>Keine Transaktion unter dieser ID gefunden</p>}
+                            <input id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
+                            <PrimaryButton onClick={() => handleUserSubmit()} >Eingabe Bestätigen</PrimaryButton>
                         </>): null
                     }
 
