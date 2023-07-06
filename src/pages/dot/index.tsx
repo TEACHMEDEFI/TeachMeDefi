@@ -45,7 +45,7 @@ export default function Index() {
 
       </section>
 
-      <section className='mt-22 flex flex-col items-center relative sm:px-5 w-full mb-44'>
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44'>
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >
@@ -68,7 +68,7 @@ export default function Index() {
       <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue
        via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center'
       >
-        Polkadot verstehen: Theoretische Grundlagen
+        Polkadot verstehen
       </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
@@ -77,10 +77,15 @@ export default function Index() {
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max'
           >
-            Polkadot nutzen: Praktische Quests
+            Polkadot nutzen
           </h3>
         </span>
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" />
+        <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max'
+          >
+            Sicher auf der Blockchain
+          </h3>
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
         {/* {showPlayer &&
@@ -117,7 +122,11 @@ export default function Index() {
               Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
               Krypto-Fragen in unseren persönlichen Online-Coachings.
             </p>
-            <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
+            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-6'>
+            Nutze unser limitiertes Angebot! 
+            {/* CHECK FOR RESPONSIVENESSS  */}
+            </p>
+            <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Termin buchen </PrimaryButton>
           </div>
           <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
             <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />

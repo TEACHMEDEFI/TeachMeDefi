@@ -262,7 +262,7 @@ export const questSicherheit: Lesson[] = [
   {
     id: "eth-30",
     title: 'Sicherheit - Transaktionen Rückgängig machen',
-    slug: 'transaktionen-rückgänging-machen',
+    slug: 'transaktionen-rueckgaenging-machen',
     youtubeUrl: 'https://www.youtube.com/watch?v=Q7Omyb6ZYEE',
     youtubeThumbnail: "https://img.youtube.com/vi/Q7Omyb6ZYEE/hqdefault.jpg",
     importantLinks: [

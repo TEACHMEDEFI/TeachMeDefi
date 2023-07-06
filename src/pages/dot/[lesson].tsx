@@ -22,7 +22,7 @@ export default function LessonPage({ currentLesson, nextLessonSlug }: { currentL
 
       <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
       <LessonsBurgerMenu />
-      <LinksAndIndexBurger />
+      {/* <LinksAndIndexBurger /> */}
     </main>
   )
 }

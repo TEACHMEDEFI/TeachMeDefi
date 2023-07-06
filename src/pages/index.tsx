@@ -52,6 +52,16 @@ export default function Home() {
       Du hast noch fragen groß? groß schreiben und dann in klein was da jetzt steht coachin
 
       in VideoWithTranscript com on video finsih set Show nextButton to true
+
+
+
+
+      wichtige links comp raus und Support button hin
+      support button führt zu twitter dms an tmd
+      onlinecoaching auf videotranscriptganz unten
+      sicherheitsquest in eigene section
+      our services put dog on other side and persönliches online coaching new icon, take tmd logo
+      navbar anpass  mein fortschirtt doppelt zeilig 1330 px
       */}
 
     </div>

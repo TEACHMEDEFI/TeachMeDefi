@@ -15,6 +15,15 @@ export default function LessonsBurgerMenu({ lessons }: any) {
   const [currentSection, setCurrentSection] = useState<string>("");
   const pathname = usePathname();
 
+  // console.log(currentLessons , pathname.split("/")[2])
+  // console.log(currentLessons)
+  
+  const checkIfSlugIsCurrentLesson =(slug:string)=>{
+    // console.log(slug === pathname.split("/")[2])
+    return slug === pathname.split("/")[2]
+
+  }
+
   const handleLessonsMenuClick = () => {
     setOpenLessons(!openLessons)
   }
@@ -41,15 +50,17 @@ export default function LessonsBurgerMenu({ lessons }: any) {
             <Link
               href={`/${currentSection}/${lesson.slug}`}
               onClick={() => setOpenLessons(false)}
+              className={checkIfSlugIsCurrentLesson(lesson.slug)? "bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent": ""}
             >
               {lesson.title}
+              
             </Link>
             {i < currentLessons.length - 1 && <hr />}
           </div>
         ))}
       </div>
       <button
-        className=" bg-gray-300 dark:bg-bgDarkGray w-12 h-12 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-evenly py-1.5 "
+        className=" bg-gray-300 dark:bg-bgDarkGray w-12 h-12 rounded-tr-lg rounded-br-lg flex flex-col items-center justify-evenly py-1.5 px-1.5"
         onClick={handleLessonsMenuClick}
       >
         <div className=" bg-bgDarkGray dark:bg-primaryWhite h-1 w-7 rounded-md "></div>

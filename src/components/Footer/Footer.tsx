@@ -38,14 +38,14 @@ export default function Footer() {
                 <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
               </div>
             </Link>
-            <Link
+            {/* <Link
               href={"https://discord.io/teachmedefi"}
               target="_blank"
             >
               <div className="h-9 w-9 relative">
                 <Image src={isDarkMode ? "/icons/discord.png" : "/icons/discord_dark.png"} alt="discord" fill sizes="60px" />
               </div>
-            </Link>
+            </Link> */}
           </div>
           <div className="flex gap-5 items-center" >
             <Link href={"https://www.tiktok.com/@teachmedefi_official"} target="_blank" >

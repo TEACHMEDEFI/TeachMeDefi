@@ -53,13 +53,13 @@ export default function HeroSection() {
                   />
                 </div>
               </Link>
-              <Link href={"https://discord.io/teachmedefi"} target="_blank" >
+              {/* <Link href={"https://discord.io/teachmedefi"} target="_blank" >
                 <div className="h-6 w-6 relative">
                   <Image src={isDarkMode ? "/icons/discord.png" : "/icons/discord_dark.png"}
                     alt="discord" fill sizes="60px"
                   />
                 </div>
-              </Link>
+              </Link> */}
               <Link href={"https://www.tiktok.com/@teachmedefi_official"} target="_blank" >
                 <div className="h-6 w-6 relative">
                   <Image src={isDarkMode ? "/icons/tiktok-light.svg" : "/icons/tiktok-dark.svg"}
