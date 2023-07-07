@@ -20,8 +20,9 @@ export default function Index() {
               NFTs
             </span>
           </h1>
-          <h2>Wenn du schon Fortschritt NFTs auf unserer Seite gemintet hast, dann werden sie dir hier angezeigt.
-            Verbinde bitte deine Wallet mit unserer Seite, damit dir deine Sammlerstücke angezeigt werden können</h2>
+          <h2>Willkommen in deiner NFT-Sammlung! Hier siehst du alle NFTs, die du durch das Absolvieren der Lern-Quests in unseren Bootcamps verdient hast. 
+            Verbinde deine Ethereum Wallet, um deine Fortschritts-NFTs zu sehen und freu dich auf weitere spannende Lernabenteuer! 
+            Viel Spaß beim Lernen und Sammeln!</h2>
          
         </div>
 
