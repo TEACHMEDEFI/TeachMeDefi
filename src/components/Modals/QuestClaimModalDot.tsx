@@ -19,6 +19,7 @@ type QuestClaimModalProps = {
 }
 
 
+
 const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccount, selectedPolkaAccount} : QuestClaimModalProps) => {
     const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>();
     const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
@@ -27,9 +28,11 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const hasSelectedAccount = selectedPolkaAccount ? true : false
     const nftBalance = useNFTBalance(questSectionId);
     const isConnected = useConnectedToMetaMask();
-    const [transactionId, setTransactionId] = useState<string>('');
+    const [extrinsic, setExtrinsic] = useState<string>('');
+    const [blockId, setBlockId] = useState<string>('');
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
     const [specialChallengeDone, setSpecialChallengeDone] = useState<boolean>(false);
+    const [specialChallengeFail, setSpecialChallengeFail] = useState<boolean>(false);
     const NAME = "Peter"
 
 
@@ -61,45 +64,74 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
 
 
-        const checkExtrinsic = async (extrinsic: string) => {
+    type Extrinsic = {}
+
+
+    const checkExtrinsic = async (): Promise<boolean> => {
         // no blockHash is specified, so we retrieve the latest
-        const signedBlock = await api?.rpc.chain.getBlock();
 
-        // the information for each of the contained extrinsics
-        signedBlock?.block.extrinsics.forEach((ex, index) => {
-            // the extrinsics are decoded by the API, human-like view
-            console.log(index, ex.toHuman());
+        if (!api || !blockId || !extrinsic) return false;
 
-            const { isSigned, meta, method: { args, method, section } } = ex;
+        // returns Hash
+        const blockHash = await api.rpc.chain.getBlockHash(blockId);
+        // returns SignedBlock
+        const signedBlock = await api.rpc.chain.getBlock(blockHash);
+        let userIsSigner = false
 
-            // // explicit display of name, args & documentation
-            // console.log(`${section}.${method}(${args.map((a) => a.toString()).join(', ')})`);
-            // console.log(meta.documentation.map((d) => d.toString()).join('\n'));
+        // the hash for each extrinsic in the block
+        signedBlock.block.extrinsics.forEach((ex: any) => {
+            const humanReadableEx: any = ex.toHuman();
+            const signer = humanReadableEx.signer;
 
-            // // signer/nonce info
-            // if (isSigned) {
-            //     console.log(`signer=${ex.signer.toString()}, nonce=${ex.nonce.toString()}`);
-            // }
+
+            console.log(ex.toHuman())
+            
+
+            console.log('Signer is', signer?.Id);
+            console.log('My Address is', selectedPolkaAccount)
+
+            if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount) {
+                
+                //  && selectedPolkaAccount.address === signer.Id
+                userIsSigner = true;
+                console.log('Extrinsic Found!')
+            }
+            
         });
+
+
+        setSpecialChallengeDone(userIsSigner);
+
+        return userIsSigner;
     }
 
 
     /*
     * Check transaction Id for Staking Call
     */
-    const handleUserInput = (event: any) => {
-        setTransactionId(event.target.value)
+    const handleUserInputForTransaction = (event: any) => {
+        setExtrinsic(event.target.value)
+    }
+
+
+     /*
+    * Check transaction Id for Staking Call
+    */
+     const handleUserInputForBlock = (event: any) => {
+        setBlockId(event.target.value)
     }
 
 
     const handleUserSubmit = async () => {
-        await checkExtrinsic(transactionId)
-        // const inputValid = await specialQuestMintable(transactionId);
+        const inputValid = await checkExtrinsic()
 
-        // if (inputValid) {
-        //     console.log('Done')
-        //     setSpecialChallengeDone(true)
-        // }
+        if (inputValid) {
+            console.log('Done')
+            setSpecialChallengeDone(true)
+            setSpecialChallengeFail(false)
+        } else {
+            setSpecialChallengeFail(true)
+        }
     }
 
 
@@ -240,7 +272,12 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                             <h3>Ein kleiner Schritt noch!</h3>
                             <h3>Bitte kopiere die Transaktions Id deines Staking Calls in das Eingabefeld und bestätige. 
                                 Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
-                            <input id="transaction-id" type="text" placeholder="Transaktions Id" value={transactionId} onChange={() => handleUserInput(event)}/>
+                                {specialChallengeFail && <h3 className="red-text">Das Extrinsic konnte deiner Addresse nicht zugerechnet werden</h3>}
+                            <div className="flex">
+                                <input id="transaction-id" type="text" placeholder="Transaktions Id" value={extrinsic} onChange={() => handleUserInputForTransaction(event)}/>
+                                <input id="block-id" type="text" placeholder="Block Id" value={blockId} onChange={() => handleUserInputForBlock(event)}/>
+                            </div> 
+                            
                             <PrimaryButton onClick={() => handleUserSubmit()} >Eingabe Bestätigen</PrimaryButton>
                         </>): null
                     }
