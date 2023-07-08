@@ -5,7 +5,7 @@ import { ethLessons } from "@/data/ethLessons";
 import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
-import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
+// import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 
 
@@ -20,7 +20,7 @@ export default function LessonPage({ currentLesson, nextLessonSlug }: { currentL
     <main className='w-full flex flex-col  items-center ' >
       <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
       <LessonsBurgerMenu />
-      <LinksAndIndexBurger />
+      {/* <LinksAndIndexBurger /> */}
     </main>
   )
 }

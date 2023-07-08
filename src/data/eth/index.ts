@@ -8,6 +8,14 @@ import { quest5 } from "./quest-5";
 import { quest6 } from "./quest-6";
 import { questSicherheit } from "./quest-sicherheit";
 
+export const sicherheitsQuest: Quests[] = [
+  {
+    questTitle: "Quest Sicherheit",
+    questSectionId: "eth-quest-7",
+    lessons: [...questSicherheit]
+  },
+]
+
 
 export const ethQuests: Quests[] = [
   {
@@ -39,11 +47,6 @@ export const ethQuests: Quests[] = [
     questTitle: "Quest 6: Dezentrale Autonome Organisationen",
     questSectionId: "eth-quest-6",
     lessons: [...quest6]
-  },
-  {
-    questTitle: "Quest Sicherheit",
-    questSectionId: "eth-quest-7",
-    lessons: [...questSicherheit]
   },
 ]
 

@@ -4,13 +4,11 @@ import { useEffect, useState } from 'react';
 import { generalLessons } from '@/data/generalLessons'
 import { dotQuests } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
-import LessonsList from '@/components/LessonsList/LessonsList'
 import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
 import { PrimaryButton } from "@/components/Buttons/Buttons";
-import StickyHelpButton from '@/components/Buttons/StickyHelpButton'
 
 
 export default function Index() {
@@ -81,11 +79,7 @@ export default function Index() {
           </h3>
         </span>
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" />
-        <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
-          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max'
-          >
-            Sicher auf der Blockchain
-          </h3>
+        
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
         {/* {showPlayer &&
@@ -114,15 +108,15 @@ export default function Index() {
         <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
         md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
         >
-          <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-6 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
+          <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-4 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
             <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>
               Du hast noch Fragen?
             </h4>
-            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-6'>
+            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-3'>
               Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
               Krypto-Fragen in unseren persönlichen Online-Coachings.
             </p>
-            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-6'>
+            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  '>
             Nutze unser limitiertes Angebot! 
             {/* CHECK FOR RESPONSIVENESSS  */}
             </p>
@@ -134,7 +128,7 @@ export default function Index() {
         </div>
       </section>
 
-      <StickyHelpButton />
+      
 
 
     </div >

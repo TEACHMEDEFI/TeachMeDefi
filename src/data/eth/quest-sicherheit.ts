@@ -7,6 +7,8 @@ import { Lesson } from "../generalLessons";
  * Ist eine art Bonus quest über Sicherheitsmaßnahmen 
  */
 
+
+
 export const questSicherheit: Lesson[] = [
   {
     id: "eth-27",

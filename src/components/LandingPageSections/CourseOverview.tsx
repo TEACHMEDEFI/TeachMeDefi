@@ -14,10 +14,10 @@ export default function CourseOverview() {
       from-primaryBlue via-secondaryPurple to-primaryPink
         rounded-3xl relative text-white flex lg:items-center max-xl:w-full"
       >
-       <div className="absolute max-xl:hidden -right-72 -top-72 w-0 xl:w-[500px] h-0 xl:h-[358px] z-10">
+       <div className="absolute max-xl:hidden -left-72 -top-72 w-0 xl:w-[500px] h-0 xl:h-[358px] z-10">
         <Image src={"/home/inBackground/doge-master.png"} fill alt="ethereum doge robot" />
       </div>
-        <div className=" mx-10 lg:mx-20 mb-10 lg:mb-20 mt-10 sm:mt-16 lg:mt-96 z-10 backdrop-blur-md " >
+        <div className=" mx-4 sm:mx-10 lg:mx-20 mb-10 lg:mb-20 mt-10 sm:mt-16 lg:mt-96 z-10 backdrop-blur-md " >
           <h2 className=" text-2xl sm:text-4xl font-bold mb-6" >Krypto Bootcamp: <br />Dein Start in Krypto</h2>
           <p className="tracking-wider  md:w-[360px] lg:w-[420px] xl:w-[500px] mb-5" >
           {/* Unser Krypto Bootcamp führt dich in nur 90 Minuten durch die Grundlagen von Blockchains wie Bitcoin,  */}
