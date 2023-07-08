@@ -1,15 +1,13 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { ethQuests } from '@/data/eth';
+import { ethQuests, sicherheitsQuest } from '@/data/eth';
 import { ethTheory } from '@/data/eth/ethTheory';
 import { generalLessons } from '@/data/generalLessons';
-import LessonsList from '@/components/LessonsList/LessonsList';
 import LessonsListNew from '@/components/LessonsList/LessonsListNew';
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { PrimaryButton } from "@/components/Buttons/Buttons";
-import StickyHelpButton from '@/components/Buttons/StickyHelpButton'
 
 
 export default function Index() {
@@ -84,15 +82,22 @@ export default function Index() {
             Ethereum nutzen
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={ethQuests}  isQuestSection totalVideoTime="1:32:11" />
+        <LessonsListNew chain={"eth"} lessonsArray={ethQuests}  isQuestSection totalVideoTime="1:04:47" />
 
-
+        <span className='mx-auto mt-28'>
+          <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max'
+          >
+            Sicher auf der Blockchain
+          </h3>
+        </span>
+          <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest}  isQuestSection totalVideoTime="27:47" />
         {/* <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' /> */}
 
       </section>
 
 
-      <section id='calendly' className='pb-10 flex flex-col items-center sm:px-5 pt-20' >
+      {/* <section id='calendly' className='pb-10 flex flex-col items-center sm:px-5 pt-20' >
         <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
         md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
         >
@@ -110,8 +115,32 @@ export default function Index() {
             <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
           </div>
         </div>
+      </section> */}
+
+<section id='calendly' className='pb-10 flex flex-col items-center sm:px-5 pt-20' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
+        md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
+        >
+          <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-4 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
+            <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>
+              Du hast noch Fragen?
+            </h4>
+            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-3'>
+              Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
+              Krypto-Fragen in unseren persönlichen Online-Coachings.
+            </p>
+            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  '>
+            Nutze unser limitiertes Angebot! 
+            {/* CHECK FOR RESPONSIVENESSS  */}
+            </p>
+            <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Termin buchen </PrimaryButton>
+          </div>
+          <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
+            <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+          </div>
+        </div>
       </section>
-      <StickyHelpButton />
+      {/* <SupportButton /> */}
 
     
     </div >

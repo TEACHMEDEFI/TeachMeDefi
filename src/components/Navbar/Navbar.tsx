@@ -53,6 +53,7 @@ export default function Navbar() {
 
   const handleTagManagerClickEvents = (event: any) => {
     reportLinkClick(event.target);
+    setOpenBurgerMenu(false)
   }
 
   // const toggleBurgerTeachMe = () => {
@@ -81,7 +82,7 @@ export default function Navbar() {
         </div>
 
         {/* _____ NAV ROUTES, HIDDEN IF SCREEN IS UNDER 1280PX  _______ */}
-        <div className="space-x-14 hidden xl:flex " >
+        <div className="space-x-8 hidden xl:flex " >
           <div
             className="relative  "
             onMouseEnter={() => toggleTeachMeButton(!teachMeButton)}

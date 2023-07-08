@@ -33,7 +33,7 @@ export default function OurServices() {
         </div>
         <div className="flex xl:flex-col max-xl:flex-wrap lg:justify-center gap-10 lg:gap-24 xl:gap-10 max-xl:mt-10 ">
 
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-nft.svg"} fill alt="bullet point icon 1" />
             </div>
@@ -53,7 +53,7 @@ export default function OurServices() {
             </div>
           </div>
 
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-podcast.svg"} fill alt="bullet point icon 2" />
             </div>
@@ -74,7 +74,7 @@ export default function OurServices() {
             </div>
           </div>
 
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-newsletter.svg"} fill alt="bullet point icon 3" />
             </div>
@@ -94,7 +94,7 @@ export default function OurServices() {
               </Link>
             </div>
           </div>
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-e-paper.svg"} fill alt="bullet point icon 4" />
             </div>
@@ -112,9 +112,9 @@ export default function OurServices() {
               </Link>
             </div>
           </div>
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
-              <Image src={"/home/ourServices/bullet-square-nft.svg"} fill alt="bullet point icon 1" />
+              <Image src={"/home/ourServices/bullet-square-coaching.svg"} fill alt="bullet point icon 1" />
             </div>
             <div className="max-lg:w-full" >
               <h4 className="text-2xl " >Persönliche Online-Coachings</h4>
