@@ -83,19 +83,17 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         signedBlock.block.extrinsics.forEach((ex: any) => {
             const humanReadableEx: any = ex.toHuman();
             const signer = humanReadableEx.signer;
-
-
-            console.log(ex.toHuman())
+            // console.log(ex.toHuman())
             
 
-            console.log('Signer is', signer?.Id);
-            console.log('My Address is', selectedPolkaAccount)
+            // console.log('Signer is', signer?.Id);
+            // console.log('My Address is', selectedPolkaAccount)
 
             if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount) {
                 
                 //  && selectedPolkaAccount.address === signer.Id
                 userIsSigner = true;
-                console.log('Extrinsic Found!')
+                // console.log('Extrinsic Found!')
             }
             
         });
@@ -127,7 +125,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         const inputValid = await checkExtrinsic()
 
         if (inputValid) {
-            console.log('Done')
             setSpecialChallengeFail(false)
             setSpecialChallengeDone(true)
         } else {
