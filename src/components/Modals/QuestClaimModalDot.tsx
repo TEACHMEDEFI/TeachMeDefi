@@ -200,7 +200,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
                 {nftBalance > 0 && isConnected && 
                         <>
-                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="rainbow-text" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
+                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
                         </>
                     }
 

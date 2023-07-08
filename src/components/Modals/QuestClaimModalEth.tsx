@@ -1,6 +1,7 @@
 // import { Spinner } from '@chakra-ui/react'
 import Spinner from '../Spinner/Spinner';
 import { useEffect, useState } from 'react'
+import Link from "next/link"
 import ReactPlayer from "react-player";
 import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
@@ -55,7 +56,7 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
 
                 {nftBalance > 0 && isConnected && 
                     <>
-                        <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen</h3>
+                        <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
                     </>
                 }
 

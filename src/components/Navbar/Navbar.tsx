@@ -96,7 +96,7 @@ export default function Navbar() {
           </div>
           <Link
             data-linktarget="myNfts"
-            onClick={handleTagManagerEventsRedirect}
+            onClick={handleTagManagerClickEvents}
             href={"/myNfts"}
             className="hover:underline"
           >MEIN FORTSCHRITT</Link>
