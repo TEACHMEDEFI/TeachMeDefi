@@ -4,10 +4,11 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import ReactPlayer from "react-player";
 import BN from 'bn.js';
 import Image from 'next/image'
+import Link from "next/link"
 import Spinner from '../Spinner/Spinner';
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useIsProgressNftMintable, useMintProgressNFT, specialQuestMintable } from '../scripts/claim-modals-api'
+import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
 import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
 
 
@@ -33,6 +34,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const nftMintable = useIsProgressNftMintable(questSectionId, 'token', balances, hasSelectedAccount);
     const [specialChallengeDone, setSpecialChallengeDone] = useState<boolean>(false);
     const [specialChallengeFail, setSpecialChallengeFail] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const NAME = "Peter"
 
 
@@ -43,6 +45,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         setup(nodeURL)
 
         switchNetworkIfNeeded()
+
+        setTimeout(() => setIsLoading(false), 1000)
 
     }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
 
@@ -62,9 +66,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
     }, [api, selectedPolkaAccount])
 
-
-
-    type Extrinsic = {}
 
 
     const checkExtrinsic = async (): Promise<boolean> => {
@@ -127,8 +128,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
         if (inputValid) {
             console.log('Done')
-            setSpecialChallengeDone(true)
             setSpecialChallengeFail(false)
+            setSpecialChallengeDone(true)
         } else {
             setSpecialChallengeFail(true)
         }
@@ -180,6 +181,18 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         }
     }
 
+    if (isLoading) {
+        return (
+        <>
+            <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
+                <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
+                    <Spinner />
+                </div>
+            </div>
+        </>)
+    }
+    
+
 
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
@@ -187,11 +200,11 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
                 {nftBalance > 0 && isConnected && 
                         <>
-                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen..</h3>
+                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="rainbow-text" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
                         </>
                     }
 
-                    {!isConnected || !selectedPolkaAccount ? (
+                    {!isConnected || !selectedPolkaAccount && nftBalance === 0 ? (
                         <>
                             <div className='w-full relative' >
                                 <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
