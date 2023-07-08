@@ -9,7 +9,7 @@ const NftCard = ({questSectionId}: NftCardProps) => {
     const nftBalance = useNFTBalance(questSectionId);
     const metadata = require(`../../../nft-metadata/${questSectionId}.json`)
     const src = metadata?.image
-    console.log(questSectionId, metadata)
+    // console.log(questSectionId, metadata)
 
 
     if (!nftBalance || nftBalance === 0) {
