@@ -8,8 +8,7 @@ import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
-import { PrimaryButton } from "@/components/Buttons/Buttons";
-
+import { SupportCoaching } from '@/components/SupportCoaching/SupportCoaching';
 
 export default function Index() {
   const { isDarkMode } = useTheme();
@@ -61,7 +60,6 @@ export default function Index() {
             </div>
           </div>
         }
-
       </section>
       <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue
        via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center'
@@ -82,54 +80,11 @@ export default function Index() {
         
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-        {/* {showPlayer &&
-          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video p-2 xl:p-5 rounded-xl max-w-[1240px] z-50'>
-            <div className=' w-full aspect-video xl:pb-5 ' >
-              <ReactPlayer
-                height="100%"
-                width="100%"
-                url="https://youtu.be/_WGuKCnW6ro"
-                controls={true}
-                config={{
-                  youtube: {
-                    playerVars: { fs: 1 }
-                  }
-                }}
-              />
-            </div>
-          </div>
-        } */}
         <Image src={"/dot/polka_z.svg"} width={261 / 2} height={261 / 2} alt='polkadot ' className='absolute left-16 -bottom-36 ' />
         <Image src={"/dot/polka_polygon.svg"} width={455 / 2} height={437 / 2} alt='polkadot ' className='absolute max-lg:hidden  -right-16 bottom-12 ' />
       </section >
 
-
-      <section id='calendly' className='pb-10 flex flex-col items-center sm:px-5 pt-20' >
-        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
-        md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
-        >
-          <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-4 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
-            <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>
-              Du hast noch Fragen?
-            </h4>
-            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-3'>
-              Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
-              Krypto-Fragen in unseren persönlichen Online-Coachings.
-            </p>
-            <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  '>
-            Nutze unser limitiertes Angebot! 
-            {/* CHECK FOR RESPONSIVENESSS  */}
-            </p>
-            <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Termin buchen </PrimaryButton>
-          </div>
-          <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
-            <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
-          </div>
-        </div>
-      </section>
-
-      
-
+        <SupportCoaching />
 
     </div >
   )

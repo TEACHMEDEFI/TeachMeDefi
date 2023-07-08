@@ -31,13 +31,13 @@ export default function CookiePolicyModal() {
       >
         <button
           className={`h-full w-full flex items-center lg:rounded-t-md  lg:px-5 
-         ${!showPopup ? "bg-gray-300 dark:bg-gray-600 " : "font-bold"}
+         ${!showPopup ? "bg-gray-200 dark:bg-gray-600 " : "font-bold"}
          max-lg:rounded-full max-lg:justify-center
          `}
           onClick={handleLinksToggle}
         >
           <span className="h-6 w-6 relative  lg:mr-2">
-            <Image src={isDarkMode ? "/cookie-light.svg" : "/cookie-dark.svg"}
+            <Image src={isDarkMode ? "/cookie/cookie-light.svg" : "/cookie/cookie-dark.svg"}
               alt="cookie" fill sizes="60px"
             />
           </span>

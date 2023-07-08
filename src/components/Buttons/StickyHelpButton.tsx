@@ -10,7 +10,6 @@ export default function StickyHelpButton() {
 
   }, [isDarkMode])
 
-
   const scrollToElement = () => {
     document.getElementById('calendly')?.scrollIntoView();
   }
@@ -21,7 +20,7 @@ export default function StickyHelpButton() {
         <button className="h-full flex items-center rounded-t-md px-2 lg:px-5 bg-gray-200 dark:bg-gray-600"
           onClick={scrollToElement} >
           <span className="h-6 w-6 relative  lg:mr-2">
-            <Image src={isDarkMode ? "/support-icon-light.svg" : "/support-icon-dark.svg"}
+            <Image src={isDarkMode ? "/support/support-icon-light.svg" : "/support/support-icon-dark.svg"}
               alt="cookie" fill sizes="60px"
             />
           </span>
