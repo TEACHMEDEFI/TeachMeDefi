@@ -37,12 +37,12 @@ export function SupportButton() {
         <div className="fixed z-50 h-screen w-screen  bottom-0"
           onClick={() => setShowPopup(false)}
         >
-          <div className="absolute w-72  bg-gray-200 dark:bg-gray-600 rounded-lg p-3 bottom-0 right-7 " >
+          <div className="absolute w-72  bg-gray-200 dark:bg-gray-600 rounded-lg p-3 bottom-0 right-2 lg:right-7 " >
             <p className="text-sm"> Für Feedback/Fragen kannst du uns gerne auf Twitter erreichen! <br /> (Hinweis: Registrierung notwendig). </p>
             <Link
               href={"https://twitter.com/messages/compose?recipient_id=1415614087686393857"}
-              className={`relative w-fit flex items-center lg:rounded-md px-3 py-1 mt-3
-          bg-gray-300 dark:bg-gray-500 max-lg:rounded-full max-lg:justify-center 
+              className={`relative w-fit flex items-center rounded-md px-3 py-1 mt-3
+          bg-gray-300 dark:bg-gray-500 max-lg:justify-center 
           twitter-mention-button font-bold`}
               target="_blank"
               data-screen-name={"@TeachMeDefi"}
