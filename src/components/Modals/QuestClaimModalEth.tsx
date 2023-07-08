@@ -53,81 +53,82 @@ const QuestClaimModalEth = ({questSectionId, togglePopup} : QuestClaimModalProps
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-
-                {nftBalance > 0 && isConnected && 
-                    <>
-                        <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
-                    </>
-                }
-
-                {!isConnected ? (
-                    <>
-                        <div className='w-full relative' >
-                            <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-                                <h3>Bitte verbinde deine Wallet zunächst mit der Webseite. Eine kurze Video-Anleitung dafür findest du anbei.</h3>
-                                <ReactPlayer
-                                        height="100%"
-                                        width="100%"
-                                        url={'https://www.youtube.com/watch?v=WPjQoU4aXnU'}
-                                        controls={true}
-                                        config={{
-                                        youtube: {
-                                            playerVars: { fs: 1 }
-                                        }
-                                        }}
-                                    />
-                            </div>
-                        </div>
-                    </>) 
-                : null}
-
-                {showSpinner ? (
-                    <>
-                    <p>Dein NFT Ist Auf Dem Weg!</p>
-                        <Spinner /> 
-                    </>) : null
-                }
-
-
-                {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected ? 
-                    (
+                <div className="quest-modal-container">
+                    {nftBalance > 0 && isConnected && 
                         <>
-                        <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
-                            Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
-                        <h3>Und so gehts weiter:</h3>
-                        <ul>
-                            <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
-                            <li>2. Es öffnet sich ein Fenster deiner Wallet, in dem du die Transaktion bestätigen musst. </li>
-                        </ul>
-                        <h3>Hinweis: Keine Sorge, es entstehen keine realen Kosten, da wir uns im Testnetz befinden. Für die Transaktionsgebühr brauchst du aber sogenanntes Testnet-ETH, welches kostenlos erhältlich ist. Falls dein Guthaben leer ist, siehst du hier wie du dir welches besorgst: </h3>
-
-                        <h3><a href="https://youtu.be/zx422X70950">Mit der Talisman Wallet</a></h3>
-                        <h3><a href="https://youtu.be/lfd6o6NO4KM">Mit der Metamask Wallet</a></h3>
-
-                        <ul>
-                            <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
-                        </ul>
-
-                        <h3>Los gehts!</h3>
-
-                        <PrimaryButton onClick={() => handleMint()} >NFT erhalten</PrimaryButton>
+                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
                         </>
-                    ):  null
-                }
+                    }
 
-                {!showSpinner && nftMinted ? (<>
-                    <h3>Super, du hast dein NFT erhalten! Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen.</h3>
-                </>): null}
+                    {!isConnected ? (
+                        <>
+                            <div className='w-full relative' >
+                                <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
+                                    <h3>Bitte verbinde deine Wallet zunächst mit der Webseite. Eine kurze Video-Anleitung dafür findest du anbei.</h3>
+                                    <ReactPlayer
+                                            height="100%"
+                                            width="100%"
+                                            url={'https://www.youtube.com/watch?v=WPjQoU4aXnU'}
+                                            controls={true}
+                                            config={{
+                                            youtube: {
+                                                playerVars: { fs: 1 }
+                                            }
+                                            }}
+                                        />
+                                </div>
+                            </div>
+                        </>) 
+                    : null}
 
-                {!nftMinted && !nftMintable && isConnected ? (
-                    <>
-                        <h3>Ein kleiner Schritt noch!</h3>
-                        <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
-                        <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geh&apos;s, dein NFT wartet schon auf dich!</h3>
-                    </>): null
-                }
+                    {showSpinner ? (
+                        <>
+                        <p>Dein NFT Ist Auf Dem Weg!</p>
+                            <Spinner /> 
+                        </>) : null
+                    }
 
-                <GeneralButton onClick={() => togglePopup({questId: questSectionId}, event)}>Schließen</GeneralButton>
+
+                    {!showSpinner && !nftMinted &&  nftBalance === 0 && nftMintable && isConnected ? 
+                        (
+                            <>
+                            <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg! 
+                                Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
+                            <h3>Und so gehts weiter:</h3>
+                            <ul>
+                                <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
+                                <li>2. Es öffnet sich ein Fenster deiner Wallet, in dem du die Transaktion bestätigen musst. </li>
+                            </ul>
+                            <h3>Hinweis: Keine Sorge, es entstehen keine realen Kosten, da wir uns im Testnetz befinden. Für die Transaktionsgebühr brauchst du aber sogenanntes Testnet-ETH, welches kostenlos erhältlich ist. Falls dein Guthaben leer ist, siehst du hier wie du dir welches besorgst: </h3>
+
+                            <h3><a href="https://youtu.be/zx422X70950">Mit der Talisman Wallet</a></h3>
+                            <h3><a href="https://youtu.be/lfd6o6NO4KM">Mit der Metamask Wallet</a></h3>
+
+                            <ul>
+                                <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
+                            </ul>
+
+                            <h3>Los gehts!</h3>
+
+                            <PrimaryButton onClick={() => handleMint()} >NFT erhalten</PrimaryButton>
+                            </>
+                        ):  null
+                    }
+
+                    {!showSpinner && nftMinted ? (<>
+                        <h3>Super, du hast dein NFT erhalten! Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen.</h3>
+                    </>): null}
+
+                    {!nftMinted && !nftMintable && isConnected ? (
+                        <>
+                            <h3>Ein kleiner Schritt noch!</h3>
+                            <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
+                            <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geh&apos;s, dein NFT wartet schon auf dich!</h3>
+                        </>): null
+                    }
+
+                    <GeneralButton onClick={() => togglePopup({questId: questSectionId}, event)}>Schließen</GeneralButton>
+                </div>
             </div>
         </div>
     )

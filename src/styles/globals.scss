@@ -370,6 +370,12 @@ img {
   text-align: center;
 }
 
+.quest-modal-container {
+  max-height: 30rem;
+  overflow: scroll;
+  text-align: center;
+}
+
 .red-border {
   border: solid red;
 }

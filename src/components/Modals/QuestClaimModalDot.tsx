@@ -197,12 +197,12 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
             <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-
-                {nftBalance > 0 && isConnected && 
-                        <>
-                            <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
-                        </>
-                    }
+                <div className="quest-modal-container">
+                    {nftBalance > 0 && isConnected && 
+                            <>
+                                <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Fortschritt Seite</Link> kannst du dir dein Sammlerstück anschauen..</h3>
+                            </>
+                        }
 
                     {!isConnected || !selectedPolkaAccount && nftBalance === 0 ? (
                         <>
@@ -306,6 +306,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     }
 
                     <GeneralButton onClick={() => togglePopup({questId: false}, event)}>Schließen</GeneralButton>
+                </div>
             </div>
         </div>
     )
