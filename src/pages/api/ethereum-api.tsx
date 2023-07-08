@@ -12,9 +12,9 @@ type TokenAddresses = {
 
 const TokenAddresses: TokenAddresses = {
   "eth-quest-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH as string, //Sepolia Eth
-  "eth-quest-3": process.env.NEXT_PUBLIC_WETH as string, // WETH
-  "eth-quest-4": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbitrum Eth
-  "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
+  "eth-quest-3": process.env.NEXT_PUBLIC_WETH as string, // WETH on Mumbai
+  "eth-quest-4": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbitrum Eth on Arbi Mainnet
+  "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot auf Eth Mainnet
 };
 
 
@@ -45,9 +45,9 @@ type ChainIdPerQuest = {
 
 const chainIdPerQuest: ChainIdPerQuest = {
   "eth-quest-2": Network.ETH_SEPOLIA, //Sepolia Eth
-  "eth-quest-3": Network.ETH_MAINNET, // WETH
+  "eth-quest-3": Network.POLYGONZKEVM_TESTNET, // WETH
   "eth-quest-4": Network.ARB_MAINNET, // Arbitrum
-  "dot-quest-5": Network.ETH_MAINNET, // xcDot
+  "dot-quest-4": Network.ETH_MAINNET, // xcDot
 }
 
 type config = {
