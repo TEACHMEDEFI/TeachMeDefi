@@ -1,7 +1,8 @@
-const { ethers } = require('ethers')
+const { ethers, utils } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 import { Alchemy, Network } from "alchemy-sdk";
+
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
@@ -45,9 +46,10 @@ type ChainIdPerQuest = {
 
 const chainIdPerQuest: ChainIdPerQuest = {
   "eth-quest-2": Network.ETH_SEPOLIA, //Sepolia Eth
-  "eth-quest-3": Network.POLYGONZKEVM_TESTNET, // WETH
+  "eth-quest-3": Network.MATIC_MUMBAI, // WETH
   "eth-quest-4": Network.ARB_MAINNET, // Arbitrum
   "dot-quest-4": Network.ETH_MAINNET, // xcDot
+  "dot-quest-5": Network.ETH_MAINNET, // GLMR
 }
 
 type config = {
@@ -67,29 +69,58 @@ export const useTokenBalance = (questSectionId: Token): number => {
   const blockChainToUse = chainIdPerQuest[questSectionId];
 
   
+  const config: config = {
+    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+    network: blockChainToUse,
+  };
+  // @ts-ignore: Unreachable code error
+  const alchemy = new Alchemy(config);
+  console.log(config)
+
+  
   useEffect(() => {
     if (!account || !tokenAddress || !blockChainToUse) return;
     getTokenBalance()
   },[account])
 
-    const config: config = {
-      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
-      network: blockChainToUse,
-    };
 
-    const getTokenBalance = async (): Promise<void> => { 
-      // @ts-ignore: Unreachable code error
-      const alchemy = new Alchemy(config);
+  const getTokenBalance = async (): Promise<void> => { 
+      console.log('typeof account is', typeof account)
+      console.log('Token Address', tokenAddress)
+      console.log('Blockchain is', blockChainToUse)
 
-      // @ts-ignore: Unreachable code error
-      const data = await alchemy.core.getTokenBalances(account, [tokenAddress]);
+      const latestBlock = await alchemy.core.getBlockNumber();
+      console.log("The latest block number is", latestBlock);
+      let balances;
 
-      let balance = data ? data.tokenBalances[0].tokenBalance : 0;
-      // @ts-ignore: Unreachable code error
-      balance = balance ? parseFloat(balance) : 0;
 
-      setBalance(balance);
+      // Get balance and format in terms of ETH
+      if (questSectionId === 'eth-quest-2' || questSectionId === 'eth-quest-4') {
+        
+        balances = await alchemy.core.getBalance(account as string, 'latest');
+        balances = utils.formatEther(balances);
+        console.log(`Eth Balance of ${account as string}: ${balances} ETH`);
+
+      // Get Balances for any other Token
+      } else {
+        const data = await alchemy.core.getTokenBalances('0x315477B12cE6035eA43a80078e7549d0c7d5a50a', [tokenAddress]);
+
+        console.log('Overall balances are:', data)
+
+        balances = data ? data.tokenBalances[0].tokenBalance : 0;
+        console.log('data is', data)
+
+        // @ts-ignore: Unreachable code error
+        balances = balances ? parseFloat(balances) : 0;
+
+        console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
+
+      }
+
+      setBalance(balances);
   };
+
+
   return balance;
 };
 

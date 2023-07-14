@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.4.7",
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@moralisweb3/common-evm-utils": "^2.22.4",
+    "@moralisweb3/next": "^2.22.4",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@nomiclabs/hardhat-waffle": "^2.0.5",
     "@polkadot/api": "^10.9.1",
@@ -28,6 +31,7 @@
     "eslint-config-next": "13.2.4",
     "ethers": "^5.7.2",
     "framer-motion": "^10.12.12",
+    "moralis": "^2.22.4",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",

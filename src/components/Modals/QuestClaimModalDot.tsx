@@ -37,7 +37,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const NAME = "Peter"
 
-
     useEffect(() => {
         // Quest 3 transactions ID eingeben
         // Quest 4 xcdot auf moonbeam balance größer 0
@@ -46,25 +45,45 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
         switchNetworkIfNeeded()
 
+        console.log(setSelectedPolkaAccount)
+        
+
         setTimeout(() => setIsLoading(false), 1000)
+
+        
 
     }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
 
     useEffect(() => {
         if (!selectedPolkaAccount || !api) return
 
+        
+
         (async() => {
             // Queries
             // @ts-ignore: Unreachable code error
-            const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
+            const account = await api.query.system.account(selectedPolkaAccount.address);
             const now = await api.query.timestamp.now();
 
-            setBalances(new BN(balance.free));
+            // setBalances(new BN(balance.free));
 
-            console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
+            console.log(`${now}: balance of ${account} and a nonce of ${account}`);
+            
         })()
 
     }, [api, selectedPolkaAccount])
+
+
+     /*
+    * Sets up the RPC Connection to a certain Polka Network
+    */
+     const setup = async (nodeURL: string) => {
+        const wsProvider = new WsProvider(nodeURL)
+
+        const api = await ApiPromise.create({provider: wsProvider})
+
+        setApi(api);
+    }
 
 
 
@@ -132,17 +151,6 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         }
     }
 
-
-    /*
-    * Sets up the RPC Connection to a certain Polka Network
-    */
-    const setup = async (nodeURL: string) => {
-        const wsProvider = new WsProvider(nodeURL)
-
-        const api = await ApiPromise.create({provider: wsProvider})
-
-        setApi(api);
-    }
 
     /*
     * handles connecting Talisman Wallet to the Site    
