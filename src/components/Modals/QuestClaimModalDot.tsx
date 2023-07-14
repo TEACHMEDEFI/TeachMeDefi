@@ -291,7 +291,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         <>
                             <h3>Ein kleiner Schritt noch!</h3>
                             <h3>Bitte kopiere die Extrinsic Hash deines Staking Calls in das Eingabefeld und bestätige. 
-                                Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
+                                Anbei findest du eine kurze Video-Anleitung dazu</h3>
                                 <div className='w-full relative' >
                                     <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
             
