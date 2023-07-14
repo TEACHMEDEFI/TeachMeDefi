@@ -62,12 +62,14 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         (async() => {
             // Queries
             // @ts-ignore: Unreachable code error
-            const account = await api.query.system.account(selectedPolkaAccount.address);
+            const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
+
             const now = await api.query.timestamp.now();
 
-            // setBalances(new BN(balance.free));
+            setBalances(new BN(balance.free));
 
-            console.log(`${now}: balance of ${account} and a nonce of ${account}`);
+            console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
+
             
         })()
 
@@ -288,12 +290,28 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     {!nftMinted && !nftMintable && isConnected && selectedPolkaAccount && !specialChallengeDone && questSectionId === 'dot-quest-3' ? (
                         <>
                             <h3>Ein kleiner Schritt noch!</h3>
-                            <h3>Bitte kopiere die Transaktions Id deines Staking Calls in das Eingabefeld und bestätige. 
+                            <h3>Bitte kopiere die Extrinsic Hash deines Staking Calls in das Eingabefeld und bestätige. 
                                 Anbei findest du eine kurze Video-Anleitung dazu, wie du die Transaktions Id abrufen kannst</h3>
+                                <div className='w-full relative' >
+                                    <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
+            
+                                        <ReactPlayer
+                                                height="100%"
+                                                width="100%"
+                                                url={'https://youtu.be/U5PFqIq-x3o'}
+                                                controls={true}
+                                                config={{
+                                                youtube: {
+                                                    playerVars: { fs: 1 }
+                                                }
+                                                }}
+                                            />
+                                    </div>
+                                </div>
                                 {specialChallengeFail && <h3 className="red-text">Das Extrinsic konnte deiner Addresse nicht zugerechnet werden</h3>}
                             <div className="flex">
-                                <input id="transaction-id" type="text" placeholder="Transaktions Id" value={extrinsic} onChange={() => handleUserInputForTransaction(event)}/>
-                                <input id="block-id" type="text" placeholder="Block Id" value={blockId} onChange={() => handleUserInputForBlock(event)}/>
+                                <input id="transaction-id" type="text" placeholder="Extrinsic Hash" value={extrinsic} onChange={() => handleUserInputForTransaction(event)}/>
+                                <input id="block-id" type="text" placeholder="Block ID" value={blockId} onChange={() => handleUserInputForBlock(event)}/>
                             </div> 
                             
                             <PrimaryButton onClick={() => handleUserSubmit()} >Eingabe Bestätigen</PrimaryButton>
