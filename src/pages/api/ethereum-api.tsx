@@ -103,7 +103,7 @@ export const useTokenBalance = (questSectionId: Token): number => {
 
       // Get Balances for any other Token
       } else {
-        const data = await alchemy.core.getTokenBalances('0x315477B12cE6035eA43a80078e7549d0c7d5a50a', [tokenAddress]);
+        const data = await alchemy.core.getTokenBalances(account as string, [tokenAddress]);
 
         console.log('Overall balances are:', data)
 
@@ -111,10 +111,9 @@ export const useTokenBalance = (questSectionId: Token): number => {
         console.log('data is', data)
 
         // @ts-ignore: Unreachable code error
-        balances = balances ? parseFloat(balances) : 0;
+        balances = Number(balances) // ? parseFloat(balances) : 0;
 
         console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
-
       }
 
       setBalance(balances);
