@@ -84,7 +84,7 @@ export function GeneralButton({ children, onClick, href, target, customClassWrap
       {href ?
         <Link
           href={href && href}
-          className={` px-7 py-2 w-full h-full  font-bold text-lg blockrounded-lg
+          className={` px-7 py-2 w-full h-full  font-bold text-lg block rounded
           bg-slate-200 dark:bg-bgDarkGray
           ${customClassButton ? customClassButton : ""} 
           `}
@@ -96,7 +96,7 @@ export function GeneralButton({ children, onClick, href, target, customClassWrap
         <button
           disabled={buttonDisabled}
           onClick={() => onClick?.()}
-          className={` px-7 py-2 w-full h-full  font-bold text-lg rounded-lg
+          className={` px-7 py-2 w-full h-full  font-bold text-lg rounded
           bg-slate-200 dark:bg-bgDarkGray
           ${customClassButton ? customClassButton : ""} 
           `}

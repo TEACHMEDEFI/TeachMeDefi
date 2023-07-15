@@ -68,7 +68,7 @@ export default function Index() {
       </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection totalVideoTime="25:34" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot"} isTheorySection totalVideoTime="25:34" />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max'
