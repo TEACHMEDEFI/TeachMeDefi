@@ -1,21 +1,30 @@
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ethQuests, sicherheitsQuest } from '@/data/eth';
 import { ethTheory } from '@/data/eth/ethTheory';
 import { generalLessons } from '@/data/generalLessons';
 import LessonsListNew from '@/components/LessonsList/LessonsListNew';
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
-import {SupportCoaching} from '@/components/SupportCoaching/SupportCoaching';
+import { SupportCoaching } from '@/components/SupportCoaching/SupportCoaching';
+import { useTheme } from '@/context/ThemeContext';
 
 
 export default function Index() {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
+  const calendlyRef = useRef<HTMLDivElement>(null);
+  const { isDarkMode } = useTheme();
   useEffect(() => {
     switchNetworkIfNeeded()
     setShowPlayer(true)
   }, [])
+
+  const scrollToCalendly = () => {
+    if (calendlyRef && calendlyRef.current) {
+      calendlyRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   return (
     <div className='flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5'>
@@ -61,9 +70,17 @@ export default function Index() {
       </section>
 
       <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue
-       via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center'
+       via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center flex items-center gap-1 sm:gap-5
+      flex-col sm:flex-row'
       >
         Ethereum verstehen
+        <span className="h-5 w-5 relative  lg:mr-2">
+          <button className='w-full h-full' onClick={scrollToCalendly} >
+            <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+              alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+            />
+          </button>
+        </span>
       </h3>
       <section className=' w-full flex flex-col justify-center relative z-50' >
 
@@ -72,18 +89,34 @@ export default function Index() {
         <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Wie funktioniert Ethereum"} isTheorySection totalVideoTime="15:47" />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
-          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max'
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max
+          flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
           >
             Ethereum nutzen
+            <span className="h-5 w-5 relative  lg:mr-2">
+          <button className='w-full h-full' onClick={scrollToCalendly} >
+            <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+              alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+            />
+          </button>
+        </span>
           </h3>
         </span>
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection totalVideoTime="1:04:47" />
 
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
-          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max'
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max 
+          flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
           >
             Sicher auf der Blockchain
+            <span className="h-5 w-5 relative  lg:mr-2">
+              <button className='w-full h-full' onClick={scrollToCalendly} >
+                <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+                  alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                />
+              </button>
+            </span>
           </h3>
         </span>
         <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} totalVideoTime="27:47" />
@@ -91,7 +124,9 @@ export default function Index() {
 
       </section>
 
-      <SupportCoaching />
+      <div ref={calendlyRef} >
+        <SupportCoaching />
+      </div>
 
     </div >
   )
