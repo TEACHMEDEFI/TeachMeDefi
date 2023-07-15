@@ -86,7 +86,7 @@ export default function Index() {
             Sicher auf der Blockchain
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} isQuestSection totalVideoTime="27:47" />
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} totalVideoTime="27:47" />
         {/* <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' /> */}
 
       </section>

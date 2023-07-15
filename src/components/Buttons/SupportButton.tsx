@@ -13,19 +13,19 @@ export function SupportButton() {
     <>
       <div className="fixed  right-2 lg:right-5 bottom-2 lg:bottom-0 flex flex-col z-50">
         <div
-          className={` max-lg:h-10 max-lg:w-10 lg:h-12 flex items-center justify-evenly   `}
+          className={` max-lg:h-10 max-lg:w-10 lg:h-8 flex items-center justify-evenly   `}
         >
           <button
             onClick={() => setShowPopup(true)}
-            className={`h-full w-full flex items-center lg:rounded-t-md  lg:px-5 
+            className={`h-full w-full flex items-center lg:rounded-t-md  lg:px-3 
           bg-gray-200 dark:bg-gray-600 max-lg:rounded-full max-lg:justify-center `}
           >
-            <span className="h-6 w-6 relative  lg:mr-2">
+            <span className="h-5 w-5 relative  lg:mr-2">
               <Image src={isDarkMode ? "/support/support-light.svg" : "/support/support-dark.svg"}
                 alt="support" fill sizes="60px"
               />
             </span>
-            <span className="max-lg:hidden" >
+            <span className="max-lg:hidden text-sm" >
               Support
             </span>
           </button>
