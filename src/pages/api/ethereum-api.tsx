@@ -89,8 +89,8 @@ export const useTokenBalance = (questSectionId: Token): number => {
       console.log('Token Address', tokenAddress)
       console.log('Blockchain is', blockChainToUse)
 
-      const latestBlock = await alchemy.core.getBlockNumber();
-      console.log("The latest block number is", latestBlock);
+      // const latestBlock = await alchemy.core.getBlockNumber();
+      // console.log("The latest block number is", latestBlock);
       let balances;
 
 
@@ -105,15 +105,12 @@ export const useTokenBalance = (questSectionId: Token): number => {
       } else {
         const data = await alchemy.core.getTokenBalances(account as string, [tokenAddress]);
 
-        console.log('Overall balances are:', data)
-
         balances = data ? data.tokenBalances[0].tokenBalance : 0;
-        console.log('data is', data)
 
         // @ts-ignore: Unreachable code error
         balances = Number(balances) // ? parseFloat(balances) : 0;
 
-        console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
+        // console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
       }
 
       setBalance(balances);
