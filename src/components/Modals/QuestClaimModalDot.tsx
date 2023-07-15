@@ -192,7 +192,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
         return (
         <>
             <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-                <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
+                <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 ' >
                     <Spinner />
                 </div>
             </div>
@@ -203,8 +203,8 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-            <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-                <div className="quest-modal-container">
+            <div className='relative w-[600px] max-w-screen bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 max-md:m-5' >
+                <div className="!p-5 space-y-5 text-center max-h-[95vh]  lg:max-h-[50rem] overflow-y-auto">
                     {nftBalance > 0 && isConnected && 
                             <>
                                 <h3>Super! Du hast das NFT für diese Quest bereits geminted. Unter <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Mein Fortschritt</Link> kannst du dir dein Sammlerstück anschauen.</h3>
@@ -244,7 +244,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                     }
 
                     {isConnected && selectedPolkaAccount && !showSpinner &&
-                        <p>Du bist verbunden mit dem Polkadot Netzwerk. Die Addresse deiner verbundenen Wallet lautet: {selectedPolkaAccount ? selectedPolkaAccount.address : ''}</p>
+                        <p >Du bist verbunden mit dem Polkadot Netzwerk. Die Addresse deiner verbundenen Wallet lautet: <br /> <span className='break-all'>{selectedPolkaAccount ? selectedPolkaAccount.address : ''}</span></p>
                     }
 
 
@@ -277,13 +277,14 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
 
                             <h3>Los gehts!</h3>
 
-                            <PrimaryButton onClick={() => handleMint()} >NFT erhalten</PrimaryButton>
+                            <PrimaryButton onClick={() => handleMint()} customClassButton='w-min !py-2 !px-5 mx-auto' >NFT erhalten</PrimaryButton>
                         </>
                         ):  null
                     }
 
                     {!showSpinner && nftMinted ? (<>
-                        <h3>Super, du hast dein NFT erhalten! Auf der Fortschritt Seite kannst du dir dein Sammlerstück anschauen.</h3>
+                        <h3>Super, du hast dein NFT erhalten! Hier siehst du deinen Fortschritt.</h3>
+                        <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Mein Fortschritt</Link>
                     </>): null}
 
 
@@ -314,7 +315,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                                 <input id="block-id" type="text" placeholder="Block ID" value={blockId} onChange={() => handleUserInputForBlock(event)}/>
                             </div> 
                             
-                            <PrimaryButton onClick={() => handleUserSubmit()} >Eingabe Bestätigen</PrimaryButton>
+                            <PrimaryButton onClick={() => handleUserSubmit()} customClassButton='w-min !py-2 !px-5 mx-auto' customClassWrapper='w-min  mx-auto ' >Eingabe&nbsp;Bestätigen</PrimaryButton>
                         </>): null
                     }
 
@@ -328,7 +329,7 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
                         </>): null
                     }
 
-                    <GeneralButton onClick={() => togglePopup({questId: false}, event)}>Schließen</GeneralButton>
+                    <GeneralButton onClick={() => togglePopup({questId: false}, event)} customClassButton='w-min !py-2 !px-5 mx-auto' >Schließen</GeneralButton>
                 </div>
             </div>
         </div>

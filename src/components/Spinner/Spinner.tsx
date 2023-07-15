@@ -5,9 +5,9 @@ import React from 'react'
 
 export default function Spinner() {
   return (
-    <div className="">
+    <div className="w-full h-32 flex justify-center items-center">
       <div role="status">
-        <svg aria-hidden="true" className="w-12 h-12 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primaryBlue" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" className="w-24 h-24 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primaryBlue" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="GradientRainbow">
               <stop className="stop1" stop-color="#26afe6" offset="0%" />
