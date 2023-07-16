@@ -30,7 +30,7 @@ export const dotTheory: Quests[] = [
       {
         id: "dot-2",
         title: 'Die Bedeutung von Interoperabilität',
-        slug: 'bedeuting-interoperabilität',
+        slug: 'bedeuting-interoperabilitaet',
         youtubeUrl: 'https://youtu.be/uXqMwhZeyio',
         youtubeThumbnail: "https://youtu.be/uXqMwhZeyio/hqdefault.jpg",
         // importantLinks: [],
@@ -54,7 +54,7 @@ export const dotTheory: Quests[] = [
       {
         id: "dot-3",
         title: 'Was macht Polkadot einzigartig?',
-        slug: 'bedeuting-interoperabilität',
+        slug: 'was-macht-polkadot-einzigartig',
         youtubeUrl: 'https://youtu.be/e-wlyU-yk2Q',
         youtubeThumbnail: "https://youtu.be/e-wlyU-yk2Q/hqdefault.jpg",
         // importantLinks: [],

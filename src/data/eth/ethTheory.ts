@@ -7,7 +7,7 @@ export const ethTheory: Quests[] = [
     lessons: [
       {
         id: "eth-1",
-        title: 'Die Ethereum Blockchain.',
+        title: 'Die Ethereum Blockchain',
         slug: 'die-ethereum-blockchain',
         youtubeUrl: 'https://www.youtube.com/watch?v=hyNcJDO1JOM',
         youtubeThumbnail: "https://img.youtube.com/vi/hyNcJDO1JOM/hqdefault.jpg",
@@ -25,7 +25,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-2",
-        title: 'Ethereum 2.0 - Der Wechsel von PoW zu PoS.',
+        title: 'Ethereum 2.0 - Der Wechsel von PoW zu PoS',
         slug: 'ethereum-wechsel-von-pow-zu-pos',
         youtubeUrl: 'https://www.youtube.com/watch?v=ExIs9mKfvaU',
         youtubeThumbnail: "https://img.youtube.com/vi/ExIs9mKfvaU/hqdefault.jpg",
@@ -44,7 +44,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-3",
-        title: 'Ether - der Treibstoff von Ethereum.',
+        title: 'Ether - der Treibstoff von Ethereum',
         slug: 'ether-treibstoff-von-ethereum',
         youtubeUrl: 'https://www.youtube.com/watch?v=QfnuJlchwsw',
         youtubeThumbnail: "https://img.youtube.com/vi/QfnuJlchwsw/hqdefault.jpg",
@@ -66,7 +66,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-4",
-        title: 'Smart Contracts & Ethereum Virtual Mashine (EVM).',
+        title: 'Smart Contracts & Ethereum Virtual Mashine (EVM)',
         slug: 'smart-contracts-and-evm',
         youtubeUrl: 'https://www.youtube.com/watch?v=UwLioT3iHQU',
         youtubeThumbnail: "https://img.youtube.com/vi/UwLioT3iHQU/hqdefault.jpg",
@@ -90,7 +90,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-5",
-        title: 'Dezentrale Applikationen (dApps).',
+        title: 'Dezentrale Applikationen (dApps)',
         slug: 'dezentrale-applikationen',
         youtubeUrl: 'https://www.youtube.com/watch?v=2VHPOGq0qfw',
         youtubeThumbnail: "https://img.youtube.com/vi/2VHPOGq0qfw/hqdefault.jpg",
@@ -109,7 +109,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-6",
-        title: 'DeFi - Dezentrale Finanzsysteme.',
+        title: 'DeFi - Dezentrale Finanzsysteme',
         slug: 'dezentrale-finanzsysteme',
         youtubeUrl: 'https://www.youtube.com/watch?v=QD2RCTvh97o',
         youtubeThumbnail: "https://img.youtube.com/vi/QD2RCTvh97o/hqdefault.jpg",
@@ -130,7 +130,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-7",
-        title: 'Die Tokenisierung von Vermögenswerten & Rechten - ERC20 & ERC721.',
+        title: 'Die Tokenisierung von Vermögenswerten & Rechten - ERC20 & ERC721',
         slug: 'erc20-and-erc721',
         youtubeUrl: 'https://www.youtube.com/watch?v=3ng1K8eEfnU',
         youtubeThumbnail: "https://img.youtube.com/vi/3ng1K8eEfnU/hqdefault.jpg",
@@ -150,7 +150,7 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-8",
-        title: 'Smart Contracts & Ethereum Virtual Mashine (EVM).',
+        title: 'Smart Contracts & Ethereum Virtual Mashine (EVM)',
         slug: 'smart-contracts-und-evm',
         youtubeUrl: 'https://www.youtube.com/watch?v=QgCqAEi7bsA',
         youtubeThumbnail: "https://img.youtube.com/vi/QgCqAEi7bsA/hqdefault.jpg",

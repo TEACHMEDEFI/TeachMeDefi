@@ -9,7 +9,7 @@ import { Lesson } from "../generalLessons";
 export const quest3: Lesson[] = [
   {
     id: "eth-17",
-    title: '3 - Kryptowährungen dezentral tauschen - DEX',
+    title: '3. - Kryptowährungen dezentral tauschen - DEX',
     slug: 'krypto-dezentral-tauschen',
     youtubeUrl: 'https://www.youtube.com/watch?v=r_HxaqvtX_Y',
     youtubeThumbnail: "https://img.youtube.com/vi/r_HxaqvtX_Y/hqdefault.jpg",

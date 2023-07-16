@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactPlayer from "react-player";
 // import { Input, useToast } from '@chakra-ui/react';
 import Link from 'next/link';
@@ -7,11 +7,14 @@ import Image from 'next/image';
 import { Lesson, Transcript, Links } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
 import { useUserProgress } from '../../pages/api/ethereum-api'
+import { useTheme } from '@/context/ThemeContext';
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [hasProgress, setProgress] = useUserProgress();
+  const { isDarkMode } = useTheme();
+  const calendlyRef = useRef<HTMLElement>(null);
   // const [showPopup, setShowPopup] = useState(false);
   // const toast = useToast();
 
@@ -20,10 +23,10 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
     setShowNextButton(false)
   }, []);
 
-const handleVideoOnEnd =()=>{
-  setUserProgress()
-  setShowNextButton(true)
-}
+  const handleVideoOnEnd = () => {
+    setUserProgress()
+    setShowNextButton(true)
+  }
 
   // const [testState, setTestState] = useState(true);
 
@@ -36,6 +39,12 @@ const handleVideoOnEnd =()=>{
   //     clearTimeout(timer);
   //   };
   // }, []);
+
+  const scrollToCalendly = () => {
+    if (calendlyRef && calendlyRef.current) {
+      calendlyRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   const setUserProgress = () => {
     // Update the progress using setProgress
@@ -66,8 +75,15 @@ const handleVideoOnEnd =()=>{
         <div className='w-full flex flex-row justify-center mb-10 ' >
           <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
 
-            <div className=' mr-5' >
+            <div className=' sm:mr-5 flex flex-col sm:flex-row sm:items-center gap-x-5' >
               <h2 className='font-bold text-3xl ' > {currentLesson?.title} </h2>
+              <span className="h-5 w-5 relative ">
+                <button onClick={scrollToCalendly} >
+                  <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+                    alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                  />
+                </button>
+              </span>
             </div>
             <div className='w-fit max-md:mb-5 self-start' >
               {
@@ -131,7 +147,7 @@ const handleVideoOnEnd =()=>{
         </div>
       } */}
 
-<article id='calendly' className='pb-10 flex flex-col items-center pt-20' >
+      <article id='calendly' ref={calendlyRef} className='pb-10 flex flex-col items-center pt-20' >
         <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
         md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
         >
@@ -140,13 +156,13 @@ const handleVideoOnEnd =()=>{
               Du hast noch Fragen?
             </h4>
             <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-6'>
-            Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
-             Krypto-Fragen in unseren persönlichen Online-Coachings.
+              Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
+              Krypto-Fragen in unseren persönlichen Online-Coachings.
             </p>
             <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
           </div>
           <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
-            <Image src={"/home/podcast_microphone.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+            <Image src={"/support/support-banner-img.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
           </div>
         </div>
       </article>

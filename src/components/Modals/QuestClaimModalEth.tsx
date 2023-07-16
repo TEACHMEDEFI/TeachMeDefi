@@ -56,7 +56,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
         <div className=" !p-5 space-y-5 text-center max-h-[95vh]  lg:max-h-[50rem] overflow-y-auto ">
           {nftBalance > 0 && isConnected &&
             <>
-              <h3>Super! Du hast das NFT für diese Quest bereits geminted. Auf der <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Mein Fortschritt</Link> kannst du dir dein Sammlerstück anschauen.</h3>
+              <h3>Du hast das NFT für diese Quest bereits erhalten! Du kannst dir dein Sammlerstück unter  <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Mein Fortschritt</Link> anschauen.</h3>
             </>
           }
 
