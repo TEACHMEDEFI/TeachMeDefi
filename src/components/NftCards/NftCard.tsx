@@ -12,13 +12,10 @@ const NftCard = ({questSectionId}: NftCardProps) => {
     // console.log(questSectionId, metadata)
 
 
-    if (!nftBalance || nftBalance === 0) {
-        return (<></>)
-    }
 
     return (
         <div className="nft-card">
-            <Image loader={() => src} src={src} width={600 / 2} height={800 / 2} alt='nft-image'  />
+            <Image loader={() => src} src={src} width={600 / 2} height={800 / 2} alt='nft-image' className={!nftBalance || nftBalance === 0 ? 'greyed' : '' }  />
             <h2>{metadata?.name}</h2>
         </div>
     )

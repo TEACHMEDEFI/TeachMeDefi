@@ -395,3 +395,10 @@ img {
     text-align: center
   }
 }
+
+
+.greyed {               
+  opacity: 0.2;
+  filter: alpha(opacity=40);
+  zoom: 1;
+}
