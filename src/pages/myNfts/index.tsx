@@ -3,6 +3,7 @@ import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask, QuestNftC
 import NftCard from '@/components/NftCards/NftCard';
 
 
+
 export default function Index() {
   useEffect(() => {
     switchNetworkIfNeeded()
@@ -32,21 +33,21 @@ export default function Index() {
         <h2 className="xl:text-2xl text-2xl font-bold">Ethereum Quests</h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
           
-          <NftCard questSectionId={'eth-quest-1'} />
-          <NftCard questSectionId={'eth-quest-2'} />
-          <NftCard questSectionId={'eth-quest-3'} />
-          <NftCard questSectionId={'eth-quest-4'} />
-          <NftCard questSectionId={'eth-quest-5'} />
-          <NftCard questSectionId={'eth-quest-6'} />
+          <NftCard questSectionId={'eth-quest-1'} questIndex={0}/>
+          <NftCard questSectionId={'eth-quest-2'} questIndex={1}/>
+          <NftCard questSectionId={'eth-quest-3'} questIndex={2}/>
+          <NftCard questSectionId={'eth-quest-4'} questIndex={3}/>
+          <NftCard questSectionId={'eth-quest-5'} questIndex={4}/>
+          <NftCard questSectionId={'eth-quest-6'} questIndex={5}/>
         </div>
         <h2 className="xl:text-2xl text-2xl font-bold">Polkadot Quests</h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
           
-          <NftCard questSectionId={'dot-quest-1'} />
-          <NftCard questSectionId={'dot-quest-2'} />
-          <NftCard questSectionId={'dot-quest-3'} />
-          <NftCard questSectionId={'dot-quest-4'} />
-          <NftCard questSectionId={'dot-quest-5'} />
+          <NftCard questSectionId={'dot-quest-1'} questIndex={0} />
+          <NftCard questSectionId={'dot-quest-2'} questIndex={1} />
+          <NftCard questSectionId={'dot-quest-3'} questIndex={2} />
+          <NftCard questSectionId={'dot-quest-4'} questIndex={3} />
+          <NftCard questSectionId={'dot-quest-5'} questIndex={4} />
         </div>
           
 
