@@ -93,7 +93,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, que
     */
    const renderProgressBarItems = () => {
       const listItems =  questForProgressBar?.lessons.map((quest: Lesson, i) => (
-          <Link key={quest.id} href={`/eth/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
+          <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
       ))
 
     return listItems;
