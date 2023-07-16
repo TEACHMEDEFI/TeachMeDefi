@@ -123,31 +123,37 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
     if (!api || !blockId || !extrinsic) return false;
 
-    // returns Hash
-    const blockHash = await api.rpc.chain.getBlockHash(blockId);
-    // returns SignedBlock
-    const signedBlock = await api.rpc.chain.getBlock(blockHash);
-    let userIsSigner = false
-
-    // the hash for each extrinsic in the block
-    signedBlock.block.extrinsics.forEach((ex: any) => {
-      const humanReadableEx: any = ex.toHuman();
-      const signer = humanReadableEx.signer;
-      // console.log(ex.toHuman())
+    let userIsSigner = false;
 
 
-      // console.log('Signer is', signer?.Id);
-      // console.log('My Address is', selectedPolkaAccount)
+    try {
+        // returns Hash
+        const blockHash = await api.rpc.chain.getBlockHash(blockId);
+        // returns SignedBlock
+        const signedBlock = await api.rpc.chain.getBlock(blockHash);
+        
 
-      if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount) {
+        // the hash for each extrinsic in the block
+        signedBlock.block.extrinsics.forEach((ex: any) => {
+        const humanReadableEx: any = ex.toHuman();
+        const signer = humanReadableEx.signer;
+        // console.log(ex.toHuman())
 
-        //  && selectedPolkaAccount.address === signer.Id
-        userIsSigner = true;
-        // console.log('Extrinsic Found!')
-      }
 
-    });
+        // console.log('Signer is', signer?.Id);
+        // console.log('My Address is', selectedPolkaAccount)
 
+        if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount) {
+
+            //  && selectedPolkaAccount.address === signer.Id
+            userIsSigner = true;
+            // console.log('Extrinsic Found!')
+        }
+
+        });
+    } catch (e) {
+        userIsSigner = false
+    }
 
     setSpecialChallengeDone(userIsSigner);
 
