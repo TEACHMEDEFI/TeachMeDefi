@@ -18,7 +18,7 @@ const NftCard = ({questSectionId}: NftCardProps) => {
 
     return (
         <div className="nft-card">
-            <Image loader={() => src} src={src} width={600 / 2} height={800 / 2} alt='nft-image' />
+            <Image loader={() => src} src={src} width={600 / 2} height={800 / 2} alt='nft-image'  />
             <h2>{metadata?.name}</h2>
         </div>
     )
