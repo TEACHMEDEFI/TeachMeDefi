@@ -150,8 +150,8 @@ export const ethTheory: Quests[] = [
       },
       {
         id: "eth-8",
-        title: 'Smart Contracts & Ethereum Virtual Mashine (EVM)',
-        slug: 'smart-contracts-und-evm',
+        title: 'Dezentrale Autonome Organisationen DAOs & Governance Token',
+        slug: 'daos-und-governance-token',
         youtubeUrl: 'https://www.youtube.com/watch?v=QgCqAEi7bsA',
         youtubeThumbnail: "https://img.youtube.com/vi/QgCqAEi7bsA/hqdefault.jpg",
         // importantLinks: [],

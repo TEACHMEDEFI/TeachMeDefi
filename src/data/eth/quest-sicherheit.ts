@@ -142,8 +142,8 @@ export const questSicherheit: Lesson[] = [
     id: "eth-29",
     title: 'Sicherheit - Phishing, Telegram, 2FA, VPN',
     slug: 'phishing-telegram-2fa-vpn',
-    youtubeUrl: 'https://www.youtube.com/watch?v=h-j3-XVmz2U',
-    youtubeThumbnail: "https://img.youtube.com/vi/h-j3-XVmz2U/hqdefault.jpg",
+    youtubeUrl: 'https://www.youtube.com/watch?v=ycwviRYf_44',
+    youtubeThumbnail: "https://img.youtube.com/vi/ycwviRYf_44/hqdefault.jpg",
     importantLinks: [
       {
         linkText: "PayPal",

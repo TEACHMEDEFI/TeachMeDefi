@@ -79,7 +79,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
               <h2 className='font-bold text-3xl ' > {currentLesson?.title} </h2>
               <span className="h-5 w-5 relative ">
                 <button onClick={scrollToCalendly} >
-                  <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+                  <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
                     alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                   />
                 </button>
@@ -105,8 +105,8 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
 
                     <div>
                       {row.title && <h3 className='text-2xl font-bold mb-6'>{row.title}</h3>}
-                      {row.subline && <h4 className='font-bold mb-1'>{row.subline}</h4>}
-                      {row.text && <p className='tracking-wider '>{row.text}</p>}
+                      {row.subline && <h4 className='font-bold mb-1 text-justify'>{row.subline}</h4>}
+                      {row.text && <p className='tracking-wider text-justify'>{row.text}</p>}
                       {row.links &&
                         <ul className='list-disc ml-5'>
                           {row.links && row.links.map((link: Links, i) => (
@@ -118,7 +118,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
                       }
                     </div>
                     :
-                    <p className='tracking-wider' >
+                    <p className='tracking-wider text-justify' >
                       {row}
                     </p>
                   }

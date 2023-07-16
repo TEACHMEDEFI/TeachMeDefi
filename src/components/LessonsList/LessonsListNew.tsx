@@ -130,8 +130,8 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
     
     return (
         <div className='lesson-list-container'>
-            { title && <h2 className='text-2xl' >{title}</h2>}
-            <h3 className='italic text-2xl'> {totalVideoTime} Min</h3>
+            { title && <h2 className='font-bold text-xl' >{title}</h2>}
+            <h3 className='italic text-xl'> {totalVideoTime} Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
                 <div className="quest-container" key={quests.questSectionId}>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}

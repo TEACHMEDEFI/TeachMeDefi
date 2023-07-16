@@ -5,7 +5,7 @@ import { dotLessons } from "@/data/dotLessons";
 import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
-import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
+// import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 
 // import {useUserProgress, useMintNFT, useBalance, useFetch} from '../api/ethereum-api';
