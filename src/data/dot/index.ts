@@ -5,6 +5,16 @@ import { quest2 } from "./quest-2";
 import { quest3 } from "./quest-3";
 import { quest4 } from "./quest-4";
 import { quest5 } from "./quest-5";
+import { questSicherheit } from "../eth/quest-sicherheit";
+
+
+export const sicherheitsQuestDot: Quests[] = [
+  {
+    questTitle: "Quest Sicherheit",
+    questSectionId: "dot-quest-6",
+    lessons: [questSicherheit[0], questSicherheit[2]]
+  },
+]
 
 export const dotQuests:Quests[] = [
   {

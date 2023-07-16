@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react';
 import { generalLessons } from '@/data/generalLessons'
-import { dotQuests } from '@/data/dot'
+import { dotQuests, sicherheitsQuestDot } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
 import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
@@ -75,7 +75,7 @@ export default function Index() {
         Polkadot verstehen
         <span className="h-5 w-5 relative  lg:mr-2">
           <button onClick={scrollToCalendly} >
-            <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+            <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
               alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
             />
           </button>
@@ -83,7 +83,7 @@ export default function Index() {
       </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot"} isTheorySection totalVideoTime="25:34" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot?"} isTheorySection totalVideoTime="25:34" />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max 
@@ -92,7 +92,7 @@ export default function Index() {
             Polkadot nutzen
             <span className="h-5 w-5 relative  lg:mr-2">
               <button onClick={scrollToCalendly} >
-                <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+                <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
                   alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                 />
               </button>
@@ -100,6 +100,23 @@ export default function Index() {
           </h3>
         </span>
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" />
+
+        <span className='mx-auto mt-28'>
+          <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max 
+          flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
+          >
+            Sicher auf der Blockchain
+            <span className="h-5 w-5 relative  lg:mr-2">
+              <button className='w-full h-full' onClick={scrollToCalendly} >
+                <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
+                  alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                />
+              </button>
+            </span>
+          </h3>
+        </span>
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" />
 
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
