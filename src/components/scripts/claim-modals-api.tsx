@@ -9,6 +9,10 @@ import { dotQuests } from '@/data/dot';
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
+type QuestHints = {
+    [key: string]: string
+}
+
 /*
 * Helper function to check wether a user has completed all videos of a certain questId
 */
@@ -31,11 +35,20 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 }
 
 
-export const usePolkadotCoinsBalances = async () => {
-    
+export const questHints: QuestHints = {
+    "eth-quest-1": "Hinweis: Um diese Quest zu bestehen, musst du deine Wallet mit dieser Webseite verbinden.",
+    "eth-quest-2": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an Sepolia ETH Coins in der Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "eth-quest-3": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an WETH auf dem Mumbai Testnet in der Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "eth-quest-4": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an ETH auf dem Arbitrium One Netzwerk in deiner Wallet halten, welche du mit dieser Webseite verbunden hast",
+    "eth-quest-5": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 5 anschauen",
+    "eth-quest-6": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 6 anschauen",
 
+    "dot-quest-1": "Hinweis: Um diese Quest zu bestehen, musst du deine Wallet mit dieser Webseite verbinden.",
+    "dot-quest-2": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an DOT Coins in der Polkadot Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "dot-quest-3": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an DOT Coins wie im Tutorial mit der Polkadot Wallet staken, welche du mit dieser Webseite verbunden hast.",
+    "dot-quest-4": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an xcDOT Coins in auf dem Moonbeam-Netzwerk in deiner (Ethereum-kompatiblen) Wallet halten, welche du mit dieser Webseite verbunden hast",
+    "dot-quest-5": "Hinweis: Um diese Quest zu bestehen, wird geprüft ob du eine beliebige Menge an GLMR Coins in der (Ethereum-kompatiblen) Wallet übrig hast, welche mit dieser Webseite verbunden ist.",
 }
-
 
 
 /*

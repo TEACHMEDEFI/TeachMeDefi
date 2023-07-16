@@ -9,7 +9,7 @@ import Link from "next/link"
 import Spinner from '../Spinner/Spinner';
 import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
-import { useIsProgressNftMintable, useMintProgressNFT } from '../scripts/claim-modals-api'
+import { useIsProgressNftMintable, useMintProgressNFT, questHints } from '../scripts/claim-modals-api'
 import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
 
 
@@ -373,6 +373,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
               <h3>Ein kleiner Schritt noch!</h3>
               <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
               <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geht&apos;s, dein NFT wartet schon auf dich!</h3>
+              <h3 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent">{questHints[questSectionId]}</h3>
             </>) : null
           }
 
