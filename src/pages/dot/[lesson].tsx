@@ -4,6 +4,7 @@
 import { dotLessons } from "@/data/dotLessons";
 import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { dotQuests } from '@/data/dot';
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 // import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
@@ -17,10 +18,11 @@ type Params = {
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   console.log(currentLesson)
+  const questForProgressBar = dotQuests.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
   return (
     <main className='w-full flex flex-col  items-center ' >
 
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
+      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} questForProgressBar={questForProgressBar} chain="dot"  />
       <LessonsBurgerMenu />
       {/* <LinksAndIndexBurger /> */}
     </main>

@@ -1,18 +1,52 @@
 
 import { useState, useEffect, useRef } from 'react';
+import dynamic from "next/dynamic";
 import ReactPlayer from "react-player";
+import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 // import { Input, useToast } from '@chakra-ui/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Lesson, Transcript, Links } from '@/data/generalLessons';
+import { Quests } from '@/data/generalLessons'
 import { PrimaryButton } from '../Buttons/Buttons';
 import { useUserProgress } from '../../pages/api/ethereum-api'
 import { useTheme } from '@/context/ThemeContext';
 
-export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
+/*
+* Dynamic Imports die to NextJS Server Side Prerendering
+*/
+const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModalEth'), {
+  ssr: false,
+});
+
+const QuestClaimModalDot = dynamic(() => import('../Modals/QuestClaimModalDot'), {
+  ssr: false,
+});
+
+
+type VideoWithTranscriptProps = {
+  questForProgressBar: Quests | undefined;
+  currentLesson: Lesson;
+  nextLessonSlug: string;
+  chain: string
+}
+
+type ImageSourceObject = {
+  [key: string]: string
+}
+
+type QuestModalShow = {
+  [key: string]: boolean
+}
+
+export default function VideoWithTranscript({ currentLesson, nextLessonSlug, questForProgressBar, chain }: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [hasProgress, setProgress] = useUserProgress();
+  const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
+  const [showPopup, setShowPopup] = useState<QuestModalShow>();
+  const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
+  const imageSourceObject: ImageSourceObject = {}
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
   // const [showPopup, setShowPopup] = useState(false);
@@ -21,11 +55,55 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
   useEffect(() => {
     setShowPlayer(true);
     setShowNextButton(false)
+
+    questForProgressBar?.lessons.forEach((quest: Lesson) => {
+        const questId = quest.id;
+
+        imageSourceObject[questId] = hasProgress(questId) ? 'has-progress-circle' : 'has-no-progress-circle'
+      }) 
+
+
+    setImageClasses(imageSourceObject);
   }, []);
 
   const handleVideoOnEnd = () => {
     setUserProgress()
     setShowNextButton(true)
+  }
+
+
+  /*
+  * Handles Modal Toggle and is passed as props
+  */
+  const togglePopup = (questId: string, event: Event | undefined) => {
+    event?.preventDefault();
+
+    const show : QuestModalShow = {};
+    show[questId] = true;
+    setShowPopup(show)
+  }
+
+  if (!imageClasses || !questForProgressBar) {
+    return ( <></>)
+}
+
+
+   /*
+    * Creates the li Elements for each specific listof Quests
+    */
+   const renderProgressBarItems = () => {
+      const listItems =  questForProgressBar?.lessons.map((quest: Lesson, i) => (
+          <Link key={quest.id} href={`/eth/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
+      ))
+
+    return listItems;
+  }
+
+  /*
+    * Helper Function to pass as props
+    */
+  const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
+    setSelectedAccount(account)
   }
 
   // const [testState, setTestState] = useState(true);
@@ -71,6 +149,15 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
           }
         </div>
       </div>
+      <ul className="ul-circles mt-5 mb-5">
+            {renderProgressBarItems()}
+            <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(questForProgressBar.questSectionId, event)}><i className="fa-light fa-trophy" />Mint NFT</Link>
+      </ul>
+      {showPopup && showPopup[questForProgressBar.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={questForProgressBar.questSectionId} togglePopup={togglePopup} /> : null}
+
+      {showPopup && showPopup[questForProgressBar.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={questForProgressBar.questSectionId} togglePopup={togglePopup} 
+          selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
+
       <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-10 flex flex-col space-y-5' >
         <div className='w-full flex flex-row justify-center mb-10 ' >
           <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
@@ -79,7 +166,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
               <h2 className='font-bold text-3xl ' > {currentLesson?.title} </h2>
               <span className="h-5 w-5 relative ">
                 <button onClick={scrollToCalendly} >
-                  <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
+                  <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
                     alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                   />
                 </button>
@@ -105,8 +192,8 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
 
                     <div>
                       {row.title && <h3 className='text-2xl font-bold mb-6'>{row.title}</h3>}
-                      {row.subline && <h4 className='font-bold mb-1 text-justify'>{row.subline}</h4>}
-                      {row.text && <p className='tracking-wider text-justify'>{row.text}</p>}
+                      {row.subline && <h4 className='font-bold mb-1'>{row.subline}</h4>}
+                      {row.text && <p className='tracking-wider '>{row.text}</p>}
                       {row.links &&
                         <ul className='list-disc ml-5'>
                           {row.links && row.links.map((link: Links, i) => (
@@ -118,7 +205,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: {
                       }
                     </div>
                     :
-                    <p className='tracking-wider text-justify' >
+                    <p className='tracking-wider' >
                       {row}
                     </p>
                   }

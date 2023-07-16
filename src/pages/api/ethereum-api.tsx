@@ -251,3 +251,4 @@ export const switchNetworkIfNeeded = async (): Promise<void> => {
     });
   }
 }
+

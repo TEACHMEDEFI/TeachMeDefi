@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
+import { switchNetworkIfNeeded} from '../../pages/api/ethereum-api'
 import NftCard from '@/components/NftCards/NftCard';
 
 
@@ -49,11 +49,8 @@ export default function Index() {
           <NftCard questSectionId={'dot-quest-4'} questIndex={3} />
           <NftCard questSectionId={'dot-quest-5'} questIndex={4} />
         </div>
-          
 
       </section>
-
-    
     </div >
   )
 }

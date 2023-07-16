@@ -7,7 +7,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 // import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
-
+import { ethQuests } from '@/data/eth';
 
 type Params = {
   lesson: string
@@ -15,10 +15,12 @@ type Params = {
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
+  const questForProgressBar = ethQuests.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+
 
   return (
     <main className='w-full flex flex-col  items-center ' >
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
+      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} questForProgressBar={questForProgressBar} chain="eth" />
       <LessonsBurgerMenu />
       {/* <LinksAndIndexBurger /> */}
     </main>
@@ -42,6 +44,8 @@ export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined 
   const currentLessonIndex = ethLessons.findIndex(
     (currentLesson) => currentLesson.slug === lesson
   )
+
+  console.log(currentLessonIndex)
 
   const currentLesson = ethLessons.find(
     (currentLesson) => currentLesson.slug === lesson
