@@ -1,6 +1,7 @@
 import {WsProvider, ApiPromise} from '@polkadot/api'
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
 import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
+import { useWeb3React } from '@web3-react/core';
 import ReactPlayer from "react-player";
 import BN from 'bn.js';
 import Image from 'next/image'
@@ -19,6 +20,10 @@ type QuestClaimModalProps = {
     selectedPolkaAccount: InjectedAccountWithMeta | undefined;
 }
 
+type TokenBalance = {
+    result: string;
+}
+
 
 
 const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccount, selectedPolkaAccount} : QuestClaimModalProps) => {
@@ -35,12 +40,13 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     const [specialChallengeDone, setSpecialChallengeDone] = useState<boolean>(false);
     const [specialChallengeFail, setSpecialChallengeFail] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(true)
+    const { account } = useWeb3React();
     const NAME = "Peter"
 
     useEffect(() => {
         // Quest 3 transactions ID eingeben
         // Quest 4 xcdot auf moonbeam balance größer 0
-        const nodeURL = questSectionId === 'dot-quest-5' ? 'wss://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
+        const nodeURL = 'wss://rpc.polkadot.io';
         setup(nodeURL)
 
         switchNetworkIfNeeded()
@@ -57,19 +63,42 @@ const QuestClaimModalDot = ({questSectionId, togglePopup, setSelectedPolkaAccoun
     useEffect(() => {
         if (!selectedPolkaAccount || !api) return
 
-        
-
         (async() => {
             // Queries
-            // @ts-ignore: Unreachable code error
-            const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
 
-            const now = await api.query.timestamp.now();
+            if (questSectionId === 'dot-quest-2') {
+                // @ts-ignore: Unreachable code error
+                const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
 
-            setBalances(new BN(balance.free));
+                const now = await api.query.timestamp.now();
 
-            console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
+                setBalances(new BN(balance.free));
 
+                console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
+            }
+
+            if (questSectionId === 'dot-quest-4' || questSectionId === 'dot-quest-5') {
+
+                const query = questSectionId === 'dot-quest-4' 
+                ? `https://api-moonbeam.moonscan.io/api?module=account&action=tokenbalance&contractaddress=0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080&address=${account as string}&tag=latest&apikey=${process.env.NEXT_PUBLIC_MOONMBEAM_API_KEY}`
+                : `https://api-moonbeam.moonscan.io/api?module=account&action=balance&address=${account as string}&tag=latest&apikey=${process.env.NEXT_PUBLIC_MOONMBEAM_API_KEY}` 
+
+                let erc20BalanceRequest: Response = await fetch(query)
+
+                
+                const tokenBalanceRequestJson: TokenBalance = await erc20BalanceRequest.json();
+
+                const balance = tokenBalanceRequestJson ? tokenBalanceRequestJson.result : 0;
+
+                console.log(balance);
+
+                const now = await api.query.timestamp.now();
+
+                setBalances(new BN(balance));
+
+                console.log(`Token ${now}: balance of ${new BN(balance)}`);
+
+            }
             
         })()
 

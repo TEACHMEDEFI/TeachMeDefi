@@ -75,7 +75,6 @@ export const useTokenBalance = (questSectionId: Token): number => {
   };
   // @ts-ignore: Unreachable code error
   const alchemy = new Alchemy(config);
-  console.log(config)
 
   
   useEffect(() => {

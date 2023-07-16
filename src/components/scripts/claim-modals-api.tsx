@@ -5,10 +5,6 @@ import BN from 'bn.js';
 import { useUserProgress, useTokenBalance, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
-import { ethTheory } from '@/data/eth/ethTheory';
-import { dotTheory } from '@/data/dot/dotTheory';
-import { Quests } from '@/data/generalLessons'
-import { Lesson } from '@/data/generalLessons'
 
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
@@ -35,6 +31,12 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 }
 
 
+export const usePolkadotCoinsBalances = async () => {
+    
+
+}
+
+
 
 /*
 * Checks whether a progress NFT is mintable depending on the requirements
@@ -53,10 +55,10 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
         mintable = polkaWalletConnected ? true : false
     } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6') {
         mintable = checkQuestsForCompleteView(questSectionId, hasProgress)
-    } else if (questSectionId == 'dot-quest-2') {
+    } else if (questSectionId == 'dot-quest-2' || questSectionId == 'dot-quest-4' || questSectionId == 'dot-quest-5') {
         const stringNumber = balances?.toString();
         mintable = stringNumber && parseInt(stringNumber) > 0 ? true : false;
-    } else {
+    }  else {
         mintable = tokenBalance > 0;
         console.log(tokenBalance)
     }
