@@ -51,12 +51,8 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
     switchNetworkIfNeeded()
 
-    console.log(setSelectedPolkaAccount)
-
 
     setTimeout(() => setIsLoading(false), 1000)
-
-
 
   }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
 
