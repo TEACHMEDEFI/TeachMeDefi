@@ -365,6 +365,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
               </div>
 
               <PrimaryButton onClick={() => handleUserSubmit()} customClassButton='w-min !py-2 !px-5 mx-auto' customClassWrapper='w-min  mx-auto ' >Eingabe&nbsp;Bestätigen</PrimaryButton>
+              <h3 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent">{questHints[questSectionId]}</h3>
             </>) : null
           }
 
@@ -374,7 +375,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
             <>
               <h3>Ein kleiner Schritt noch!</h3>
               <h3>Es scheint, dass du die Quest noch nicht vollständig abgeschlossen hast. Aber kein Grund zur Sorge, der Weg zum Erfolg ist manchmal holprig. Schau noch einmal genau hin und stelle sicher, dass du alle Anweisungen in den Videos befolgt hast.</h3>
-              <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite). Auf geht&apos;s, dein NFT wartet schon auf dich!</h3>
+              <h3>Bei Fragen oder Problemen sind wir gerne für dich da (nähere Infos findest du unten rechts auf der Webseite unter Support). Auf geht&apos;s, dein NFT wartet schon auf dich!</h3>
               <h3 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent">{questHints[questSectionId]}</h3>
             </>) : null
           }
