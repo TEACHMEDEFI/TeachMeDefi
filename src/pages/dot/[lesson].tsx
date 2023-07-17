@@ -5,11 +5,11 @@ import { dotLessons } from "@/data/dotLessons";
 import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { dotQuests } from '@/data/dot';
+import { generalLessons } from '@/data/generalLessons';
+import { dotTheory } from '@/data/dot/dotTheory'
+import { questSicherheit } from "@/data/eth/quest-sicherheit";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
-// import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
-
-// import {useUserProgress, useMintNFT, useBalance, useFetch} from '../api/ethereum-api';
 
 
 type Params = {
@@ -17,12 +17,42 @@ type Params = {
 }
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
-  console.log(currentLesson)
-  const questForProgressBar = dotQuests[0] //.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+  let questForProgressBar = dotQuests.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+  let isQuestSection = true;
+  let safetyLessons: any = [];
+
+  if (!questForProgressBar) {
+    questForProgressBar = dotTheory.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+    isQuestSection = false
+  }
+
+  if (!questForProgressBar) {
+    questForProgressBar = generalLessons.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+    isQuestSection = false
+  }
+
+  if (!questForProgressBar) {
+    questSicherheit.forEach((sicherheit) => {
+      safetyLessons.push(sicherheit)
+    })
+
+    questForProgressBar = {
+        questTitle: 'safety',
+        lessons: safetyLessons,
+        questSectionId: 'safety'
+
+    }
+    isQuestSection = false
+  }
+
+  if (!questForProgressBar) {
+    return (<></>)
+  }
+
+
   return (
     <main className='w-full flex flex-col  items-center ' >
-
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} questForProgressBar={questForProgressBar} chain="dot"  />
+      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} questForProgressBar={questForProgressBar} chain="eth" isQuestSection={isQuestSection} />
       <LessonsBurgerMenu />
       {/* <LinksAndIndexBurger /> */}
     </main>

@@ -2,6 +2,13 @@ const { ethers, utils } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 import { Alchemy, Network } from "alchemy-sdk";
+import { Quests } from '@/data/generalLessons'
+import { ethQuests } from '@/data/eth';
+import { ethTheory } from '@/data/eth/ethTheory';
+import { generalLessons } from '@/data/generalLessons';
+import { questSicherheit } from "@/data/eth/quest-sicherheit";
+import { dotQuests } from '@/data/dot';
+import { dotTheory } from '@/data/dot/dotTheory'
 
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
@@ -252,3 +259,47 @@ export const switchNetworkIfNeeded = async (): Promise<void> => {
   }
 }
 
+
+// export const useGetItemsForProgressBar = (currentLessonId: string, chain: string): [items: Quests, isQuestSection: boolean] => {
+//   const [items, setItems] = useState<Quests>()
+//   const [isQuestSection, setIsQuestSection] = useState<boolean>(true)
+
+//   const questsToUse = chain === 'eth' ? ethQuests : dotQuests;
+//   const theoryToUse = chain === 'eth' ? ethTheory : dotTheory
+
+
+//   let questForProgressBar = questsToUse.find((quest: Quests) => quest.lessons.some(lesson => lesson.id === currentLessonId));
+
+//   let safetyLessons: any = [];
+
+//   if (!questForProgressBar) {
+//     questForProgressBar = theoryToUse.find((quest: Quests)  => quest.lessons.some(lesson => lesson.id === currentLessonId));
+//     setIsQuestSection(false)
+//   }
+
+//   if (!questForProgressBar) {
+//     questForProgressBar = generalLessons.find((quest: Quests)  => quest.lessons.some(lesson => lesson.id === currentLessonId));
+//     setIsQuestSection(false)
+//   }
+
+//   if (!questForProgressBar) {
+//     questSicherheit.forEach((sicherheit) => {
+//       safetyLessons.push(sicherheit)
+//     })
+//     questForProgressBar = {
+//         questTitle: 'safety',
+//         lessons: safetyLessons,
+//         questSectionId: 'safety'
+
+//     }
+//     setIsQuestSection(false)
+//   }
+
+//   setItems(questForProgressBar)
+
+
+//   return {
+//     items,
+//     isQuestSection
+//   }
+// }

@@ -28,7 +28,8 @@ type VideoWithTranscriptProps = {
   questForProgressBar: Quests | undefined;
   currentLesson: Lesson;
   nextLessonSlug: string;
-  chain: string
+  chain: string;
+  isQuestSection: boolean
 }
 
 type ImageSourceObject = {
@@ -39,7 +40,7 @@ type QuestModalShow = {
   [key: string]: boolean
 }
 
-export default function VideoWithTranscript({ currentLesson, nextLessonSlug, questForProgressBar, chain }: VideoWithTranscriptProps) {
+export default function VideoWithTranscript({ currentLesson, nextLessonSlug, questForProgressBar, chain, isQuestSection }: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [hasProgress, setProgress] = useUserProgress();
@@ -151,7 +152,9 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, que
       </div>
       <ul className="ul-circles mt-5 mb-5">
             {renderProgressBarItems()}
-            <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(questForProgressBar.questSectionId, event)}><i className="fa-light fa-trophy" />Mint NFT</Link>
+            {isQuestSection && 
+              <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(questForProgressBar.questSectionId, event)}><i className="fa-light fa-trophy" />Mint NFT</Link>
+            }
       </ul>
       {showPopup && showPopup[questForProgressBar.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={questForProgressBar.questSectionId} togglePopup={togglePopup} /> : null}
 

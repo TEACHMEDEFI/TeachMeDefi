@@ -8,6 +8,9 @@ import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu"
 // import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 import { ethQuests } from '@/data/eth';
+import { ethTheory } from '@/data/eth/ethTheory';
+import { generalLessons } from '@/data/generalLessons';
+import { questSicherheit } from "@/data/eth/quest-sicherheit";
 
 type Params = {
   lesson: string
@@ -15,14 +18,43 @@ type Params = {
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
-  const questForProgressBar = ethQuests[0] //.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+  let questForProgressBar = ethQuests.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+  let isQuestSection = true;
+  let safetyLessons: any = [];
 
-  console.log(questForProgressBar)
+  if (!questForProgressBar) {
+    questForProgressBar = ethTheory.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+    isQuestSection = false
+  }
+
+  if (!questForProgressBar) {
+    questForProgressBar = generalLessons.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+    isQuestSection = false
+  }
+
+  if (!questForProgressBar) {
+    questSicherheit.forEach((sicherheit) => {
+      safetyLessons.push(sicherheit)
+    })
+    questForProgressBar = {
+        questTitle: 'safety',
+        lessons: safetyLessons,
+        questSectionId: 'safety'
+
+    }
+
+    isQuestSection = false
+
+  }
+
+  if (!questForProgressBar) {
+    return (<></>)
+  }
 
 
   return (
     <main className='w-full flex flex-col  items-center ' >
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} questForProgressBar={questForProgressBar} chain="eth" />
+      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} questForProgressBar={questForProgressBar} chain="eth" isQuestSection={isQuestSection} />
       <LessonsBurgerMenu />
       {/* <LinksAndIndexBurger /> */}
     </main>
