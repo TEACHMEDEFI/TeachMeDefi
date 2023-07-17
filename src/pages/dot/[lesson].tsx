@@ -18,7 +18,7 @@ type Params = {
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
   console.log(currentLesson)
-  const questForProgressBar = dotQuests.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+  const questForProgressBar = dotQuests[0] //.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
   return (
     <main className='w-full flex flex-col  items-center ' >
 

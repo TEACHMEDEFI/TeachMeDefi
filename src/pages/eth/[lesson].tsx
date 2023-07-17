@@ -15,7 +15,9 @@ type Params = {
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
-  const questForProgressBar = ethQuests.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+  const questForProgressBar = ethQuests[0] //.find(quest => quest.lessons.some(lesson => lesson.id === currentLesson.id));
+
+  console.log(questForProgressBar)
 
 
   return (
