@@ -73,7 +73,6 @@ const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
 const [showPopup, setShowPopup] = useState<QuestModalShow>();
 const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
 const imageSourceObject: ImageSourceObject = {}
-const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
   useEffect(() => {
     // Set Lessons Progress bar Color
