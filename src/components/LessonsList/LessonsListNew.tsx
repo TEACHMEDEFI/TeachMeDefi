@@ -7,6 +7,8 @@ import { useUserProgress } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable } from '../scripts/claim-modals-api'
 import { BN } from 'bn.js';
 import Link from 'next/link';
+import LessonPage from '@/components/Modals/VideoModal'
+
 
 
 /*
@@ -42,6 +44,7 @@ type QuestModalShow = {
 type listItemsPerQuest = {
     [key: string]: Array<any>
 }
+
 
 type QuestVideoTimes = {
   [key: string]: string
@@ -119,12 +122,26 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
 
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-                <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
+                <Link onClick={() => togglePopup(quest.id, event)} key={quest.id} href="javascript:;" className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
                 
             ))
         ))
 
         return listItemsPerQuest[questSectionId];
+    }
+
+
+    const renderVideoModals = (questSectionId: string) => {
+      let lessonModalsPerQuest: listItemsPerQuest = {}
+
+      lessonsArray.forEach((quests: Quests, j) => (
+        lessonModalsPerQuest[quests.questSectionId] = quests.lessons.map((quest: Lesson, i) => (
+            // @ts-ignore: Object is possibly 'null'.
+            <LessonPage key={quest.id} currentLesson={quest} modalOpen={showPopup[quest.id]} togglePopup={togglePopup} />
+          ))
+      ))
+
+      return lessonModalsPerQuest[questSectionId]
     }
 
     
@@ -149,11 +166,14 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
                             :
                             null
                           }
+                          
                       {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
 
                       {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
                           selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
                     </ul>
+
+                    {renderVideoModals(quests.questSectionId)}
                   </div>
                 </div>         
             ))}

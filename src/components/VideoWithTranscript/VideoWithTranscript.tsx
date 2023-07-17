@@ -1,6 +1,5 @@
 
 import { useState, useEffect, useRef } from 'react';
-import dynamic from "next/dynamic";
 import ReactPlayer from "react-player";
 import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 // import { Input, useToast } from '@chakra-ui/react';
@@ -12,24 +11,11 @@ import { PrimaryButton } from '../Buttons/Buttons';
 import { useUserProgress } from '../../pages/api/ethereum-api'
 import { useTheme } from '@/context/ThemeContext';
 
-/*
-* Dynamic Imports die to NextJS Server Side Prerendering
-*/
-const QuestClaimModalEth = dynamic(() => import('../Modals/QuestClaimModalEth'), {
-  ssr: false,
-});
-
-const QuestClaimModalDot = dynamic(() => import('../Modals/QuestClaimModalDot'), {
-  ssr: false,
-});
 
 
 type VideoWithTranscriptProps = {
-  questForProgressBar: Quests | undefined;
   currentLesson: Lesson;
-  nextLessonSlug: string;
-  chain: string;
-  isQuestSection: boolean
+  nextLessonSlug?: string;
 }
 
 type ImageSourceObject = {
@@ -40,14 +26,10 @@ type QuestModalShow = {
   [key: string]: boolean
 }
 
-export default function VideoWithTranscript({ currentLesson, nextLessonSlug, questForProgressBar, chain, isQuestSection }: VideoWithTranscriptProps) {
+export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [hasProgress, setProgress] = useUserProgress();
-  const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
-  const [showPopup, setShowPopup] = useState<QuestModalShow>();
-  const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
-  const imageSourceObject: ImageSourceObject = {}
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
   // const [showPopup, setShowPopup] = useState(false);
@@ -56,55 +38,11 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, que
   useEffect(() => {
     setShowPlayer(true);
     setShowNextButton(false)
-
-    questForProgressBar?.lessons.forEach((quest: Lesson) => {
-        const questId = quest.id;
-
-        imageSourceObject[questId] = hasProgress(questId) ? 'has-progress-circle' : 'has-no-progress-circle'
-      }) 
-
-
-    setImageClasses(imageSourceObject);
   }, []);
 
   const handleVideoOnEnd = () => {
     setUserProgress()
     setShowNextButton(true)
-  }
-
-
-  /*
-  * Handles Modal Toggle and is passed as props
-  */
-  const togglePopup = (questId: string, event: Event | undefined) => {
-    event?.preventDefault();
-
-    const show : QuestModalShow = {};
-    show[questId] = true;
-    setShowPopup(show)
-  }
-
-  if (!imageClasses || !questForProgressBar) {
-    return ( <></>)
-}
-
-
-   /*
-    * Creates the li Elements for each specific listof Quests
-    */
-   const renderProgressBarItems = () => {
-      const listItems =  questForProgressBar?.lessons.map((quest: Lesson, i) => (
-          <Link key={quest.id} href={`/${chain}/${quest.slug}`} className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
-      ))
-
-    return listItems;
-  }
-
-  /*
-    * Helper Function to pass as props
-    */
-  const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
-    setSelectedAccount(account)
   }
 
   // const [testState, setTestState] = useState(true);
@@ -131,7 +69,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, que
   };
 
   return (
-    <section className='w-full mb-22 lg:mb-44 relative' >
+    <section className='w-full mb-22 lg:mb-44 relative video-modal-container' >
       <div className='w-full relative' >
         {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
         <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
@@ -140,7 +78,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, que
             width="100%"
             url={currentLesson.youtubeUrl}
             controls={true}
-            onEnded={handleVideoOnEnd}
+            onStart={handleVideoOnEnd}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
@@ -150,17 +88,6 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, que
           }
         </div>
       </div>
-      <ul className="ul-circles mt-5 mb-5">
-            {renderProgressBarItems()}
-            {isQuestSection && 
-              <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(questForProgressBar.questSectionId, event)}><i className="fa-light fa-trophy" />Mint NFT</Link>
-            }
-      </ul>
-      {showPopup && showPopup[questForProgressBar.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={questForProgressBar.questSectionId} togglePopup={togglePopup} /> : null}
-
-      {showPopup && showPopup[questForProgressBar.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={questForProgressBar.questSectionId} togglePopup={togglePopup} 
-          selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
-
       <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-10 flex flex-col space-y-5' >
         <div className='w-full flex flex-row justify-center mb-10 ' >
           <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>

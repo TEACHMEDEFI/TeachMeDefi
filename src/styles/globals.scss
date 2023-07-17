@@ -402,3 +402,8 @@ img {
   filter: alpha(opacity=40);
   zoom: 1;
 }
+
+.video-modal-container {
+  max-height: 50rem;
+  overflow: scroll;
+}
