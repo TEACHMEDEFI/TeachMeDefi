@@ -101,6 +101,14 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
   }
 
 
+  const isModalOpen = (questId: string) => {
+    const modalOpen = showPopup && showPopup[questId]
+
+    return modalOpen
+
+  }
+
+
     /*
     * Helper Function to pass as props
     */
@@ -137,7 +145,7 @@ const nftMintable = useIsProgressNftMintable('', 'token', new BN(0), false);
       lessonsArray.forEach((quests: Quests, j) => (
         lessonModalsPerQuest[quests.questSectionId] = quests.lessons.map((quest: Lesson, i) => (
             // @ts-ignore: Object is possibly 'null'.
-            <LessonPage key={quest.id} currentLesson={quest} modalOpen={showPopup[quest.id]} togglePopup={togglePopup} />
+            <LessonPage key={quest.id} currentLesson={quest} modalOpen={isModalOpen(quest.id)} togglePopup={togglePopup} />
           ))
       ))
 
