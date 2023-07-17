@@ -86,7 +86,7 @@ const imageSourceObject: ImageSourceObject = {}
     });
 
     setImageClasses(imageSourceObject);
-  }, [showPopup])
+  }, [setShowPopup])
 
   /*
   * Handles Modal Toggle and is passed as props
