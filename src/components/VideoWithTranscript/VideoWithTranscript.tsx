@@ -1,14 +1,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ReactPlayer from "react-player";
-import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
-// import { Input, useToast } from '@chakra-ui/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Lesson, Transcript, Links } from '@/data/generalLessons';
-import { Quests } from '@/data/generalLessons'
 import { PrimaryButton } from '../Buttons/Buttons';
-import { useUserProgress } from '../../pages/api/ethereum-api'
 import { useTheme } from '@/context/ThemeContext';
 
 
