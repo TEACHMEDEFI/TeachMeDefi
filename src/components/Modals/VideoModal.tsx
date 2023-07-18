@@ -1,13 +1,12 @@
 
 'use client';
 
-import { ethLessons } from "@/data/ethLessons";
 import { Lesson } from "@/data/generalLessons";
-import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
-// import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 import { GeneralButton } from "@/components/Buttons/Buttons";
+
+
 
 type LessonPageProps = {
     currentLesson: Lesson

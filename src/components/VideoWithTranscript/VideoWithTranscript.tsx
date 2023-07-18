@@ -69,7 +69,7 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: V
   };
 
   return (
-    <section className='w-full mb-22 lg:mb-44 relative video-modal-container' >
+    <section className='w-full mb-22 lg:mb-10 relative video-modal-container' >
       <div className='w-full relative' >
         {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
         <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
