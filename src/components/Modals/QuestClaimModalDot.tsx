@@ -12,6 +12,7 @@ import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useIsProgressNftMintable, useMintProgressNFT, questHints } from '../scripts/claim-modals-api'
 import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
 import { encodeAddress } from '@polkadot/util-crypto';
+import Confetti from '@/components/Confetti/Confetti'
 
 
 type QuestClaimModalProps = {
@@ -337,6 +338,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
           {!showSpinner && nftMinted ? (<>
             <h3>Super, du hast dein NFT erhalten! Hier siehst du deinen Fortschritt.</h3>
             <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Mein Fortschritt</Link>
+            <Confetti />
           </>) : null}
 
 
