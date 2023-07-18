@@ -16,6 +16,7 @@ import { useTheme } from '@/context/ThemeContext';
 type VideoWithTranscriptProps = {
   currentLesson: Lesson;
   nextLessonSlug?: string;
+  setUserProgress?: Function
 }
 
 type ImageSourceObject = {
@@ -26,14 +27,11 @@ type QuestModalShow = {
   [key: string]: boolean
 }
 
-export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: VideoWithTranscriptProps) {
+export default function VideoWithTranscript({ currentLesson, nextLessonSlug, setUserProgress }: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
-  const [hasProgress, setProgress] = useUserProgress();
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
-  // const [showPopup, setShowPopup] = useState(false);
-  // const toast = useToast();
 
   useEffect(() => {
     setShowPlayer(true);
@@ -41,32 +39,19 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug }: V
   }, []);
 
   const handleVideoOnEnd = () => {
-    setUserProgress()
+    if (setUserProgress) {
+      setUserProgress(currentLesson.id)
+    }
+    
     setShowNextButton(true)
   }
 
-  // const [testState, setTestState] = useState(true);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setTestState(false);
-  //   }, 3000);
-
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
 
   const scrollToCalendly = () => {
     if (calendlyRef && calendlyRef.current) {
       calendlyRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }
-
-  const setUserProgress = () => {
-    // Update the progress using setProgress
-    setProgress(currentLesson.id, 'check');
-  };
 
   return (
     <section className='w-full mb-22 lg:mb-10 relative video-modal-container' >

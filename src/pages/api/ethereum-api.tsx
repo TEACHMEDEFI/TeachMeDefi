@@ -2,13 +2,6 @@ const { ethers, utils } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 import { Alchemy, Network } from "alchemy-sdk";
-import { Quests } from '@/data/generalLessons'
-import { ethQuests } from '@/data/eth';
-import { ethTheory } from '@/data/eth/ethTheory';
-import { generalLessons } from '@/data/generalLessons';
-import { questSicherheit } from "@/data/eth/quest-sicherheit";
-import { dotQuests } from '@/data/dot';
-import { dotTheory } from '@/data/dot/dotTheory'
 
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
