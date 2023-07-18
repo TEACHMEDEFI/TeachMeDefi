@@ -19,13 +19,6 @@ type VideoWithTranscriptProps = {
   setUserProgress?: Function
 }
 
-type ImageSourceObject = {
-  [key: string]: string
-}
-
-type QuestModalShow = {
-  [key: string]: boolean
-}
 
 export default function VideoWithTranscript({ currentLesson, nextLessonSlug, setUserProgress }: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
