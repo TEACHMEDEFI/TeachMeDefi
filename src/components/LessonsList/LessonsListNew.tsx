@@ -181,7 +181,10 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                           <ul className="ul-circles">
                           {quests.lessons.map((quest: Lesson) => (
                         <Link
-                          onClick={() => togglePopup(quest.id)}
+                          onClick={(event) => {
+                            event.preventDefault();
+                            togglePopup(quests.questSectionId);
+                          }}
                           key={quest.id}
                           href='#'
                           className={`${hasProgress(quest.id) ? 'has-progress-circle' : 'has-no-progress-circle'} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7`}
@@ -195,7 +198,10 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                           <Link
                             href='#'
                             className='is-nft-mint bg-[#fdfdfd] dark:bg-gray-700'
-                            onClick={() => togglePopup(quests.questSectionId)}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              togglePopup(quests.questSectionId);
+                            }}
                           >
                             <i className='fa-light fa-trophy' />Mint NFT
                           </Link>
