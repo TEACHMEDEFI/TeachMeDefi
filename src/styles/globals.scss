@@ -407,3 +407,21 @@ img {
   max-height: 40rem;
   overflow: scroll;
 }
+
+
+.input-field {
+  max-width: 20rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust the value to change the level of rounding */
+  margin-right: 10px;
+}
+
+.input-field::placeholder {
+  color: #999;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #888;
+}
