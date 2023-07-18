@@ -11,14 +11,15 @@ import { GeneralButton } from "@/components/Buttons/Buttons";
 type LessonPageProps = {
     currentLesson: Lesson
     modalOpen: boolean
-    togglePopup: Function;
+    onClose: Function;
     setUserProgress: Function
+    questSectionid: string;
 }
 
-export default function LessonPage({ currentLesson, modalOpen, togglePopup, setUserProgress }: LessonPageProps) {
+export default function LessonPage({ currentLesson, modalOpen, onClose, setUserProgress, questSectionid }: LessonPageProps) {
 
-    const handleToggle = (open: boolean) => {
-        togglePopup(open)
+    const handleClose = () => {
+        onClose(currentLesson, questSectionid)
       }
 
     if (!modalOpen) {
@@ -32,7 +33,7 @@ export default function LessonPage({ currentLesson, modalOpen, togglePopup, setU
                 <LessonsBurgerMenu />
                 {/* <LinksAndIndexBurger /> */}
 
-                <GeneralButton onClick={() => handleToggle(false)}>Schließen</GeneralButton>
+                <GeneralButton onClick={() => handleClose()}>Schließen</GeneralButton>
             </div>
         </div>
     )

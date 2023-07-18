@@ -6,6 +6,7 @@ import { Quests } from '@/data/generalLessons'
 import { useUserProgress } from '../../pages/api/ethereum-api'
 import Link from 'next/link';
 import LessonPage from '@/components/Modals/VideoModal'
+import styled, { css } from 'styled-components';
 
 
 
@@ -49,6 +50,7 @@ type QuestVideoTimes = {
   [key: string]: string
 }
 
+
 const questVideoTimes: QuestVideoTimes = {
   'dot-quest-1': '09:58',
   'dot-quest-2': '14:18',
@@ -66,17 +68,29 @@ const questVideoTimes: QuestVideoTimes = {
 }
 
 
-export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, isGeneralSection, onModalClose, totalVideoTime }: LessonsListProps) {
+const QuestContainer = styled.div<{ isLarge: boolean }>`
+  transition: transform 0.3s;
+
+  ${({ isLarge }) =>
+    isLarge &&
+    css`
+      transform: scale(1.1);
+    `}
+`;
+
+
+export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, onModalClose, totalVideoTime }: LessonsListProps) {
   const [hasProgress, setHasProgress] = useUserProgress();
   const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
   const [showPopup, setShowPopup] = useState<QuestModalShow>();
   const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
+  const [isLarge, setIsLarge] = useState<{ [key: string]: boolean }>({});
 
 
   useEffect(() => {
     setImageClassesObject()
     
-  }, []); // Include hasProgress and lessonsArray as dependencies
+  }, []);
 
 
   const setImageClassesObject = () => {
@@ -97,8 +111,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     setHasProgress(questId, 'check')
   }
 
-
-
+ 
   /*
   * Handles Modal Toggle and is passed as props
   */
@@ -107,7 +120,31 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     show[questId] = true;
     setShowPopup(show)
     console.log('classes are rerendered')
+  }
+
+  const onClose = (questId: string, questSectionid: string) => {
+    const show : QuestModalShow = {};
+    show[questId] = true;
+    setShowPopup(show)
     onModalClose()
+
+
+    setIsLarge((prevIsLarge) => ({
+      ...prevIsLarge,
+      [questSectionid]: true,
+    })); // Set isLarge for the specific questSectionId to true to trigger the CSS transition effect
+
+    // Reset isLarge to false after 1 second
+    setTimeout(() => {
+      setIsLarge((prevIsLarge) => ({
+        ...prevIsLarge,
+        [questSectionid]: false,
+      }));
+    }, 1000);
+  }
+
+  const isSectionlarge = (questSectionid: string): boolean => {
+    return isLarge && isLarge[questSectionid] ? true : false;
   }
 
 
@@ -115,7 +152,6 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     const modalOpen = showPopup && showPopup[questId]
 
     return modalOpen
-
   }
 
 
@@ -136,63 +172,64 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
             { title && <h2 className='font-bold text-xl' >{title}</h2>}
             <h3 className='italic text-xl'> {totalVideoTime} Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
-                <div className="quest-container" key={quests.questSectionId}>
+                <QuestContainer key={quests.questSectionId} isLarge={isLarge[quests.questSectionId] || false} className='quest-container'>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
                   {isQuestSection ? (<><h3 className=" text-xl italic">{questVideoTimes[quests.questSectionId]}</h3></>) : null}
 
-                  <div className="progress-container">
+                    <div className="progress-container">
 
-                    <ul className="ul-circles">
-                    {quests.lessons.map((quest: Lesson) => (
-                  <Link
-                    onClick={() => togglePopup(quest.id)}
-                    key={quest.id}
-                    href='javascript:;'
-                    className={`${hasProgress(quest.id) ? 'has-progress-circle' : 'has-no-progress-circle'} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7`}
-                  >
-                    <i className='fa-regular fa-play' /> {quest.videoTime} Min
-                  </Link>
-                ))}
+                          <ul className="ul-circles">
+                          {quests.lessons.map((quest: Lesson) => (
+                        <Link
+                          onClick={() => togglePopup(quest.id)}
+                          key={quest.id}
+                          href='javascript:;'
+                          className={`${hasProgress(quest.id) ? 'has-progress-circle' : 'has-no-progress-circle'} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7`}
+                        >
+                          <i className='fa-regular fa-play' /> {quest.videoTime} Min
+                        </Link>
+                      ))}
 
-                {isQuestSection && (
-                  <>
-                    <Link
-                      href='javascript:;'
-                      className='is-nft-mint bg-[#fdfdfd] dark:bg-gray-700'
-                      onClick={() => togglePopup(quests.questSectionId)}
-                    >
-                      <i className='fa-light fa-trophy' />Mint NFT
-                    </Link>
-                  </>
-                )}
+                      {isQuestSection && (
+                        <>
+                          <Link
+                            href='javascript:;'
+                            className='is-nft-mint bg-[#fdfdfd] dark:bg-gray-700'
+                            onClick={() => togglePopup(quests.questSectionId)}
+                          >
+                            <i className='fa-light fa-trophy' />Mint NFT
+                          </Link>
+                        </>
+                      )}
 
-                {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? (
-                  <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} />
-                ) : null}
+                    {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? (
+                      <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} />
+                    ) : null}
 
-                {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? (
-                  <QuestClaimModalDot
-                    questSectionId={quests.questSectionId}
-                    togglePopup={togglePopup}
-                    selectedPolkaAccount={selectedAccount}
-                    setSelectedPolkaAccount={setSelectedPolkaAccount}
-                  />
-                ) : null}
-              </ul>
+                    {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? (
+                      <QuestClaimModalDot
+                        questSectionId={quests.questSectionId}
+                        togglePopup={togglePopup}
+                        selectedPolkaAccount={selectedAccount}
+                        setSelectedPolkaAccount={setSelectedPolkaAccount}
+                      />
+                    ) : null}
+                  </ul>
 
-              {quests.lessons.map((quest: Lesson) => (
-                <LessonPage
-                  key={quest.id}
-                  currentLesson={quest}
-                  // @ts-ignore
-                  modalOpen={isModalOpen(quest.id)}
-                  togglePopup={togglePopup}
-                  setUserProgress={setUserProgress} // Pass hasProgress function as prop
-                />
-              ))}
-                  </div>
-                </div>         
-            ))}
-        </div>
+                  {quests.lessons.map((quest: Lesson) => (
+                    <LessonPage
+                      key={quest.id}
+                      currentLesson={quest}
+                      // @ts-ignore
+                      modalOpen={isModalOpen(quest.id)}
+                      onClose={onClose}
+                      setUserProgress={setUserProgress}
+                      questSectionid={quests.questSectionId} // Pass hasProgress function as prop
+                    />
+                  ))}
+                </div>
+            </QuestContainer>         
+          ))}
+      </div>
     )
 }
