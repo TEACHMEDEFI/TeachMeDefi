@@ -181,12 +181,9 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                           <ul className="ul-circles">
                           {quests.lessons.map((quest: Lesson) => (
                         <Link
-                          onClick={(event) => {
-                            event.preventDefault();
-                            togglePopup(quests.questSectionId);
-                          }}
+                          onClick={() => togglePopup(quest.id)}
                           key={quest.id}
-                          href='#'
+                          href='javascript:;'
                           className={`${hasProgress(quest.id) ? 'has-progress-circle' : 'has-no-progress-circle'} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7`}
                         >
                           <i className='fa-regular fa-play' /> {quest.videoTime} Min
@@ -196,12 +193,9 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                       {isQuestSection && (
                         <>
                           <Link
-                            href='#'
+                            href='javascript:;'
                             className='is-nft-mint bg-[#fdfdfd] dark:bg-gray-700'
-                            onClick={(event) => {
-                              event.preventDefault();
-                              togglePopup(quests.questSectionId);
-                            }}
+                            onClick={() => togglePopup(quests.questSectionId)}
                           >
                             <i className='fa-light fa-trophy' />Mint NFT
                           </Link>
