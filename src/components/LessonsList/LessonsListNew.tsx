@@ -183,7 +183,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                         <Link
                           onClick={() => togglePopup(quest.id)}
                           key={quest.id}
-                          href='javascript:;'
+                          href='#'
                           className={`${hasProgress(quest.id) ? 'has-progress-circle' : 'has-no-progress-circle'} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7`}
                         >
                           <i className='fa-regular fa-play' /> {quest.videoTime} Min
@@ -193,7 +193,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                       {isQuestSection && (
                         <>
                           <Link
-                            href='javascript:;'
+                            href='#'
                             className='is-nft-mint bg-[#fdfdfd] dark:bg-gray-700'
                             onClick={() => togglePopup(quests.questSectionId)}
                           >
