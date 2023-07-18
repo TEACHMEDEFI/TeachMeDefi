@@ -28,6 +28,7 @@ export default function HeroSection() {
               JOIN NOW
             </PrimaryButton>
           </div> */}
+          
           <div>
             <div className="w-max mb-5">
               <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
