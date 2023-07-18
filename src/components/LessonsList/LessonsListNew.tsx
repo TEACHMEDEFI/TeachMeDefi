@@ -228,7 +228,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                     />
                   ))}
                 </div>
-            </QuestContainer>         
+            </QuestContainer>
           ))}
       </div>
     )

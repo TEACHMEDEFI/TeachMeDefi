@@ -7,6 +7,7 @@ import { BN } from 'bn.js';
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
 import { useIsProgressNftMintable, useMintProgressNFT, questHints } from '../scripts/claim-modals-api'
+import Confetti from '@/components/Confetti/Confetti'
 
 
 type QuestClaimModalProps = {
@@ -120,6 +121,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
           {!showSpinner && nftMinted ? (<>
             <h3>Super, du hast dein NFT erhalten! Hier siehst du deinen Fortschritt.</h3>
             <Link data-linktarget="eth-section" href={"/myNfts"} className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent" >Mein Fortschritt</Link>
+            <Confetti />
           </>) : null}
 
           {!nftMinted && !nftMintable && isConnected ? (
