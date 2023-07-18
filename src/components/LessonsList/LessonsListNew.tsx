@@ -31,6 +31,7 @@ type LessonsListProps = {
     isGeneralSection?: boolean;
     isTheorySection?: boolean;
     totalVideoTime: string;
+    onModalClose: Function;
   }
 
 type ImageSourceObject = {
@@ -67,7 +68,7 @@ const questVideoTimes: QuestVideoTimes = {
 }
 
 
-export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, isGeneralSection, isTheorySection, totalVideoTime }: LessonsListProps) {
+export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, isGeneralSection, onModalClose, totalVideoTime }: LessonsListProps) {
 const [hasProgress] = useUserProgress();
 const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
 const [showPopup, setShowPopup] = useState<QuestModalShow>();
@@ -86,7 +87,16 @@ const imageSourceObject: ImageSourceObject = {}
     });
 
     setImageClasses(imageSourceObject);
-  }, [setShowPopup])
+
+  }, [])
+
+  
+
+
+  // useEffect(() => {
+  //   console.log('Rerendered')
+  // }, [hasProgress])
+
 
   /*
   * Handles Modal Toggle and is passed as props
@@ -97,6 +107,7 @@ const imageSourceObject: ImageSourceObject = {}
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
+    onModalClose()
   }
 
 
@@ -130,7 +141,6 @@ const imageSourceObject: ImageSourceObject = {}
         lessonsArray.forEach((quests: Quests, j) => (
             listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
                 <Link onClick={() => togglePopup(quest.id, event)} key={quest.id} href="javascript:;" className={`${imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
-                
             ))
         ))
 

@@ -14,10 +14,19 @@ export default function Index() {
   const { isDarkMode } = useTheme();
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const calendlyRef = useRef<HTMLDivElement>(null);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   useEffect(() => {
     switchNetworkIfNeeded()
     setShowPlayer(true);
-  }, [])
+    console.log('Rerendered Due to Modal Close')
+  }, [modalOpen])
+
+
+  const onModalClose = () => {
+    const newState = modalOpen ? !modalOpen : true;
+    setModalOpen(newState);
+  }
 
   const scrollToCalendly = () => {
     if (calendlyRef && calendlyRef.current) {
@@ -82,8 +91,8 @@ export default function Index() {
         </span>
       </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
-        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot?"} isTheorySection totalVideoTime="25:34" />
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" onModalClose={onModalClose} />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot?"} isTheorySection totalVideoTime="25:34" onModalClose={onModalClose} />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max 
@@ -99,7 +108,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" />
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" onModalClose={onModalClose} />
 
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
@@ -116,7 +125,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" />
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" onModalClose={onModalClose} />
 
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
