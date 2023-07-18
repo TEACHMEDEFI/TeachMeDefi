@@ -412,7 +412,7 @@ img {
   justify-content: center;
 }
 
-.input-field {
+.input-field-dot {
   max-width: 20rem;
   padding: 1rem;
   border: 1px solid #ccc;
@@ -420,11 +420,11 @@ img {
   margin-right: 10px;
 }
 
-.input-field::placeholder {
+.input-field-dot::placeholder {
   color: #999;
 }
 
-.input-field:focus {
+.input-field-dot:focus {
   outline: none;
   border-color: #888;
 }

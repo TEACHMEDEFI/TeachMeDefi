@@ -364,25 +364,10 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
                 </div>
               </div>
               {specialChallengeFail && <h3 className="red-text">Das Extrinsic konnte deiner Addresse nicht zugerechnet werden</h3>}
-                <div className="flex input-container-modal">
-                  <input
-                    id="transaction-id"
-                    type="text"
-                    placeholder="Extrinsic Hash"
-                    value={extrinsic}
-                    onChange={(event) => handleUserInputForTransaction(event.target.value)}
-                    className="input-field"
-                  />
-                  <input
-                    id="block-id"
-                    type="text"
-                    placeholder="Block ID"
-                    value={blockId}
-                    onChange={(event) => handleUserInputForBlock(event.target.value)}
-                    className="input-field"
-                  />
-                </div>
-
+              <div className="flex input-container-modal">
+                <input className="input-field-dot" id="transaction-id" type="text" placeholder="Extrinsic Hash" value={extrinsic} onChange={() => handleUserInputForTransaction(event)} />
+                <input className="input-field-dot" id="block-id" type="text" placeholder="Block ID" value={blockId} onChange={() => handleUserInputForBlock(event)} />
+              </div>
 
               <PrimaryButton onClick={() => handleUserSubmit()} customClassButton='w-min !py-2 !px-5 mx-auto' customClassWrapper='w-min  mx-auto ' >Eingabe&nbsp;Bestätigen</PrimaryButton>
               <h3 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent">{questHints[questSectionId]}</h3>
