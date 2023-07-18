@@ -10,9 +10,9 @@ export default function Spinner() {
         <svg aria-hidden="true" className="w-24 h-24 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primaryBlue" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="GradientRainbow">
-              <stop className="stop1" stop-color="#26afe6" offset="0%" />
-              <stop className="stop2" stop-color="#9989ff" offset="50%" />
-              <stop className="stop3" stop-color="#fe3dce" offset="100%" />
+              <stop className="stop1" stopColor="#26afe6" offset="0%" />
+              <stop className="stop2" stopColor="#9989ff" offset="50%" />
+              <stop className="stop3" stopColor="#fe3dce" offset="100%" />
             </linearGradient>
           </defs>
 
