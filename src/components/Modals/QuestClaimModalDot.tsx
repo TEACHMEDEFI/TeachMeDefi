@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useIsProgressNftMintable, useMintProgressNFT, questHints } from '../scripts/claim-modals-api'
 import { useNFTBalance, switchNetworkIfNeeded, useConnectedToMetaMask } from '../../pages/api/ethereum-api'
+import { encodeAddress } from '@polkadot/util-crypto';
 
 
 type QuestClaimModalProps = {
@@ -113,12 +114,27 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
   }
 
 
+  function getDotAddress(accountAddress:string ) {
+    // Specify the prefix for the Dot address (Check the appropriate prefix for your network)
+    const prefix = 0;
+  
+    // Convert the account address to Dot address using the specified prefix
+    const dotAddress = encodeAddress(accountAddress, prefix);
+  
+    console.log('The Dot address is:', dotAddress);
+  
+    return dotAddress;
+  }
+  
+
+
 
   const checkExtrinsic = async (): Promise<boolean> => {
-    if (!api || !blockId || !extrinsic) return false;
+    if (!api || !blockId || !extrinsic || !selectedPolkaAccount) return false;
 
     let userIsSigner = false;
-
+    const dotAddress = getDotAddress(selectedPolkaAccount.address)
+    console.log('dot Address', dotAddress)
 
     try {
         const blockHash = await api.rpc.chain.getBlockHash(blockId);
@@ -129,17 +145,13 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
         signedBlock.block.extrinsics.forEach((ex: any) => {
           const humanReadableEx: any = ex.toHuman();
           const signer = humanReadableEx.signer;
-          // console.log(ex.toHuman())
 
 
-          // console.log('Signer is', signer?.Id);
-          // console.log('My Address is', selectedPolkaAccount)
+          console.log('Signer is', signer?.Id);
 
-          if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount) {
+          if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount && dotAddress === signer?.Id) {
 
-              //  && selectedPolkaAccount.address === signer.Id
               userIsSigner = true;
-              // console.log('Extrinsic Found!')
           }
         });
     } catch (e) {
