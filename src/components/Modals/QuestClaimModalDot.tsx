@@ -114,11 +114,9 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
   }
 
 
-  function getDotAddress(accountAddress:string ) {
+  const getDotAddress = (accountAddress:string ) => {
     // Specify the prefix for the Dot address (Check the appropriate prefix for your network)
     const prefix = 0;
-  
-    // Convert the account address to Dot address using the specified prefix
     const dotAddress = encodeAddress(accountAddress, prefix);
   
     console.log('The Dot address is:', dotAddress);
@@ -126,8 +124,6 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
     return dotAddress;
   }
   
-
-
 
   const checkExtrinsic = async (): Promise<boolean> => {
     if (!api || !blockId || !extrinsic || !selectedPolkaAccount) return false;
