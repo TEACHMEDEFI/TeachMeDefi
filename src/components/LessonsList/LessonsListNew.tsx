@@ -90,12 +90,6 @@ const imageSourceObject: ImageSourceObject = {}
 
   }, [])
 
-  
-
-
-  // useEffect(() => {
-  //   console.log('Rerendered')
-  // }, [hasProgress])
 
 
   /*
