@@ -95,7 +95,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-3",
-        title: 'Blockchain - Einfach erklärt',
+        title: '2. Blockchain - Einfach erklärt',
         slug: 'blockchain-einfach-erklaert',
         youtubeUrl: 'https://www.youtube.com/watch?v=Sp2PFQRlj7w',
         youtubeThumbnail: "https://img.youtube.com/vi/Sp2PFQRlj7w/hqdefault.jpg",
@@ -120,7 +120,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-4",
-        title: 'Dezentralisierung - Die Vorteile',
+        title: '3. Dezentralisierung - Die Vorteile',
         slug: 'dezentralisierung-die-vorteile',
         youtubeUrl: 'https://www.youtube.com/watch?v=v9xNMZ-3xZk',
         youtubeThumbnail: "https://img.youtube.com/vi/v9xNMZ-3xZk/hqdefault.jpg",
@@ -142,7 +142,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-5",
-        title: 'Der Konsensmechanismus einer Blockchain',
+        title: '4. Der Konsensmechanismus einer Blockchain',
         slug: 'konsensmechanismen-einer-blockchain',
         youtubeUrl: 'https://www.youtube.com/watch?v=bckodtNLxhw',
         youtubeThumbnail: "https://img.youtube.com/vi/bckodtNLxhw/hqdefault.jpg",
@@ -163,7 +163,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-6",
-        title: 'Wallets - dein Zugang zur Blockchain',
+        title: '5. Wallets - dein Zugang zur Blockchain',
         slug: 'wallets-zugang-zur-blockchain',
         youtubeUrl: 'https://www.youtube.com/watch?v=nrAf41GyCyM',
         youtubeThumbnail: "https://img.youtube.com/vi/nrAf41GyCyM/hqdefault.jpg",
