@@ -9,7 +9,7 @@ import { Lesson } from "../generalLessons";
 export const quest2: Lesson[] = [
   {
     id: "eth-14",
-    title: '2.1 - Transaktionen einleiten & verfolgen - Blockexplorer',
+    title: 'Quest 2.1 - Transaktionen einleiten & verfolgen - Blockexplorer',
     slug: 'transactionen-und-blockexplorer',
     youtubeUrl: 'https://www.youtube.com/watch?v=aAuZEjGLSng',
     youtubeThumbnail: "https://img.youtube.com/vi/aAuZEjGLSng/hqdefault.jpg",
@@ -85,7 +85,7 @@ export const quest2: Lesson[] = [
   },
   {
     id: "eth-15",
-    title: '2.2 - Krypto kaufen & KYC - Ledger, Metamask, CEX',
+    title: 'Quest 2.2 - Krypto kaufen & KYC - Ledger, Metamask, CEX',
     slug: 'krypto-kaufen-und-kyc',
     youtubeUrl: 'https://www.youtube.com/watch?v=Vetsh9N2eV0',
     youtubeThumbnail: "https://img.youtube.com/vi/Vetsh9N2eV0/hqdefault.jpg",
@@ -200,7 +200,7 @@ export const quest2: Lesson[] = [
   },
   {
     id: "eth-16",
-    title: '2.3 - Automatische & manuelle Tracker - Zerion, Zapper, Coingecko',
+    title: 'Quest 2.3 - Automatische & manuelle Tracker - Zerion, Zapper, Coingecko',
     slug: 'automatische-und-manuelle-tracker',
     youtubeUrl: 'https://www.youtube.com/watch?v=qlmFabxN_7o',
     youtubeThumbnail: "https://img.youtube.com/vi/qlmFabxN_7o/hqdefault.jpg",
