@@ -27,6 +27,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const [videoEnded, setVideoEnded] = useState<boolean>(false);
+  const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
 
@@ -93,8 +94,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
   const handleVideoOnEnd = () => {
     setVideoEnded(true);
-    setShowNextButton(false)
-    setShowPrevButton(false)
+    setShowNavButtons(false)
   }
 
   return (
@@ -124,25 +124,21 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             <div className="fade-out">
               <h2 className='font-bold text-3xl '>Du Hast Das Video Beendet. Was möchtest Du Als Nächstes Tun?</h2>
               <div className="buttons-container-video-end">
-                <PrimaryButton onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton>
-                <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton>
-                <PrimaryButton onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+                <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
+                <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton> 
+                <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
               </div>
             </div>
           )}
       
-      <div className="nav-button-container flex">
+      {showNavButtons && <div className="nav-button-container flex">
         <div className='w-fit max-md:mb-5 self-start' >
-                {
-                  showPrevButton && <PrimaryButton onClick={() => displayPrevVideo()}> Spiele Vorheriges Video Ab </PrimaryButton>
-                }
-              </div>
-              <div className='w-fit max-md:mb-5 self-start' >
-                {
-                  showNextButton && <PrimaryButton onClick={() => displayNextVideo()}> Spiele Nächstes Video Ab </PrimaryButton>
-                }
-              </div>
+          <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
         </div>
+        <div className='w-fit max-md:mb-5 self-start' >
+          <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+        </div>
+      </div>}
       <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-10 flex flex-col space-y-5' >
         <div className='w-full flex flex-row justify-center mb-10 ' >
           <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
