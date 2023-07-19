@@ -10,7 +10,7 @@ import { Lesson } from "../generalLessons";
 export const quest3: Lesson[] = [
   {
     id: "dot-23",
-    title: 'Quest 3. Staking',
+    title: 'Quest 3 - Staking',
     slug: 'staking',
     youtubeUrl: 'https://youtu.be/_lBlPb0g984',
     youtubeThumbnail: "https://youtu.be/_lBlPb0g984/hqdefault.jpg",
