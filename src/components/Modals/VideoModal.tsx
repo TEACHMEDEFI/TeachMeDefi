@@ -57,8 +57,6 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
         setShowSpinner(true)
         setLesson(currentQuest.lessons[lessonIndex + 1])
         setLessonIndex(lessonIndex + 1);
-        
-        
 
         setTimeout(() => setShowSpinner(false), 1000)
     }
@@ -69,10 +67,18 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
         setShowSpinner(true)
         setLesson(currentQuest.lessons[lessonIndex - 1])
         setLessonIndex(lessonIndex - 1);
-        
-        
 
         setTimeout(() => setShowSpinner(false), 1000)
+    }
+
+    const replayVideoInModal = () => {
+        console.log('Setting current Video')
+        setShowSpinner(true)
+        setLesson(currentQuest.lessons[lessonIndex])
+        setLessonIndex(lessonIndex);
+
+        setTimeout(() => setShowSpinner(false), 1000)
+
     }
 
     if (showSpinner) {
@@ -96,7 +102,7 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
             <div className='relative w-[80rem] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 lesson-page-modal' >
                 <VideoWithTranscript currentLesson={lesson} setUserProgress={setUserProgress} 
                     displayNextVideoInModal={displayNextVideoInModal} displayPrevVideoInModal={displayPrevVideoInModal}
-                    currentQuest={currentQuest} lessonIndex={lessonIndex}  />
+                    currentQuest={currentQuest} lessonIndex={lessonIndex} replayVideoInModal={replayVideoInModal}  />
                 {/* <LessonsBurgerMenu /> */}
                 {/* <LinksAndIndexBurger /> */}
 

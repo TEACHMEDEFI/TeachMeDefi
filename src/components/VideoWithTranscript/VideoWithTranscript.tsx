@@ -16,15 +16,17 @@ type VideoWithTranscriptProps = {
   displayPrevVideoInModal: Function;
   displayNextVideoInModal: Function
   currentQuest: Quests;
-  lessonIndex: number
+  lessonIndex: number;
+  replayVideoInModal: Function
 }
 
 
 export default function VideoWithTranscript({ currentLesson, setUserProgress, displayPrevVideoInModal, displayNextVideoInModal,
-  currentQuest, lessonIndex}: VideoWithTranscriptProps) {
+  currentQuest, lessonIndex, replayVideoInModal}: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
+  const [videoEnded, setVideoEnded] = useState<boolean>(false);
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
 
@@ -66,6 +68,11 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     handleButtons()
   }
 
+  const replayVideo = () => {
+    replayVideoInModal()
+    handleButtons()
+  }
+
   const handleShowNextButton = () => {
     console.log(currentQuest.lessons[lessonIndex + 1])
     if (currentQuest.lessons[lessonIndex + 1] !== undefined) {
@@ -85,30 +92,45 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
   const handleVideoOnEnd = () => {
-
+    setVideoEnded(true);
+    setShowNextButton(false)
+    setShowPrevButton(false)
   }
 
   return (
     <section className='w-full mb-22 lg:mb-10 relative video-modal-container' >
+      {showPlayer && !videoEnded && (
       <div className='w-full relative' >
         {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
         <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-          {showPlayer && <ReactPlayer
-            height="100%"
-            width="100%"
-            url={currentLesson.youtubeUrl}
-            controls={true}
-            onEnded={handleVideoOnEnd}
-            onStart={handleVideoOnPlay}
-            config={{
-              youtube: {
-                playerVars: { fs: 1 }
-              }
-            }}
-          />
-          }
-        </div>
-      </div>
+        
+            <ReactPlayer
+              height="100%"
+              width="100%"
+              url={currentLesson.youtubeUrl}
+              controls={true}
+              onEnded={handleVideoOnEnd}
+              onStart={handleVideoOnPlay}
+              config={{
+                youtube: {
+                  playerVars: { fs: 1 }
+                }
+              }}
+            />
+            </div>
+            </div>
+          )}
+          {videoEnded && (
+            <div className="fade-out">
+              <h2 className='font-bold text-3xl '>Du Hast Das Video Beendet. Was möchtest Du Als Nächstes Tun?</h2>
+              <div className="buttons-container-video-end">
+                <PrimaryButton onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton>
+                <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton>
+                <PrimaryButton onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+              </div>
+            </div>
+          )}
+      
       <div className="nav-button-container flex">
         <div className='w-fit max-md:mb-5 self-start' >
                 {
