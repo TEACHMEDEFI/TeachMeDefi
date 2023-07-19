@@ -75,7 +75,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
   const handleShowNextButton = () => {
-    console.log(currentQuest.lessons[lessonIndex + 1])
     if (currentQuest.lessons[lessonIndex + 1] !== undefined) {
       setShowNextButton(true)
     } else {
@@ -84,7 +83,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
   const handleShowPrevButton = () => {
-    console.log(currentQuest.lessons[lessonIndex - 1])
     if (currentQuest.lessons[lessonIndex - 1] !== undefined) {
       setShowPrevButton(true)
     } else {
@@ -96,6 +94,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     setVideoEnded(true);
     setShowNavButtons(false)
   }
+  
 
   return (
     <section className='w-full mb-22 lg:mb-10 relative video-modal-container' >
