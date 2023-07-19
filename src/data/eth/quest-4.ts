@@ -10,7 +10,7 @@ import { Lesson } from "../generalLessons";
 export const quest4: Lesson[] = [
   {
     id: "eth-18",
-    title: '4.1 - Layer 2 Solution einrichten & nutzen',
+    title: 'Quest 4.1 - Layer 2 Solution einrichten & nutzen',
     slug: 'layer-two-einrichten-und-nutzen',
     youtubeUrl: 'https://www.youtube.com/watch?v=XVZ8GKAucZ0',
     youtubeThumbnail: "https://img.youtube.com/vi/XVZ8GKAucZ0/hqdefault.jpg",
@@ -115,7 +115,7 @@ export const quest4: Lesson[] = [
   },
   {
     id: "eth-19",
-    title: '4.2 - DEX Aggregator',
+    title: 'Quest 4.2 - DEX Aggregator',
     slug: 'dex-aggregator',
     youtubeUrl: 'https://www.youtube.com/watch?v=W9QPpyIO9Uo',
     youtubeThumbnail: "https://img.youtube.com/vi/W9QPpyIO9Uo/hqdefault.jpg",
