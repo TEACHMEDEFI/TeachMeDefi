@@ -10,7 +10,7 @@ import { Lesson } from "../generalLessons";
 export const quest5: Lesson[] = [
   {
     id: "eth-20",
-    title: '5.1 - DeFi: Was ist Yield Farming?',
+    title: 'Quest 5.1 - DeFi: Was ist Yield Farming?',
     slug: 'was-ist-yield-farming',
     youtubeUrl: 'https://www.youtube.com/watch?v=SkElW4nYhe4',
     youtubeThumbnail: "https://img.youtube.com/vi/SkElW4nYhe4/hqdefault.jpg",
@@ -107,7 +107,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-21",
-    title: '5.2 - DeFi Übersicht - Defillama & Defiprime',
+    title: 'Quest 5.2 - DeFi Übersicht - Defillama & Defiprime',
     slug: 'defillama-und-defiprime',
     youtubeUrl: 'https://www.youtube.com/watch?v=viTE3p1CQYs',
     youtubeThumbnail: "https://img.youtube.com/vi/viTE3p1CQYs/hqdefault.jpg",
@@ -186,7 +186,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-22",
-    title: '5.3 - Yield farming - Liquidity providing',
+    title: 'Quest 5.3 - Yield farming - Liquidity providing',
     slug: 'yield-farming-liquidity-providing',
     youtubeUrl: 'https://www.youtube.com/watch?v=hQ9mBsb5cHQ',
     youtubeThumbnail: "https://img.youtube.com/vi/hQ9mBsb5cHQ/hqdefault.jpg",
@@ -278,7 +278,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-23",
-    title: '5.4 - Yield Farming - dezentrale Kreditplattform - leihen & verleihen',
+    title: 'Quest 5.4 - Yield Farming - dezentrale Kreditplattform - leihen & verleihen',
     slug: 'yield-farming-leihen-und-verleihen',
     youtubeUrl: 'https://www.youtube.com/watch?v=QktzPYB2l4w',
     youtubeThumbnail: "https://img.youtube.com/vi/QktzPYB2l4w/hqdefault.jpg",
@@ -361,7 +361,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-24",
-    title: '5.5 - Yield Farming - Staking',
+    title: 'Quest 5.5 - Yield Farming - Staking',
     slug: 'yield-farming-staking',
     youtubeUrl: 'https://www.youtube.com/watch?v=IREzXy5LdKI',
     youtubeThumbnail: "https://img.youtube.com/vi/IREzXy5LdKI/hqdefault.jpg",
@@ -450,7 +450,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-25",
-    title: '5.6 - Leverage Trading',
+    title: 'Quest 5.6 - Leverage Trading',
     slug: 'leverage-trading',
     youtubeUrl: 'https://www.youtube.com/watch?v=xGZx5Z7HFSs',
     youtubeThumbnail: "https://img.youtube.com/vi/xGZx5Z7HFSs/hqdefault.jpg",
