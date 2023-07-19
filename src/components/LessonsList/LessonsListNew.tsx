@@ -81,31 +81,14 @@ const QuestContainer = styled.div<{ isLarge: boolean }>`
 
 export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, onModalClose, totalVideoTime }: LessonsListProps) {
   const [hasProgress, setHasProgress] = useUserProgress();
-  const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
   const [showPopup, setShowPopup] = useState<QuestModalShow>();
   const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
   const [isLarge, setIsLarge] = useState<{ [key: string]: boolean }>({});
 
 
   useEffect(() => {
-    setImageClassesObject()
-    
+  
   }, []);
-
-
-  const setImageClassesObject = () => {
-    const imageSourceObject: ImageSourceObject = {}
-
-    lessonsArray.forEach((quests: Quests) => {
-      quests.lessons.forEach((quest: Lesson) => {
-        const questId = quest.id;
-        imageSourceObject[questId] = hasProgress(questId) ? 'has-progress-circle' : 'has-no-progress-circle';
-      });
-    });
-
-    setImageClasses(imageSourceObject);
-  }
-
 
   const setUserProgress = (questId: string) => {
     setHasProgress(questId, 'check')
@@ -151,17 +134,13 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
   }
 
 
-    /*
-    * Helper Function to pass as props
-    */
-    const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
-        setSelectedAccount(account)
-    }
+  /*
+  * Helper Function to pass as props
+  */
+  const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
+      setSelectedAccount(account)
+  }
 
-
-    if (!imageClasses) {
-        return ( <></>)
-    }
 
     return (
         <div className='lesson-list-container'>
@@ -174,7 +153,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
 
                     <div className="progress-container">
 
-                          <ul className="ul-circles">
+                      <ul className="ul-circles">
                           {quests.lessons.map((quest: Lesson) => (
                         <Link
                           onClick={() => togglePopup(quest.id)}
