@@ -9,7 +9,7 @@ import { Lesson } from "../generalLessons";
 export const quest6: Lesson[] = [
   {
     id: "eth-26",
-    title: '6. - Dezentrale Autonome Organisationen - DAOs',
+    title: 'Quest 6. - Dezentrale Autonome Organisationen - DAOs',
     slug: 'dezentrale-autonome-organisation',
     youtubeUrl: 'https://www.youtube.com/watch?v=cBpNnbsGg9g',
     youtubeThumbnail: "https://img.youtube.com/vi/cBpNnbsGg9g/hqdefault.jpg",
