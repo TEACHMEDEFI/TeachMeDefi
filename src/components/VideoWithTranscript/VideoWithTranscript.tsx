@@ -84,6 +84,10 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     }
   }
 
+  const handleVideoOnEnd = () => {
+
+  }
+
   return (
     <section className='w-full mb-22 lg:mb-10 relative video-modal-container' >
       <div className='w-full relative' >
@@ -94,7 +98,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             width="100%"
             url={currentLesson.youtubeUrl}
             controls={true}
-            // onEnded={handleVideoOnEnd}
+            onEnded={handleVideoOnEnd}
             onStart={handleVideoOnPlay}
             config={{
               youtube: {
@@ -105,6 +109,18 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           }
         </div>
       </div>
+      <div className="nav-button-container flex">
+        <div className='w-fit max-md:mb-5 self-start' >
+                {
+                  showPrevButton && <PrimaryButton onClick={() => displayPrevVideo()}> Spiele Vorheriges Video Ab </PrimaryButton>
+                }
+              </div>
+              <div className='w-fit max-md:mb-5 self-start' >
+                {
+                  showNextButton && <PrimaryButton onClick={() => displayNextVideo()}> Spiele Nächstes Video Ab </PrimaryButton>
+                }
+              </div>
+        </div>
       <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-10 flex flex-col space-y-5' >
         <div className='w-full flex flex-row justify-center mb-10 ' >
           <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
@@ -118,16 +134,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
                   />
                 </button>
               </span>
-            </div>
-            <div className='w-fit max-md:mb-5 self-start' >
-              {
-                showPrevButton && <PrimaryButton onClick={() => displayPrevVideo()}> Previous </PrimaryButton>
-              }
-            </div>
-            <div className='w-fit max-md:mb-5 self-start' >
-              {
-                showNextButton && <PrimaryButton onClick={() => displayNextVideo()}> Next </PrimaryButton>
-              }
             </div>
 
             {/* <div >
