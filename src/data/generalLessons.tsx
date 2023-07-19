@@ -70,7 +70,7 @@ export const generalLessons: Quests[] = [
       // },
       {
         id: "general-2",
-        title: 'Die Blockchaintechnologie - Der Ursprung',
+        title: '1. Die Blockchaintechnologie - Der Ursprung',
         slug: 'blockchain-der-ursprung',
         youtubeUrl: 'https://www.youtube.com/watch?v=opVQuUnSDGw',
         youtubeThumbnail: "https://img.youtube.com/vi/opVQuUnSDGw/hqdefault.jpg",
