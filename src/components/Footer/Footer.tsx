@@ -15,14 +15,6 @@ export default function Footer() {
           </div>
           <div className="flex gap-5 mb-3" >
             <Link
-              href={"https://www.linkedin.com/company/teachmedefi"}
-              target="_blank"
-            >
-              <div className="h-9 w-9 relative">
-                <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"} alt="linkedIn" fill sizes="60px" />
-              </div>
-            </Link>
-            <Link
               href={"https://www.youtube.com/@teachmedefi"}
               target="_blank"
             >
@@ -41,13 +33,11 @@ export default function Footer() {
             {/* <Link
               href={"https://discord.io/teachmedefi"}
               target="_blank"
-            >
+              >
               <div className="h-9 w-9 relative">
-                <Image src={isDarkMode ? "/icons/discord.png" : "/icons/discord_dark.png"} alt="discord" fill sizes="60px" />
+              <Image src={isDarkMode ? "/icons/discord.png" : "/icons/discord_dark.png"} alt="discord" fill sizes="60px" />
               </div>
             </Link> */}
-          </div>
-          <div className="flex gap-5 items-center" >
             <Link href={"https://www.tiktok.com/@teachmedefi_official"} target="_blank" >
               <div className="h-9 w-9 relative">
                 <Image src={isDarkMode ? "/icons/tiktok-light.svg" : "/icons/tiktok-dark.svg"}
@@ -55,6 +45,8 @@ export default function Footer() {
                 />
               </div>
             </Link>
+          </div>
+          <div className="flex gap-5 items-center" >
             <Link href={"https://www.instagram.com/teachmedefi/"} target="_blank" >
               <div className="h-9 w-9 relative">
                 <Image src={isDarkMode ? "/icons/instagram.svg" : "/icons/instagram-dark.svg"}
@@ -70,6 +62,14 @@ export default function Footer() {
                 <Image src={isDarkMode ? "/icons/podcast-light.svg" : "/icons/podcast-dark.svg"}
                   alt="podcast" fill sizes="60px"
                 />
+              </div>
+            </Link>
+            <Link
+              href={"https://www.linkedin.com/company/teachmedefi"}
+              target="_blank"
+            >
+              <div className="h-9 w-9 relative">
+                <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"} alt="linkedIn" fill sizes="60px" />
               </div>
             </Link>
 

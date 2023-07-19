@@ -14,31 +14,28 @@ export default function HeroSection() {
         <h1 className='xl:text-5xl text-4xl font-bold' >
           Krypto leicht gemacht!
         </h1>
-        <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl pr-3 ' >
+        <h2 className='xl:text-lg text-sm pb-1 lg:pb-5 backdrop-blur-lg rounded-3xl pr-3 ' >
           Egal, ob du ganz neu im Krypto-Bereich bist oder bereits ein erfahrener Nutzer -
           wir machen Kryptowährungen und Blockchain einfach und zugänglich für alle.
           Entdecke, lerne und verstehe die Welt der digitalen Währungen und nutze sie zu deinem Vorteil.
         </h2>
+          <span className="xl:text-lg text-sm " >
+            Abonniere noch heute unseren Newsletter und erhalte kostenfreie Einsteiger-Handbücher zu Bitcoin & Ethereum!
+          </span>
         <div >
           {/* <div className="w-40 mb-5">
             <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
               JOIN NOW
             </PrimaryButton>
           </div> */}
+          
           <div>
-          <div className="w-64 mb-5">
+            <div className="w-max mb-5">
               <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
-                Kostenlos anmelden
+                Newsletter abonnieren
               </PrimaryButton>
             </div>
             <div className="flex gap-5 mb-5 items-center " >
-              <Link href={"https://www.linkedin.com/company/teachmedefi"} target="_blank" >
-                <div className="h-6 w-6 relative">
-                  <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"}
-                    alt="linkedIn" fill sizes="60px"
-                  />
-                </div>
-              </Link>
               <Link href={"https://www.youtube.com/@teachmedefi"} target="_blank" >
                 <div className="h-6 w-6 relative">
                   <Image src={isDarkMode ? "/icons/youtube.png" : "/icons/youtube_dark.png"}
@@ -55,9 +52,9 @@ export default function HeroSection() {
               </Link>
               {/* <Link href={"https://discord.io/teachmedefi"} target="_blank" >
                 <div className="h-6 w-6 relative">
-                  <Image src={isDarkMode ? "/icons/discord.png" : "/icons/discord_dark.png"}
-                    alt="discord" fill sizes="60px"
-                  />
+                <Image src={isDarkMode ? "/icons/discord.png" : "/icons/discord_dark.png"}
+                alt="discord" fill sizes="60px"
+                />
                 </div>
               </Link> */}
               <Link href={"https://www.tiktok.com/@teachmedefi_official"} target="_blank" >
@@ -81,15 +78,22 @@ export default function HeroSection() {
                   />
                 </div>
               </Link>
+              <Link href={"https://www.linkedin.com/company/teachmedefi"} target="_blank" >
+                <div className="h-6 w-6 relative">
+                  <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"}
+                    alt="linkedIn" fill sizes="60px"
+                  />
+                </div>
+              </Link>
 
             </div>
             {/* <div className="flex gap-5 items-center" >
               <Link href={"https://www.tiktok.com/@teachmedefi_official"} target="_blank" >
-                <div className="h-6 w-6 relative">
-                  <Image src={isDarkMode ? "/icons/tiktok.svg" : "/icons/tiktok-dark.svg"} 
-                  alt="tiktok" fill sizes="60px" 
-                  />
-                </div>
+              <div className="h-6 w-6 relative">
+              <Image src={isDarkMode ? "/icons/tiktok.svg" : "/icons/tiktok-dark.svg"} 
+              alt="tiktok" fill sizes="60px" 
+              />
+              </div>
               </Link>
               <Link href={"https://www.instagram.com/teachmedefi/"} target="_blank" >
                 <div className="h-6 w-6 relative">
@@ -107,7 +111,7 @@ export default function HeroSection() {
               </Link>
 
             </div> */}
-            
+
           </div>
         </div>
       </div>
