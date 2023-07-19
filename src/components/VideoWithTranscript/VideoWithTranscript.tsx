@@ -140,7 +140,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           {showMintNftDirections && videoEnded && (
             <div className="fade-out">
             <h2 className='font-bold text-3xl '>Super! Du bist beim letzten Video dieser Quest angekommen. Wenn du alle Challenges erfüllt hast, 
-              dann schließe jetzt dieses Popup-Fenster und klicke den "Mint NFT" Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ 
+              dann schließe jetzt dieses Popup-Fenster und klicke den &quot;Mint NFT&quot; Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ 
               kannst du dir die Videos für diese Quest nochmal anschauen.</h2>
             <div className="buttons-container-video-end">
               <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
