@@ -7,7 +7,7 @@ export const dotTheory: Quests[] = [
     lessons: [
       {
         id: "dot-1",
-        title: 'Was ist Polkadot?',
+        title: '6. Was ist Polkadot?',
         slug: 'was-ist-polkadot',
         youtubeUrl: 'https://youtu.be/83kWudF8Rfc',
         youtubeThumbnail: "https://youtu.be/83kWudF8Rfc/hqdefault.jpg",
@@ -29,7 +29,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-2",
-        title: 'Die Bedeutung von Interoperabilität',
+        title: '7. Die Bedeutung von Interoperabilität',
         slug: 'bedeuting-interoperabilitaet',
         youtubeUrl: 'https://youtu.be/uXqMwhZeyio',
         youtubeThumbnail: "https://youtu.be/uXqMwhZeyio/hqdefault.jpg",
@@ -53,7 +53,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-3",
-        title: 'Was macht Polkadot einzigartig?',
+        title: '8. Was macht Polkadot einzigartig?',
         slug: 'was-macht-polkadot-einzigartig',
         youtubeUrl: 'https://youtu.be/e-wlyU-yk2Q',
         youtubeThumbnail: "https://youtu.be/e-wlyU-yk2Q/hqdefault.jpg",
@@ -79,7 +79,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-4",
-        title: 'Der DOT Coin - Polkadots Kryptowährung',
+        title: '9. Der DOT Coin - Polkadots Kryptowährung',
         slug: 'dot-coin',
         youtubeUrl: 'https://youtu.be/eSaSPSZdF9A',
         youtubeThumbnail: "https://youtu.be/eSaSPSZdF9A/hqdefault.jpg",
@@ -100,7 +100,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-5",
-        title: 'Nominatoren, Validatoren und Kollatoren',
+        title: '10. Nominatoren, Validatoren und Kollatoren',
         slug: 'nominatoren-validatoren-kollatoren',
         youtubeUrl: 'https://youtu.be/KBpxDliWqBM',
         youtubeThumbnail: "https://youtu.be/KBpxDliWqBM/hqdefault.jpg",
@@ -120,7 +120,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-6",
-        title: 'Polkadot Adressen und Transaktionen',
+        title: '11. Polkadot Adressen und Transaktionen',
         slug: 'polka-addressen-transaktionen',
         youtubeUrl: 'https://youtu.be/if61AYJjgiA',
         youtubeThumbnail: "https://youtu.be/if61AYJjgiA/hqdefault.jpg",
@@ -141,7 +141,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-7",
-        title: 'Polkadots Architektur',
+        title: '12. Polkadots Architektur',
         slug: 'polka-architektur',
         youtubeUrl: 'https://youtu.be/0DlttXMMDEQ',
         youtubeThumbnail: "https://youtu.be/0DlttXMMDEQ/hqdefault.jpg",
@@ -162,7 +162,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-8",
-        title: 'Substrate',
+        title: '13. Substrate',
         slug: 'substrate',
         youtubeUrl: 'https://youtu.be/6NxHY8iZW7U',
         youtubeThumbnail: "https://youtu.be/6NxHY8iZW7U/hqdefault.jpg",
@@ -181,7 +181,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-9",
-        title: 'Governance in dezentralen Netzwerken',
+        title: '14. Governance in dezentralen Netzwerken',
         slug: 'governance',
         youtubeUrl: 'https://youtu.be/QGmTMPfwI_I',
         youtubeThumbnail: "https://youtu.be/QGmTMPfwI_I/hqdefault.jpg",
@@ -205,7 +205,7 @@ export const dotTheory: Quests[] = [
       },
       {
         id: "dot-10",
-        title: 'Polkadots On-Chain Governance',
+        title: '15. Polkadots On-Chain Governance',
         slug: 'on-chain-governance',
         youtubeUrl: 'https://youtu.be/BIJmh5ieNXQ',
         youtubeThumbnail: "https://youtu.be/BIJmh5ieNXQ/hqdefault.jpg",
