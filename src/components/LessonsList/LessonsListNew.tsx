@@ -143,10 +143,6 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     }, 1000);
   }
 
-  const isSectionlarge = (questSectionid: string): boolean => {
-    return isLarge && isLarge[questSectionid] ? true : false;
-  }
-
 
   const isModalOpen = (questId: string) => {
     const modalOpen = showPopup && showPopup[questId]
@@ -227,6 +223,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                       questSectionid={quests.questSectionId} // Pass hasProgress function as prop
                       currentQuest={quests}
                       currentQuestIndex={i}
+                      isQuestSection
                     />
                   ))}
                 </div>

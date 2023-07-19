@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from 'react';
 import { Lesson } from "@/data/generalLessons";
-import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 import { GeneralButton } from "@/components/Buttons/Buttons";
 import { Quests } from '@/data/generalLessons'
@@ -19,10 +18,12 @@ type LessonPageProps = {
     questSectionid: string;
     currentQuest: Quests;
     currentQuestIndex: number;
+    isQuestSection: boolean
 }
 
 
-export default function LessonPage({ currentLesson, modalOpen, onClose, setUserProgress, questSectionid, currentQuest, currentQuestIndex }: LessonPageProps) {
+export default function LessonPage({ currentLesson, modalOpen, onClose, setUserProgress, questSectionid,
+    currentQuest, currentQuestIndex, isQuestSection }: LessonPageProps) {
     const [lesson, setLesson] = useState<Lesson>(currentLesson);
     const [lessonIndex, setLessonIndex] = useState<number>(currentQuestIndex)
     const [showSpinner, setShowSpinner] = useState<boolean>(false)
@@ -102,7 +103,7 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
             <div className='relative w-[80rem] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 lesson-page-modal' >
                 <VideoWithTranscript currentLesson={lesson} setUserProgress={setUserProgress} 
                     displayNextVideoInModal={displayNextVideoInModal} displayPrevVideoInModal={displayPrevVideoInModal}
-                    currentQuest={currentQuest} lessonIndex={lessonIndex} replayVideoInModal={replayVideoInModal}  />
+                    currentQuest={currentQuest} lessonIndex={lessonIndex} replayVideoInModal={replayVideoInModal} isQuestSection  />
                 {/* <LessonsBurgerMenu /> */}
                 {/* <LinksAndIndexBurger /> */}
 

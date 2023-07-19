@@ -18,16 +18,18 @@ type VideoWithTranscriptProps = {
   currentQuest: Quests;
   lessonIndex: number;
   replayVideoInModal: Function
+  isQuestSection: boolean
 }
 
 
 export default function VideoWithTranscript({ currentLesson, setUserProgress, displayPrevVideoInModal, displayNextVideoInModal,
-  currentQuest, lessonIndex, replayVideoInModal}: VideoWithTranscriptProps) {
+  currentQuest, lessonIndex, replayVideoInModal, isQuestSection}: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const [videoEnded, setVideoEnded] = useState<boolean>(false);
   const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
+  const [showMintNftDirections, setShowMintNftDirections] = useState<boolean>(false);
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
 
@@ -93,6 +95,11 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const handleVideoOnEnd = () => {
     setVideoEnded(true);
     setShowNavButtons(false)
+    console.log(isQuestSection)
+    if (isQuestSection) {
+      console.log('setting Mint Directions to true')
+      setShowMintNftDirections(true)
+    }
   }
   
 
@@ -119,7 +126,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             </div>
             </div>
           )}
-          {videoEnded && (
+          {videoEnded && !showMintNftDirections && (
             <div className="fade-out">
               <h2 className='font-bold text-3xl '>Du Hast Das Video Beendet. Was Möchtest Du Als Nächstes Tun?</h2>
               <div className="buttons-container-video-end">
@@ -129,7 +136,22 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
               </div>
             </div>
           )}
-      
+
+
+          {showMintNftDirections && videoEnded && (
+            <div className="fade-out">
+            <h2 className='font-bold text-3xl '>Super! Du Bist Beim Letzten Video Dieser Quest Angekommen. Wenn du alle Challenges erfüllt hast, 
+              dann schließe jetzt dieses Modal und clicke den Mint NFT Button für diese Quest. Im folgenden Modal wird dir nochmal alles erklärt! Alternativ 
+              kannst du dir die Videos für diese Quest nochmal anschauen</h2>
+            <div className="buttons-container-video-end">
+              <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
+              <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton> 
+              <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+            </div>
+          </div>
+            
+          )}
+  
       {showNavButtons && <div className="nav-button-container flex">
         <div className='w-fit max-md:mb-5 self-start' >
           <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
