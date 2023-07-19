@@ -48,7 +48,7 @@ export default function Index() {
               Ethereum!
             </span>
           </h1>
-          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10 ' >
+          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10' >
             Du möchtest mehr über Ethereum erfahren, weißt aber nicht, wo du anfangen sollst? Kein Problem, wir führen dich Schritt für
             Schritt durch diese revolutionäre Blockchain-Technologie. Unser Ziel ist es, dich zu befähigen, mit Sicherheit und Vertrauen
             in die Welt von Ethereum einzusteigen. Fange jetzt an, entdecke die Welt von Ethereum und verdiene NFTs während deiner Lernreise!
