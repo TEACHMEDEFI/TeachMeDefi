@@ -139,6 +139,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
         </div>
       </div>}
+      {!videoEnded &&
       <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-10 flex flex-col space-y-5' >
         <div className='w-full flex flex-row justify-center mb-10 ' >
           <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
@@ -190,7 +191,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             </div>
           </div>
         </div>
-      </div>
+      </div>}
       {/* THIS IS FOR TESTING  */}
       {/* {showPopup &&
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
