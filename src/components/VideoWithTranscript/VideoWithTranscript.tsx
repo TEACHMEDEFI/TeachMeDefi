@@ -122,7 +122,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           )}
           {videoEnded && (
             <div className="fade-out">
-              <h2 className='font-bold text-3xl '>Du Hast Das Video Beendet. Was möchtest Du Als Nächstes Tun?</h2>
+              <h2 className='font-bold text-3xl '>Du Hast Das Video Beendet. Was Möchtest Du Als Nächstes Tun?</h2>
               <div className="buttons-container-video-end">
                 <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
                 <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton> 
