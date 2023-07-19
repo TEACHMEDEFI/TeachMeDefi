@@ -12,7 +12,7 @@ import { Lesson } from "../generalLessons";
 export const questSicherheit: Lesson[] = [
   {
     id: "eth-27",
-    title: 'Sicherheit - 1. Cold Wallet einrichten',
+    title: 'Sicherheit - Cold Wallet einrichten',
     slug: 'cold-wallet-einrichten',
     youtubeUrl: 'https://www.youtube.com/watch?v=h-j3-XVmz2U',
     youtubeThumbnail: "https://img.youtube.com/vi/h-j3-XVmz2U/hqdefault.jpg",
@@ -86,7 +86,7 @@ export const questSicherheit: Lesson[] = [
   },
   {
     id: "eth-28",
-    title: 'Sicherheit - 2. Multisig Wallet einrichten',
+    title: 'Sicherheit - Multisig Wallet einrichten',
     slug: 'multisig-wallet-einrichten',
     youtubeUrl: 'https://www.youtube.com/watch?v=MtZULB6a60k',
     youtubeThumbnail: "https://img.youtube.com/vi/MtZULB6a60k/hqdefault.jpg",
@@ -140,7 +140,7 @@ export const questSicherheit: Lesson[] = [
   },
   {
     id: "eth-29",
-    title: 'Sicherheit - 3. Phishing, Telegram, 2FA, VPN',
+    title: 'Sicherheit - Phishing, Telegram, 2FA, VPN',
     slug: 'phishing-telegram-2fa-vpn',
     youtubeUrl: 'https://www.youtube.com/watch?v=ycwviRYf_44',
     youtubeThumbnail: "https://img.youtube.com/vi/ycwviRYf_44/hqdefault.jpg",
@@ -263,7 +263,7 @@ export const questSicherheit: Lesson[] = [
   },
   {
     id: "eth-30",
-    title: 'Sicherheit - 4. Transaktionen Rückgängig machen',
+    title: 'Sicherheit - Transaktionen Rückgängig machen',
     slug: 'transaktionen-rueckgaenging-machen',
     youtubeUrl: 'https://www.youtube.com/watch?v=Q7Omyb6ZYEE',
     youtubeThumbnail: "https://img.youtube.com/vi/Q7Omyb6ZYEE/hqdefault.jpg",
