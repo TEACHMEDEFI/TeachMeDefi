@@ -46,8 +46,6 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
   const NAME = "Peter"
 
   useEffect(() => {
-    // Quest 3 transactions ID eingeben
-    // Quest 4 xcdot auf moonbeam balance größer 0
     const nodeURL = questSectionId === 'dot-quest-5' ? 'wss://1rpc.io/glmr' : 'wss://rpc.polkadot.io';
     setup(nodeURL)
 
@@ -62,7 +60,6 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
     if (!selectedPolkaAccount || !api) return
 
     (async() => {
-        // Queries
 
         if (questSectionId === 'dot-quest-2') {
             // @ts-ignore: Unreachable code error
@@ -294,8 +291,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
           {!showSpinner && !nftMinted && nftBalance === 0 && isConnected && selectedPolkaAccount && (specialChallengeDone || nftMintable) ?
             (
               <>
-                <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!
-                  Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
+                <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!</h3>
                 <h3>Und so gehts weiter:</h3>
 
                 {/* <ul>

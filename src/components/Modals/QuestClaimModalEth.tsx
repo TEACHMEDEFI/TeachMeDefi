@@ -93,8 +93,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
           {!showSpinner && !nftMinted && nftBalance === 0 && nftMintable && isConnected ?
             (
               <>
-                <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!
-                  Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen.</h3>
+                <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!</h3>
                 <h3>Und so gehts weiter:</h3>
                 <ul>
                   <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
