@@ -16,7 +16,7 @@ export default function LessonPage({ currentLesson, nextLessonSlug }: { currentL
 
   return (
     <main className='w-full flex flex-col  items-center ' >
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
+      {/* <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} /> */}
       <LessonsBurgerMenu />
       {/* <LinksAndIndexBurger /> */}
     </main>

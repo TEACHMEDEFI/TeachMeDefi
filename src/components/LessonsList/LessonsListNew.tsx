@@ -216,7 +216,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                     ) : null}
                   </ul>
 
-                  {quests.lessons.map((quest: Lesson) => (
+                  {quests.lessons.map((quest: Lesson, i: number) => (
                     <LessonPage
                       key={quest.id}
                       currentLesson={quest}
@@ -225,6 +225,8 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                       onClose={onClose}
                       setUserProgress={setUserProgress}
                       questSectionid={quests.questSectionId} // Pass hasProgress function as prop
+                      currentQuest={quests}
+                      currentQuestIndex={i}
                     />
                   ))}
                 </div>

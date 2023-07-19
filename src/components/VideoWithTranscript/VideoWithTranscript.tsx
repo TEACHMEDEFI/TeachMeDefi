@@ -6,39 +6,81 @@ import Image from 'next/image';
 import { Lesson, Transcript, Links } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
 import { useTheme } from '@/context/ThemeContext';
+import { Quests } from '@/data/generalLessons'
 
 
 
 type VideoWithTranscriptProps = {
   currentLesson: Lesson;
-  nextLessonSlug?: string;
-  setUserProgress?: Function
+  setUserProgress?: Function;
+  displayPrevVideoInModal: Function;
+  displayNextVideoInModal: Function
+  currentQuest: Quests;
+  lessonIndex: number
 }
 
 
-export default function VideoWithTranscript({ currentLesson, nextLessonSlug, setUserProgress }: VideoWithTranscriptProps) {
+export default function VideoWithTranscript({ currentLesson, setUserProgress, displayPrevVideoInModal, displayNextVideoInModal,
+  currentQuest, lessonIndex}: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
+  const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setShowPlayer(true);
     setShowNextButton(false)
+    setShowPrevButton(false)
+    handleButtons()
   }, []);
 
-  const handleVideoOnEnd = () => {
+  
+  
+  const handleVideoOnPlay = () => {
     if (setUserProgress) {
       setUserProgress(currentLesson.id)
     }
-    
-    setShowNextButton(true)
+  }
+
+  const handleButtons = () => {
+    handleShowNextButton()
+    handleShowPrevButton()
   }
 
 
   const scrollToCalendly = () => {
     if (calendlyRef && calendlyRef.current) {
       calendlyRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const displayNextVideo = () => {
+    displayNextVideoInModal();
+    handleButtons()
+  }
+
+
+  const displayPrevVideo = () => {
+    displayPrevVideoInModal()
+    handleButtons()
+  }
+
+  const handleShowNextButton = () => {
+    console.log(currentQuest.lessons[lessonIndex + 1])
+    if (currentQuest.lessons[lessonIndex + 1] !== undefined) {
+      setShowNextButton(true)
+    } else {
+      setShowNextButton(false)
+    }
+  }
+
+  const handleShowPrevButton = () => {
+    console.log(currentQuest.lessons[lessonIndex - 1])
+    if (currentQuest.lessons[lessonIndex - 1] !== undefined) {
+      setShowPrevButton(true)
+    } else {
+      setShowPrevButton(false)
     }
   }
 
@@ -52,7 +94,8 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, set
             width="100%"
             url={currentLesson.youtubeUrl}
             controls={true}
-            onStart={handleVideoOnEnd}
+            // onEnded={handleVideoOnEnd}
+            onStart={handleVideoOnPlay}
             config={{
               youtube: {
                 playerVars: { fs: 1 }
@@ -78,7 +121,12 @@ export default function VideoWithTranscript({ currentLesson, nextLessonSlug, set
             </div>
             <div className='w-fit max-md:mb-5 self-start' >
               {
-                nextLessonSlug && showNextButton && <PrimaryButton href={nextLessonSlug}> Next </PrimaryButton>
+                showPrevButton && <PrimaryButton onClick={() => displayPrevVideo()}> Previous </PrimaryButton>
+              }
+            </div>
+            <div className='w-fit max-md:mb-5 self-start' >
+              {
+                showNextButton && <PrimaryButton onClick={() => displayNextVideo()}> Next </PrimaryButton>
               }
             </div>
 
