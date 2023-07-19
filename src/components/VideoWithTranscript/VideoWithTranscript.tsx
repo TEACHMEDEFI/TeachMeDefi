@@ -127,11 +127,11 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           )}
           {videoEnded && !showMintNftDirections && (
             <div className="fade-out">
-              <h2 className='font-bold text-3xl '>Du Hast Das Video Beendet. Was Möchtest Du Als Nächstes Tun?</h2>
+              <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
               <div className="buttons-container-video-end">
-                <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
-                <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton> 
-                <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+                <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
+                <PrimaryButton onClick={replayVideo}>Spiele das Video nochmal ab</PrimaryButton> 
+                <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele nächstes Video ab</PrimaryButton>
               </div>
             </div>
           )}
@@ -139,13 +139,13 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
           {showMintNftDirections && videoEnded && (
             <div className="fade-out">
-            <h2 className='font-bold text-3xl '>Super! Du Bist Beim Letzten Video Dieser Quest Angekommen. Wenn du alle Challenges erfüllt hast, 
-              dann schließe jetzt dieses Modal und clicke den Mint NFT Button für diese Quest. Im folgenden Modal wird dir nochmal alles erklärt! Alternativ 
-              kannst du dir die Videos für diese Quest nochmal anschauen</h2>
+            <h2 className='font-bold text-3xl '>Super! Du bist beim letzten Video dieser Quest angekommen. Wenn du alle Challenges erfüllt hast, 
+              dann schließe jetzt dieses Popup-Fenster und klicke den "Mint NFT" Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ 
+              kannst du dir die Videos für diese Quest nochmal anschauen.</h2>
             <div className="buttons-container-video-end">
-              <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
-              <PrimaryButton onClick={replayVideo}>Spiele Das Video Nochmal Ab</PrimaryButton> 
-              <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+              <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
+              <PrimaryButton onClick={replayVideo}>Spiele das Video nochmal ab</PrimaryButton> 
+              <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele nächstes Video ab</PrimaryButton>
             </div>
           </div>
             
@@ -153,10 +153,10 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   
       {showNavButtons && <div className="nav-button-container flex">
         <div className='w-fit max-md:mb-5 self-start' >
-          <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele Vorheriges Video Ab</PrimaryButton> 
+          <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
         </div>
         <div className='w-fit max-md:mb-5 self-start' >
-          <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele Nächstes Video Ab</PrimaryButton>
+          <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele nächstes Video ab</PrimaryButton>
         </div>
       </div>}
       {!videoEnded &&
