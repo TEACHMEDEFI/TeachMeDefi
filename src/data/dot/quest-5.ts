@@ -10,7 +10,7 @@ import { Lesson } from "../generalLessons";
 export const quest5: Lesson[] = [
   {
     id: "dot-25",
-    title: 'Quest 5.1 Krypto handeln auf einer DEX',
+    title: 'Quest 5.1 - Krypto handeln auf einer DEX',
     slug: 'handeln-dex',
     youtubeUrl: 'https://youtu.be/gw9jEMs3r4s',
     youtubeThumbnail: "https://youtu.be/gw9jEMs3r4s/hqdefault.jpg",
@@ -135,7 +135,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "dot-26",
-    title: 'Quest 5.2 Liquidity Mining',
+    title: 'Quest 5.2 - Liquidity Mining',
     slug: 'liquidity-mining',
     youtubeUrl: 'https://youtu.be/kwAT-ieOeQws',
     youtubeThumbnail: "https://youtu.be/kwAT-ieOeQw/hqdefault.jpg",
@@ -239,7 +239,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "dot-27",
-    title: 'Quest 5.3 Heimreise',
+    title: 'Quest 5.3 - Heimreise',
     slug: 'heimreise',
     youtubeUrl: 'https://youtu.be/3YHZKhhDYVs',
     youtubeThumbnail: "https://youtu.be/3YHZKhhDYVs/hqdefault.jpg",
