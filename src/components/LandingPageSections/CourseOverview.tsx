@@ -25,7 +25,7 @@ export default function CourseOverview() {
           Ethereum und Polkadot. Lerne auf deine eigene Art und Weise und erhalte Belohnungen in Form von 
           NFTs für deinen Fortschritt. Mach den ersten Schritt in die Zukunft der Finanzen mit TEACHMEDEFI!
             </p>
-          <div className="flex" >
+          <div className="flex flex-wrap" >
             {courseSections && courseSections.map((course, i) => (
               <div key={course.title} className="flex" >
                 <Link href={course.href}  className="font-bold text-xl" >{course.title}</Link>
