@@ -84,11 +84,26 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
   const [showPopup, setShowPopup] = useState<QuestModalShow>();
   const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
   const [isLarge, setIsLarge] = useState<{ [key: string]: boolean }>({});
+  const [imageClasses, setImageClasses] = useState<ImageSourceObject>()
 
 
   useEffect(() => {
+    const imageSourceObject: ImageSourceObject = {}
+
+    lessonsArray.forEach((quests: Quests, i) => {  
+      quests.lessons.forEach((quest: Lesson) => {
+        const questId = quest.id;
+
+        imageSourceObject[questId] = hasProgress(questId) ? 'has-progress-circle' : 'has-no-progress-circle'
+      }) 
+    });
+
+    setImageClasses(imageSourceObject);
   
-  }, []);
+  }, [showPopup]);
+
+
+
 
   const setUserProgress = (questId: string) => {
     setHasProgress(questId, 'check')
@@ -133,6 +148,35 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     return modalOpen
   }
 
+  /*
+    * Creates the li Elements for each specific listof Quests
+    */
+  const renderProgressBarItems = (questSectionId: string) => {
+    let listItemsPerQuest: listItemsPerQuest = {}
+
+    lessonsArray.forEach((quests: Quests, j) => (
+        listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
+            <Link onClick={() => togglePopup(quest.id)} key={quest.id} href="javascript:;" className={`${imageClasses && imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
+            
+        ))
+    ))
+
+    return listItemsPerQuest[questSectionId];
+}
+
+const renderVideoModals = (questSectionId: string) => {
+  let lessonModalsPerQuest: listItemsPerQuest = {}
+
+  lessonsArray.forEach((quests: Quests, j) => (
+    lessonModalsPerQuest[quests.questSectionId] = quests.lessons.map((quest: Lesson, i) => (
+        // @ts-ignore: Object is possibly 'null'.
+        <LessonPage key={quest.id} currentLesson={quest} modalOpen={showPopup[quest.id]} togglePopup={togglePopup} />
+      ))
+  ))
+
+  return lessonModalsPerQuest[questSectionId]
+}
+
 
   /*
   * Helper Function to pass as props
@@ -153,43 +197,22 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
 
                     <div className="progress-container">
 
-                      <ul className="ul-circles">
-                          {quests.lessons.map((quest: Lesson) => (
-                        <Link
-                          onClick={() => togglePopup(quest.id)}
-                          key={quest.id}
-                          href='javascript:;'
-                          className={`${hasProgress(quest.id) ? 'has-progress-circle' : 'has-no-progress-circle'} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7`}
-                        >
-                          <i className='fa-regular fa-play' /> {quest.videoTime} Min
-                        </Link>
-                      ))}
+                    <ul className="ul-circles">
+                      {renderProgressBarItems(quests.questSectionId)}
 
-                      {isQuestSection && (
-                        <>
-                          <Link
-                            href='javascript:;'
-                            className='is-nft-mint bg-[#fdfdfd] dark:bg-gray-700'
-                            onClick={() => togglePopup(quests.questSectionId)}
-                          >
-                            <i className='fa-light fa-trophy' />Mint NFT
-                          </Link>
-                        </>
-                      )}
+                          {isQuestSection ? (
+                            <>
+                              <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(quests.questSectionId)}><i className="fa-light fa-trophy" />Mint NFT</Link>
+                            </>)
+                            :
+                            null
+                          }
+                          
+                      {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
 
-                    {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? (
-                      <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} />
-                    ) : null}
-
-                    {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? (
-                      <QuestClaimModalDot
-                        questSectionId={quests.questSectionId}
-                        togglePopup={togglePopup}
-                        selectedPolkaAccount={selectedAccount}
-                        setSelectedPolkaAccount={setSelectedPolkaAccount}
-                      />
-                    ) : null}
-                  </ul>
+                      {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
+                          selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
+                    </ul>
 
                   {quests.lessons.map((quest: Lesson, i: number) => (
                     <LessonPage
