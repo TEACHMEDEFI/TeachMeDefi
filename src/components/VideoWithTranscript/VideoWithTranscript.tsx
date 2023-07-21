@@ -23,7 +23,7 @@ type VideoWithTranscriptProps = {
 
 
 export default function VideoWithTranscript({ currentLesson, setUserProgress, displayPrevVideoInModal, displayNextVideoInModal,
-  currentQuest, lessonIndex, replayVideoInModal, isQuestSection}: VideoWithTranscriptProps) {
+  currentQuest, lessonIndex, replayVideoInModal, isQuestSection }: VideoWithTranscriptProps) {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
@@ -40,8 +40,8 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     handleButtons()
   }, []);
 
-  
-  
+
+
   const handleVideoOnPlay = () => {
     if (setUserProgress) {
       setUserProgress(currentLesson.id)
@@ -100,15 +100,15 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       setShowMintNftDirections(true)
     }
   }
-  
+
 
   return (
-    <section className='w-full mb-22 lg:mb-10 relative video-modal-container' >
+    <section className=' relative video-modal-container overflow-y-scroll' >
       {showPlayer && !videoEnded && (
-      <div className='w-full relative' >
-        {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
-        <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-        
+        <div className='w-full relative' >
+          {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
+          <div className=' w-full aspect-video overflow-hidden rounded-t-xl  '  >
+
             <ReactPlayer
               height="100%"
               width="100%"
@@ -122,96 +122,92 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
                 }
               }}
             />
-            </div>
-            </div>
-          )}
-          {videoEnded && !showMintNftDirections && (
-            <div className="fade-out">
-              <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
-              <div className="buttons-container-video-end">
-                <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
-                <PrimaryButton onClick={replayVideo}>Spiele das Video nochmal ab</PrimaryButton> 
-                <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele nächstes Video ab</PrimaryButton>
-              </div>
-            </div>
-          )}
-
-
-          {showMintNftDirections && videoEnded && (
-            <div className="fade-out">
-            <h2 className='font-bold text-3xl '>Super! Du bist beim letzten Video dieser Quest angekommen. Wenn du alle Challenges erfüllt hast, 
-              dann schließe jetzt dieses Popup-Fenster und klicke den &quot;Mint NFT&quot; Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ 
-              kannst du dir die Videos für diese Quest nochmal anschauen.</h2>
-            <div className="buttons-container-video-end">
-              <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
-              <PrimaryButton onClick={replayVideo}>Spiele das Video nochmal ab</PrimaryButton> 
-              <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele nächstes Video ab</PrimaryButton>
-            </div>
           </div>
-            
-          )}
-  
-      {showNavButtons && <div className="nav-button-container flex">
-        <div className='w-fit max-md:mb-5 self-start' >
-          <PrimaryButton buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Spiele vorheriges Video ab</PrimaryButton> 
         </div>
-        <div className='w-fit max-md:mb-5 self-start' >
-          <PrimaryButton buttonDisabled={!showNextButton} onClick={displayNextVideo}>Spiele nächstes Video ab</PrimaryButton>
+      )}
+      {videoEnded && !showMintNftDirections && (
+        <div className="fade-out">
+          <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
+          <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
+            <PrimaryButton customClassButton='md:w-max ' buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Vorheriges Video</PrimaryButton>
+            <PrimaryButton customClassButton='md:w-max ' onClick={replayVideo}>Video nochmal abspielen</PrimaryButton>
+            <PrimaryButton customClassButton='md:w-max ' buttonDisabled={!showNextButton} onClick={displayNextVideo}>Nächstes Video</PrimaryButton>
+          </div>
         </div>
+      )}
+
+
+      {showMintNftDirections && videoEnded && (
+        <div className="fade-out">
+          <h2 className='font-bold text-3xl '>Super! Du bist beim letzten Video dieser Quest angekommen. Wenn du alle Challenges erfüllt hast,
+            dann schließe jetzt dieses Popup-Fenster und klicke den &quot;Mint NFT&quot; Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ
+            kannst du dir die Videos für diese Quest nochmal anschauen.</h2>
+          <div className="flex flex-col md:flex-row justify-around gap-5 py-5">
+            <PrimaryButton customClassButton='md:w-max' buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Vorheriges Video</PrimaryButton>
+            <PrimaryButton customClassButton='md:w-max' onClick={replayVideo}>Video nochmal abspielen</PrimaryButton>
+            <PrimaryButton customClassButton='md:w-max' buttonDisabled={!showNextButton} onClick={displayNextVideo}>Nächstes Video</PrimaryButton>
+          </div>
+        </div>
+
+      )}
+
+      {showNavButtons && <div className="flex flex-col sm:flex-row justify-around gap-5 py-5 ">
+        <PrimaryButton customClassButton='sm:w-max' buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Vorheriges Video</PrimaryButton>
+        <PrimaryButton customClassButton='sm:w-max' buttonDisabled={!showNextButton} onClick={displayNextVideo}>Nächstes Video</PrimaryButton>
       </div>}
       {!videoEnded &&
-      <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-10 flex flex-col space-y-5' >
-        <div className='w-full flex flex-row justify-center mb-10 ' >
-          <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
+        <div className='w-full bg-slate-100 dark:bg-gray-800 rounded-b-xl p-5 sm:p-10 flex flex-col space-y-5' >
+          <div className='w-full flex flex-row justify-center mb-10 ' >
+            <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
 
-            <div className=' sm:mr-5 flex flex-col sm:flex-row sm:items-center gap-x-5' >
-              <h2 className='font-bold text-3xl ' > {currentLesson?.title} </h2>
-              <span className="h-5 w-5 relative ">
-                <button onClick={scrollToCalendly} >
-                  <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
-                    alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
-                  />
-                </button>
-              </span>
-            </div>
+              <div className=' sm:mr-5 flex flex-col sm:flex-row sm:items-center gap-x-5' >
+                <h2 className='font-bold text-2xl sm:text-3xl ' > {currentLesson?.title} </h2>
+                <span className="h-5 w-5 relative mx-auto mt-2 ">
+                  <button onClick={scrollToCalendly} >
+                    <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+                      alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                    />
+                  </button>
+                </span>
+              </div>
 
-            {/* <div >
+              {/* <div >
             <PrimaryButton onClick={() => setShowPopup(!showPopup)}> show popo </PrimaryButton>
           </div> */}
-          </div>
-        </div>
-        <div className='flex justify-center' >
-          <div className='max-w-5xl' >
-            <div className='lg:mx-10 space-y-8 '>
-              {currentLesson.transcript && currentLesson.transcript.map((row: Transcript | string, i) => (
-                <div key={i}>
-                  {typeof row === "object" ?
-
-                    <div>
-                      {row.title && <h3 className='text-2xl font-bold mb-6'>{row.title}</h3>}
-                      {row.subline && <h4 className='font-bold mb-1'>{row.subline}</h4>}
-                      {row.text && <p className='tracking-wider '>{row.text}</p>}
-                      {row.links &&
-                        <ul className='list-disc ml-5'>
-                          {row.links && row.links.map((link: Links, i) => (
-                            <li key={i}>
-                              <Link href={link.href} key={i} target="_blank" className="underline font-bold" >{link.linkText}</Link>
-                            </li>
-                          ))}
-                        </ul>
-                      }
-                    </div>
-                    :
-                    <p className='tracking-wider' >
-                      {row}
-                    </p>
-                  }
-                </div>
-              ))}
             </div>
           </div>
-        </div>
-      </div>}
+          <div className='flex justify-center' >
+            <div className='max-w-5xl' >
+              <div className='lg:mx-10 space-y-8 '>
+                {currentLesson.transcript && currentLesson.transcript.map((row: Transcript | string, i) => (
+                  <div key={i}>
+                    {typeof row === "object" ?
+
+                      <div>
+                        {row.title && <h3 className='text-2xl font-bold mb-6'>{row.title}</h3>}
+                        {row.subline && <h4 className='font-bold mb-1'>{row.subline}</h4>}
+                        {row.text && <p className='tracking-wider '>{row.text}</p>}
+                        {row.links &&
+                          <ul className='list-disc ml-5'>
+                            {row.links && row.links.map((link: Links, i) => (
+                              <li key={i}>
+                                <Link href={link.href} key={i} target="_blank" className="underline font-bold" >{link.linkText}</Link>
+                              </li>
+                            ))}
+                          </ul>
+                        }
+                      </div>
+                      :
+                      <p className='tracking-wider' >
+                        {row}
+                      </p>
+                    }
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>}
       {/* THIS IS FOR TESTING  */}
       {/* {showPopup &&
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
@@ -233,7 +229,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
       <article id='calendly' ref={calendlyRef} className='pb-10 flex flex-col items-center pt-20' >
         <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
-        md:flex-row w-full items-center justify-between rounded-lg xl:w-[1240px] relative'
+        md:flex-row w-full items-center justify-between rounded-lg xl:w-full relative'
         >
           <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-6 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
             <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>

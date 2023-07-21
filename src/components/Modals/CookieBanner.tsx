@@ -107,8 +107,8 @@ export default function CookieBanner({linksActive, handleCookieBannerInteraction
     if (showBanner || linksActive) {
         return (
         
-            <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-                <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
+            <div className='fixed max-sm:px-4 backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
+                <div className='relative w-full sm:w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-4 sm:px-8 py-8 sm:py-16' >
                     <p>Wir verwenden Cookies - Du hast derzeit {cookieTypeAccepted === 'all' ? 'analyse und notwendige' : 'nur notwendige'} Cookies akzeptiert</p>
 
                     <PrimaryButton data-policy="acceptAll" onClick={() => handleAll()} >Alle Cookies akzeptieren</PrimaryButton>

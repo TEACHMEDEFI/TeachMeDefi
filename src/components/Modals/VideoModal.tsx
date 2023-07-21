@@ -100,7 +100,7 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
 
     return (
         <div className='fixed backdrop-blur-md top-0 w-screen h-[100vh] left-0 z-50 flex items-center justify-center px-2' >
-            <div className='relative w-[80rem] max-h-[80vh] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 lesson-page-modal' >
+            <div className='relative w-[80rem] max-h-[95vh] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 p-4 lesson-page-modal' >
                 <VideoWithTranscript currentLesson={lesson} setUserProgress={setUserProgress} 
                     displayNextVideoInModal={displayNextVideoInModal} displayPrevVideoInModal={displayPrevVideoInModal}
                     currentQuest={currentQuest} lessonIndex={lessonIndex} replayVideoInModal={replayVideoInModal} isQuestSection  />
