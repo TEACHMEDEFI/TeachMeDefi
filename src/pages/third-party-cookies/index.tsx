@@ -111,7 +111,7 @@ export default function Index() {
       Daten (insbes. der IP-Adresse) ein berechtigtes Interesse, das Angebot auf unserer Website ansprechend darzustellen, zu
       analysieren, zu verbessern und mögliche Werbung auf Ihre Bedürfnisse anzupassen (Art.6 Abs. 1 lit. f DSGVO).
 
-      Google Analytics verwendet sogenannte "Cookies" (s. auch 3.1 „Cookies"). Sie werden auf Ihrem Computer gespeichert und
+      Google Analytics verwendet sogenannte &quot;Cookies&quot; (s. auch 3.1 &quot;Cookies&quot;). Sie werden auf Ihrem Computer gespeichert und
       ermöglichen eine Analyse der Benutzung der Website durch Sie. Die durch das Cookie erzeugten Informationen über Ihre
       Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
 
@@ -154,7 +154,7 @@ export default function Index() {
       <strong>Demografische Merkmale bei Google Analytics</strong>
 
       <p>
-        Diese Website nutzt die Funktion "demografische Merkmale" von Google Analytics. Dadurch können Berichte erstellt werden,
+        Diese Website nutzt die Funktion &quot;demografische Merkmale&quot; von Google Analytics. Dadurch können Berichte erstellt werden,
         die Aussagen zu Alter, Geschlecht und Interessen der Seitenbesucher enthalten. Diese Daten stammen aus
         interessenbezogener Werbung von Google sowie aus Besucherdaten von Drittanbietern. Diese Daten können keiner bestimmten
         Person zugeordnet werden. Sie können diese Funktion jederzeit über die Anzeigeneinstellungen in Ihrem Google-Konto
@@ -208,7 +208,7 @@ export default function Index() {
 
       <h3 className="font-bold text-xl mt-10">Facebook-Pixel</h3>
       Unsere Website nutzt zur Konversionsmessung das Besucheraktions-Pixel von Facebook, Facebook Inc., 1601 S. California
-      Ave, Palo Alto, CA 94304, USA ("Facebook").
+      Ave, Palo Alto, CA 94304, USA (&quot;Facebook&quot;).
 
       Mit Hilfe des Facebook-Pixel kann das Verhalten der Seitenbesucher nachverfolgt werden, nachdem diese durch Klick auf
       eine Facebook-Werbeanzeige auf unsere Website weitergeleitet wurden. Dadurch können die Wirksamkeit der
@@ -226,7 +226,7 @@ export default function Index() {
         href="https://www.facebook.com/about/privacy/" target="_blank"
         rel="nofollow noopener">https://www.facebook.com/about/privacy/</a>.
 
-      Sie können außerdem die Remarketing-Funktion "Custom Audiences" im Bereich Einstellungen für Werbeanzeigen unter <a
+      Sie können außerdem die Remarketing-Funktion &quot;Custom Audiences&quot; im Bereich Einstellungen für Werbeanzeigen unter <a
         href="https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen" target="_blank"
         rel="nofollow noopener">https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen</a> deaktivieren.
       Dazu müssen Sie bei Facebook angemeldet sein.
@@ -449,13 +449,6 @@ export default function Index() {
           </tr>
         </tbody>
       </table>
-
-
-
-
-
-
-
 
     </div>
   )
