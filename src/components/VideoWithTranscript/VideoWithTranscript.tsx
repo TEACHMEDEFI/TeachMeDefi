@@ -160,8 +160,8 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           <div className='w-full flex flex-row justify-center mb-10 ' >
             <div className='max-w-5xl flex flex-col-reverse md:flex-row justify-between lg:px-10 w-full'>
 
-              <div className=' sm:mr-5 flex flex-col sm:flex-row sm:items-center gap-x-5' >
-                <h2 className='font-bold text-2xl sm:text-3xl ' > {currentLesson?.title} </h2>
+              <div className='  flex flex-col sm:flex-row sm:items-center gap-x-5' >
+                <h2 className='font-bold text-xl sm:text-3xl w-fit' > {currentLesson?.title} </h2>
                 <span className="h-5 w-5 relative mx-auto mt-2 ">
                   <button onClick={scrollToCalendly} >
                     <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}

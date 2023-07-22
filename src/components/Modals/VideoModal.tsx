@@ -85,8 +85,8 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
     if (showSpinner) {
         return (
             <>
-            <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center' >
-                <div className='relative w-[80rem] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 lesson-page-modal' >
+            <div className='fixed backdrop-blur-sm top-0 w-screen h-screen left-0 z-50 flex items-center justify-center px-2' >
+                <div className='relative w-80 bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 lesson-page-modal' >
                     <Spinner />
                 </div>
             </div>
@@ -99,8 +99,8 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
     }
 
     return (
-        <div className='fixed backdrop-blur-md top-0 w-screen h-[100vh] left-0 z-50 flex items-center justify-center px-2' >
-            <div className='relative w-[80rem] max-h-[95vh] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 p-4 lesson-page-modal' >
+        <div className='fixed backdrop-blur-md top-0 w-screen h-[100vh] left-0 z-50 flex pt-5 justify-center px-2' >
+            <div className='relative w-[80rem] max-h-[85vh] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 p-4 lesson-page-modal' >
                 <VideoWithTranscript currentLesson={lesson} setUserProgress={setUserProgress} 
                     displayNextVideoInModal={displayNextVideoInModal} displayPrevVideoInModal={displayPrevVideoInModal}
                     currentQuest={currentQuest} lessonIndex={lessonIndex} replayVideoInModal={replayVideoInModal} isQuestSection  />
