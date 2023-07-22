@@ -31,7 +31,11 @@ export default function Index() {
       </section>
 
       <section className='mt-22 px-5 w-full mb-44 nft-card-section mt-10' >
-        <h2 className="xl:text-2xl text-2xl font-bold">Ethereum Quests</h2>
+        <h2 className="xl:text-2xl text-2xl font-bold w-max mx-auto
+        bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+        >
+          Ethereum Quests
+          </h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
 
           <NftCard questSectionId={'eth-quest-1'} questIndex={0} />
@@ -41,7 +45,11 @@ export default function Index() {
           <NftCard questSectionId={'eth-quest-5'} questIndex={4} />
           <NftCard questSectionId={'eth-quest-6'} questIndex={5} />
         </div>
-        <h2 className="xl:text-2xl text-2xl font-bold">Polkadot Quests</h2>
+        <h2 className="xl:text-2xl text-2xl font-bold w-max mx-auto
+        bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+        >
+          Polkadot Quests
+          </h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
 
           <NftCard questSectionId={'dot-quest-1'} questIndex={0} />
