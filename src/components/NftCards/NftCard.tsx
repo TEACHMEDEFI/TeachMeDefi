@@ -14,10 +14,9 @@ const NftCard = ({ questSectionId, questIndex }: NftCardProps) => {
   const nftBalance = useNFTBalance(questSectionId);
   const metadata = require(`../../../nft-metadata/${questSectionId}.json`)
   const src = metadata?.image
-  const quest: Quests = questSectionId.indexOf('eth') > -1 ? ethQuests[questIndex] : dotQuests[questIndex];
   const chain = questSectionId.indexOf('eth') > -1 ? 'eth' : 'dot';
-  const slug = quest.lessons[0].slug;
-  const href = `/${chain}/${slug}`
+  const href = chain === 'eth' ? `/${chain}/#${ethQuests[questIndex].questSectionId}` : `/${chain}/#${dotQuests[questIndex].questSectionId}`
+
 
   const removeWord = (sentence : string) => {
     // Use the replace method with a regular expression to remove the word case-insensitively

@@ -191,7 +191,7 @@ const renderVideoModals = (questSectionId: string) => {
             { title && <h2 className='font-bold text-xl' >{title}</h2>}
             <h3 className='italic text-xl'> {totalVideoTime} Min</h3>
              {lessonsArray && lessonsArray.map((quests: Quests, i) => (
-                <QuestContainer key={quests.questSectionId} isLarge={isLarge[quests.questSectionId] || false} className='quest-container'>
+                <QuestContainer key={quests.questSectionId} isLarge={isLarge[quests.questSectionId] || false} className='quest-container' id={quests.questSectionId}>
                   {isQuestSection ? (<><h2 className="font-bold text-xl">{quests.questTitle}</h2></>) : null}
                   {isQuestSection ? (<><h3 className=" text-xl italic">{questVideoTimes[quests.questSectionId]}</h3></>) : null}
 
