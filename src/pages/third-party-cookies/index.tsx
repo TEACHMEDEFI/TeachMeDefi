@@ -413,13 +413,13 @@ export default function Index() {
           <tr>
             <td>trkCode</td>
             <td>Dieses Cookie wird von LinkedIn verwendet, um die Funktionalität des Hinzufügens einer Panel-Einladung
-              mit der Bezeichnung 'Follow Us' zu unterstützen.</td>
+              mit der Bezeichnung &quot;Follow Us&quot; zu unterstützen.</td>
             <td>1 Jahr</td>
           </tr>
           <tr>
             <td>trkInfo</td>
             <td>Dieses Cookie wird von LinkedIn verwendet, um die Funktionalität des Hinzufügens einer Panel-Einladung
-              mit der Bezeichnung 'Follow Us' zu unterstützen.</td>
+              mit der Bezeichnung &quot;Follow Us&quot; zu unterstützen.</td>
             <td>1 Jahr</td>
           </tr>
           <tr>
@@ -442,8 +442,8 @@ export default function Index() {
           <tr>
             <td>spectroscopyId</td>
             <td>Diese Cookies werden von LinkedIn zu Werbezwecken gesetzt, u.a. um Besucher zu verfolgen, so dass mehr
-              relevante Anzeigen präsentiert werden können, um den Benutzern zu ermöglichen, die Funktionen 'Bewerben
-              mit LinkedIn' oder 'Anmelden mit LinkedIn' zu nutzen, um Informationen darüber zu sammeln, wie Besucher
+              relevante Anzeigen präsentiert werden können, um den Benutzern zu ermöglichen, die Funktionen &quot;Bewerben
+              mit LinkedIn&quot; oder &quot;Anmelden mit LinkedIn&quot; zu nutzen, um Informationen darüber zu sammeln, wie Besucher
               die Website nutzen usw.</td>
             <td>Session</td>
           </tr>
