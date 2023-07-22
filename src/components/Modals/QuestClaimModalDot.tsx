@@ -288,7 +288,8 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
           ) : null
           }
 
-          {!showSpinner && !nftMinted && nftBalance === 0 && isConnected && selectedPolkaAccount && (specialChallengeDone || nftMintable) ?
+          {/* {!showSpinner && !nftMinted && nftBalance === 0 && isConnected && selectedPolkaAccount && (specialChallengeDone || nftMintable) ? */}
+          {true ?
             (
               <>
                 <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!</h3>
@@ -310,7 +311,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
                 <h3>Los gehts!</h3> */}
 
                 <h3>Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen. Anbei findest du ein kurzes Video-Tutorial dazu.</h3>
-                <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
+                <div className=' w-full aspect-video overflow-hidden rounded-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
 
                   <ReactPlayer
                     height="100%"
@@ -326,7 +327,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
                 </div>
 
 
-                <PrimaryButton onClick={() => handleMint()} customClassButton='w-min !py-2 !px-5 mx-auto' >NFT erhalten</PrimaryButton>
+                <PrimaryButton onClick={() => handleMint()} customClassWrapper='w-min mx-auto' customClassButton='w-max !py-2 !px-5' >NFT erhalten</PrimaryButton>
               </>
             ) : null
           }

@@ -14,7 +14,7 @@ import { useTheme } from '@/context/ThemeContext';
 export default function Index() {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const calendlyRef = useRef<HTMLDivElement>(null);true
+  const calendlyRef = useRef<HTMLDivElement>(null);
   const { isDarkMode } = useTheme();
 
 

@@ -7,6 +7,7 @@ import { Lesson, Transcript, Links } from '@/data/generalLessons';
 import { PrimaryButton } from '../Buttons/Buttons';
 import { useTheme } from '@/context/ThemeContext';
 import { Quests } from '@/data/generalLessons'
+import { SupportCoaching } from '../SupportCoaching/SupportCoaching';
 
 
 
@@ -31,7 +32,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
   const [showMintNftDirections, setShowMintNftDirections] = useState<boolean>(false);
   const { isDarkMode } = useTheme();
-  const calendlyRef = useRef<HTMLElement>(null);
+  const calendlyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setShowPlayer(true);
@@ -103,7 +104,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
 
   return (
-    <section className=' relative video-modal-container overflow-y-scroll' >
+    <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10' >
       {showPlayer && !videoEnded && (
         <div className='w-full relative' >
           {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
@@ -184,8 +185,8 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
                     {typeof row === "object" ?
 
                       <div>
-                        {row.title && <h3 className='text-2xl font-bold mb-6'>{row.title}</h3>}
-                        {row.subline && <h4 className='font-bold mb-1'>{row.subline}</h4>}
+                        {row.title && <h3 className='text-2xl font-bold mb-6 !text-start'>{row.title}</h3>}
+                        {row.subline && <h4 className='font-bold mb-1 !text-start'>{row.subline}</h4>}
                         {row.text && <p className='tracking-wider '>{row.text}</p>}
                         {row.links &&
                           <ul className='list-disc ml-5'>
@@ -227,7 +228,33 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         </div>
       } */}
 
-      <article id='calendly' ref={calendlyRef} className='pb-10 flex flex-col items-center pt-20' >
+
+      <article ref={calendlyRef} id='calendly' className='pb-10 flex flex-col items-center pt-20' >
+        <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
+        md:flex-row w-full items-center justify-between rounded-lg relative'
+        >
+          <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-4 max-md:py-10 mx-auto lg:px-2  xl:px-0 '>
+            <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>
+              Du hast noch Fragen?
+            </h4>
+            <p className='tracking-wider text-center md:max-w-[360px] lg:max-w-[420px] xl:w-[500px]  mb-3'>
+              Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
+              Krypto-Fragen in unseren persönlichen Online-Coachings.
+            </p>
+            <p className='tracking-wider text-center md:max-w-[360px] lg:max-w-[420px] xl:w-[500px]  '>
+              Nutze unser limitiertes Angebot!
+              {/* CHECK FOR RESPONSIVENESSS  */}
+            </p>
+            <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Termin buchen </PrimaryButton>
+          </div>
+          <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
+            <Image src={"/support/support-banner-img.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+          </div>
+        </div>
+      </article>
+
+
+      {/* <article id='calendly' ref={calendlyRef} className='pb-10 flex flex-col items-center pt-20' >
         <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
         md:flex-row w-full items-center justify-between rounded-lg xl:w-full relative'
         >
@@ -245,7 +272,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             <Image src={"/support/support-banner-img.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
           </div>
         </div>
-      </article>
+      </article> */}
       {/* <SupportButton /> */}
     </section>
   )

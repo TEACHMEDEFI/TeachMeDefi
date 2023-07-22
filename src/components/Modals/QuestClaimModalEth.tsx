@@ -112,7 +112,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
 
                 <h3>Los gehts!</h3>
 
-                <PrimaryButton onClick={() => handleMint()} customClassButton='!py-2 !px-5' customClassWrapper='w-min  mx-auto '>NFT&nbsp;erhalten</PrimaryButton>
+                <PrimaryButton onClick={() => handleMint()} customClassButton='w-max !py-2 !px-5'  customClassWrapper='w-min  mx-auto '>NFT&nbsp;erhalten</PrimaryButton>
               </>
             ) : null
           }
