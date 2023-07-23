@@ -24,7 +24,7 @@ export default function Index() {
   }, [modalOpen])
 
 
-  const handleModelOpenScroll = (scroll: bool) => {
+  const handleModelOpenScroll = (scroll: boolean) => {
     setModelOpenClass(scroll)
   }
 
