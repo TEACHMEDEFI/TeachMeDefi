@@ -36,33 +36,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const calendlyRef = useRef<HTMLDivElement>(null);
 
 
-  const onVideoScroll = () => {
-    if (typeof window !== 'undefined') {
-      const videoWrap = document.querySelector('.video-wrap') as HTMLElement;
-      const video = document.querySelector('.video');
-      const scrollContainer = document.querySelector('.video-page')
-
-      if (video && videoWrap) {
-        const videoHeight = video.getBoundingClientRect().height;
-        // @ts-ignore
-        const sectionScrollTop = scrollContainer?.pageYOffset | scrollContainer?.scrollTop;
-        // @ts-ignore
-        const videoBottom = videoHeight + videoWrap?.getBoundingClientRect().top;
-
-        // @ts-ignore
-        if (sectionScrollTop > videoBottom - 300) {
-          // @ts-ignore
-          setVideoStuck(true)
-        } 
-        // else {
-        //   // @ts-ignore
-        //   videoWrap.style.height = 'auto';
-        //   setVideoStuck(false)
-        // }
-      }
-    }
-  }
-
   useEffect(() => {
     setShowPlayer(true);
     setShowNextButton(false)
@@ -132,7 +105,27 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
 
+  const onVideoScroll = () => {
+    if (typeof window !== 'undefined') {
+      const videoWrap = document.querySelector('.video-wrap') as HTMLElement;
+      const video = document.querySelector('.video');
+      const scrollContainer = document.querySelector('.video-page')
 
+      if (video && videoWrap) {
+        const videoHeight = video.getBoundingClientRect().height;
+        // @ts-ignore
+        const sectionScrollTop = scrollContainer?.pageYOffset | scrollContainer?.scrollTop;
+        // @ts-ignore
+        const videoBottom = videoHeight + videoWrap?.getBoundingClientRect().top;
+
+        // @ts-ignore
+        if (sectionScrollTop > videoBottom - 300) {
+          // @ts-ignore
+          setVideoStuck(true)
+        } 
+      }
+    }
+  }
 
 
   const [pipMode, setPipMode] = useState(false);
