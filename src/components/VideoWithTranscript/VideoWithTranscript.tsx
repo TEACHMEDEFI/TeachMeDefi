@@ -34,6 +34,34 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLDivElement>(null);
 
+  // if (typeof window !== 'undefined') {
+  //   var $window = window;
+  //   var $videoWrap = document.querySelector('.video-wrap');
+  //   var $video = document.querySelector('.video');
+  //   if (typeof $video !== 'undefined' && $video.length) {
+  //     var videoHeight = $video.getBoundingClientRect();
+
+  //   $window.on('scroll',  function() {
+  //     var windowScrollTop = $window.scrollTo({
+  //       top: 0,
+  //       behavior: "smooth"
+  //   });
+  //     var videoBottom = videoHeight + $videoWrap.offset().top;
+      
+  //     if (windowScrollTop > videoBottom) {
+  //       $videoWrap.offsetHeight(videoHeight);
+  //       $video.classList.add('stuck');
+  //     } else {
+  //       $videoWrap.offsetHeight('auto');
+  //       $video?.classList.remove('stuck');
+  //     }
+  // });
+  //   }
+    
+  // }
+
+  
+
   useEffect(() => {
     setShowPlayer(true);
     setShowNextButton(false)
@@ -103,12 +131,13 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
 
+
   return (
-    <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10' >
+    <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10 video-wrap' >
       {showPlayer && !videoEnded && (
         <div className='w-full relative' >
           {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
-          <div className=' w-full aspect-video overflow-hidden rounded-t-xl  '  >
+          <div className=' w-full aspect-video overflow-hidden rounded-t-xl video '  >
 
             <ReactPlayer
               height="100%"

@@ -60,6 +60,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }:
 
   const handleMint = () => {
     try {
+      // @ts-ignore
       mintNft(questSectionId);
     } catch (e) {
       console.log(e)

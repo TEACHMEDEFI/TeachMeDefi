@@ -441,3 +441,33 @@ img {
 //   padding: 5rem;
 // }
 
+.content {
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.video-wrap {
+  text-align: center;
+}
+
+.video {  
+  iframe {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &.stuck {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transform: translateY(100%);
+    width: 260px;
+    height: 145px;
+    animation: fade-in-up .25s ease forwards;
+  }
+}
