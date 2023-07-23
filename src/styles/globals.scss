@@ -463,22 +463,9 @@ img {
 
 
 .modal-open-no-scroll {
-  height: 100vh;
-  overflow-y: hidden;
-
-  @media (min-width: 640px) {
-    height: 100vh;
-  }
 
   @media (min-width: 768px) {
-    height: 100vh;
-  }
-
-  @media (min-width: 1024px) {
-    height: 100vh;
-  }
-
-  @media (min-width: 1400px) {
-    height: 100vh;
+    height: 1vh;
+    overflow-y: hidden;
   }
 }
