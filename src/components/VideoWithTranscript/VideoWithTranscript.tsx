@@ -10,7 +10,6 @@ import { Quests } from '@/data/generalLessons'
 import { SupportCoaching } from '../SupportCoaching/SupportCoaching';
 
 
-
 type VideoWithTranscriptProps = {
   currentLesson: Lesson;
   setUserProgress?: Function;
@@ -35,14 +34,12 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     setShowPlayer(true);
     setShowNextButton(false)
     setShowPrevButton(false)
     handleButtons()
   }, []);
-
 
 
   const handleVideoOnPlay = () => {
@@ -122,116 +119,37 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         if (sectionScrollTop > videoBottom - 300) {
           // @ts-ignore
           setVideoStuck(true)
-        } 
+        }
       }
     }
   }
 
 
-  const [pipMode, setPipMode] = useState(false);
-  const videoElement = useRef<HTMLVideoElement | null>(null)
-
-  // const handleTogglePictureInPicture = () => {
-  //   console.log(videoElement.current)
-  //   if (videoElement.current) {
-  //     if (document.pictureInPictureElement === videoElement.current) {
-  //       document.exitPictureInPicture();
-  //       setPipMode(false);
-  //     } else {
-  //       videoElement.current
-  //         .requestPictureInPicture()
-  //         .then(() => setPipMode(true))
-  //         .catch((error) => console.error('Error entering PiP mode:', error));
-  //     }
-  //   }
-  // };
-
-  // const enablePip = () => {
-  //   setPipMode(true);
-  //   console.log(pipMode)
-  // };
-  // // const [canPip, setCanPip] = useState(false);
-  // const [isPIPOn, setIsPIPOn] = useState(false);
-
-  // useEffect(() => {
-  // }, [])
-  // const canPIP = () => "pictureInPictureEnabled" in document && document.pictureInPictureEnabled;
-  // const isInPIP = () => Boolean(document.pictureInPictureElement);
-  // const supportsOldSafariPIP = () => {
-  //   const video = document.createElement("video");
-  //   return (canPIP() && video.webkitSupportsPresentationMode && typeof video.webkitSetPresentationMode === "function");
-  // };
-
-  // const supportsModernPIP = () => {
-  //   const video = document.createElement("video");
-  //   return (canPIP() && video.requestPictureInPicture && typeof video.requestPictureInPicture === "function")
-  // };
-
-  // const supportsPIP = () => supportsOldSafariPIP() || supportsModernPIP();
-  // const openPIP = async (video) => {
-  //   if (isInPIP()) return;
-  //   if (supportsOldSafariPIP())
-  //     await video.webkitSetPresentationMode("picture-in-picture");
-  //   if (supportsModernPIP())
-  //   console.log(video)
-  //     await video?.requestPictureInPicture();
-  // };
-
-  // const closePIP = async (video) => {
-  //   if (!isInPIP()) return;
-  //   if (supportsOldSafariPIP())
-  //     await video.webkitSetPresentationMode("inline");
-  //   if (supportsModernPIP())
-  //     await document?.exitPictureInPicture();
-  // };
-
-  // const disablePIP = async () => { await closePIP(videoElement.current).catch(/*handle error*/) };
-  // const enablePIP = async () => { await openPIP(videoElement.current).catch(/*handle error*/) };
-  // const handleVisibility = async () => {
-  //   if (document.visibilityState === "visible") await disablePIP();
-  //   else await enablePIP();
-  // };
-
-  // const togglePIP = async () => {
-  //   if (isInPIP()) await disablePIP()
-  //   else await enablePIP()
-  // };
-
 
   return (
     <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10 video-wrap video-page' onScroll={() => onVideoScroll()} >
       {showPlayer && !videoEnded && (
-        <div className='video-wrap w-full relative' >
-          {/* <div className='aspect-video ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 150px)" }} ></div> */}
-          <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
+          <div className='video-wrap z-50 w-full relative' >
 
-            <ReactPlayer
-              // ref={videoElement}
-              height="100%"
-              width="100%"
-              pip={pipMode}
-              stopOnUnmount={false}
-              url={currentLesson.youtubeUrl}
-              controls={true}
-              onEnded={handleVideoOnEnd}
-              onStart={handleVideoOnPlay}
-              config={{
-                youtube: {
-                  playerVars: { fs: 1 }
-                }
-              }}
-            />
-          </div>
-          {/* <button onClick={handleTogglePictureInPicture}>
-            {pipMode ? 'Exit PiP Mode' : 'Enter PiP Mode'}
-          </button> */}
+            <div className={`w-full aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
+            <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
+              <ReactPlayer
+                height="100%"
+                width="100%"
+                url={currentLesson.youtubeUrl}
+                controls={true}
+                onEnded={handleVideoOnEnd}
+                onStart={handleVideoOnPlay}
+                config={{
+                  youtube: {
+                    playerVars: { fs: 1 }
+                  }
+                }}
+              />
+            </div>
 
-          {/* <button onClick={togglePIP} >
-
-            {isPIPOn ? "Turn off PIP" : "Turn on PIP"}
-
-          </button> */}
-          {/* <button onClick={enablePip} >pimp</button> */}
+            <button onClick={() => setVideoStuck(false)} >set Stuck false</button>
+   
         </div>
       )}
 
@@ -281,10 +199,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
                     </button>
                   </span>
                 </div>
-
-                {/* <div >
-              <PrimaryButton onClick={() => setShowPopup(!showPopup)}> show popo </PrimaryButton>
-            </div> */}
               </div>
             </div>
             <div className='flex justify-center' >
@@ -319,25 +233,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
               </div>
             </div>
           </div>}
-        {/* THIS IS FOR TESTING  */}
-        {/* {showPopup &&
-          <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-            <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16' >
-              <p>Claim your NFT to continue</p>
-              {currentLesson.popupHasInput &&
-                <Input
-                  isInvalid={true}
-                  errorBorderColor='crimson'
-                  className='rounded-sm'
-                  placeholder='0xaa559f9di9d50046d451632e372245dddf0b69be5b39asvbd28429e4dc6d03f1'
-                />
-              }
-              <PrimaryButton buttonDisabled={testState} onClick={() => alert("CLaim pressed")} >Claim</PrimaryButton>
-              <GeneralButton onClick={() => setShowPopup(false)}>closeee</GeneralButton>
-            </div>
-          </div>
-        } */}
-
 
         <article ref={calendlyRef} id='calendly' className='pb-10 flex flex-col items-center pt-20' >
           <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
@@ -362,31 +257,8 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             </div>
           </div>
         </article>
-
-
-        {/* <article id='calendly' ref={calendlyRef} className='pb-10 flex flex-col items-center pt-20' >
-          <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
-          md:flex-row w-full items-center justify-between rounded-lg xl:w-full relative'
-          >
-            <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-6 max-md:py-10 max-sm:mx-5 max-xl:mx-10'>
-              <h4 className='text-2xl max-md:text-4xl lg:text-4xl font-bold  text-center'>
-                Du hast noch Fragen?
-              </h4>
-              <p className='tracking-wider text-center md:w-[360px] lg:w-[420px] xl:w-[500px]  mb-6'>
-                Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen
-                Krypto-Fragen in unseren persönlichen Online-Coachings.
-              </p>
-              <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Nutze unser limitiertes Angebot! </PrimaryButton>
-            </div>
-            <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
-              <Image src={"/support/support-banner-img.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
-            </div>
-          </div>
-        </article> */}
-        {/* <SupportButton /> */}
-
       </div>
-     
+
     </section>
   )
 }
