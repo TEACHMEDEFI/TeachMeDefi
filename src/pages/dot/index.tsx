@@ -31,7 +31,6 @@ export default function Index() {
   const scrollToQuest = (questId: string) => {
     setTimeout(() => {
       const element = document.getElementById(questId);
-      console.log('scrolling to quest', questId, element)
 
       element?.scrollIntoView();
     }, 300)
