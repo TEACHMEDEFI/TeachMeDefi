@@ -44,12 +44,14 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
         if (modalOpen) {
             document.addEventListener('mousedown', handleOutsideClick);
             console.log('click listener added')
+            
         }
 
         return () => {
             document.removeEventListener('mousedown', handleOutsideClick);
         };
     }, [modalOpen]);
+
 
 
     const displayNextVideoInModal = () => {

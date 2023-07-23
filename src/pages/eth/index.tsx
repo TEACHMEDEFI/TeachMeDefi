@@ -22,7 +22,9 @@ export default function Index() {
     switchNetworkIfNeeded()
     setShowPlayer(true)
     console.log('Rerendered Due to Modal Close')
+
   }, [modalOpen])
+
 
   const onModalClose = () => {
     const newState = modalOpen ? !modalOpen : true;
