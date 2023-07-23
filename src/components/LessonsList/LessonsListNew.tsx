@@ -31,6 +31,7 @@ type LessonsListProps = {
     isTheorySection?: boolean;
     totalVideoTime: string;
     onModalClose: Function;
+    onModalOpen: Function
   }
 
 type ImageSourceObject = {
@@ -79,7 +80,7 @@ const QuestContainer = styled.div<{ isLarge: boolean }>`
 `;
 
 
-export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, onModalClose, totalVideoTime }: LessonsListProps) {
+export default function LessonsListNew({chain, lessonsArray, title, isQuestSection, onModalClose, onModalOpen, totalVideoTime }: LessonsListProps) {
   const [hasProgress, setHasProgress] = useUserProgress();
   const [showPopup, setShowPopup] = useState<QuestModalShow>();
   const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta>();
@@ -118,6 +119,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     show[questId] = true;
     setShowPopup(show)
     console.log('classes are rerendered')
+    onModalOpen()
   }
 
   const onCloseNft = (questSectionid: string) => {
@@ -179,6 +181,8 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
   const setSelectedPolkaAccount = (account: InjectedAccountWithMeta) => {
       setSelectedAccount(account)
   }
+
+  // ${modelOpenClass && 'modal-open-no-scroll'}`}
 
 
     return (

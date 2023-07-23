@@ -460,3 +460,9 @@ img {
     animation: fade-in-up .25s ease forwards;
   }
 }
+
+
+.modal-open-no-scroll {
+  height: 1vh;
+  overflow-y: hidden;
+}

@@ -15,6 +15,7 @@ export default function Index() {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const calendlyRef = useRef<HTMLDivElement>(null);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [modelOpenClass, setModelOpenClass] = useState<boolean>(false)
 
   useEffect(() => {
     switchNetworkIfNeeded()
@@ -23,9 +24,19 @@ export default function Index() {
   }, [modalOpen])
 
 
+  const handleModelOpenScroll = (scroll: bool) => {
+    setModelOpenClass(scroll)
+  }
+
+
   const onModalClose = () => {
     const newState = modalOpen ? !modalOpen : true;
     setModalOpen(newState);
+    setModelOpenClass(false)
+  }
+
+  const onModalOpen = () => {
+    handleModelOpenScroll(true);
   }
 
   const scrollToCalendly = () => {
@@ -35,7 +46,7 @@ export default function Index() {
   }
 
   return (
-    <div className='flex flex-col w-full justify-center items-center max-sm:px-5'>
+    <div className={ `flex flex-col w-full justify-center items-center max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24 ' >
         <div className='my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
@@ -91,8 +102,8 @@ export default function Index() {
         </span>
       </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
-        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" onModalClose={onModalClose} />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot?"} isTheorySection totalVideoTime="25:34" onModalClose={onModalClose} />
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot?"} isTheorySection totalVideoTime="25:34" onModalClose={onModalClose} onModalOpen={onModalOpen} />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max 
@@ -108,7 +119,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" onModalClose={onModalClose} />
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" onModalClose={onModalClose} onModalOpen={onModalOpen} />
 
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
@@ -125,7 +136,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" onModalClose={onModalClose} />
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" onModalClose={onModalClose} onModalOpen={onModalOpen} />
 
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >

@@ -14,6 +14,7 @@ import { useTheme } from '@/context/ThemeContext';
 export default function Index() {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [modelOpenClass, setModelOpenClass] = useState<boolean>(false)
   const calendlyRef = useRef<HTMLDivElement>(null);
   const { isDarkMode } = useTheme();
 
@@ -25,10 +26,19 @@ export default function Index() {
 
   }, [modalOpen])
 
+  const handleModelOpenScroll = (scroll: bool) => {
+    setModelOpenClass(scroll)
+  }
+
 
   const onModalClose = () => {
     const newState = modalOpen ? !modalOpen : true;
     setModalOpen(newState);
+    setModelOpenClass(false)
+  }
+
+  const onModalOpen = () => {
+    handleModelOpenScroll(true);
   }
 
 
@@ -40,7 +50,7 @@ export default function Index() {
   }
 
   return (
-    <div className='flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5'>
+    <div className={ `flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='h-[90vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
         <div className=' my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
@@ -98,8 +108,8 @@ export default function Index() {
       <section className=' w-full flex flex-col justify-center relative z-50' >
 
 
-        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose}/>
-        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Wie funktioniert Ethereum"} isTheorySection totalVideoTime="15:47" onModalClose={onModalClose} />
+        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose} onModalOpen={onModalOpen}/>
+        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Wie funktioniert Ethereum"} isTheorySection totalVideoTime="15:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max
@@ -115,7 +125,7 @@ export default function Index() {
         </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection totalVideoTime="1:04:47" onModalClose={onModalClose} />
+        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection totalVideoTime="1:04:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
 
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
@@ -132,7 +142,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} totalVideoTime="27:47" onModalClose={onModalClose} />
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} totalVideoTime="27:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
         {/* <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' /> */}
 
       </section>
