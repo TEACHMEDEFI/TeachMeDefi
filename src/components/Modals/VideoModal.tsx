@@ -26,8 +26,7 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
     currentQuest, currentQuestIndex, isQuestSection }: LessonPageProps) {
     const [lesson, setLesson] = useState<Lesson>(currentLesson);
     const [lessonIndex, setLessonIndex] = useState<number>(currentQuestIndex)
-    const [showSpinner, setShowSpinner] = useState<boolean>(false)
-    // const [questLessons, setQuestLessons] = useState<Lesson[]>(currentQuest.lessons)
+    const [showSpinner, setShowSpinner] = useState<boolean>(false);
 
     const handleClose = () => {
         onClose(currentLesson, questSectionid)

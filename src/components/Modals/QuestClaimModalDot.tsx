@@ -20,6 +20,8 @@ type QuestClaimModalProps = {
   togglePopup: Function;
   setSelectedPolkaAccount: Function,
   selectedPolkaAccount: InjectedAccountWithMeta | undefined;
+  onClose: Function;
+  modalOpen: boolean
 }
 
 type TokenBalance = {
@@ -28,7 +30,7 @@ type TokenBalance = {
 
 
 
-const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccount, selectedPolkaAccount }: QuestClaimModalProps) => {
+const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccount, selectedPolkaAccount, modalOpen, onClose }: QuestClaimModalProps) => {
   const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>();
   const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
   const [api, setApi] = useState<ApiPromise>();
@@ -55,6 +57,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
     setTimeout(() => setIsLoading(false), 1000)
 
   }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
+
 
   useEffect(() => {
     if (!selectedPolkaAccount || !api) return
@@ -97,7 +100,33 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
         
     })()
 
-}, [api, selectedPolkaAccount])
+  }, [api, selectedPolkaAccount])
+
+
+
+  useEffect(() => {
+    if (modalOpen) {
+        document.addEventListener('mousedown', handleOutsideClick);
+        console.log('click listener added')
+    }
+
+    return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [modalOpen]);
+
+
+const handleClose = () => {
+    onClose(questSectionId)
+  }
+
+  const handleOutsideClick = (event: MouseEvent) => {
+      const modalElement = document.querySelector('.lesson-page-modal');
+      if (modalElement && !modalElement.contains(event.target as Node)) {
+          console.log('Clicked')
+          handleClose();
+      }
+  };
 
 
   /*
@@ -220,11 +249,15 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
     }
   }
 
+  if (!modalOpen) {
+    return (<></>)
+  }
+
   if (isLoading) {
     return (
       <>
         <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-          <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 ' >
+          <div className='relative w-[600px] bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 lesson-page-modal' >
             <Spinner />
           </div>
         </div>
@@ -235,7 +268,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
   return (
     <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-      <div className='relative w-[600px] max-w-screen bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 max-md:m-5' >
+      <div className='relative w-[600px] max-w-screen bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 max-md:m-5 lesson-page-modal' >
         <div className="!p-5 space-y-5 text-center max-h-[95vh]  lg:max-h-[50rem] overflow-y-auto">
           {nftBalance > 0 && isConnected &&
             <>
@@ -382,7 +415,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
             </>) : null
           }
 
-          <GeneralButton onClick={() => togglePopup({ questId: false }, event)} customClassButton='w-min !py-2 !px-5 mx-auto' >Schließen</GeneralButton>
+          <GeneralButton onClick={() => handleClose()} customClassButton='w-min !py-2 !px-5 mx-auto' >Schließen</GeneralButton>
         </div>
       </div>
     </div>

@@ -12,11 +12,13 @@ import Confetti from '@/components/Confetti/Confetti'
 
 type QuestClaimModalProps = {
   questSectionId: string;
-  togglePopup: Function
+  togglePopup: Function;
+  onClose: Function;
+  modalOpen: boolean
 }
 
-const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProps) => {
-  const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
+const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }: QuestClaimModalProps) => {
+  const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
   const nftBalance = useNFTBalance(questSectionId);
   const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
   const isConnected = useConnectedToMetaMask();
@@ -31,12 +33,41 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
   }, [nftMinted, showSpinner, nftMintable, nftBalance, isConnected])
 
 
+  useEffect(() => {
+    if (modalOpen) {
+        document.addEventListener('mousedown', handleOutsideClick);
+        console.log('click listener added')
+    }
+
+    return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+    };
+}, [modalOpen]);
+
+
+  const handleClose = () => {
+    onClose(questSectionId)
+  }
+
+  const handleOutsideClick = (event: MouseEvent) => {
+      const modalElement = document.querySelector('.lesson-page-modal');
+      if (modalElement && !modalElement.contains(event.target as Node)) {
+          console.log('Clicked')
+          handleClose();
+      }
+  };
+
+
   const handleMint = () => {
     try {
       mintNft(questSectionId);
     } catch (e) {
       console.log(e)
     }
+  }
+
+  if (!modalOpen) {
+    return (<></>)
   }
 
   if (isLoading) {
@@ -53,7 +84,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
 
   return (
     <div className='fixed backdrop-blur-md top-0 w-screen h-screen left-0 z-50 flex items-center justify-center ' >
-      <div className='relative w-[600px] max-w-screen bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 max-md:m-5 ' >
+      <div className='relative w-[600px] max-w-screen bg-gray-300 dark:bg-bgDarkerGray rounded-lg flex flex-col justify-center gap-5 px-8 py-16 max-md:m-5 lesson-page-modal' >
         <div className=" !p-5 space-y-5 text-center max-h-[95vh]  lg:max-h-[50rem] overflow-y-auto ">
           {nftBalance > 0 && isConnected &&
             <>
@@ -132,7 +163,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup }: QuestClaimModalProp
             </>) : null
           }
 
-          <GeneralButton onClick={() => togglePopup({ questId: questSectionId }, event)} customClassButton='w-min !py-2 !px-5 mx-auto'>Schließen</GeneralButton>
+          <GeneralButton onClick={() => handleClose()} customClassButton='w-min !py-2 !px-5 mx-auto'>Schließen</GeneralButton>
         </div>
       </div>
     </div>

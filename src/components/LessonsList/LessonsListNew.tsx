@@ -120,6 +120,15 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     console.log('classes are rerendered')
   }
 
+  const onCloseNft = (questSectionid: string) => {
+    const show : QuestModalShow = {};
+
+    console.log('Closing nft')
+    show[questSectionid] = false;
+    setShowPopup(show)
+    onModalClose()
+  }
+
   const onClose = (questId: string, questSectionid: string) => {
     const show : QuestModalShow = {};
     show[questId] = true;
@@ -164,20 +173,6 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     return listItemsPerQuest[questSectionId];
 }
 
-const renderVideoModals = (questSectionId: string) => {
-  let lessonModalsPerQuest: listItemsPerQuest = {}
-
-  lessonsArray.forEach((quests: Quests, j) => (
-    lessonModalsPerQuest[quests.questSectionId] = quests.lessons.map((quest: Lesson, i) => (
-        // @ts-ignore: Object is possibly 'null'.
-        <LessonPage key={quest.id} currentLesson={quest} modalOpen={showPopup[quest.id]} togglePopup={togglePopup} />
-      ))
-  ))
-
-  return lessonModalsPerQuest[questSectionId]
-}
-
-
   /*
   * Helper Function to pass as props
   */
@@ -207,11 +202,13 @@ const renderVideoModals = (questSectionId: string) => {
                             :
                             null
                           }
-                          
-                      {showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : null}
+                        
+                      {// @ts-ignore
+                      chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
 
-                      {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
-                          selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : null}
+                      {chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup}
+                      // @ts-ignore
+                          selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
                     </ul>
 
                   {quests.lessons.map((quest: Lesson, i: number) => (
