@@ -26,15 +26,26 @@ export default function Index() {
 
   }, [modalOpen])
 
+
+  const scrollToQuest = (questId: string) => {
+    setTimeout(() => {
+      const element = document.getElementById(questId);
+      console.log('scrolling to quest', questId, element)
+
+      element?.scrollIntoView();
+    }, 300)
+  }
+
   const handleModelOpenScroll = (scroll: boolean) => {
     setModelOpenClass(scroll)
   }
 
 
-  const onModalClose = () => {
+  const onModalClose = (questId: string) => {
     const newState = modalOpen ? !modalOpen : true;
     setModalOpen(newState);
     setModelOpenClass(false)
+    scrollToQuest(questId);
   }
 
   const onModalOpen = () => {
