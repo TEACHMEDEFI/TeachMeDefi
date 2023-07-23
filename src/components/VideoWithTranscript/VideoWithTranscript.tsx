@@ -132,6 +132,77 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
 
 
+
+
+  const [pipMode, setPipMode] = useState(false);
+  const videoElement = useRef<HTMLVideoElement | null>(null)
+
+  // const handleTogglePictureInPicture = () => {
+  //   console.log(videoElement.current)
+  //   if (videoElement.current) {
+  //     if (document.pictureInPictureElement === videoElement.current) {
+  //       document.exitPictureInPicture();
+  //       setPipMode(false);
+  //     } else {
+  //       videoElement.current
+  //         .requestPictureInPicture()
+  //         .then(() => setPipMode(true))
+  //         .catch((error) => console.error('Error entering PiP mode:', error));
+  //     }
+  //   }
+  // };
+
+  // const enablePip = () => {
+  //   setPipMode(true);
+  //   console.log(pipMode)
+  // };
+  // // const [canPip, setCanPip] = useState(false);
+  // const [isPIPOn, setIsPIPOn] = useState(false);
+
+  // useEffect(() => {
+  // }, [])
+  // const canPIP = () => "pictureInPictureEnabled" in document && document.pictureInPictureEnabled;
+  // const isInPIP = () => Boolean(document.pictureInPictureElement);
+  // const supportsOldSafariPIP = () => {
+  //   const video = document.createElement("video");
+  //   return (canPIP() && video.webkitSupportsPresentationMode && typeof video.webkitSetPresentationMode === "function");
+  // };
+
+  // const supportsModernPIP = () => {
+  //   const video = document.createElement("video");
+  //   return (canPIP() && video.requestPictureInPicture && typeof video.requestPictureInPicture === "function")
+  // };
+
+  // const supportsPIP = () => supportsOldSafariPIP() || supportsModernPIP();
+  // const openPIP = async (video) => {
+  //   if (isInPIP()) return;
+  //   if (supportsOldSafariPIP())
+  //     await video.webkitSetPresentationMode("picture-in-picture");
+  //   if (supportsModernPIP())
+  //   console.log(video)
+  //     await video?.requestPictureInPicture();
+  // };
+
+  // const closePIP = async (video) => {
+  //   if (!isInPIP()) return;
+  //   if (supportsOldSafariPIP())
+  //     await video.webkitSetPresentationMode("inline");
+  //   if (supportsModernPIP())
+  //     await document?.exitPictureInPicture();
+  // };
+
+  // const disablePIP = async () => { await closePIP(videoElement.current).catch(/*handle error*/) };
+  // const enablePIP = async () => { await openPIP(videoElement.current).catch(/*handle error*/) };
+  // const handleVisibility = async () => {
+  //   if (document.visibilityState === "visible") await disablePIP();
+  //   else await enablePIP();
+  // };
+
+  // const togglePIP = async () => {
+  //   if (isInPIP()) await disablePIP()
+  //   else await enablePIP()
+  // };
+
   return (
     <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10 video-wrap' >
       {showPlayer && !videoEnded && (
@@ -140,8 +211,11 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           <div className=' w-full aspect-video overflow-hidden rounded-t-xl video '  >
 
             <ReactPlayer
+              // ref={videoElement}
               height="100%"
               width="100%"
+              pip={pipMode}
+              stopOnUnmount={false}
               url={currentLesson.youtubeUrl}
               controls={true}
               onEnded={handleVideoOnEnd}
@@ -153,6 +227,16 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
               }}
             />
           </div>
+          {/* <button onClick={handleTogglePictureInPicture}>
+            {pipMode ? 'Exit PiP Mode' : 'Enter PiP Mode'}
+          </button> */}
+
+          {/* <button onClick={togglePIP} >
+
+            {isPIPOn ? "Turn off PIP" : "Turn on PIP"}
+
+          </button> */}
+          {/* <button onClick={enablePip} >pimp</button> */}
         </div>
       )}
       {videoEnded && !showMintNftDirections && (
@@ -194,7 +278,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
                 <h2 className='font-bold text-xl sm:text-3xl max-lg:w-[80%]  md:w-fit lg:!text-start' > {currentLesson?.title} </h2>
                 <span className="h-5 w-5 relative mx-auto mt-2 ">
                   <button onClick={scrollToCalendly} >
-                    <Image src={isDarkMode ? "/support/question-icon-light.svg" : "/support/question-icon-dark.svg"}
+                    <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
                       alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                     />
                   </button>
