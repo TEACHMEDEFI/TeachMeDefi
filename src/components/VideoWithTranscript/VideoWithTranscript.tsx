@@ -52,10 +52,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         // @ts-ignore
         if (sectionScrollTop > videoBottom - 300) {
           // @ts-ignore
-          videoWrap.style.height = videoHeight;
           setVideoStuck(true)
-
-          console.log('Setting video to stuck')
         } 
         // else {
         //   // @ts-ignore
@@ -65,8 +62,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       }
     }
   }
-
-  
 
   useEffect(() => {
     setShowPlayer(true);
