@@ -128,20 +128,23 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
     console.log('Closing nft')
     show[questSectionid] = false;
     setShowPopup(show)
-    onModalClose()
+    onModalClose(questSectionid)
   }
 
   const onClose = (questId: string, questSectionid: string) => {
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
-    onModalClose()
+    onModalClose(questSectionid)
 
 
-    setIsLarge((prevIsLarge) => ({
-      ...prevIsLarge,
-      [questSectionid]: true,
-    })); // Set isLarge for the specific questSectionId to true to trigger the CSS transition effect
+    setTimeout(() => {
+      setIsLarge((prevIsLarge) => ({
+        ...prevIsLarge,
+        [questSectionid]: true,
+      }));
+    }, 1000);
+
 
     // Reset isLarge to false after 1 second
     setTimeout(() => {
@@ -149,7 +152,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
         ...prevIsLarge,
         [questSectionid]: false,
       }));
-    }, 1000);
+    }, 2000);
   }
 
 
