@@ -45,7 +45,7 @@ export default function Index() {
   }
 
   const onModalOpen = () => {
-    // handleModelOpenScroll(true);
+    handleModelOpenScroll(true);
   }
 
   const scrollToCalendly = () => {
