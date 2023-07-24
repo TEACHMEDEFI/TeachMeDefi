@@ -18,7 +18,7 @@ type QuestClaimModalProps = {
 }
 
 const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }: QuestClaimModalProps) => {
-  const [showSpinner, nftMinted, mintNft] = useMintProgressNFT(questSectionId)
+  const [showSpinner, nftMinted, accountError, mintNft] = useMintProgressNFT(questSectionId)
   const nftBalance = useNFTBalance(questSectionId);
   const nftMintable = useIsProgressNftMintable(questSectionId, 'token', new BN(0), false);
   const isConnected = useConnectedToMetaMask();
@@ -60,7 +60,6 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }:
 
   const handleMint = () => {
     try {
-      // @ts-ignore
       mintNft(questSectionId);
     } catch (e) {
       console.log(e)
