@@ -115,10 +115,18 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         // @ts-ignore
         const videoBottom = videoHeight + videoWrap?.getBoundingClientRect().top;
 
+        console.log("sectionTop", sectionScrollTop)
+        console.log("video bott", videoBottom)
+
         // @ts-ignore
         if (sectionScrollTop > videoBottom - 300) {
           // @ts-ignore
           setVideoStuck(true)
+        }
+        // @ts-ignore
+        if (sectionScrollTop < videoBottom - 200) {
+          // @ts-ignore
+          setVideoStuck(false)
         }
       }
     }
@@ -129,27 +137,24 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   return (
     <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10 video-wrap video-page' onScroll={() => onVideoScroll()} >
       {showPlayer && !videoEnded && (
-          <div className='video-wrap z-50 w-full relative' >
+        <div className='video-wrap z-50 w-full relative' >
 
-            <div className={`w-full aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
-            <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
-              <ReactPlayer
-                height="100%"
-                width="100%"
-                url={currentLesson.youtubeUrl}
-                controls={true}
-                onEnded={handleVideoOnEnd}
-                onStart={handleVideoOnPlay}
-                config={{
-                  youtube: {
-                    playerVars: { fs: 1 }
-                  }
-                }}
-              />
-            </div>
-
-            <button onClick={() => setVideoStuck(false)} >set Stuck false</button>
-   
+          <div className={`w-full aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
+          <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
+            <ReactPlayer
+              height="100%"
+              width="100%"
+              url={currentLesson.youtubeUrl}
+              controls={true}
+              onEnded={handleVideoOnEnd}
+              onStart={handleVideoOnPlay}
+              config={{
+                youtube: {
+                  playerVars: { fs: 1 }
+                }
+              }}
+            />
+          </div>
         </div>
       )}
 
