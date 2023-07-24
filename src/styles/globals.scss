@@ -452,12 +452,22 @@ img {
 
   &.stuck {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
     transform: translateY(100%);
-    width: 30rem;
+    top: 0;
+    left: 5vw;
+    width: 90vw;
     height: 15;
     animation: fade-in-up .25s ease forwards;
+    
+    @media (min-width: 768px) {
+      top: unset;
+      left: unset;
+      bottom: 20px;
+      right: 20px;
+      width: 30rem;
+    }
+
+
   }
 }
 
