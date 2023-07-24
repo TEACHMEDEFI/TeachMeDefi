@@ -136,6 +136,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       {showPlayer && !videoEnded && (
         <div className='video-wrap z-50 w-full relative' >
 
+            <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
           <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
             <ReactPlayer
               height="100%"
@@ -150,7 +151,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
                 }
               }}
             />
-            <div className={`w-full aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
           </div>
         </div>
       )}
