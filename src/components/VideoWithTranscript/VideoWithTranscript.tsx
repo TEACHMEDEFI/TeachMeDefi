@@ -115,9 +115,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         // @ts-ignore
         const videoBottom = videoHeight + videoWrap?.getBoundingClientRect().top;
 
-        console.log("sectionTop", sectionScrollTop)
-        console.log("video bott", videoBottom)
-
         // @ts-ignore
         if (sectionScrollTop > videoBottom - 300) {
           // @ts-ignore
