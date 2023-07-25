@@ -90,9 +90,9 @@ export default function Navbar() {
           >
             <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
               <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETHEREUM</Link>
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >POLKADOT</Link>
+              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
           <Link
@@ -173,7 +173,7 @@ export default function Navbar() {
 
       {/* ______ HAMBRUGER MENU WHEN SCREEN UNDER 1280PX _______ */}
       {openBurgerMenu &&
-        <div className="absolute right-0 top-0 flex flex-col gap-5 h-screen w-52 xl:hidden  backdrop-blur-3xl z-50 pt-16 pl-3 font-bold " >
+        <div className="fixed right-0 top-0 flex flex-col gap-5 h-screen w-52 xl:hidden  backdrop-blur-3xl z-50 pt-16 pl-3 font-bold " >
           <button className="absolute top-4 right-4 font-bold bg-gray-100 dark:bg-bgDarkGray h-8 w-8 rounded-full flex justify-center items-center "
             onClick={toggleBurgerMenu}
           >
@@ -204,9 +204,9 @@ export default function Navbar() {
           >
             <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
               <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETHEREUM</Link>
               <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >POLKADOT</Link>
+              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
           <Link

@@ -11,7 +11,7 @@ export default function Index() {
   }, [])
 
   return (
-    <div className='flex flex-col  w-full justify-center items-center relative mb-32 pt-20'>
+    <div className='flex flex-col  w-full justify-center items-center relative mb-32 pt-20 max-sm:px-5'>
       <section className=' my-10 md:my-20 w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl' >
         <div className='  lg:w-2/4 space-y-5' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
