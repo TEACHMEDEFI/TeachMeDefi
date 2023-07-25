@@ -35,7 +35,6 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
     const handleOutsideClick = (event: MouseEvent) => {
         const modalElement = document.querySelector('.lesson-page-modal');
         if (modalElement && !modalElement.contains(event.target as Node)) {
-            console.log('Clicked')
             handleClose();
         }
     };
@@ -43,8 +42,6 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
     useEffect(() => {
         if (modalOpen) {
             document.addEventListener('mousedown', handleOutsideClick);
-            console.log('click listener added')
-            
         }
 
         return () => {
@@ -55,7 +52,6 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
 
 
     const displayNextVideoInModal = () => {
-        console.log('Setting next Video')
         setShowSpinner(true)
         setLesson(currentQuest.lessons[lessonIndex + 1])
         setLessonIndex(lessonIndex + 1);
@@ -65,7 +61,6 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
   
   
     const displayPrevVideoInModal = () => {
-        console.log('Setting prev Video')
         setShowSpinner(true)
         setLesson(currentQuest.lessons[lessonIndex - 1])
         setLessonIndex(lessonIndex - 1);
@@ -74,7 +69,6 @@ export default function LessonPage({ currentLesson, modalOpen, onClose, setUserP
     }
 
     const replayVideoInModal = () => {
-        console.log('Setting current Video')
         setShowSpinner(true)
         setLesson(currentQuest.lessons[lessonIndex])
         setLessonIndex(lessonIndex);

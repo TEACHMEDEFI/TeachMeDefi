@@ -95,7 +95,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const handleVideoOnEnd = () => {
     setVideoEnded(true);
     setShowNavButtons(false)
-    console.log(isQuestSection)
     if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
       setShowMintNftDirections(true)
     }

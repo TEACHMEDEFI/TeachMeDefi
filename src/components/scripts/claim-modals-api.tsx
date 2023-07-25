@@ -72,7 +72,6 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
         mintable = stringNumber && parseInt(stringNumber) > 0 ? true : false;
     }  else {
         mintable = tokenBalance > 0;
-        console.log(tokenBalance)
     }
 
 
@@ -127,11 +126,9 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
 export const specialQuestMintable = async (args: string): Promise<boolean> => {
     let success = false;
     const url = `https://polkadot.subscan.io/extrinsic/${args}`
-    console.log(url)
 
     try {
         const response = await fetch(url);
-        console.log('From Fetching', response)
         success = response.status === 200;
     } catch (error) {
         success = false;

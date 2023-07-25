@@ -115,18 +115,16 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
   * Handles Modal Toggle and is passed as props
   */
   const togglePopup = (questId: string) => {
-    console.log('setting modal open with id', questId)
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
-    console.log('classes are rerendered')
+
     onModalOpen()
   }
 
   const onCloseNft = (questSectionid: string) => {
     const show : QuestModalShow = {};
 
-    console.log('Closing nft')
     show[questSectionid] = false;
     setShowPopup(show)
     onModalClose(questSectionid)

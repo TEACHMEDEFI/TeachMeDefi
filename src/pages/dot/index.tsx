@@ -20,7 +20,6 @@ export default function Index() {
   useEffect(() => {
     switchNetworkIfNeeded()
     setShowPlayer(true);
-    console.log('Rerendered Due to Modal Close')
   }, [modalOpen])
 
 

@@ -84,9 +84,6 @@ export const useTokenBalance = (questSectionId: Token): number => {
 
 
   const getTokenBalance = async (): Promise<void> => { 
-      console.log('typeof account is', typeof account)
-      console.log('Token Address', tokenAddress)
-      console.log('Blockchain is', blockChainToUse)
 
       // const latestBlock = await alchemy.core.getBlockNumber();
       // console.log("The latest block number is", latestBlock);
@@ -98,7 +95,7 @@ export const useTokenBalance = (questSectionId: Token): number => {
         
         balances = await alchemy.core.getBalance(account as string, 'latest');
         balances = utils.formatEther(balances);
-        console.log(`Eth Balance of ${account as string}: ${balances} ETH`);
+        // console.log(`Eth Balance of ${account as string}: ${balances} ETH`);
 
       // Get Balances for any other Token
       } else {

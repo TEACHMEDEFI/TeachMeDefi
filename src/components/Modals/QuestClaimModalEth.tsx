@@ -36,7 +36,6 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }:
   useEffect(() => {
     if (modalOpen) {
         document.addEventListener('mousedown', handleOutsideClick);
-        console.log('click listener added')
     }
 
     return () => {
@@ -52,7 +51,6 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }:
   const handleOutsideClick = (event: MouseEvent) => {
       const modalElement = document.querySelector('.lesson-page-modal');
       if (modalElement && !modalElement.contains(event.target as Node)) {
-          console.log('Clicked')
           handleClose();
       }
   };

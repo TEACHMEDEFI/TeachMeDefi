@@ -56,7 +56,6 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
     setTimeout(() => setIsLoading(false), 1000)
 
-    console.log('Quest claim modal rerender')
 
   }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
 
@@ -74,7 +73,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
             setBalances(new BN(balance.free));
 
-            console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
+            // console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
         }
 
         if (questSectionId === 'dot-quest-4' || questSectionId === 'dot-quest-5') {
@@ -90,7 +89,6 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
             const balance = tokenBalanceRequestJson ? tokenBalanceRequestJson.result : 0;
 
-            console.log(balance);
 
             const now = await api.query.timestamp.now();
 
@@ -98,7 +96,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
             setBalances(newBalance);
 
-            console.log(`Token ${now}: balance of ${new BN(balance)}`);
+            // console.log(`Token ${now}: balance of ${new BN(balance)}`);
 
         }
         
@@ -111,9 +109,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
   useEffect(() => {
     if (modalOpen) {
         document.addEventListener('mousedown', handleOutsideClick);
-        console.log('click listener added')
     }
-    console.log('Special Challenge done', specialChallengeDone)
 
     return () => {
         document.removeEventListener('mousedown', handleOutsideClick);
@@ -130,7 +126,6 @@ const handleClose = () => {
   const handleOutsideClick = (event: MouseEvent) => {
       const modalElement = document.querySelector('.lesson-page-modal');
       if (modalElement && !modalElement.contains(event.target as Node)) {
-          console.log('Clicked')
           handleClose();
       }
   };
@@ -153,8 +148,6 @@ const handleClose = () => {
     const prefix = 0;
     const dotAddress = encodeAddress(accountAddress, prefix);
   
-    console.log('The Dot address is:', dotAddress);
-  
     return dotAddress;
   }
   
@@ -164,7 +157,6 @@ const handleClose = () => {
 
     let userIsSigner = false;
     const dotAddress = getDotAddress(selectedPolkaAccount.address)
-    console.log('dot Address', dotAddress)
 
     try {
         const blockHash = await api.rpc.chain.getBlockHash(blockId);
@@ -175,9 +167,6 @@ const handleClose = () => {
         signedBlock.block.extrinsics.forEach((ex: any) => {
           const humanReadableEx: any = ex.toHuman();
           const signer = humanReadableEx.signer;
-
-
-          console.log('Signer is', signer?.Id);
 
           if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount && dotAddress === signer?.Id) {
 
