@@ -42,7 +42,7 @@ export default function Navbar() {
     const href = event.target.href
     const { linktarget } = event.target.dataset;
 
-    if (linktarget === 'podcast' || linktarget === 'newsletter') {
+    if (linktarget === 'podcast' || linktarget === 'newsletter' || linktarget === 'subscribe') {
       window.open(href, '_blank');
     } else {
       window.location = href;
