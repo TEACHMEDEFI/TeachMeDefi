@@ -1,6 +1,7 @@
 import { PrimaryButton, GeneralButton } from '../Buttons/Buttons';
 import { useEffect, useState } from 'react'
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
 import {
   Accordion,
@@ -27,6 +28,7 @@ type CookieBannerProps = {
 const useCookieBannerInteraction = () => {
   const [hasInteracted, setHasInteracted] = useState<boolean>(false);
   const [cookieTypeAccepted, setCookieTypeAccepted] = useState<string>('');
+  const router = useRouter()
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -52,6 +54,10 @@ const useCookieBannerInteraction = () => {
       window.dataLayer.push({
         trackingCookiesAccepted: true
       })
+
+      
+
+     router.reload()
     }
   }
 

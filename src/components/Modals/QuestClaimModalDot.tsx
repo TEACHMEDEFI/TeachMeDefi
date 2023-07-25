@@ -45,7 +45,7 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
   const [specialChallengeFail, setSpecialChallengeFail] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const { account } = useWeb3React();
-  const NAME = "Peter"
+  const NAME = "Teach Me Defi"
 
   useEffect(() => {
     const nodeURL = questSectionId === 'dot-quest-5' ? 'wss://1rpc.io/glmr' : 'wss://rpc.polkadot.io';

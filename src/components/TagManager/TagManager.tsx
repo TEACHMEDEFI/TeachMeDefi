@@ -4,30 +4,31 @@ import { useState, useEffect } from 'react';
 
 const GTM_ID = process.env.NEXT_PUBLIC_TAGMANAGER_CONTAINER_ID;
 
-const TagManagerScript: NextPage = () => {
-  const [acceptedCookies, setAcceptedCookies] = useState<boolean>(false)
 
+const useAcceptedCookies = () => {
+  const [acceptedCookies, setAcceptedCookies] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log('Setting Tag Manager')
     if (typeof window !== 'undefined') {
-        
-        const cookieBannerInteraction = localStorage.getItem('cookieBannerInteraction');
-        console.log(cookieBannerInteraction)
-        if (cookieBannerInteraction) {
-            const acceptedCookies = JSON.parse(cookieBannerInteraction);
-            const allCookiesAccepted = acceptedCookies && acceptedCookies.cookies === 'all';
-            console.log('Set cookie accepted', allCookiesAccepted)
-            setAcceptedCookies(allCookiesAccepted)
-
-        }
+      const cookieBannerInteraction = localStorage.getItem('cookieBannerInteraction');
+      if (cookieBannerInteraction) {
+        const acceptedCookiesInStorage = JSON.parse(cookieBannerInteraction);
+        const allCookiesAccepted = acceptedCookiesInStorage && acceptedCookiesInStorage.cookies === 'all';
+        setAcceptedCookies(allCookiesAccepted);
+      }
     }
-  }, []);
+  }, []); // Empty dependency array ensures the effect runs only once, during component mount.
+
+  return acceptedCookies;
+};
+
+const TagManagerScript: NextPage = () => {
+  const acceptedCookies = useAcceptedCookies();
 
 
-  // if (!acceptedCookies) {
-  //   return (<></>)
-  // }
+  if (!acceptedCookies) {
+    return (<></>)
+  }
 
 
   return (
@@ -44,25 +45,13 @@ const TagManagerScript: NextPage = () => {
 };
 
 const TagManagerNoScript: NextPage = () => {
+  const acceptedCookies = useAcceptedCookies();
   const tagManagerUrl = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`;
-  const [acceptedCookies, setAcceptedCookies] = useState<boolean>(false)
 
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-        const cookieBannerInteraction = localStorage.getItem('cookieBannerInteraction');
-        if (cookieBannerInteraction) {
-            const acceptedCookies = JSON.parse(cookieBannerInteraction);
-            const allCookiesAccepted = acceptedCookies && acceptedCookies.cookies === 'all';
-            setAcceptedCookies(allCookiesAccepted)
-        }
-    }
-  }, []);
-
-
-  // if (!acceptedCookies) {
-  //   return (<></>)
-  // }
+  if (!acceptedCookies) {
+    return (<></>)
+  }
 
   return (
     <noscript id="google-tag-manager-no-script">
