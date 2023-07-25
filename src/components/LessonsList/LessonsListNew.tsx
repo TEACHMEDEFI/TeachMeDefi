@@ -171,7 +171,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
 
     lessonsArray.forEach((quests: Quests, j) => (
         listItemsPerQuest[quests.questSectionId] =  quests.lessons.map((quest: Lesson, i) => (
-            <Link onClick={() => togglePopup(quest.id)} key={quest.id} href="javascript:;" className={`${imageClasses && imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
+            <Link onClick={() => togglePopup(quest.id)} key={quest.id} href="#" className={`${imageClasses && imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 sm:mb-7 ` }><i className="fa-regular fa-play" /> {quest.videoTime} Min</Link>
             
         ))
     ))
@@ -205,7 +205,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
 
                           {isQuestSection ? (
                             <>
-                              <Link href="javascript:;" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(quests.questSectionId)}><i className="fa-light fa-trophy" />Mint NFT</Link>
+                              <Link href="#" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(quests.questSectionId)}><i className="fa-light fa-trophy" />Mint NFT</Link>
                             </>)
                             :
                             null
