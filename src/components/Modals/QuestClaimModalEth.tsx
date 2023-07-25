@@ -125,24 +125,21 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }:
             (
               <>
                 <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!</h3>
-                <h3>Und so gehts weiter:</h3>
-                <ul>
-                  <li>1. Klicke auf NFT erhalten, um den Minting-Prozess zu starten.</li>
-                  <li>2. Es öffnet sich ein Fenster deiner Wallet, in dem du die Transaktion bestätigen musst. </li>
-                </ul>
-                <h3>Hinweis: Keine Sorge, es entstehen keine realen Kosten, da wir uns im Testnetz befinden. Für die Transaktionsgebühr brauchst du aber sogenanntes Testnet-ETH, welches kostenlos erhältlich ist. Falls dein Guthaben leer ist, siehst du hier wie du dir welches besorgst: </h3>
+                <h3>Klicke unten auf NFT erhalten, um dein NFT zu erhalten und deiner Sammlung hinzuzufügen. Anbei findest du ein kurzes Video-Tutorial dazu.</h3>
 
-                <div className='space-y-2'>
-                  <h3><a href="https://youtu.be/zx422X70950" className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent'>Mit der Talisman Wallet</a></h3>
-                  <h3><a href="https://youtu.be/lfd6o6NO4KM" className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent'>Mit der Metamask Wallet</a></h3>
+                <div className=' w-full aspect-video overflow-hidden rounded-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
+                  <ReactPlayer
+                    height="100%"
+                    width="100%"
+                    url={'https://youtu.be/JuguZtA91O4'}
+                    controls={true}
+                    config={{
+                      youtube: {
+                        playerVars: { fs: 1 }
+                      }
+                    }}
+                  />
                 </div>
-
-                <ul>
-                  <li>3. Nach der Bestätigung wird dein NFT erstellt. Sobald dies erfolgreich war, erhältst du eine Benachrichtigung mit weiteren Hinweisen.</li>
-                </ul>
-
-                <h3>Los gehts!</h3>
-
                 <PrimaryButton onClick={() => handleMint()} customClassButton='w-max !py-2 !px-5'  customClassWrapper='w-min  mx-auto '>NFT&nbsp;erhalten</PrimaryButton>
               </>
             ) : null
