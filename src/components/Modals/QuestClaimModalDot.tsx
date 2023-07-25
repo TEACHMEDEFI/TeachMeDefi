@@ -56,6 +56,8 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
     setTimeout(() => setIsLoading(false), 1000)
 
+    console.log('Quest claim modal rerender')
+
   }, [nftMinted, showSpinner, isConnected, questSectionId, specialChallengeDone])
 
 
@@ -92,7 +94,9 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
             const now = await api.query.timestamp.now();
 
-            setBalances(new BN(balance));
+            const newBalance = new BN(balance);
+
+            setBalances(newBalance);
 
             console.log(`Token ${now}: balance of ${new BN(balance)}`);
 
@@ -109,10 +113,13 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
         document.addEventListener('mousedown', handleOutsideClick);
         console.log('click listener added')
     }
+    console.log('Special Challenge done', specialChallengeDone)
 
     return () => {
         document.removeEventListener('mousedown', handleOutsideClick);
     };
+
+    
   }, [modalOpen]);
 
 
@@ -249,9 +256,9 @@ const handleClose = () => {
     }
   }
 
-  if (!modalOpen) {
-    return (<></>)
-  }
+  // if (!modalOpen) {
+  //   return (<></>)
+  // }
 
   if (isLoading) {
     return (
@@ -321,8 +328,7 @@ const handleClose = () => {
           ) : null
           }
 
-          {/* {!showSpinner && !nftMinted && nftBalance === 0 && isConnected && selectedPolkaAccount && (specialChallengeDone || nftMintable) ? */}
-          {true ?
+          {!showSpinner && !nftMinted && nftBalance === 0 && isConnected && selectedPolkaAccount && (specialChallengeDone || nftMintable) ?
             (
               <>
                 <h3>Glückwunsch! Du hast deine Quest erfolgreich gemeistert! Als Belohnung erhältst du jetzt dein eigenes NFT (Non-fungible Token). Ein NFT ist ein einzigartiges, digitales Sammlerstück auf der Blockchain. Es ist wie eine digitale Trophäe für deinen Lernerfolg!</h3>

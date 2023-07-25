@@ -115,6 +115,7 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
   * Handles Modal Toggle and is passed as props
   */
   const togglePopup = (questId: string) => {
+    console.log('setting modal open with id', questId)
     const show : QuestModalShow = {};
     show[questId] = true;
     setShowPopup(show)
@@ -211,9 +212,9 @@ export default function LessonsListNew({chain, lessonsArray, title, isQuestSecti
                           }
                         
                       {// @ts-ignore
-                      chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
+                      showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
 
-                      {chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup}
+                      {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup}
                       // @ts-ignore
                           selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
                     </ul>
