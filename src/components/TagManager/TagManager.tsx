@@ -17,7 +17,7 @@ const useAcceptedCookies = () => {
         setAcceptedCookies(allCookiesAccepted);
       }
     }
-  }, []); // Empty dependency array ensures the effect runs only once, during component mount.
+  }, []);
 
   return acceptedCookies;
 };
