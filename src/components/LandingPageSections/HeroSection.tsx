@@ -14,21 +14,22 @@ export default function HeroSection() {
         <h1 className='xl:text-5xl text-4xl font-bold' >
           Krypto leicht gemacht!
         </h1>
-        <h2 className='xl:text-lg text-sm pb-1 lg:pb-5 backdrop-blur-lg rounded-3xl pr-3 ' >
+        <h2 className='xl:text-lg text-sm backdrop-blur-lg pb-1 lg:pb-5rounded-3xl pr-3 ' >
           Egal, ob du ganz neu im Krypto-Bereich bist oder bereits ein erfahrener Nutzer -
           wir machen Kryptowährungen und Blockchain einfach und zugänglich für alle.
           Entdecke, lerne und verstehe die Welt der digitalen Währungen und nutze sie zu deinem Vorteil.
+          <br />
+          <br />
+          Abonniere noch heute unseren Newsletter und erhalte kostenfreie Einsteiger-Handbücher zu Bitcoin & Ethereum!
         </h2>
-          <span className="xl:text-lg text-sm " >
-            Abonniere noch heute unseren Newsletter und erhalte kostenfreie Einsteiger-Handbücher zu Bitcoin & Ethereum!
-          </span>
+      
         <div >
           {/* <div className="w-40 mb-5">
             <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
               JOIN NOW
             </PrimaryButton>
           </div> */}
-          
+
           <div>
             <div className="w-max mb-5">
               <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">

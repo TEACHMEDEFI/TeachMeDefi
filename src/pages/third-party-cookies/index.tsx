@@ -1,6 +1,6 @@
 export default function Index() {
   return (
-    <div>
+    <div className="overflow-x-scroll">
       <h1 className="font-bold text-2xl mb-10"> Third Party Cookies</h1>
       <h3 className="font-bold text-xl ">YouTube</h3>
       Wir verwenden auf dieser Seite des Videodienstes YouTube, der Firma YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066,
