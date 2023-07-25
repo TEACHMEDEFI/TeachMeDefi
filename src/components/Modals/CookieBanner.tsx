@@ -54,9 +54,6 @@ const useCookieBannerInteraction = () => {
       window.dataLayer.push({
         trackingCookiesAccepted: true
       })
-
-      
-
      router.reload()
     }
   }
