@@ -131,7 +131,7 @@ const QuestClaimModalEth = ({ questSectionId, togglePopup, modalOpen, onClose }:
                   <ReactPlayer
                     height="100%"
                     width="100%"
-                    url={'https://youtu.be/JuguZtA91O4'}
+                    url={'https://youtu.be/DGHg8D1FVmE'}
                     controls={true}
                     config={{
                       youtube: {
