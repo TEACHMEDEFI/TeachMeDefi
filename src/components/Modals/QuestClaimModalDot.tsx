@@ -25,7 +25,7 @@ type QuestClaimModalProps = {
 }
 
 type TokenBalance = {
-    result: string;
+  result: string;
 }
 
 
@@ -63,43 +63,43 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
   useEffect(() => {
     if (!selectedPolkaAccount || !api) return
 
-    (async() => {
+    (async () => {
 
-        if (questSectionId === 'dot-quest-2') {
-            // @ts-ignore: Unreachable code error
-            const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
+      if (questSectionId === 'dot-quest-2') {
+        // @ts-ignore: Unreachable code error
+        const { nonce, data: balance } = await api.query.system.account(selectedPolkaAccount.address);
 
-            const now = await api.query.timestamp.now();
+        const now = await api.query.timestamp.now();
 
-            setBalances(new BN(balance.free));
+        setBalances(new BN(balance.free));
 
-            // console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
-        }
+        // console.log(`${now}: balance of ${balance.free} and a nonce of ${nonce}`);
+      }
 
-        if (questSectionId === 'dot-quest-4' || questSectionId === 'dot-quest-5') {
+      if (questSectionId === 'dot-quest-4' || questSectionId === 'dot-quest-5') {
 
-            const query = questSectionId === 'dot-quest-4' 
-            ? `https://api-moonbeam.moonscan.io/api?module=account&action=tokenbalance&contractaddress=0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080&address=${account as string}&tag=latest&apikey=${process.env.NEXT_PUBLIC_MOONMBEAM_API_KEY}`
-            : `https://api-moonbeam.moonscan.io/api?module=account&action=balance&address=${account as string}&tag=latest&apikey=${process.env.NEXT_PUBLIC_MOONMBEAM_API_KEY}` 
+        const query = questSectionId === 'dot-quest-4'
+          ? `https://api-moonbeam.moonscan.io/api?module=account&action=tokenbalance&contractaddress=0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080&address=${account as string}&tag=latest&apikey=${process.env.NEXT_PUBLIC_MOONMBEAM_API_KEY}`
+          : `https://api-moonbeam.moonscan.io/api?module=account&action=balance&address=${account as string}&tag=latest&apikey=${process.env.NEXT_PUBLIC_MOONMBEAM_API_KEY}`
 
-            let erc20BalanceRequest: Response = await fetch(query)
-
-            
-            const tokenBalanceRequestJson: TokenBalance = await erc20BalanceRequest.json();
-
-            const balance = tokenBalanceRequestJson ? tokenBalanceRequestJson.result : 0;
+        let erc20BalanceRequest: Response = await fetch(query)
 
 
-            const now = await api.query.timestamp.now();
+        const tokenBalanceRequestJson: TokenBalance = await erc20BalanceRequest.json();
 
-            const newBalance = new BN(balance);
+        const balance = tokenBalanceRequestJson ? tokenBalanceRequestJson.result : 0;
 
-            setBalances(newBalance);
 
-            // console.log(`Token ${now}: balance of ${new BN(balance)}`);
+        const now = await api.query.timestamp.now();
 
-        }
-        
+        const newBalance = new BN(balance);
+
+        setBalances(newBalance);
+
+        // console.log(`Token ${now}: balance of ${new BN(balance)}`);
+
+      }
+
     })()
 
   }, [api, selectedPolkaAccount])
@@ -108,26 +108,26 @@ const QuestClaimModalDot = ({ questSectionId, togglePopup, setSelectedPolkaAccou
 
   useEffect(() => {
     if (modalOpen) {
-        document.addEventListener('mousedown', handleOutsideClick);
+      document.addEventListener('mousedown', handleOutsideClick);
     }
 
     return () => {
-        document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
 
-    
+
   }, [modalOpen]);
 
 
-const handleClose = () => {
+  const handleClose = () => {
     onClose(questSectionId)
   }
 
   const handleOutsideClick = (event: MouseEvent) => {
-      const modalElement = document.querySelector('.lesson-page-modal');
-      if (modalElement && !modalElement.contains(event.target as Node)) {
-          handleClose();
-      }
+    const modalElement = document.querySelector('.lesson-page-modal');
+    if (modalElement && !modalElement.contains(event.target as Node)) {
+      handleClose();
+    }
   };
 
 
@@ -143,14 +143,14 @@ const handleClose = () => {
   }
 
 
-  const getDotAddress = (accountAddress:string ) => {
+  const getDotAddress = (accountAddress: string) => {
     // Specify the prefix for the Dot address (Check the appropriate prefix for your network)
     const prefix = 0;
     const dotAddress = encodeAddress(accountAddress, prefix);
-  
+
     return dotAddress;
   }
-  
+
 
   const checkExtrinsic = async (): Promise<boolean> => {
     if (!api || !blockId || !extrinsic || !selectedPolkaAccount) return false;
@@ -159,22 +159,22 @@ const handleClose = () => {
     const dotAddress = getDotAddress(selectedPolkaAccount.address)
 
     try {
-        const blockHash = await api.rpc.chain.getBlockHash(blockId);
-        const signedBlock = await api.rpc.chain.getBlock(blockHash);
-        
+      const blockHash = await api.rpc.chain.getBlockHash(blockId);
+      const signedBlock = await api.rpc.chain.getBlock(blockHash);
 
-        // the hash for each extrinsic in the block
-        signedBlock.block.extrinsics.forEach((ex: any) => {
-          const humanReadableEx: any = ex.toHuman();
-          const signer = humanReadableEx.signer;
 
-          if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount && dotAddress === signer?.Id) {
+      // the hash for each extrinsic in the block
+      signedBlock.block.extrinsics.forEach((ex: any) => {
+        const humanReadableEx: any = ex.toHuman();
+        const signer = humanReadableEx.signer;
 
-              userIsSigner = true;
-          }
-        });
+        if (ex.hash.toHex() === extrinsic && signer.Id && selectedPolkaAccount && dotAddress === signer?.Id) {
+
+          userIsSigner = true;
+        }
+      });
     } catch (e) {
-        userIsSigner = false
+      userIsSigner = false
     }
 
     setSpecialChallengeDone(userIsSigner);
@@ -275,8 +275,8 @@ const handleClose = () => {
           {!isConnected || !selectedPolkaAccount && nftBalance === 0 ? (
             <>
               <div className='w-full relative' >
+                <h3>Bitte verbinde deine Wallet zunächst mit der Webseite. Eine kurze Video-Anleitung dafür findest du anbei.</h3>
                 <div className=' w-full aspect-video overflow-hidden rounded-t-xl ' style={{ maxWidth: "calc(100vw - 20px *2)", maxHeight: "calc(100vh - 180px)" }} >
-                  <h3>Bitte verbinde deine Wallet zunächst mit der Webseite. Eine kurze Video-Anleitung dafür findest du anbei.</h3>
                   <ReactPlayer
                     height="100%"
                     width="100%"
@@ -375,7 +375,7 @@ const handleClose = () => {
                 </div>
               </div>
               {specialChallengeFail && <h3 className="red-text">Das Extrinsic konnte deiner Addresse nicht zugerechnet werden</h3>}
-              <div className="flex input-container-modal">
+              <div className="flex  flex-col gap-2 sm:flex-row ">
                 <input className="input-field-dot" id="transaction-id" type="text" placeholder="Extrinsic Hash" value={extrinsic} onChange={() => handleUserInputForTransaction(event)} />
                 <input className="input-field-dot" id="block-id" type="text" placeholder="Block ID" value={blockId} onChange={() => handleUserInputForBlock(event)} />
               </div>
