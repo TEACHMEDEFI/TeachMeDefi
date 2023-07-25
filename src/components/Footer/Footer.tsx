@@ -80,7 +80,7 @@ export default function Footer() {
           <Link data-linktarget="privacy-section" href={"/privacy"} className="rainbow-text" >Datenschutzerklärung</Link>
           <Link data-linktarget="terms-section" href={"/termsAndConditions"} className="rainbow-text" >Nutzungsbedingungen</Link>
           <Link data-linktarget="impressum-section" href={"/impressum"} className="rainbow-text" >Impressum</Link>
-          <Link data-linktarget="faq-section" href={"/privacy"} className="rainbow-text" >FAQ</Link>
+          {/* <Link data-linktarget="faq-section" href={"/privacy"} className="rainbow-text" >FAQ</Link> */}
 
 
         </div>
