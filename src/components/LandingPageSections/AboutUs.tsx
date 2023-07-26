@@ -29,7 +29,7 @@ export default function AboutUs() {
   return (
     <section id='about-us' className='flex flex-col items-center mb-5 px-5' >
       <div className="w-full flex flex-col items-center  max-w-[1240px]"  >
-        <div>
+        <div className='z-10'>
           <h3 className="text-4xl font-bold mb-6">Über uns</h3>
 
           <p className="tracking-wide leading-relaxed ">
