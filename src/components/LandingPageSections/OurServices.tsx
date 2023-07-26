@@ -40,7 +40,7 @@ export default function OurServices() {
             <div className="max-lg:w-full" >
               <h4 className="text-xl" >Krypto Bootcamp</h4>
               <p className='mt-1 tracking-wider text-sm w-full lg:w-80 xl:w-96'>
-              In 90 Minuten fit für Ethereum, Polkadot und Bitcoin. Lerne die Grundlagen & erhalte Belohnungen.
+              In 90 Minuten fit für Ethereum, Polkadot und Bitcoin (coming soon). Lerne die Grundlagen & erhalte Belohnungen.
               </p>
               <Link
                 href={"#courses"}
@@ -96,7 +96,7 @@ export default function OurServices() {
             <div className="max-md:w-full" >
               <h4 className="text-xl" >E-Books  </h4>
               <p className='mt-1 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
-              Abonniere unseren Newsletter und erhalte kostenlose E-Books zu Bitcoin, Ethereum & Polkadot. Starte deine Krypto-Reise jetzt!
+              Abonniere unseren Newsletter und erhalte kostenlose E-Books zu Bitcoin, Ethereum & Polkadot (coming soon). Starte deine Krypto-Reise jetzt!
               </p>
               <Link target="_blank"
                 href={"https://www.newsletter.teachmedefi.de/"}
