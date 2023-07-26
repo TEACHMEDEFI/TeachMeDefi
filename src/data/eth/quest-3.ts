@@ -9,7 +9,7 @@ import { Lesson } from "../generalLessons";
 export const quest3: Lesson[] = [
   {
     id: "eth-17",
-    title: '3 - Kryptowährungen dezentral tauschen - DEX',
+    title: 'Quest 3. - Kryptowährungen dezentral tauschen - DEX',
     slug: 'krypto-dezentral-tauschen',
     youtubeUrl: 'https://www.youtube.com/watch?v=r_HxaqvtX_Y',
     youtubeThumbnail: "https://img.youtube.com/vi/r_HxaqvtX_Y/hqdefault.jpg",
@@ -32,7 +32,7 @@ export const quest3: Lesson[] = [
       },
       {
         linkText: "SushiSwap",
-        href: "https://sushiswap.fi/"
+        href: "https://www.sushi.com/"
       },
       {
         linkText: "QuickSwap",
@@ -41,6 +41,7 @@ export const quest3: Lesson[] = [
     ],
     section: 4,
     questNumber: 3,
+    videoTime: '07:12',
     transcript: [
       {
         title: " Anleitung zur Nutzung von Uniswap - Die Dezentrale Handelsplattform",
@@ -105,7 +106,7 @@ export const quest3: Lesson[] = [
         links: [
           {
             linkText: "SushiSwap",
-            href: "https://sushiswap.fi/"
+            href: "https://www.sushi.com/"
           },
           {
             linkText: "QuickSwap",

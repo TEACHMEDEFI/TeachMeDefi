@@ -6,12 +6,12 @@ import { Web3Provider } from '@ethersproject/providers'
 import { ThemeProvider } from '@/context/ThemeContext';
 // Component imports
 import Navbar from '@/components/Navbar/Navbar'
+import { SupportButton } from '@/components/Buttons/SupportButton';
 import Footer from '@/components/Footer/Footer'
 import { TagManagerScript, TagManagerNoScript } from '@/components/TagManager/TagManager'
 
 import CookieBanner from '@/components/Modals/CookieBanner';
 import CookiePolicyModal from '@/components/Modals/CookiePolicy';
-
 
 
 // Font inports
@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className='dark:bg-bgDarkBlue dark:text-white'> 
 
           <TagManagerScript />
-          <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white flex flex-col items-center `} >
+          <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white flex flex-col items-center relative`} >
             <TagManagerNoScript />
             <Navbar />
             <div className='pt-24 px-5 w-full max-w-[1600px]' >
@@ -51,6 +51,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
             <CookieBanner fromCookiePolicyNoobsie={false} />
             <CookiePolicyModal />
+            <SupportButton />
           </main>
           <Footer />
         </div>

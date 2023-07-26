@@ -10,14 +10,14 @@ import { Lesson } from "../generalLessons";
 export const quest4: Lesson[] = [
   {
     id: "eth-18",
-    title: '4.1 - Layer 2 Solution einrichten & nutzen',
+    title: 'Quest 4.1 - Layer 2 Solution einrichten & nutzen',
     slug: 'layer-two-einrichten-und-nutzen',
     youtubeUrl: 'https://www.youtube.com/watch?v=XVZ8GKAucZ0',
     youtubeThumbnail: "https://img.youtube.com/vi/XVZ8GKAucZ0/hqdefault.jpg",
     importantLinks: [
       {
         linkText: "Arbitrum One",
-        href: "https://offchainlabs.com/arbitrum-one"
+        href: "https://arbitrum.io/"
       },
       {
         linkText: "Arbitrum Bridge",
@@ -30,10 +30,6 @@ export const quest4: Lesson[] = [
       {
         linkText: "SushiSwap",
         href: "https://app.sushi.com/swap"
-      },
-      {
-        linkText: "QuickSwap",
-        href: "https://quickswap.exchange/#/swap"
       },
       {
         linkText: "Optimism",
@@ -50,6 +46,7 @@ export const quest4: Lesson[] = [
     ],
     section: 5,
     questNumber: 4,
+    videoTime: '08:59',
     transcript: [
       {
         title: "Wie man Layer 2 Solution mit Arbitrum One einrichtet: Deine Schritt-für-Schritt-Anleitung",
@@ -61,7 +58,7 @@ export const quest4: Lesson[] = [
         links: [
           {
             linkText: "Arbitrum One",
-            href: "https://offchainlabs.com/arbitrum-one"
+            href: "https://arbitrum.io/"
           },
         ]
       },
@@ -77,7 +74,7 @@ export const quest4: Lesson[] = [
       },
       {
         subline: '3. DEXs nutzen',
-        text: 'Sobald deine Coins erfolgreich auf Arbitrum One übertragen wurden, kannst du dezentrale Börsen (DEXs) nutzen, um sie zu handeln. DEXs wie Uniswap, Sushiswap und Quickswap unterstützen Arbitrum One und bieten nahtlose Handelserfahrungen auf Layer 2. Du kannst die gewünschte DEX besuchen und die Chain auf Arbitrum One umstellen, um loszulegen.',
+        text: 'Sobald deine Coins erfolgreich auf Arbitrum One übertragen wurden, kannst du dezentrale Börsen (DEXs) nutzen, um sie zu handeln. DEXs wie Uniswap und Sushiswap unterstützen Arbitrum One und bieten nahtlose Handelserfahrungen auf Layer 2. Du kannst die gewünschte DEX besuchen und die Chain auf Arbitrum One umstellen, um loszulegen.',
         links: [
           {
             linkText: "Uniswap",
@@ -86,10 +83,6 @@ export const quest4: Lesson[] = [
           {
             linkText: "SushiSwap",
             href: "https://app.sushi.com/swap"
-          },
-          {
-            linkText: "QuickSwap",
-            href: "https://quickswap.exchange/#/swap"
           },
         ]
       },
@@ -122,7 +115,7 @@ export const quest4: Lesson[] = [
   },
   {
     id: "eth-19",
-    title: '4.2 - DEX Aggregator',
+    title: 'Quest 4.2 - DEX Aggregator',
     slug: 'dex-aggregator',
     youtubeUrl: 'https://www.youtube.com/watch?v=W9QPpyIO9Uo',
     youtubeThumbnail: "https://img.youtube.com/vi/W9QPpyIO9Uo/hqdefault.jpg",
@@ -135,6 +128,7 @@ export const quest4: Lesson[] = [
     ],
     section: 5,
     questNumber: 4,
+    videoTime: '02:50',
     transcript: [
       {
         title: "Wie man einen DEX-Aggregator nutzt: Ein Leitfaden zur Nutzung von One Inch und anderen Alternativen",

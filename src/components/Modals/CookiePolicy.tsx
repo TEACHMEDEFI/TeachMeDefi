@@ -25,18 +25,23 @@ export default function CookiePolicyModal() {
   }, [showPopup])
 
   return (
-    <div className="fixed left-5 lg:left-16 bottom-0 flex flex-col z-50">
+    <div className="fixed  left-2 lg:left-5 bottom-2 lg:bottom-0 flex flex-col z-50">
       <div
-        className={`bg-gray-300 dark:bg-bgDarkGray h-12 flex items-center justify-evenly rounded-t-md  `}
+        className={` max-lg:h-10 max-lg:w-10 lg:h-8 flex items-center justify-evenly   `}
       >
-        <button className={`h-full flex items-center rounded-t-md px-2 lg:px-5 ${!showPopup ? "bg-gray-200 dark:bg-gray-600 " : "font-bold"}`}
-          onClick={handleLinksToggle} >
-          <span className="h-6 w-6 relative  lg:mr-2">
-            <Image src={isDarkMode ? "/cookie-light.svg" : "/cookie-dark.svg"}
+        <button
+          className={`h-full w-full flex items-center lg:rounded-t-md  lg:px-3 
+         ${!showPopup ? "bg-gray-200 dark:bg-gray-600 " : "font-bold"}
+         max-lg:rounded-full max-lg:justify-center
+         `}
+          onClick={handleLinksToggle}
+        >
+          <span className="h-6 w-5 relative  lg:mr-2">
+            <Image src={isDarkMode ? "/cookie/cookie-light.svg" : "/cookie/cookie-dark.svg"}
               alt="cookie" fill sizes="60px"
             />
           </span>
-          <span className="max-lg:hidden" >
+          <span className="max-lg:hidden text-sm" >
             Cookies & Datenschutz
           </span>
         </button>

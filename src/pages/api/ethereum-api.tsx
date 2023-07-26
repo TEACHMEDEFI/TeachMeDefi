@@ -1,7 +1,8 @@
-const { ethers } = require('ethers')
+const { ethers, utils } = require('ethers')
 import { useWeb3React } from '@web3-react/core';
 import { useState, useEffect } from 'react';
 import { Alchemy, Network } from "alchemy-sdk";
+
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
 
@@ -12,9 +13,9 @@ type TokenAddresses = {
 
 const TokenAddresses: TokenAddresses = {
   "eth-quest-2": process.env.NEXT_PUBLIC_SEPOLIA_ETH as string, //Sepolia Eth
-  "eth-quest-3": process.env.NEXT_PUBLIC_WETH as string, // WETH
-  "eth-quest-4": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbitrum Eth
-  "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot
+  "eth-quest-3": process.env.NEXT_PUBLIC_WETH as string, // WETH on Mumbai
+  "eth-quest-4": process.env.NEXT_PUBLIC_ARBI_ETH as string, // Arbitrum Eth on Arbi Mainnet
+  "dot-quest-5": process.env.NEXT_PUBLIC_XCDOT as string, // xcDot auf Eth Mainnet
 };
 
 
@@ -45,9 +46,10 @@ type ChainIdPerQuest = {
 
 const chainIdPerQuest: ChainIdPerQuest = {
   "eth-quest-2": Network.ETH_SEPOLIA, //Sepolia Eth
-  "eth-quest-3": Network.ETH_MAINNET, // WETH
+  "eth-quest-3": Network.MATIC_MUMBAI, // WETH
   "eth-quest-4": Network.ARB_MAINNET, // Arbitrum
-  "dot-quest-5": Network.ETH_MAINNET, // xcDot
+  "dot-quest-4": Network.ETH_MAINNET, // xcDot
+  "dot-quest-5": Network.ETH_MAINNET, // GLMR
 }
 
 type config = {
@@ -67,29 +69,50 @@ export const useTokenBalance = (questSectionId: Token): number => {
   const blockChainToUse = chainIdPerQuest[questSectionId];
 
   
+  const config: config = {
+    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+    network: blockChainToUse,
+  };
+  // @ts-ignore: Unreachable code error
+  const alchemy = new Alchemy(config);
+
+  
   useEffect(() => {
     if (!account || !tokenAddress || !blockChainToUse) return;
     getTokenBalance()
   },[account])
 
-    const config: config = {
-      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
-      network: blockChainToUse,
-    };
 
-    const getTokenBalance = async (): Promise<void> => { 
-      // @ts-ignore: Unreachable code error
-      const alchemy = new Alchemy(config);
+  const getTokenBalance = async (): Promise<void> => { 
 
-      // @ts-ignore: Unreachable code error
-      const data = await alchemy.core.getTokenBalances(account, [tokenAddress]);
+      // const latestBlock = await alchemy.core.getBlockNumber();
+      // console.log("The latest block number is", latestBlock);
+      let balances;
 
-      let balance = data ? data.tokenBalances[0].tokenBalance : 0;
-      // @ts-ignore: Unreachable code error
-      balance = balance ? parseFloat(balance) : 0;
 
-      setBalance(balance);
+      // Get balance and format in terms of ETH
+      if (questSectionId === 'eth-quest-2' || questSectionId === 'eth-quest-4') {
+        
+        balances = await alchemy.core.getBalance(account as string, 'latest');
+        balances = utils.formatEther(balances);
+        // console.log(`Eth Balance of ${account as string}: ${balances} ETH`);
+
+      // Get Balances for any other Token
+      } else {
+        const data = await alchemy.core.getTokenBalances(account as string, [tokenAddress]);
+
+        balances = data ? data.tokenBalances[0].tokenBalance : 0;
+
+        // @ts-ignore: Unreachable code error
+        balances = Number(balances) // ? parseFloat(balances) : 0;
+
+        // console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
+      }
+
+      setBalance(balances);
   };
+
+
   return balance;
 };
 
@@ -194,6 +217,13 @@ export const useFetch = (url: string): boolean => {
   return isSuccess;
 };
 
+
+export const useConnectedToMetaMask = (): boolean => {
+  const { account } = useWeb3React();
+
+  return account ? true : false;
+}
+
 /*
 * Helper Function to force user to switch to sepolia on pageLoad and on opening a modal
 */
@@ -220,4 +250,46 @@ export const switchNetworkIfNeeded = async (): Promise<void> => {
 }
 
 
+// export const useGetItemsForProgressBar = (currentLessonId: string, chain: string): [items: Quests, isQuestSection: boolean] => {
+//   const [items, setItems] = useState<Quests>()
+//   const [isQuestSection, setIsQuestSection] = useState<boolean>(true)
 
+//   const questsToUse = chain === 'eth' ? ethQuests : dotQuests;
+//   const theoryToUse = chain === 'eth' ? ethTheory : dotTheory
+
+
+//   let questForProgressBar = questsToUse.find((quest: Quests) => quest.lessons.some(lesson => lesson.id === currentLessonId));
+
+//   let safetyLessons: any = [];
+
+//   if (!questForProgressBar) {
+//     questForProgressBar = theoryToUse.find((quest: Quests)  => quest.lessons.some(lesson => lesson.id === currentLessonId));
+//     setIsQuestSection(false)
+//   }
+
+//   if (!questForProgressBar) {
+//     questForProgressBar = generalLessons.find((quest: Quests)  => quest.lessons.some(lesson => lesson.id === currentLessonId));
+//     setIsQuestSection(false)
+//   }
+
+//   if (!questForProgressBar) {
+//     questSicherheit.forEach((sicherheit) => {
+//       safetyLessons.push(sicherheit)
+//     })
+//     questForProgressBar = {
+//         questTitle: 'safety',
+//         lessons: safetyLessons,
+//         questSectionId: 'safety'
+
+//     }
+//     setIsQuestSection(false)
+//   }
+
+//   setItems(questForProgressBar)
+
+
+//   return {
+//     items,
+//     isQuestSection
+//   }
+// }

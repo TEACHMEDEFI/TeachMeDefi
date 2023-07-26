@@ -9,7 +9,7 @@ import { Lesson } from "../generalLessons";
 export const quest6: Lesson[] = [
   {
     id: "eth-26",
-    title: '6. Dezentrale Autonome Organisationen - DAOs',
+    title: 'Quest 6. - Dezentrale Autonome Organisationen - DAOs',
     slug: 'dezentrale-autonome-organisation',
     youtubeUrl: 'https://www.youtube.com/watch?v=cBpNnbsGg9g',
     youtubeThumbnail: "https://img.youtube.com/vi/cBpNnbsGg9g/hqdefault.jpg",
@@ -37,6 +37,7 @@ export const quest6: Lesson[] = [
     ],
     section: 7,
     questNumber: 6,
+    videoTime: '05:26',
     transcript: [
       {
         title: "DAOs und Governance Tokens: Eine Anleitung zum Einstieg mit Aave",

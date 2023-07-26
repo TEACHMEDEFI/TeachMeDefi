@@ -15,12 +15,11 @@ type Params = {
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
-
   return (
     <main className='w-full flex flex-col  items-center ' >
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
+      {/* <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} /> */}
       <LessonsBurgerMenu />
-      <LinksAndIndexBurger />
+      {/* <LinksAndIndexBurger /> */}
     </main>
   )
 }

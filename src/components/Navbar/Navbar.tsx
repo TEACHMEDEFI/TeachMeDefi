@@ -1,4 +1,5 @@
 
+import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -41,7 +42,7 @@ export default function Navbar() {
     const href = event.target.href
     const { linktarget } = event.target.dataset;
 
-    if (linktarget === 'podcast' || linktarget === 'newsletter') {
+    if (linktarget === 'podcast' || linktarget === 'newsletter' || linktarget === 'subscribe') {
       window.open(href, '_blank');
     } else {
       window.location = href;
@@ -52,6 +53,7 @@ export default function Navbar() {
 
   const handleTagManagerClickEvents = (event: any) => {
     reportLinkClick(event.target);
+    setOpenBurgerMenu(false)
   }
 
   // const toggleBurgerTeachMe = () => {
@@ -65,6 +67,11 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-center"  >
+      <Head>
+        <meta name="theme-color" content={isDarkMode ? '#0b111b' : '#ffffff'} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ff0000" />
+      </Head>
       <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
@@ -75,7 +82,7 @@ export default function Navbar() {
         </div>
 
         {/* _____ NAV ROUTES, HIDDEN IF SCREEN IS UNDER 1280PX  _______ */}
-        <div className="space-x-14 hidden xl:flex " >
+        <div className="space-x-8 hidden xl:flex " >
           <div
             className="relative  "
             onMouseEnter={() => toggleTeachMeButton(!teachMeButton)}
@@ -83,11 +90,17 @@ export default function Navbar() {
           >
             <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              {/* <Link href={"/btc"} className="rainbow-text" >BTC Section</Link> */}
-              <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETH Section</Link>
-              <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >DOT Section</Link>
+              <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETHEREUM</Link>
+              <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >POLKADOT</Link>
+              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
+          <Link
+            data-linktarget="myNfts"
+            onClick={handleTagManagerClickEvents}
+            href={"/myNfts"}
+            className="hover:underline"
+          >MEIN FORTSCHRITT</Link>
           <Link
             target="_blank"
             data-linktarget="podcast"
@@ -160,7 +173,7 @@ export default function Navbar() {
 
       {/* ______ HAMBRUGER MENU WHEN SCREEN UNDER 1280PX _______ */}
       {openBurgerMenu &&
-        <div className="absolute right-0 top-0 flex flex-col gap-5 h-screen w-52 xl:hidden  backdrop-blur-3xl z-50 pt-16 pl-3 font-bold " >
+        <div className="fixed right-0 top-0 flex flex-col gap-5 h-screen w-52 xl:hidden  backdrop-blur-3xl z-50 pt-16 pl-3 font-bold " >
           <button className="absolute top-4 right-4 font-bold bg-gray-100 dark:bg-bgDarkGray h-8 w-8 rounded-full flex justify-center items-center "
             onClick={toggleBurgerMenu}
           >
@@ -191,11 +204,17 @@ export default function Navbar() {
           >
             <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              {/* <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BTC Section</Link> */}
-              <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETH Section</Link>
-              <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >DOT Section</Link>
+              <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETHEREUM</Link>
+              <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >POLKADOT</Link>
+              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
+          <Link
+            data-linktarget="myNfts"
+            onClick={handleTagManagerClickEvents}
+            href={"/myNfts"}
+            className="hover:underline"
+          >MEIN FORTSCHRITT</Link>
           <Link
             target="_blank"
             data-linktarget="podcast"

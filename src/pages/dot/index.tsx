@@ -1,94 +1,159 @@
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { generalLessons } from '@/data/generalLessons'
-import { dotQuests } from '@/data/dot'
+import { dotQuests, sicherheitsQuestDot } from '@/data/dot'
 import { dotTheory } from '@/data/dot/dotTheory'
-import LessonsList from '@/components/LessonsList/LessonsList'
 import LessonsListNew from '@/components/LessonsList/LessonsListNew'
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { useTheme } from '@/context/ThemeContext';
-
+import { SupportCoaching } from '@/components/SupportCoaching/SupportCoaching';
 
 export default function Index() {
   const { isDarkMode } = useTheme();
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
+  const calendlyRef = useRef<HTMLDivElement>(null);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [modelOpenClass, setModelOpenClass] = useState<boolean>(false)
+
   useEffect(() => {
     switchNetworkIfNeeded()
     setShowPlayer(true);
-  }, [])
+  }, [modalOpen])
+
+
+  const handleModelOpenScroll = (scroll: boolean) => {
+    setModelOpenClass(scroll)
+  }
+
+  const scrollToQuest = (questId: string) => {
+    setTimeout(() => {
+      const element = document.getElementById(questId);
+
+      element?.scrollIntoView();
+    }, 300)
+  }
+
+
+  const onModalClose = (questId: string) => {
+    const newState = modalOpen ? !modalOpen : true;
+    setModalOpen(newState);
+    setModelOpenClass(false)
+    scrollToQuest(questId);
+  }
+
+  const onModalOpen = () => {
+    handleModelOpenScroll(true);
+  }
+
+  const scrollToCalendly = () => {
+    if (calendlyRef && calendlyRef.current) {
+      calendlyRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   return (
-    <div className='flex flex-col h-screen w-full justify-center items-center'>
-      <h1 className='text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-6' >
-        Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
-      </h1>
-      <h2 className=' text-xl md:text-4xl font-bold mb-5' >
-        Coming Soon!
-      </h2>
-      {/* <section className='relative h-screen w-full flex  justify-center items-center max-w-7xl' >
-        <div className='w-2/4 space-y-10  backdrop-blur-sm rounded-lg' >
-          <h1 className='text-7xl font-bold mb-5' >
-            Willkommen bei <span className='text-polkaPink'> Polkadot!</span>
+    <div className={ `flex flex-col w-full justify-center items-center max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
+      <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24 ' >
+        <div className='my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg ' >
+          <h1 className='xl:text-5xl text-4xl font-bold' >
+            Entdecke die Welt von <span className='text-polkaPink'> Polkadot!</span>
           </h1>
-          <h2 className='text-xl font-bold' >
-          Lerne alles über die skalierbare, interoperable Blockchain für eine dezentrale Zukunft.
+          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10 ' >
+            Steig ein in die aufregende Welt von Polkadot, dem Internet der Blockchains! Polkadot ist eine revolutionäre “Multi-Chain”-Plattform, die es ermöglicht, dass verschiedene Blockchains nahtlos und sicher zusammenarbeiten.
+            Auf dieser Seite erlebst du eine Mischung aus fundiertem theoretischen Wissen und praktischen Anleitungen, verpackt in leicht verständliche Module.
+            Fange jetzt an, entdecke das Potenzial von Polkadot und verdiene NFTs während deiner Lernreise!
+
           </h2>
-          <h3 className='font-bold tracking-widest max-w-4xl p-2 z-10 rounded-lg backdrop-blur-sm' >
-          Polkadot ist eine Blockchain-Plattform, die darauf abzielt, die Interoperabilität und Skalierbarkeit
-          von Blockchains zu verbessern. Es ist eine dezentrale Plattform, die es verschiedenen Blockchains ermöglicht,
-          miteinander zu kommunizieren und zusammenzuarbeiten. Polkadot verwendet eine innovative Technologie namens
-          &quot;Parachains&quot;, die es ermöglicht, dass mehrere Blockchains parallel auf der Plattform laufen und miteinander
-          interagieren können. Dadurch können Entwickler und Anwender von den Vorteilen verschiedener Blockchains
-          profitieren, ohne dass sie sich um technische Details kümmern müssen. Polkadot hat auch eine eigene
-          Kryptowährung namens DOT, die zur Stimmrechtsausübung und Netzwerksicherung verwendet wird.
-        </h3>
+
         </div>
-        <div className='relative w-2/4 h-full grow'>
+        <div className='relative w-full lg:w-2/4 h-full grow'>
           <Image src={isDarkMode ? "/dot/dot-logo-dark.png" : "/dot/dot-logo-light.png"} fill alt='Ethereum Hero' />
         </div>
-        <Image src={"/dot/polka_x.svg"} width={392/2} height={400/2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
-        <Image src={"/dot/polka_line.svg"} width={289/2} height={258/2} alt='polkadot ' className='absolute -right-8 -top-2 ' />
-        <Image src={"/dot/polka_net.svg"} width={706/2} height={487/2} alt='polkadot ' className='absolute -right-6 -top-48 ' />
-       
-      </section> */}
+        <Image src={"/dot/polka_x.svg"} width={392 / 2} height={400 / 2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
+        <Image src={"/dot/polka_line.svg"} width={289 / 2} height={258 / 2} alt='polkadot ' className='absolute max-md:hidden -right-8 bottom-20 ' />
+        <Image src={"/dot/polka_net.svg"} width={706 / 2} height={487 / 2} alt='polkadot ' className='absolute max-lg:hidden -right-6 top-0 ' />
 
-      {/* <section>
-        {showPlayer ? (
-          <>
-              <div className='bg-slate-100 dark:bg-bgDarkGray p-10 rounded-xl'>
-                <div className='h-[540px] w-[960px] ' >
-                  <ReactPlayer
-                    height="100%"
-                    width="100%"
-                    url="https://youtu.be/oc2jLjw6904"
-                    controls={true}
-                    config={{
-                      youtube: {
-                        playerVars: { fs: 1 }
-                      }
-                    }}
-                  />
-                </div>
+      </section>
+
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44'>
+        {showPlayer &&
+          <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
+            <div className=' w-full aspect-video xl:pb-5 ' >
+              <ReactPlayer
+                height="100%"
+                width="100%"
+                url="https://youtu.be/oc2jLjw6904"
+                controls={true}
+                config={{
+                  youtube: {
+                    playerVars: { fs: 1 }
+                  }
+                }}
+              />
             </div>
-          </>
-          ) : null}
-      </section> */}
-      {/* <section className='w-full flex flex-col justify-center relative z-50' >
-        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection />
-        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Theorie Section"} isTheorySection />
-        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} title={"Quest Section"} isQuestSection />
+          </div>
+        }
+      </section>
+      <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue
+       via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center flex items-center gap-1 sm:gap-5
+       flex-col sm:flex-row'
+      >
+        Polkadot verstehen
+        <span className="h-5 w-5 relative  lg:mr-2">
+          <button onClick={scrollToCalendly} >
+            <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
+              alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+            />
+          </button>
+        </span>
+      </h3>
+      <section className='w-full flex flex-col justify-center relative z-50' >
+        <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"dot"} lessonsArray={dotTheory} title={"Wie funktioniert Polkadot?"} isTheorySection totalVideoTime="25:34" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <span className='mx-auto mt-28'>
+          <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md:w-max 
+          flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
+          >
+            Polkadot nutzen
+            <span className="h-5 w-5 relative  lg:mr-2">
+              <button onClick={scrollToCalendly} >
+                <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
+                  alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                />
+              </button>
+            </span>
+          </h3>
+        </span>
+        <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection totalVideoTime="49:21" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+
+        <span className='mx-auto mt-28'>
+          <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
+          via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max 
+          flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
+          >
+            Sicher auf der Blockchain
+            <span className="h-5 w-5 relative  lg:mr-2">
+              <button className='w-full h-full' onClick={scrollToCalendly} >
+                <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
+                  alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                />
+              </button>
+            </span>
+          </h3>
+        </span>
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+
       </section>
       <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-
-        <Image src={"/dot/polka_z.svg"} width={261/2} height={261/2} alt='polkadot ' className='absolute left-36 -bottom-36 ' />
-        <Image src={"/dot/polka_polygon.svg"} width={455/2} height={437/2} alt='polkadot ' className='absolute -right-16 bottom-12 ' />
-      </section > */}
-      {/* <section className='h-screen' >
-
-      </section> */}
-
+        <Image src={"/dot/polka_z.svg"} width={261 / 2} height={261 / 2} alt='polkadot ' className='absolute left-16 -bottom-36 ' />
+        <Image src={"/dot/polka_polygon.svg"} width={455 / 2} height={437 / 2} alt='polkadot ' className='absolute max-lg:hidden  -right-16 bottom-12 ' />
+      </section >
+      <div ref={calendlyRef}>
+        <SupportCoaching />
+      </div>
 
     </div >
   )

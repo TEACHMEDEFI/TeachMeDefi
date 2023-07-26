@@ -28,7 +28,7 @@ export default function AboutUs() {
 
   return (
     <section id='about-us' className='flex flex-col items-center mb-5 px-5' >
-      <div className="w-full flex flex-col items-center gap-16 max-w-[1240px]"  >
+      <div className="w-full flex flex-col items-center  max-w-[1240px]"  >
         <div>
           <h3 className="text-4xl font-bold mb-6">Über uns</h3>
 
@@ -46,8 +46,74 @@ export default function AboutUs() {
           </button>
           {/* <SecondaryButton onClick={onOpen}>Mehr lesen</SecondaryButton> */}
         </div>
-        <div className="flex flex-wrap justify-center gap-5 gap-y-10 lg:gap-16 xl:gap-28 " >
-          <div
+        <div className="flex flex-wrap justify-center gap-x-5 lg:gap-16 xl:gap-28 -mt-10 " >
+
+
+
+        <div className='-mt-10' >
+            <div className="relative w-[250px] h-[395px]" >
+              <div className="absolute bg-gradient-to-br
+              from-primaryBlue via-secondaryPurple to-primaryPink
+              rounded-full w-[250px] h-[250px] bottom-0
+              "
+              >
+                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                  <Image
+                    src={"/home/aboutUs/sohejl.png"}
+                    className="rounded-3xl"
+                    fill
+                    loading='lazy'
+                    alt="Profil picture Sohejl"
+                  />
+                </div>
+              </div>
+            </div>
+            <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Sohejl</h4>
+          </div>
+
+          <div className='-mt-10' >
+            <div className="relative w-[250px] h-[395px]" >
+              <div className="absolute bg-gradient-to-br
+              from-primaryBlue via-secondaryPurple to-primaryPink
+              rounded-full w-[250px] h-[250px] bottom-0
+              "
+              >
+                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                  <Image
+                    src={"/home/aboutUs/jan.png"}
+                    className="rounded-3xl"
+                    fill
+                    loading='lazy'
+                    alt="Profil picture Jan"
+                  />
+                </div>
+              </div>
+            </div>
+            <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Jan</h4>
+          </div>
+
+
+          <div className='-mt-10' >
+            <div className="relative w-[250px] h-[395px]" >
+              <div className="absolute bg-gradient-to-br
+              from-primaryBlue via-secondaryPurple to-primaryPink
+              rounded-full w-[250px] h-[250px] bottom-0
+              "
+              >
+                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                  <Image
+                    src={"/home/aboutUs/rustam.png"}
+                    className="rounded-3xl"
+                    fill
+                    loading='lazy'
+                    alt="Profil picture Rustam"
+                  />
+                </div>
+              </div>
+            </div>
+            <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Rustam</h4>
+          </div>
+          {/* <div
             // className="flex flex-col items-center"
             className="bg-gradient-to-br
               from-primaryBlue via-secondaryPurple to-primaryPink
@@ -104,9 +170,10 @@ export default function AboutUs() {
                 />
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
 
+
+        </div>
 
         {showPopup ? (
           <>

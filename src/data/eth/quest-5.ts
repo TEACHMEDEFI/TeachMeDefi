@@ -10,14 +10,14 @@ import { Lesson } from "../generalLessons";
 export const quest5: Lesson[] = [
   {
     id: "eth-20",
-    title: '5.1 - DeFi: Was ist Yield Farming?',
+    title: 'Quest 5.1 - DeFi: Was ist Yield Farming?',
     slug: 'was-ist-yield-farming',
     youtubeUrl: 'https://www.youtube.com/watch?v=SkElW4nYhe4',
     youtubeThumbnail: "https://img.youtube.com/vi/SkElW4nYhe4/hqdefault.jpg",
     importantLinks: [
       {
         linkText: "Uniswap",
-        href: "https://uniswap.org/"
+        href: "https://app.uniswap.org/#/pools"
       },
       {
         linkText: "Aave",
@@ -42,6 +42,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '03:22',
     transcript: [
       {
         title: "Anleitung zu DeFi und Yield Farming: So funktioniert es",
@@ -57,7 +58,7 @@ export const quest5: Lesson[] = [
         links: [
           {
             linkText: "Uniswap",
-            href: "https://uniswap.org/"
+            href: "https://app.uniswap.org/#/pools"
           }
         ]
       },
@@ -106,7 +107,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-21",
-    title: '5.2 - DeFi Übersicht - Defillama & Defiprime',
+    title: 'Quest 5.2 - DeFi Übersicht - Defillama & Defiprime',
     slug: 'defillama-und-defiprime',
     youtubeUrl: 'https://www.youtube.com/watch?v=viTE3p1CQYs',
     youtubeThumbnail: "https://img.youtube.com/vi/viTE3p1CQYs/hqdefault.jpg",
@@ -120,12 +121,8 @@ export const quest5: Lesson[] = [
         href: "https://defiprime.com/"
       },
       {
-        linkText: "Mutual",
+        linkText: "Nexus Mutual",
         href: "https://nexusmutual.io/"
-      },
-      {
-        linkText: "Cover Protocol",
-        href: "https://www.coverprotocol.com/)"
       },
       {
         linkText: "InsurAce",
@@ -134,6 +131,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '04:15',
     transcript: [
       {
         title: "Anleitung zum DeFi-Überblick: DeFiLlama und DeFiPrime",
@@ -165,15 +163,11 @@ export const quest5: Lesson[] = [
       },
       {
         subline: 'DeFi Versicherungen',
-        text: 'Eines der bemerkenswertesten Merkmale von DeFiPrime ist seine Kategorie "Insurance". Hier werden Plattformen vorgestellt, die Versicherungen gegen Contract Fehler und Governance Angriffe anbieten. Einige der vorgestellten Anbieter sind Nexus Mutual, Cover Protocol und InsurAce. Diese Dienstleistungen können besonders wichtig sein, wenn du mit hohen Beträgen im DeFi-Bereich agierst.',
+        text: 'Eines der bemerkenswertesten Merkmale von DeFiPrime ist seine Kategorie "Insurance". Hier werden Plattformen vorgestellt, die Versicherungen gegen Contract Fehler und Governance Angriffe anbieten. Einige der vorgestellten Anbieter sind Nexus Mutual und InsurAce. Diese Dienstleistungen können besonders wichtig sein, wenn du mit hohen Beträgen im DeFi-Bereich agierst.',
         links: [
           {
-            linkText: "Mutual",
+            linkText: "Nexus Mutual",
             href: "https://nexusmutual.io/"
-          },
-          {
-            linkText: "Cover Protocol",
-            href: "https://www.coverprotocol.com/)"
           },
           {
             linkText: "InsurAce",
@@ -192,29 +186,25 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-22",
-    title: '5.3 - Yield farming - Liquidity providing',
+    title: 'Quest 5.3 - Yield farming - Liquidity providing',
     slug: 'yield-farming-liquidity-providing',
     youtubeUrl: 'https://www.youtube.com/watch?v=hQ9mBsb5cHQ',
     youtubeThumbnail: "https://img.youtube.com/vi/hQ9mBsb5cHQ/hqdefault.jpg",
     importantLinks: [
       {
-        linkText: "Uniswap",
-        href: "https://uniswap.org/"
+        linkText: "Uniswap-Pool",
+        href: "https://app.uniswap.org/#/pool"
       },
       {
         linkText: 'MetaMask',
         href: 'https://metamask.io/'
       },
       {
-        linkText: "Uniswap-Pool",
-        href: "https://app.uniswap.org/#/pool"
-      },
-      {
         linkText: "Gaspreise und Transaktionen: EtherScan",
-        href: "https://etherscan.io/"
+        href: "https://ethereum.org/en/developers/docs/gas/#:~:text=Gas%20refers%20to%20the%20fee,of%20transaction%20success%20or%20failure.&text=Gas%20fees%20are%20paid%20in,(10%2D9%20ETH)"
       },
       {
-        linkText: "Alternative DeFi-Plattform: Curv Finance",
+        linkText: "Alternative DeFi-Plattform: Curve Finance",
         href: "https://curve.fi/"
       },
       {
@@ -224,15 +214,16 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '07:29',
     transcript: [
       {
         title: "Wie man ein Liquidity Provider auf Uniswap wird: Ein einfacher Leitfaden zum Liquidity Mining und Impermanent Loss",
         text: 'Dezentralisierte Finanzmärkte (DeFi) revolutionieren die Art und Weise, wie wir mit Geld umgehen. Eines der Schlüsselelemente in diesem Ökosystem sind Liquidity Provider (LPs). In diesem Leitfaden zeigen wir dir, wie du ein LP auf Uniswap Uniswap werden kannst und was ein Impermanent Loss ist.',
         links: [
           {
-            linkText: "Uniswap",
-            href: "https://uniswap.org/"
-          }
+            linkText: "Uniswap-Pool",
+            href: "https://app.uniswap.org/#/pool"
+          },
         ]
       },
       {
@@ -271,10 +262,10 @@ export const quest5: Lesson[] = [
           },
           {
             linkText: "Gaspreise und Transaktionen: EtherScan",
-            href: "https://etherscan.io/"
+            href: "https://ethereum.org/en/developers/docs/gas/#:~:text=Gas%20refers%20to%20the%20fee,of%20transaction%20success%20or%20failure.&text=Gas%20fees%20are%20paid%20in,(10%2D9%20ETH)"
           },
           {
-            linkText: "Alternative DeFi-Plattform: Curv Finance",
+            linkText: "Alternative DeFi-Plattform: Curve Finance",
             href: "https://curve.fi/"
           },
           {
@@ -287,7 +278,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-23",
-    title: '5.4 - Yield Farming - dezentrale Kreditplattform - leihen & verleihen',
+    title: 'Quest 5.4 - Yield Farming - dezentrale Kreditplattform - leihen & verleihen',
     slug: 'yield-farming-leihen-und-verleihen',
     youtubeUrl: 'https://www.youtube.com/watch?v=QktzPYB2l4w',
     youtubeThumbnail: "https://img.youtube.com/vi/QktzPYB2l4w/hqdefault.jpg",
@@ -311,6 +302,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '04:15',
     transcript: [
       {
         title: "Anleitung zu wie nutzt man eine dezentrale Kreditplattform wie AAVE?",
@@ -369,7 +361,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-24",
-    title: '5.5 - Yield Farming - Staking',
+    title: 'Quest 5.5 - Yield Farming - Staking',
     slug: 'yield-farming-staking',
     youtubeUrl: 'https://www.youtube.com/watch?v=IREzXy5LdKI',
     youtubeThumbnail: "https://img.youtube.com/vi/IREzXy5LdKI/hqdefault.jpg",
@@ -397,6 +389,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '01:50',
     transcript: [
       {
         title: "Anleitung: Wie man Staking auf Lido Finance und anderen Ethereum Staking Plattformen betreibt",
@@ -457,7 +450,7 @@ export const quest5: Lesson[] = [
   },
   {
     id: "eth-25",
-    title: '5.6 - Leverage Trading',
+    title: 'Quest 5.6 - Leverage Trading',
     slug: 'leverage-trading',
     youtubeUrl: 'https://www.youtube.com/watch?v=xGZx5Z7HFSs',
     youtubeThumbnail: "https://img.youtube.com/vi/xGZx5Z7HFSs/hqdefault.jpg",
@@ -481,6 +474,7 @@ export const quest5: Lesson[] = [
     ],
     section: 6,
     questNumber: 5,
+    videoTime: '01:06',
     transcript: [
       {
         title: "Leverage Trading in der Dezentralisierten Finanzwelt: Ein praktischer Leitfaden",

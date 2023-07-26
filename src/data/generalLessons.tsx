@@ -12,6 +12,7 @@ export type Lesson = {
   questNumber?: number;
   transcript?: string[] | Transcript[]; // JSX ON getStaticProps doesnt work !
   isLastQuest?: boolean;
+  videoTime: string;
 }
 
 export type Transcript = {
@@ -42,33 +43,34 @@ export const generalLessons: Quests[] = [
     questTitle: "Was ist eine Blockchain",
     questSectionId: 'general-1',
     lessons: [
-      {
-        id: "general-1",
-        title: 'Die TeachMeDeFi Onboarding-Quests',
-        slug: 'tdm-onboarding-quests',
-        youtubeUrl: 'https://www.youtube.com/watch?v=oc2jLjw6904',
-        youtubeThumbnail: "https://img.youtube.com/vi/oc2jLjw6904/hqdefault.jpg",
-        // importantLinks: [],
-        section: 0,
-        nftCanBeClaimed: true,
-        questNumber: 1,
-        transcript:
-          [
-            "Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht's!",
-            "Unser Onboarding besteht aus zwei Teilen:",
-            "1.  Im ersten Teil erwarten dich einige Videos, die dir Blockchain-Technologie und die verschiedenen Blockchain-Ökosysteme näherbringen – ganz theoretisch.",
-            "2.  Im zweiten Teil geht's dann ans Eingemachte: Mit unseren Videotutorials löst du Quests, die dir praktisch zeigen, wie du in der Krypto-Welt durchstarten kannst. Nach jeder erfolgreich gemeisterten Quest schaltest du die nächste frei.",
-            "Unsere Onboarding Quests sind so gestaltet, dass du dein Krypto- und DeFi-Wissen Schritt für Schritt ausbauen kannst. Du siehst immer, wie weit du schon gekommen bist, und wenn du Quests abschließt, gibt's auch Belohnungen – zum Beispiel in Form von NFTs.",
-            "Nach und nach präsentieren wir dir ausgewählte Quests aus den Ethereum-, Polkadot- und Bitcoin-Onboarding-Programmen. Wir ermutigen dich, die Onboarding Quests durchzuarbeiten, um dein Wissen über DeFi und Kryptowährungen aufzubauen.",
-            "Uns geht's dabei vor allem darum, dir praktisches Know-how zu vermitteln, das du wirklich anwenden kannst! Was ist eine Wallet? Wie richtest du eine ein? Wie besorgst du dir Kryptos? Wie bewahrst du sie sicher auf und was kannst du damit anstellen?",
-            "Und wie immer der Hinweis: Bei Teach Me Defi gibt's keine Finanzberatung. Unser Ziel ist einfach, dir den Einstieg und die Nutzung der verschiedenen Tools in der Krypto-Welt leichter zu machen.",
-            "Viel Erfolg und Spaß auf deiner abenteuerlichen Reise in die Welt der dezentralisierten Finanzen!",
-          ],
+      // {
+      //   id: "general-1",
+      //   title: 'Die TeachMeDeFi Onboarding-Quests',
+      //   slug: 'tdm-onboarding-quests',
+      //   youtubeUrl: 'https://www.youtube.com/watch?v=oc2jLjw6904',
+      //   youtubeThumbnail: "https://img.youtube.com/vi/oc2jLjw6904/hqdefault.jpg",
+      //   // importantLinks: [],
+      //   section: 0,
+      //   nftCanBeClaimed: true,
+      //   videoTime: '02:26',
+      //   questNumber: 1,
+      //   transcript:
+      //     [
+      //       "Cool, dass du dich entschieden hast, mit uns in die Krypto-Welt einzutauchen! Auf geht's!",
+      //       "Unser Onboarding besteht aus zwei Teilen:",
+      //       "1.  Im ersten Teil erwarten dich einige Videos, die dir Blockchain-Technologie und die verschiedenen Blockchain-Ökosysteme näherbringen – ganz theoretisch.",
+      //       "2.  Im zweiten Teil geht's dann ans Eingemachte: Mit unseren Videotutorials löst du Quests, die dir praktisch zeigen, wie du in der Krypto-Welt durchstarten kannst. Nach jeder erfolgreich gemeisterten Quest schaltest du die nächste frei.",
+      //       "Unsere Onboarding Quests sind so gestaltet, dass du dein Krypto- und DeFi-Wissen Schritt für Schritt ausbauen kannst. Du siehst immer, wie weit du schon gekommen bist, und wenn du Quests abschließt, gibt's auch Belohnungen – zum Beispiel in Form von NFTs.",
+      //       "Nach und nach präsentieren wir dir ausgewählte Quests aus den Ethereum-, Polkadot- und Bitcoin-Onboarding-Programmen. Wir ermutigen dich, die Onboarding Quests durchzuarbeiten, um dein Wissen über DeFi und Kryptowährungen aufzubauen.",
+      //       "Uns geht's dabei vor allem darum, dir praktisches Know-how zu vermitteln, das du wirklich anwenden kannst! Was ist eine Wallet? Wie richtest du eine ein? Wie besorgst du dir Kryptos? Wie bewahrst du sie sicher auf und was kannst du damit anstellen?",
+      //       "Und wie immer der Hinweis: Bei Teach Me Defi gibt's keine Finanzberatung. Unser Ziel ist einfach, dir den Einstieg und die Nutzung der verschiedenen Tools in der Krypto-Welt leichter zu machen.",
+      //       "Viel Erfolg und Spaß auf deiner abenteuerlichen Reise in die Welt der dezentralisierten Finanzen!",
+      //     ],
     
-      },
+      // },
       {
         id: "general-2",
-        title: 'Die Blockchaintechnologie - Der Ursprung.',
+        title: '1. Die Blockchaintechnologie - Der Ursprung',
         slug: 'blockchain-der-ursprung',
         youtubeUrl: 'https://www.youtube.com/watch?v=opVQuUnSDGw',
         youtubeThumbnail: "https://img.youtube.com/vi/opVQuUnSDGw/hqdefault.jpg",
@@ -76,6 +78,7 @@ export const generalLessons: Quests[] = [
         section: 0,
         popupHasInput: true,
         nftCanBeClaimed: true,
+        videoTime: '02:25',
         questNumber: 2,
         transcript:
           [
@@ -92,7 +95,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-3",
-        title: 'Blockchain - Einfach erklärt.',
+        title: '2. Blockchain - Einfach erklärt',
         slug: 'blockchain-einfach-erklaert',
         youtubeUrl: 'https://www.youtube.com/watch?v=Sp2PFQRlj7w',
         youtubeThumbnail: "https://img.youtube.com/vi/Sp2PFQRlj7w/hqdefault.jpg",
@@ -100,6 +103,7 @@ export const generalLessons: Quests[] = [
         section: 0,
         popupHasInput: true,
         nftCanBeClaimed: true,
+        videoTime: '02:39',
         questNumber: 3,
         transcript: [
           'Eine Blockchain ist wie eine dezentrale Buchhaltung oder Datenbank, die auf einem Netzwerk von vielen Benutzern, sogenannten Nodes, basiert. Statt alle Transaktionen und Daten zentral bei Banken zu speichern, verteilt sich die Speicherung aller Informationen in einer Blockchain auf viele Teilnehmer, also Nodes. Jede Node besitzt eine Kopie aller Transaktionen, die auf einer Blockchain stattfinden, und sorgt so für ein transparentes und sicheres System.',
@@ -116,13 +120,14 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-4",
-        title: 'Dezentrlisierung - Die Vorteile.',
+        title: '3. Dezentralisierung - Die Vorteile',
         slug: 'dezentralisierung-die-vorteile',
         youtubeUrl: 'https://www.youtube.com/watch?v=v9xNMZ-3xZk',
         youtubeThumbnail: "https://img.youtube.com/vi/v9xNMZ-3xZk/hqdefault.jpg",
         // importantLinks: [],
         section: 0,
         nftCanBeClaimed: true,
+        videoTime: '01:44',
         questNumber: 4,
         transcript:
           [
@@ -137,13 +142,14 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-5",
-        title: 'Der Konsensmechanismus einer Blockchain.',
+        title: '4. Der Konsensmechanismus einer Blockchain',
         slug: 'konsensmechanismen-einer-blockchain',
         youtubeUrl: 'https://www.youtube.com/watch?v=bckodtNLxhw',
         youtubeThumbnail: "https://img.youtube.com/vi/bckodtNLxhw/hqdefault.jpg",
         // importantLinks: [],
         section: 0,
         nftCanBeClaimed: true,
+        videoTime: '02:45',
         questNumber: 5,
         transcript: [
           'In diesem Video wollen wir uns den Konsensmechanismus, das Herzstück einer Blockchain, genauer ansehen. Der Konsensmechanismus stellt sicher, dass alle Teilnehmer im Netzwerk übereinstimmen und eine gemeinsame Wahrheit teilen, ohne auf eine zentrale Autorität angewiesen zu sein. Du wirst erfahren, wie Transaktionen in einem dezentralen Netzwerk verifiziert und abgeschlossen werden.',
@@ -157,7 +163,7 @@ export const generalLessons: Quests[] = [
       },
       {
         id: "general-6",
-        title: 'Wallets - dein Zugang zur Blockchain.',
+        title: '5. Wallets - dein Zugang zur Blockchain',
         slug: 'wallets-zugang-zur-blockchain',
         youtubeUrl: 'https://www.youtube.com/watch?v=nrAf41GyCyM',
         youtubeThumbnail: "https://img.youtube.com/vi/nrAf41GyCyM/hqdefault.jpg",
@@ -165,6 +171,7 @@ export const generalLessons: Quests[] = [
         section: 0,
         isLastQuest: true,
         questNumber: 6,
+        videoTime: '02:20',
         transcript: [
           'In diesem Video zeigen wir dir, wie du als Nutzer Transaktionen auf der Blockchain einleiten kannst. Dabei spielt das Kryptowährungs-Wallet eine entscheidende Rolle.',
           'Ein Kryptowährungs-Wallet ist deine digitale Geldbörse, mit der du Kryptowährungen verwalten, speichern, senden und empfangen kannst. Wallets bieten dir Zugang zur Blockchain und ermöglichen es dir, Transaktionen mit Kryptowährungen durchzuführen. Dabei gibt es verschiedene Formen von Wallets, wie Software-Wallets, Hardware-Wallets oder sogar als Papier-Wallets.',

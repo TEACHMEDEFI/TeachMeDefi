@@ -15,6 +15,9 @@ export default function LinksAndIndexBurger() {
   const [linksActive, setLinksActive] = useState<boolean>(true)
   const pathname = usePathname();
 
+  // console.log(ethLessons)
+  // console.log(currentLesson?.slug === pathname.split("/")[2])
+  
 
   const handleLinksToggle = () => {
     setLinksActive(true)

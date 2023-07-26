@@ -10,7 +10,7 @@ import { Lesson } from "../generalLessons";
 export const quest1: Lesson[] = [
   {
     id: "dot-19",
-    title: '1.1 - Wallet Einrichten',
+    title: 'Quest 1.1 - Wallet Einrichten',
     slug: 'wallet-einrichten',
     youtubeUrl: 'https://youtu.be/4fkGasAjWVA',
     youtubeThumbnail: "https://youtu.be/4fkGasAjWVA/hqdefault.jpg",
@@ -22,6 +22,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2, // danach 3 und 4
     questNumber: 1,
+    videoTime: '06:02',
     transcript: [
       {
         subline: "1. Talisman Wallet herunterladen und einrichten",
@@ -139,7 +140,7 @@ export const quest1: Lesson[] = [
   },
   {
     id: "dot-20",
-    title: '1.2 - Testnet ETH erhalten',
+    title: 'Quest 1.2 - Testnet ETH erhalten',
     slug: 'testnet-eth-erhalten',
     youtubeUrl: 'https://www.youtube.com/watch?v=zx422X70950',
     youtubeThumbnail: "https://www.youtube.com/watch?v=zx422X70950/hqdefault.jpg",
@@ -151,6 +152,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2, // danach 3 und 4
     questNumber: 2,
+    videoTime: '03:56',
     transcript: [
       {
         subline: "1. Vorbereitung für den Erhalt von NFTs auf dem Sepolia Testnet",

@@ -31,18 +31,16 @@ export default function OurServices() {
             {/* <Image className="" src={"/home/rustam-kachel.png"} fill alt="Unsere Services" /> */}
           </div>
         </div>
-        <div className="flex xl:flex-col max-xl:flex-wrap lg:justify-center gap-10 lg:gap-24 xl:gap-10 max-xl:mt-10 ">
+        <div className="flex xl:flex-col max-xl:flex-wrap justify-around xl:justify-center gap-10 lg:gap-16 xl:gap-8 max-xl:mt-10 ">
 
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-nft.svg"} fill alt="bullet point icon 1" />
             </div>
             <div className="max-lg:w-full" >
-              <h4 className="text-2xl " >Krypto Bootcamp</h4>
-              <p className='mt-2 tracking-wider text-sm w-full lg:w-80 xl:w-96'>
-                In nur 90 Minuten fit für Bitcoin, Ethereum und Polkadot. Lerne die Grundlagen und
-                erhalte Belohnungen für deine Lernerfolge! Unsere E-Learning-Plattform ist jederzeit
-                und überall zugänglich - lerne in deinem eigenen Tempo!
+              <h4 className="text-xl" >Krypto Bootcamp</h4>
+              <p className='mt-1 tracking-wider text-sm w-full lg:w-80 xl:w-96'>
+              In 90 Minuten fit für Ethereum, Polkadot und Bitcoin. Lerne die Grundlagen & erhalte Belohnungen.
               </p>
               <Link
                 href={"#courses"}
@@ -53,37 +51,34 @@ export default function OurServices() {
             </div>
           </div>
 
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-podcast.svg"} fill alt="bullet point icon 2" />
             </div>
             <div className="max-md:w-full" >
-              <h4 className="text-2xl " >Podcast  </h4>
-              <p className='mt-2 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
-                Lerne unterwegs Unterhaltsame Diskussionen, spannende Interviews mit Experten
-                und tiefgründige Analysen - alles in leicht verdaulichen Episoden, die du überall
-                und jederzeit anhören kannst.
+              <h4 className="text-xl" >Podcast  </h4>
+              <p className='mt-1 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
+              Unterhaltsamer Podcast mit Diskussionen, Experteninterviews und Analysen. Höre überall und jederzeit.
               </p>
               <Link
                 href={"https://podcasters.spotify.com/pod/show/teachmedefi"}
                 target="_blank"
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
               >
-               Jetzt anhören
+                Jetzt anhören
               </Link>
             </div>
           </div>
 
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-newsletter.svg"} fill alt="bullet point icon 3" />
             </div>
             <div className="max-md:w-full" >
 
-              <h4 className="text-2xl " > Newsletter</h4>
-              <p className='mt-2 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
-                Bleibe auf dem Laufenden Erfahre als Erster von neuen Entwicklungen im Krypto-Markt
-                und erhalte wertvolle Einsichten und Tipps direkt in dein Postfach. Kostenlos.
+              <h4 className="text-xl" > Newsletter</h4>
+              <p className='mt-1 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
+              Mit unserem kostenlosen Newsletter erhältst du Krypto-Markt Updates, wertvolle Tipps und Einsichten direkt in dein Postfach. Abonniere jetzt.
               </p>
               <Link
                 href={"https://www.newsletter.teachmedefi.de/"}
@@ -94,14 +89,14 @@ export default function OurServices() {
               </Link>
             </div>
           </div>
-          <div className="flex ">
+          <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-e-paper.svg"} fill alt="bullet point icon 4" />
             </div>
             <div className="max-md:w-full" >
-              <h4 className="text-2xl " >E-Paper  </h4>
-              <p className='mt-2 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
-              Blättere durch dein kostenloses Starter-Paket mit allen Infos zu Bitcoin, Ethereum und Polkadot. Abonniere unseren Newsletter und erhalte per Email deinen Download-Link zu drei kostenfreien e-books!
+              <h4 className="text-xl" >E-Books  </h4>
+              <p className='mt-1 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
+              Abonniere unseren Newsletter und erhalte kostenlose E-Books zu Bitcoin, Ethereum & Polkadot. Starte deine Krypto-Reise jetzt!
               </p>
               <Link target="_blank"
                 href={"https://www.newsletter.teachmedefi.de/"}
@@ -112,9 +107,30 @@ export default function OurServices() {
               </Link>
             </div>
           </div>
+          <div className="flex max-[350px]:flex-col ">
+            <div className="h-16 w-16 aspect-square relative mr-5">
+              <Image src={"/home/ourServices/bullet-square-coaching.svg"} fill alt="bullet point icon 1" />
+            </div>
+            <div className="max-lg:w-full" >
+              <h4 className="text-xl" >Persönliche Online-Coachings</h4>
+              <p className='mt-1 tracking-wider text-sm w-full lg:w-80 xl:w-96'>
+                Erhalte maßgeschneiderte Beratung von unseren Experten und löse all deine spezifischen Krypto-Fragen.
+              </p>
+              <Link
+                href="https://calendly.com/teachmedefi/1std"
+                className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+                target="_blank"
+              >
+                Nutze unser limitiertes Angebot!
+              </Link>
+            </div>
+          </div>
+
 
         </div>
+
       </div>
+
 
 
     </section>

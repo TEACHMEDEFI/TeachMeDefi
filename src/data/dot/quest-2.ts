@@ -10,13 +10,14 @@ import { Lesson } from "../generalLessons";
 export const quest2: Lesson[] = [
   {
     id: "dot-11",
-    title: '2.1 DOT kaufen',
+    title: 'Quest 2.1 - DOT kaufen',
     slug: 'dot-kaufen',
     youtubeUrl: 'https://youtu.be/2PsLjRfAJbQ',
     youtubeThumbnail: "https://youtu.be/2PsLjRfAJbQ/hqdefault.jpg",
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 3,
+    videoTime: '05:09',
     transcript: [
       {
         subline: "DOT kaufen",
@@ -93,13 +94,14 @@ export const quest2: Lesson[] = [
   },
   {
     id: "dot-12",
-    title: '2.2 DOT senden',
+    title: 'Quest 2.2 - DOT senden',
     slug: 'dot-senden',
     youtubeUrl: 'https://youtu.be/JggH_V_bsfQ',
     youtubeThumbnail: "https://youtu.be/JggH_V_bsfQ/hqdefault.jpg",
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 4,
+    videoTime: '06:04',
     transcript: [
       {
         subline: "DOT senden",
@@ -195,13 +197,14 @@ export const quest2: Lesson[] = [
   },
   {
     id: "dot-13",
-    title: '2.3 Block Explorer nutzen',
+    title: 'Quest 2.3 - Block Explorer nutzen',
     slug: 'block-explorer-nutzen',
     youtubeUrl: 'https://youtu.be/xn3c4k1YdB8',
     youtubeThumbnail: "https://youtu.be/xn3c4k1YdB8/hqdefault.jpg",
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 5,
+    videoTime: '03:05',
     transcript: [
       {
         subline: "DOT senden",

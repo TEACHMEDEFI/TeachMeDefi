@@ -7,6 +7,8 @@ import { Lesson } from "../generalLessons";
  * Ist eine art Bonus quest über Sicherheitsmaßnahmen 
  */
 
+
+
 export const questSicherheit: Lesson[] = [
   {
     id: "eth-27",
@@ -30,6 +32,7 @@ export const questSicherheit: Lesson[] = [
     ],
     section: 8,
     questNumber: 7,
+    videoTime: '12:15',
     transcript: [
       {
         title: "Sicherheit bei Kryptowährungen: Ein praktischer Leitfaden zur Einrichtung von Cold Wallets wie Ledger und Trezor",
@@ -92,21 +95,10 @@ export const questSicherheit: Lesson[] = [
         linkText: "Gnosis Safe",
         href: "https://gnosis-safe.io/app/"
       },
-      {
-        linkText: "BitGo: Ein guter Anbieter mit Unterstützung für verschiedene Kryptowährungen.",
-        href: "https://www.bitgo.com/"
-      },
-      {
-        linkText: "Armory: Ein Open-Source-Bitcoin-Wallet mit Multisig-Funktionen.",
-        href: "https://www.bitcoinarmory.com/"
-      },
-      {
-        linkText: "Electrum: Ein leichtgewichtiges Bitcoin-Wallet, das Multisig unterstützt.",
-        href: "https://electrum.org/"
-      }
     ],
     section: 8,
     questNumber: 7,
+    videoTime: '06:30',
     transcript: [
       {
         title: "Anleitung: Wie man Multisig-Wallets einrichtet - Erhöhe deine Kryptosicherheit",
@@ -142,24 +134,6 @@ export const questSicherheit: Lesson[] = [
         subline: 'Es ist wichtig zu beachten, dass für optimale Sicherheit jedes "Besitzer"-Wallet auf einem separaten Gerät oder sogar einer separaten Plattform (z.B. Hardware-Wallet, andere Browser-Erweiterung) gehalten werden sollte.'
       },
       {
-        subline: 'Weitere Anbieter von Multisig-Wallets',
-        text: 'Neben Gnosis Safe gibt es noch andere Anbieter von Multisig-Wallets. Hier sind einige davon:',
-        links: [
-          {
-            linkText: "BitGo: Ein guter Anbieter mit Unterstützung für verschiedene Kryptowährungen.",
-            href: "https://www.bitgo.com/"
-          },
-          {
-            linkText: "Armory: Ein Open-Source-Bitcoin-Wallet mit Multisig-Funktionen.",
-            href: "https://www.bitcoinarmory.com/"
-          },
-          {
-            linkText: "Electrum: Ein leichtgewichtiges Bitcoin-Wallet, das Multisig unterstützt.",
-            href: "https://electrum.org/"
-          }
-        ]
-      },
-      {
         subline: "Durch das Einrichten eines Multisig-Wallets kannst du deine Krypto-Assets besser schützen und deine Sicherheitsstufe erhöhen. Denke jedoch immer daran, deine privaten Schlüssel sicher aufzubewahren und vorsichtig zu sein, wenn du Transaktionen durchführst. Denn in der Welt der Kryptowährungen bist du für deine eigene Sicherheit verantwortlich."
       }
     ]
@@ -168,8 +142,8 @@ export const questSicherheit: Lesson[] = [
     id: "eth-29",
     title: 'Sicherheit - Phishing, Telegram, 2FA, VPN',
     slug: 'phishing-telegram-2fa-vpn',
-    youtubeUrl: 'https://www.youtube.com/watch?v=h-j3-XVmz2U',
-    youtubeThumbnail: "https://img.youtube.com/vi/h-j3-XVmz2U/hqdefault.jpg",
+    youtubeUrl: 'https://www.youtube.com/watch?v=ycwviRYf_44',
+    youtubeThumbnail: "https://img.youtube.com/vi/ycwviRYf_44/hqdefault.jpg",
     importantLinks: [
       {
         linkText: "PayPal",
@@ -210,6 +184,7 @@ export const questSicherheit: Lesson[] = [
     ],
     section: 8,
     questNumber: 7,
+    videoTime: '03:02',
     transcript: [
       {
         title: "Sicherheit in der Krypto-Welt: Dein umfassender Leitfaden zur Vermeidung von Betrug und Phishing",
@@ -289,18 +264,19 @@ export const questSicherheit: Lesson[] = [
   {
     id: "eth-30",
     title: 'Sicherheit - Transaktionen Rückgängig machen',
-    slug: 'transaktionen-rückgänging-machen',
+    slug: 'transaktionen-rueckgaenging-machen',
     youtubeUrl: 'https://www.youtube.com/watch?v=Q7Omyb6ZYEE',
     youtubeThumbnail: "https://img.youtube.com/vi/Q7Omyb6ZYEE/hqdefault.jpg",
     importantLinks: [
       {
         linkText: "revoke.cash",
         href: "https://revoke.cash/"
-      }
+      },
     ],
     section: 8,
     questNumber: 7,
     isLastQuest: true,
+    videoTime: '06:00',
     transcript: [
       {
         title: "Anleitung: Wie man Krypto-Transaktionen rückgängig macht",

@@ -9,19 +9,24 @@ import { Lesson } from "../generalLessons";
 export const quest2: Lesson[] = [
   {
     id: "eth-14",
-    title: '2.1 - Transaktionen einleiten & verfolgen - Blockexplorer',
+    title: 'Quest 2.1 - Transaktionen einleiten & verfolgen - Blockexplorer',
     slug: 'transactionen-und-blockexplorer',
     youtubeUrl: 'https://www.youtube.com/watch?v=aAuZEjGLSng',
     youtubeThumbnail: "https://img.youtube.com/vi/aAuZEjGLSng/hqdefault.jpg",
     importantLinks: [
       {
-        linkText: "",
-        href: ""
+        linkText: "MetaMask Download",
+        href: "https://metamask.io/download.html"
       },
+      {
+        linkText: "Etherscan",
+        href: "https://etherscan.io/"
+      }
 
     ],
     section: 3,
     questNumber: 2,
+    videoTime: '06:16',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -80,19 +85,36 @@ export const quest2: Lesson[] = [
   },
   {
     id: "eth-15",
-    title: '2.2 - Krypto kaufen & KYC - Ledger, Metamask, CEX',
+    title: 'Quest 2.2 - Krypto kaufen & KYC - Ledger, Metamask, CEX',
     slug: 'krypto-kaufen-und-kyc',
     youtubeUrl: 'https://www.youtube.com/watch?v=Vetsh9N2eV0',
     youtubeThumbnail: "https://img.youtube.com/vi/Vetsh9N2eV0/hqdefault.jpg",
     importantLinks: [
       {
-        linkText: "",
-        href: ""
+        linkText: "MetaMask-Erweiterung",
+        href: "https://metamask.io/download.html"
+      },
+      {
+        linkText: "Ledger Live App",
+        href: "https://www.ledger.com/ledger-live/"
+      },
+      {
+        linkText: "Binance",
+        href: "https://www.binance.com/"
+      },
+      {
+        linkText: "Coinbase",
+        href: "https://www.coinbase.com/"
+      },
+      {
+        linkText: "Kraken",
+        href: "https://www.kraken.com/"
       },
   
     ],
     section: 3,
     questNumber: 2,
+    videoTime: '07:57',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -161,7 +183,7 @@ export const quest2: Lesson[] = [
           },
           {
             linkText: "Kraken",
-            href: "https://r.kraken.com/c/2347966/687155/10583"
+            href: "https://www.kraken.com/"
           },
         ]
       },
@@ -178,19 +200,28 @@ export const quest2: Lesson[] = [
   },
   {
     id: "eth-16",
-    title: '2.3 - Automatische & manuelle Tracker - Zerion, Zapper, Coingecko',
+    title: 'Quest 2.3 - Automatische & manuelle Tracker - Zerion, Zapper, Coingecko',
     slug: 'automatische-und-manuelle-tracker',
     youtubeUrl: 'https://www.youtube.com/watch?v=qlmFabxN_7o',
     youtubeThumbnail: "https://img.youtube.com/vi/qlmFabxN_7o/hqdefault.jpg",
     importantLinks: [
       {
-        linkText: "",
-        href: ""
+        linkText: "Zerion",
+        href: "https://zerion.io/"
       },
+      {
+        linkText: "Zapper",
+        href: "https://zapper.fi/"
+      },
+      {
+        linkText: "CoinGecko",
+        href: "https://coingecko.com/"
+      }
   
     ],
     section: 3,
     questNumber: 2,
+    videoTime: '08:26',
     transcript: [
       {
         title: "Anleitung zum Video",

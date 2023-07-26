@@ -10,13 +10,14 @@ import { Lesson } from "../generalLessons";
 export const quest3: Lesson[] = [
   {
     id: "dot-23",
-    title: '3. Staking',
+    title: 'Quest 3 - Staking',
     slug: 'staking',
     youtubeUrl: 'https://youtu.be/_lBlPb0g984',
     youtubeThumbnail: "https://youtu.be/_lBlPb0g984/hqdefault.jpg",
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 6,
+    videoTime: '03:33',
     transcript: [
       {
         subline: "Staking",

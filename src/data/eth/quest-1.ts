@@ -10,7 +10,7 @@ import { Lesson } from "../generalLessons";
 export const quest1: Lesson[] = [
   {
     id: "eth-9",
-    title: '1.1 - Der richtige Browser',
+    title: 'Quest 1.1 - Der richtige Browser',
     slug: 'der-richtige-browser',
     youtubeUrl: 'https://www.youtube.com/watch?v=LOnkasO9dSA',
     youtubeThumbnail: "https://img.youtube.com/vi/LOnkasO9dSA/hqdefault.jpg",
@@ -34,6 +34,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '03:50',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -92,7 +93,7 @@ export const quest1: Lesson[] = [
   },
   {
     id: "eth-10",
-    title: '1.2 - Das Hot Wallet einrichten',
+    title: 'Quest 1.2 - Das Hot Wallet einrichten',
     slug: 'hot-wallet-einrichten',
     youtubeUrl: 'https://www.youtube.com/watch?v=dZPJp8X2PH4',
     youtubeThumbnail: "https://img.youtube.com/vi/dZPJp8X2PH4/hqdefault.jpg",
@@ -104,6 +105,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '08:31',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -143,7 +145,7 @@ export const quest1: Lesson[] = [
   },
   {
     id: "eth-11",
-    title: '1.3 - Netzwerke einrichten',
+    title: 'Quest 1.3 - Netzwerke einrichten',
     slug: 'netzwerke-einrichten',
     youtubeUrl: 'https://www.youtube.com/watch?v=H1gdVfvghxg',
     youtubeThumbnail: "https://img.youtube.com/vi/H1gdVfvghxg/hqdefault.jpg",
@@ -154,7 +156,7 @@ export const quest1: Lesson[] = [
       },
       {
         linkText: "RPC Nodes",
-        href: "https://www.coindesk.com/learn/ethereum-101/ethereum-node-types"
+        href: "https://www.alchemy.com/overviews/rpc-node"
       },
       {
         linkText: "Infura",
@@ -166,19 +168,16 @@ export const quest1: Lesson[] = [
       },
       {
         linkText: "Arbitrum",
-        href: "https://offchainlabs.com/arbitrum"
+        href: "https://support.metamask.io/hc/en-us/articles/4415758358299-Network-profile-Arbitrum"
       },
       {
-        linkText: "Aurora",
-        href: "https://aurora.dev/"
-      },
-      {
-        linkText: "Avalon",
-        href: "https://avalon.cocos.com/"
+        linkText: "Optimism",
+        href: "https://support.metamask.io/hc/en-us/articles/4415758352667-Network-profile-Optimism"
       },
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '06:15',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -191,7 +190,7 @@ export const quest1: Lesson[] = [
         links: [
           {
             linkText: "RPC Nodes",
-            href: "https://www.coindesk.com/learn/ethereum-101/ethereum-node-types"
+            href: "https://www.alchemy.com/overviews/rpc-node"
           },
         ]
       },
@@ -211,19 +210,15 @@ export const quest1: Lesson[] = [
       },
       {
         subline: '3. Hinzufügen von Layer-2-Netzwerken',
-        text: 'Um die Skalierbarkeit deines Wallets zu verbessern und die Transaktionskosten zu senken, kannst du Layer-2-Lösungen wie Arbitrum, Aurora und Avalon hinzufügen. Diese Netzwerke bauen auf Ethereum auf und erweitern die Möglichkeiten deines Wallets.',
+        text: 'Um die Skalierbarkeit deines Wallets zu verbessern und die Transaktionskosten zu senken, kannst du Layer-2-Lösungen wie Arbitrum und Optimism hinzufügen. Diese Netzwerke bauen auf Ethereum auf und erweitern die Möglichkeiten deines Wallets.',
         links: [
           {
             linkText: "Arbitrum",
-            href: "https://offchainlabs.com/arbitrum"
+            href: "https://support.metamask.io/hc/en-us/articles/4415758358299-Network-profile-Arbitrum"
           },
           {
-            linkText: "Aurora",
-            href: "https://aurora.dev/"
-          },
-          {
-            linkText: "Avalon",
-            href: "https://avalon.cocos.com/"
+            linkText: "Optimism",
+            href: "https://support.metamask.io/hc/en-us/articles/4415758352667-Network-profile-Optimism"
           },
         ]
       },
@@ -244,7 +239,7 @@ export const quest1: Lesson[] = [
   },
   {
     id: "eth-12",
-    title: '1.4 - Sepolia ETH anfordern',
+    title: 'Quest 1.4 - Sepolia ETH anfordern',
     slug: 'sepolia-eth-anfordern',
     youtubeUrl: 'https://www.youtube.com/watch?v=lfd6o6NO4KM',
     youtubeThumbnail: "https://img.youtube.com/vi/lfd6o6NO4KM/hqdefault.jpg",
@@ -256,6 +251,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '02:39',
     transcript: [
       {
         title: "Anleitung zum Video",
@@ -307,7 +303,7 @@ export const quest1: Lesson[] = [
   },
   {
     id: "eth-13",
-    title: '1.5 - Wallet & dApps verbinden',
+    title: 'Quest 1.5 - Wallet & dApps verbinden',
     slug: 'wallet-und-dapps-verbinden',
     youtubeUrl: 'https://www.youtube.com/watch?v=WPjQoU4aXnU',
     youtubeThumbnail: "https://img.youtube.com/vi/WPjQoU4aXnU/hqdefault.jpg",
@@ -323,6 +319,7 @@ export const quest1: Lesson[] = [
     ],
     section: 2,
     questNumber: 1,
+    videoTime: '01:33',
     transcript: [
       {
         title: "Anleitung zum Video",

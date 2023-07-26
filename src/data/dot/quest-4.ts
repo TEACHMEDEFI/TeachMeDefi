@@ -10,13 +10,14 @@ import { Lesson } from "../generalLessons";
 export const quest4: Lesson[] = [
   {
     id: "dot-24",
-    title: '4. DOT zwischen Blockchains "bridgen"',
+    title: 'Quest 4 - DOT zwischen Blockchains "bridgen"',
     slug: 'dot-bridgen',
     youtubeUrl: 'https://youtu.be/uYfeDhnZI84',
     youtubeThumbnail: "https://youtu.be/uYfeDhnZI84/hqdefault.jpg",
     importantLinks: [],
     section: 2, // danach 3 und 4
     questNumber: 7,
+    videoTime: '04:09',
     transcript: [
       {
         subline: "Dot Bridgen",

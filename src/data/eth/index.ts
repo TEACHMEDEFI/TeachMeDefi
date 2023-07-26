@@ -8,42 +8,45 @@ import { quest5 } from "./quest-5";
 import { quest6 } from "./quest-6";
 import { questSicherheit } from "./quest-sicherheit";
 
-
-export const ethQuests: Quests[] = [
-  {
-    questTitle: "Quest Title 1",
-    questSectionId: "eth-quest-1",
-    lessons: [...quest1]
-  },
-  {
-    questTitle: "Quest Title 2",
-    questSectionId: "eth-quest-2",
-    lessons: [...quest2]
-  },
-  {
-    questTitle: "Quest Title 3",
-    questSectionId: "eth-quest-3",
-    lessons: [...quest3]
-  },
-  {
-    questTitle: "Quest Title 4",
-    questSectionId: "eth-quest-4",
-    lessons: [...quest4]
-  },
-  {
-    questTitle: "Quest Title 5",
-    questSectionId: "eth-quest-5",
-    lessons: [...quest5]
-  },
-  {
-    questTitle: "Quest Title 6",
-    questSectionId: "eth-quest-6",
-    lessons: [...quest6]
-  },
+export const sicherheitsQuest: Quests[] = [
   {
     questTitle: "Quest Sicherheit",
     questSectionId: "eth-quest-7",
     lessons: [...questSicherheit]
+  },
+]
+
+
+export const ethQuests: Quests[] = [
+  {
+    questTitle: "Quest 1: Wallet einrichten & nutzen ",
+    questSectionId: "eth-quest-1",
+    lessons: [...quest1]
+  },
+  {
+    questTitle: "Quest 2: Eth kaufen & senden",
+    questSectionId: "eth-quest-2",
+    lessons: [...quest2]
+  },
+  {
+    questTitle: "Quest 3: Krypto dezentral tauschen  ",
+    questSectionId: "eth-quest-3",
+    lessons: [...quest3]
+  },
+  {
+    questTitle: "Quest 4: Layer 2 nutzen",
+    questSectionId: "eth-quest-4",
+    lessons: [...quest4]
+  },
+  {
+    questTitle: "Quest 5: Yield Farming",
+    questSectionId: "eth-quest-5",
+    lessons: [...quest5]
+  },
+  {
+    questTitle: "Quest 6: Dezentrale Autonome Organisationen",
+    questSectionId: "eth-quest-6",
+    lessons: [...quest6]
   },
 ]
 

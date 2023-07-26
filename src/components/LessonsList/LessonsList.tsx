@@ -161,10 +161,10 @@ export default function LessonsList({ chain, lessonsArray, title, isQuestSection
                   </div>
                 }
 
-                {showPopup && showPopup[quest.id] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
+                {/* {showPopup && showPopup[quest.id] && chain === 'eth' ? <QuestClaimModalEth questSectionId={quests.questSectionId} togglePopup={togglePopup} /> : <p></p>}
 
                 {showPopup && showPopup[quest.id] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup} 
-                  selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : <p></p>}
+                  selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} /> : <p></p>} */}
 
               </div>
             ))}

@@ -5,10 +5,7 @@ import { dotLessons } from "@/data/dotLessons";
 import { Lesson } from "@/data/generalLessons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
-import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
 import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
-
-// import {useUserProgress, useMintNFT, useBalance, useFetch} from '../api/ethereum-api';
 
 
 type Params = {
@@ -16,13 +13,12 @@ type Params = {
 }
 
 export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
-  console.log(currentLesson)
+
   return (
     <main className='w-full flex flex-col  items-center ' >
-
-      <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} />
+      {/* <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug} /> */}
       <LessonsBurgerMenu />
-      <LinksAndIndexBurger />
+      {/* <LinksAndIndexBurger /> */}
     </main>
   )
 }

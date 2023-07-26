@@ -5,13 +5,29 @@ import BN from 'bn.js';
 import { useUserProgress, useTokenBalance, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
-import { ethTheory } from '@/data/eth/ethTheory';
-import { dotTheory } from '@/data/dot/dotTheory';
-import { Quests } from '@/data/generalLessons'
-import { Lesson } from '@/data/generalLessons'
 
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
+
+type QuestHints = {
+    [key: string]: string
+}
+
+export const questHints: QuestHints = {
+    "eth-quest-1": "Hinweis: Um diese Quest zu bestehen, musst du deine Wallet mit dieser Webseite verbinden.",
+    "eth-quest-2": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an Sepolia ETH Coins in der Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "eth-quest-3": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an WETH auf dem Mumbai Testnet in der Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "eth-quest-4": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an ETH auf dem Arbitrium One Netzwerk in deiner Wallet halten, welche du mit dieser Webseite verbunden hast",
+    "eth-quest-5": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 5 anschauen",
+    "eth-quest-6": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 6 anschauen",
+
+    "dot-quest-1": "Hinweis: Um diese Quest zu bestehen, musst du deine Wallet mit dieser Webseite verbinden.",
+    "dot-quest-2": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an DOT Coins in der Polkadot Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "dot-quest-3": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an DOT Coins wie im Tutorial mit der Polkadot Wallet staken, welche du mit dieser Webseite verbunden hast.",
+    "dot-quest-4": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an xcDOT Coins auf dem Moonbeam-Netzwerk in deiner (Ethereum-kompatiblen) Wallet halten, welche du mit dieser Webseite verbunden hast.",
+    "dot-quest-5": "Hinweis: Um diese Quest zu bestehen, wird geprüft ob du eine beliebige Menge an GLMR Coins in der (Ethereum-kompatiblen) Wallet übrig hast, welche mit dieser Webseite verbunden ist.",
+}
+
 
 /*
 * Helper function to check wether a user has completed all videos of a certain questId
@@ -34,12 +50,10 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
     return userHasAllProgress;
 }
 
-
-
 /*
 * Checks whether a progress NFT is mintable depending on the requirements
 */
-export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
+export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
     let tokenBalance = useTokenBalance(questSectionId);
@@ -51,11 +65,12 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
         mintable = account ? true : false
     } else if (questSectionId === 'dot-quest-1') {
         mintable = polkaWalletConnected ? true : false
-    } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6' || questSectionId == 'dot-quest-3' || questSectionId == 'dot-quest-5') {
+    } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6') {
         mintable = checkQuestsForCompleteView(questSectionId, hasProgress)
-    } else if (questSectionId == 'dot-quest-2') {
-        mintable = balances ? true : false;
-    } else {
+    } else if (questSectionId == 'dot-quest-2' || questSectionId == 'dot-quest-4' || questSectionId == 'dot-quest-5') {
+        const stringNumber = balances?.toString();
+        mintable = stringNumber && parseInt(stringNumber) > 0 ? true : false;
+    }  else {
         mintable = tokenBalance > 0;
     }
 
@@ -108,44 +123,17 @@ export const useMintProgressNFT =  (questSectionId: string): [showSpinner:  bool
 }
 
 
+export const specialQuestMintable = async (args: string): Promise<boolean> => {
+    let success = false;
+    const url = `https://polkadot.subscan.io/extrinsic/${args}`
+
+    try {
+        const response = await fetch(url);
+        success = response.status === 200;
+    } catch (error) {
+        success = false;
+    }
 
 
-// type mintableOverview = {
-//     [key: string]: boolean
-// }
-
-
-// type key = keyof Lesson
-
-/*
-* Checks whether a progress NFT is mintable depending on the requirements
-*/
-// export const useIsProgressNftMintableOverview = (quests: Lesson, chain: string, balances: BN | undefined, polkaWalletConnected: boolean): mintableOverview => {
-//     const [hasProgress] = useUserProgress();
-//     const { account } = useWeb3React();
-//     let tokenBalance = useTokenBalance('');
-//     tokenBalance = !tokenBalance ? 0 : tokenBalance;
-//     const mintableOverview: mintableOverview = {}
-//     let questSectionId
-
-
-//     Object.keys(quests).forEach((key: key): mintableOverview  => {
-//         const quest = quests[key];
-//         questSectionId = quest.questSectionId;
-
-//         if (questSectionId === 'eth-quest-1') {
-//             mintableOverview[questSectionId] = account ? true : false
-//         } else if (questSectionId === 'dot-quest-1') {
-//             mintableOverview[questSectionId] = polkaWalletConnected ? true : false
-//         } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6' || questSectionId == 'dot-quest-3' || questSectionId == 'dot-quest-5') {
-//             mintableOverview[questSectionId] = checkQuestsForCompleteView(questSectionId, hasProgress)
-//         } else if (questSectionId == 'dot-quest-2') {
-//             mintableOverview[questSectionId] = balances ? true : false;
-//         } else {
-//             mintableOverview[questSectionId] = tokenBalance > 0;
-//         }
-
-
-//         return mintableOverview;
-//     })
-// }
+    return success;
+}

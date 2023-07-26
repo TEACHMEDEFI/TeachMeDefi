@@ -6,7 +6,19 @@ import Image from 'next/image';
 export default function index() {
   return (
     <div className='flex flex-col  w-full justify-center items-center'>
-      <section className=' h-screen w-full flex justify-center items-center gap-24 max-w-7xl' >
+
+      <section className='flex flex-col w-full justify-center items-center relative mb-32'>
+        <h1 className=' text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-16' >
+          Willkommen bei{" "}
+          <span className='text-bitcoinOrange'> Bitcoin!</span>
+        </h1>
+        <h2 className='text-xl md:text-4xl font-bold mb-5 mt-8 '>Coming Soon!</h2>
+        <div className='relative w-80 sm:w-96 h-80 sm:h-96 mt-10'>
+          <Image src={"/btc/bitcoin_planet.png"} fill alt='Ethereum Hero' priority />
+        </div>
+      </section>
+
+      {/* <section className=' h-screen w-full flex justify-center items-center gap-24 max-w-7xl' >
         <div className='w-2/4 space-y-10' >
           <h1 className='text-7xl font-bold mb-5' >
             Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
@@ -28,17 +40,13 @@ export default function index() {
           benötigt wird. Bitcoin gilt als eine der ersten und bekanntesten Kryptowährungen und hat in den letzten
           Jahren aufgrund seiner schnellen und sicheren Transaktionen und seines begrenzten Angebots an Popularität gewonnen.
         </h2>
-      </section>
-      <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-        {/* <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Was ist eine Blockchain"} section={0} />
-        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Theory Ethereum"} section={1} />
-        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Praktisch Ethereum"} section={2} /> */}
-
-      </section >
-      {/* <section className='h-screen' >
-
       </section> */}
+      {/* <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
+        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Was ist eine Blockchain"} section={0} />
+        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Theory Ethereum"} section={1} />
+        <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Praktisch Ethereum"} section={2} />
 
+      </section > */}
 
     </div >
   )
