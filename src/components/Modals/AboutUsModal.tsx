@@ -55,7 +55,7 @@ export default function AboutUsModal({ togglePopup }: ModalProps) {
           </p>
           <br />
           <p className="tracking-wide leading-relaxed text-center" >
-            Auch <strong>Rustam</strong> hat seit 2017 seine Leidenschaft für Krypto entdeckt. Mit einem B.Sc. in Industrietechnik
+            Auch <strong>Rustam</strong> hat seit 2017 seine Leidenschaft für Krypto entdeckt. Mit einem B.Sc. in Wirtschaftsingenieurwesen-Elektrotechnik
             und über fünf Jahren Erfahrung im B2B- Vertrieb sowie zwei Jahren Erfahrung als Business und Approvals
             Coordinator, bei dem er ein Team von 30 internationalen Mitarbeitern leitete, bringt Rustam eine solide operative Kompetenz in unser Team.
           </p>
