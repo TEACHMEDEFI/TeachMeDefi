@@ -1,29 +1,29 @@
 
-// 'use client';
+'use client';
 
-// import { ethLessons } from "@/data/ethLessons";
-// import { Lesson } from "@/data/generalLessons";
-// import { GetStaticPaths, GetStaticProps } from "next";
-// import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
-// // import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
-// import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
+import { ethLessons } from "@/data/ethLessons";
+import { Lesson } from "@/data/generalLessons";
+import { GetStaticPaths, GetStaticProps } from "next";
+import LessonsBurgerMenu from "@/components/LessonsBurgerMenu/LessonsBurgerMenu";
+// import LinksAndIndexBurger from "@/components/LinksAndContents/LinksAndContents";
+import VideoWithTranscript from "@/components/VideoWithTranscript/VideoWithTranscript";
 
-// type Params = {
-//   lesson: string
-// }
+type Params = {
+  lesson: string
+}
 
-// export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
+export default function LessonPage({ currentLesson, nextLessonSlug }: { currentLesson: Lesson, nextLessonSlug: string }) {
 
 
 
-//   return (
-//     <main className='w-full flex flex-col  items-center ' >
-//       {/* <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug}  /> */}
-//       <LessonsBurgerMenu />
-//       {/* <LinksAndIndexBurger /> */}
-//     </main>
-//   )
-// }
+  return (
+    <main className='w-full flex flex-col  items-center ' >
+      {/* <VideoWithTranscript currentLesson={currentLesson} nextLessonSlug={nextLessonSlug}  /> */}
+      <LessonsBurgerMenu />
+      {/* <LinksAndIndexBurger /> */}
+    </main>
+  )
+}
 
 
 // export const getStaticPaths: GetStaticPaths<Params> = async () => {
