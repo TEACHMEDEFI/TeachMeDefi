@@ -8,8 +8,8 @@ export default function HeroSection() {
   const { isDarkMode } = useTheme();
   return (
     <section className='landing flex flex-col lg:flex-row  items-center w-full gap-x-32 relative' >
-      <div className='w-full lg:w-5/12 xl:w-4/12 space-y-5 xl:ml-24 md:ml-16 md:pr-16 lg:pr-0 z-10 
-      lg:mb-36  mt-10 sm:mt-32 max-sm:w-full max-md:px-5  lg:pt-32 ' 
+      <div className='w-full lg:w-5/12 xl:w-4/12 space-y-5 xl:ml-16 md:ml-16 md:pr-16 lg:pr-0 z-10 
+      lg:mb-36  mt-10 sm:mt-28 max-sm:w-full max-md:px-5  lg:py-12 ' 
       >
         <h1 className='xl:text-5xl text-4xl font-bold' >
           Krypto leicht gemacht!
