@@ -72,10 +72,10 @@ export default function Navbar() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#ff0000" />
       </Head>
-      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 z-10 backdrop-blur-sm">
+      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 lg:px-20 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
-            <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative" >
+            <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative " >
               <Image src={isDarkMode ? "/tdm_long_light.svg" : "/tdm_long_dark.svg"} fill alt="teach me defi logo" priority sizes="320px" />
             </div>
           </Link>
@@ -120,7 +120,7 @@ export default function Navbar() {
             NEWSLETTER
           </Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
-          <Link
+          {/* <Link
             target="_blank"
             data-linktarget="subscribe"
             onClick={handleTagManagerEventsRedirect}
@@ -128,7 +128,7 @@ export default function Navbar() {
             className="hover:underline"
           >
             SUBSCRIBE
-          </Link>
+          </Link> */}
         </div>
         <div className="flex gap-5 items-center " >
           <button onClick={toggleDarkMode} className="border-2 hidden dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:flex items-center justify-center" >
@@ -237,14 +237,14 @@ export default function Navbar() {
           >
           MERCH
         </Link> */}
-          <Link
+          {/* <Link
             target="_blank"
             data-linktarget="subscribe"
             onClick={e => handleMobileNavClick(e)}
             href={"https://www.newsletter.teachmedefi.de/"}
           >
             SUBSCRIBE
-          </Link>
+          </Link> */}
         </div>
       }
 

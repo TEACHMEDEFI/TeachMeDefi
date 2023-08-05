@@ -1,5 +1,6 @@
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
+import Head from 'next/head';
 import Script from "next/script";
 import { Web3ReactProvider } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
@@ -38,8 +39,26 @@ function getLibrary(provider: any): Web3Provider {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
+
+      <Head>
+        <title>TEACHMEDEFI</title>
+        <meta name="description" content="TEACHMEDEFI teach me defi" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/tmd-head-rainbow.svg" />
+
+
+
+        <meta property="og:title" content="Dein Einstieg in Kryptowährungen | TEACHMEDEFI" />
+        <meta property="og:description" content="Krypto leicht gemacht" />
+        {/* <meta property="og:image" content=" HIER KOMMT URL VOM BILD " /> */}
+        <meta property="og:url" content="https://teachmedefi.de" />
+        <meta property="og:type" content="website" />
+
+
+      </Head>
+
       <ThemeProvider>
-        <div className='dark:bg-bgDarkBlue dark:text-white'> 
+        <div className='dark:bg-bgDarkBlue dark:text-white'>
 
           <TagManagerScript />
           <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white flex flex-col items-center relative`} >
