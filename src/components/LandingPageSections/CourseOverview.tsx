@@ -12,7 +12,7 @@ export default function CourseOverview() {
 
       <div className="bg-gradient-to-r
       from-primaryBlue via-secondaryPurple to-primaryPink
-        rounded-3xl relative text-white flex lg:items-center max-xl:w-full"
+        rounded-3xl relative text-white flex lg:items-center max-xl:w-full xl:w-[1240px]"
       >
        <div className="absolute max-xl:hidden -left-72 -top-72 w-0 xl:w-[500px] h-0 xl:h-[358px] z-10">
         <Image src={"/home/inBackground/doge-master.png"} fill alt="ethereum doge robot" />

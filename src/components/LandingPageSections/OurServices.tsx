@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function OurServices() {
   return (
     <section className='flex flex-col justify-center items-center w-full relative py-24 lg:py-44 px-5' >
-      <div className="flex gap-10 xl:gap-40 flex-col xl:flex-row">
+      <div className="flex gap-10 xl:w-[1240px] xl:justify-between flex-col xl:flex-row">
         <div className=" max-xl:flex max-lg:flex-col justify-center  items-center gap-10 lg:gap-24 xl:space-y-44 ">
           <div className="w-full">
             <h2 className="text-4xl  font-bold mb-6">Dein Tor zur Krypto-Welt!</h2>

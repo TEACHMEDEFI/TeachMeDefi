@@ -137,8 +137,9 @@ img {
 }
 
 .ul-circles {
-  --innerSize: 6rem;
-  --rimSize: 1.5rem;
+  --innerSize: 5rem;
+  --rimSize: 1rem;
+  
 
   display: grid;
   grid-template-columns: repeat(var(--repeatVal, 1), calc(var(--innerSize)));
@@ -195,23 +196,23 @@ img {
 }
 
 @media (min-width: 40rem) {
-  .ul-circles {
-    --repeatVal: auto-fit;
-  }
+  // .ul-circles {
+  //   --repeatVal: auto-fit;
+  // }
 
-  .ul-circles:not(.ul-circles-vertical)>a:nth-child(even)::before {
-    --clipX1: 0%;
-    --clipY1: 0%;
-    --clipX2: 100%;
-    --clipY2: 50%;
-  }
+  // .ul-circles:not(.ul-circles-vertical)>a:nth-child(even)::before {
+  //   --clipX1: 0%;
+  //   --clipY1: 0%;
+  //   --clipX2: 100%;
+  //   --clipY2: 50%;
+  // }
 
-  .ul-circles:not(.ul-circles-vertical)>a:nth-child(odd)::before {
-    --clipX1: 0%;
-    --clipY1: 50%;
-    --clipX2: 100%;
-    --clipY2: 100%;
-  }
+  // .ul-circles:not(.ul-circles-vertical)>a:nth-child(odd)::before {
+  //   --clipX1: 0%;
+  //   --clipY1: 50%;
+  //   --clipX2: 100%;
+  //   --clipY2: 100%;
+  // }
 }
 
 .ul-circles>a::after {
