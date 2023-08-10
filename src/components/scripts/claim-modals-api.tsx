@@ -32,7 +32,7 @@ export const questHints: QuestHints = {
 /*
 * Helper function to check wether a user has completed all videos of a certain questId
 */
-export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: Function): boolean => {
+export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: Function, isBitcoinQuest: boolean): boolean => {
     let userHasAllProgress = true;
     let dataArray = questSectionId.indexOf('eth') > -1 ? ethQuests : dotQuests
     const sectionQuest = dataArray.filter((quest) => {
@@ -66,7 +66,7 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
     } else if (questSectionId === 'dot-quest-1') {
         mintable = polkaWalletConnected ? true : false
     } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6') {
-        mintable = checkQuestsForCompleteView(questSectionId, hasProgress)
+        mintable = checkQuestsForCompleteView(questSectionId, hasProgress, false)
     } else if (questSectionId == 'dot-quest-2' || questSectionId == 'dot-quest-4' || questSectionId == 'dot-quest-5') {
         const stringNumber = balances?.toString();
         mintable = stringNumber && parseInt(stringNumber) > 0 ? true : false;

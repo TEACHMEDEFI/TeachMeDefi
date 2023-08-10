@@ -66,11 +66,10 @@ export default function Index() {
           </h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
 
-          {/* <NftCard questSectionId={'dot-quest-1'} questIndex={0} />
-          <NftCard questSectionId={'dot-quest-2'} questIndex={1} />
-          <NftCard questSectionId={'dot-quest-3'} questIndex={2} />
-          <NftCard questSectionId={'dot-quest-4'} questIndex={3} />
-          <NftCard questSectionId={'dot-quest-5'} questIndex={4} /> */}
+          <NftCard questSectionId={'btc-quest-1'} questIndex={0} />
+          <NftCard questSectionId={'btc-quest-2'} questIndex={1} />
+          <NftCard questSectionId={'btc-quest-3'} questIndex={2} />
+          <NftCard questSectionId={'btc-quest-4'} questIndex={3} />
         </div>
 
       </section>

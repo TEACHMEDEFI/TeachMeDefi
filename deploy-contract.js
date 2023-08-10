@@ -15,7 +15,12 @@ const baseURIs = {
     "dot-2": "https://ipfs.io/ipfs/QmUUjQwLkjFJnfbRpKNZTX6w55nTrUSkVNFLmiYjjbwmBG",
     "dot-3": "https://ipfs.io/ipfs/QmcCNWc9kdUKNzWqQfdvktADDjZAggVGK6AM6kF4HZCKsA",
     "dot-4": "https://ipfs.io/ipfs/QmNshFoUSx3mS39XVMvU4sz4cxgZ6nqZBGKsBRc1J2eF6M",
-    "dot-5": "https://ipfs.io/ipfs/QmXhSYdeq4mzjy6GzBC5RzyBxtQomD2nEDJbANbGFmPDbS"
+    "dot-5": "https://ipfs.io/ipfs/QmXhSYdeq4mzjy6GzBC5RzyBxtQomD2nEDJbANbGFmPDbS",
+
+    "btc-1": "https://ipfs.io/ipfs/QmUA87umcFmsr2m8KXxdksGpXNqA4oYE7hcT1PAANqhgNx",
+    "btc-2": "https://ipfs.io/ipfs/QmSxKkDyP1njHMTk2WwiZYunLqLHyHfHx8T51M3JsFm2y4",
+    "btc-3": "https://ipfs.io/ipfs/QmdkYPUjVHbUb2yTKRmqhQTu5RQFsLKEWt3QZAeDjfBEtp",
+    "btc-4": "https://ipfs.io/ipfs/QmfRFcZhx93Ru5bVesoThtrnMBoLvCgvpNRzadvurbUj2j"
 }
 
 
@@ -24,9 +29,11 @@ async function main() {
     let Quest = await hre.ethers.getContractFactory("TMDQuest");
     const collectionNameEth = "Ethereum Quest";
     const collectionNameDot = "Polkadot Quest"
+    const collectionNameBTC = "Bitcoin Quest"
 
     const tokenCounterEth = "EthQuest"
     const tokenCounterDOT = "DotQuest"
+    const tokenCounterBtc = "BitcoinQuest"
 
     const baseURI1 = baseURIs['eth-1'];
     const baseURI2 = baseURIs['eth-2'];
@@ -41,62 +48,90 @@ async function main() {
     const baseURI10 = baseURIs['dot-4'];
     const baseURI11 = baseURIs['dot-5'];
 
+
+    const baseURI12 = baseURIs['btc-1'];
+    const baseURI13 = baseURIs['btc-2'];
+    const baseURI14 = baseURIs['btc-3'];
+    const baseURI15 = baseURIs['btc-4'];
+
     // Next Quest
-    const Ethquest1 = await Quest.deploy(baseURI1, collectionNameEth, tokenCounterEth);
-    await Ethquest1.deployed();
-    console.log('Ethquest1 Address is:', Ethquest1.address);
-    // Next Quest
-    Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Ethquest2 = await Quest.deploy(baseURI2, collectionNameEth, tokenCounterEth);
-    await Ethquest2.deployed();
-    console.log('Ethquest2 Address is:', Ethquest2.address);
-    // Next Quest
-    Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Ethquest3 = await Quest.deploy(baseURI3, collectionNameEth, tokenCounterEth);
-    await Ethquest3.deployed();
-    console.log('Ethquest3 Address is:', Ethquest3.address);
-    // Next Quest
-    Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Ethquest4 = await Quest.deploy(baseURI4, collectionNameEth, tokenCounterEth);
-    await Ethquest4.deployed();
-    console.log('Ethquest4 Address is:', Ethquest4.address);
-    // Next Quest
-    Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Ethquest5 = await Quest.deploy(baseURI5, collectionNameEth, tokenCounterEth);
-    await Ethquest5.deployed();
-    console.log('Ethquest5 Address is:', Ethquest5.address);
-    // Next Quest
-    Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Ethquest6 = await Quest.deploy(baseURI6, collectionNameEth, tokenCounterEth);
-    await Ethquest6.deployed();
-    console.log('Ethquest6 Address is:', Ethquest6.address);
+    // const Ethquest1 = await Quest.deploy(baseURI1, collectionNameEth, tokenCounterEth);
+    // await Ethquest1.deployed();
+    // console.log('Ethquest1 Address is:', Ethquest1.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Ethquest2 = await Quest.deploy(baseURI2, collectionNameEth, tokenCounterEth);
+    // await Ethquest2.deployed();
+    // console.log('Ethquest2 Address is:', Ethquest2.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Ethquest3 = await Quest.deploy(baseURI3, collectionNameEth, tokenCounterEth);
+    // await Ethquest3.deployed();
+    // console.log('Ethquest3 Address is:', Ethquest3.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Ethquest4 = await Quest.deploy(baseURI4, collectionNameEth, tokenCounterEth);
+    // await Ethquest4.deployed();
+    // console.log('Ethquest4 Address is:', Ethquest4.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Ethquest5 = await Quest.deploy(baseURI5, collectionNameEth, tokenCounterEth);
+    // await Ethquest5.deployed();
+    // console.log('Ethquest5 Address is:', Ethquest5.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Ethquest6 = await Quest.deploy(baseURI6, collectionNameEth, tokenCounterEth);
+    // await Ethquest6.deployed();
+    // console.log('Ethquest6 Address is:', Ethquest6.address);
 
 
+    // // Polka Quests
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Dotquest1 = await Quest.deploy(baseURI7, collectionNameDot, tokenCounterDOT);
+    // await Dotquest1.deployed();
+    // console.log('Dotquest1 Address is:', Dotquest1.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Dotquest2 = await Quest.deploy(baseURI8, collectionNameDot, tokenCounterDOT);
+    // await Dotquest2.deployed();
+    // console.log('Dotquest2 Address is:', Dotquest2.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Dotquest3 = await Quest.deploy(baseURI9, collectionNameDot, tokenCounterDOT);
+    // await Dotquest3.deployed();
+    // console.log('Dotquest3 Address is:', Dotquest3.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Dotquest4 = await Quest.deploy(baseURI10, collectionNameDot, tokenCounterDOT);
+    // await Dotquest4.deployed();
+    // console.log('Dotquest4 Address is:', Dotquest4.address);
+    // // Next Quest
+    // Quest = await hre.ethers.getContractFactory("TMDQuest");
+    // const Dotquest5 = await Quest.deploy(baseURI11, collectionNameDot, tokenCounterDOT);
+    // await Dotquest5.deployed();
+    // console.log('Dotquest6 Address is:', Dotquest5.address);
+
+    // Bitcoin Quests
     // Polka Quests
     Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Dotquest1 = await Quest.deploy(baseURI7, collectionNameDot, tokenCounterDOT);
-    await Dotquest1.deployed();
-    console.log('Dotquest1 Address is:', Dotquest1.address);
+    const Bitquest1 = await Quest.deploy(baseURI12, collectionNameBTC, tokenCounterBtc);
+    await Bitquest1.deployed();
+    console.log('Bitquest1 Address is:', Bitquest1.address);
     // Next Quest
     Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Dotquest2 = await Quest.deploy(baseURI8, collectionNameDot, tokenCounterDOT);
-    await Dotquest2.deployed();
-    console.log('Dotquest2 Address is:', Dotquest2.address);
+    const Bitquest2 = await Quest.deploy(baseURI13, collectionNameBTC, tokenCounterBtc);
+    await Bitquest2.deployed();
+    console.log('Bitquest2 Address is:', Bitquest2.address);
     // Next Quest
     Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Dotquest3 = await Quest.deploy(baseURI9, collectionNameDot, tokenCounterDOT);
-    await Dotquest3.deployed();
-    console.log('Dotquest3 Address is:', Dotquest3.address);
+    const Bitquest3 = await Quest.deploy(baseURI14, collectionNameBTC, tokenCounterBtc);
+    await Bitquest3.deployed();
+    console.log('Bitquest3 Address is:', Bitquest3.address);
     // Next Quest
     Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Dotquest4 = await Quest.deploy(baseURI10, collectionNameDot, tokenCounterDOT);
-    await Dotquest4.deployed();
-    console.log('Dotquest4 Address is:', Dotquest4.address);
-    // Next Quest
-    Quest = await hre.ethers.getContractFactory("TMDQuest");
-    const Dotquest5 = await Quest.deploy(baseURI11, collectionNameDot, tokenCounterDOT);
-    await Dotquest5.deployed();
-    console.log('Dotquest6 Address is:', Dotquest5.address);
+    const Bitquest4 = await Quest.deploy(baseURI15, collectionNameBTC, tokenCounterBtc);
+    await Bitquest4.deployed();
+    console.log('Bitquest4 Address is:', Bitquest4.address);
 
 
 }
