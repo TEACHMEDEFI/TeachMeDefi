@@ -36,6 +36,11 @@ export const QuestNftContractAddresses: QuestNftContractAddresses = {
   "dot-quest-3": process.env.NEXT_PUBLIC_QUEST_DOT_THREE as string,
   "dot-quest-4": process.env.NEXT_PUBLIC_QUEST_DOT_FOUR as string,
   "dot-quest-5": process.env.NEXT_PUBLIC_QUEST_DOT_FIVE as string,
+
+  "btc-quest-1": process.env.NEXT_PUBLIC_QUEST_BTC_ONE as string,
+  "btc-quest-2": process.env.NEXT_PUBLIC_QUEST_BTC_TWO as string,
+  "btc-quest-3": process.env.NEXT_PUBLIC_QUEST_BTC_THREE as string,
+  "btc-quest-4": process.env.NEXT_PUBLIC_QUEST_BTC_FOUR as string
 };
 
 type Token = keyof typeof TokenAddresses | keyof typeof QuestNftContractAddresses;
