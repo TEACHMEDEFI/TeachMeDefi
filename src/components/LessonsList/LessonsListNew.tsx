@@ -21,6 +21,10 @@ const QuestClaimModalDot = dynamic(() => import('../Modals/QuestClaimModalDot'),
   ssr: false,
 });
 
+const QuestClaimModalBitcoin = dynamic(() => import('../Modals/QuestClaimModalBitcoin'), {
+  ssr: false,
+});
+
 
 type LessonsListProps = {
   lessonsArray: Quests[];
@@ -226,6 +230,9 @@ export default function LessonsListNew({ chain, lessonsArray, title, isQuestSect
               {showPopup && showPopup[quests.questSectionId] && chain === 'dot' ? <QuestClaimModalDot questSectionId={quests.questSectionId} togglePopup={togglePopup}
                 // @ts-ignore
                 selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
+
+                {// @ts-ignore
+                showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalBitcoin questSectionId={quests.questSectionId} togglePopup={togglePopup} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
 
             </ul>
 

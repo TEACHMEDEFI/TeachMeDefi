@@ -26,6 +26,11 @@ export const questHints: QuestHints = {
     "dot-quest-3": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an DOT Coins wie im Tutorial mit der Polkadot Wallet staken, welche du mit dieser Webseite verbunden hast.",
     "dot-quest-4": "Hinweis: Um diese Quest zu bestehen, musst du eine beliebige Menge an xcDOT Coins auf dem Moonbeam-Netzwerk in deiner (Ethereum-kompatiblen) Wallet halten, welche du mit dieser Webseite verbunden hast.",
     "dot-quest-5": "Hinweis: Um diese Quest zu bestehen, wird geprüft ob du eine beliebige Menge an GLMR Coins in der (Ethereum-kompatiblen) Wallet übrig hast, welche mit dieser Webseite verbunden ist.",
+
+    "btc-quest-1": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 6 anschauen",
+    "btc-quest-2": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 6 anschauen",
+    "btc-quest-3": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 6 anschauen",
+    "btc-quest-4": "Hinweis: Um diese Quest zu bestehen, musst du dir alle Videos zur Quest 6 anschauen"
 }
 
 
@@ -53,7 +58,7 @@ export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: 
 /*
 * Checks whether a progress NFT is mintable depending on the requirements
 */
-export const useIsProgressNftMintable = (questSectionId: string, token: string, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
+export const useIsProgressNftMintable = (questSectionId: string, isBtcQuest: boolean, balances: BN | undefined, polkaWalletConnected: boolean): boolean => {
     const [hasProgress] = useUserProgress();
     const { account } = useWeb3React();
     let tokenBalance = useTokenBalance(questSectionId);
@@ -65,7 +70,7 @@ export const useIsProgressNftMintable = (questSectionId: string, token: string, 
         mintable = account ? true : false
     } else if (questSectionId === 'dot-quest-1') {
         mintable = polkaWalletConnected ? true : false
-    } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6') {
+    } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6' || isBtcQuest) {
         mintable = checkQuestsForCompleteView(questSectionId, hasProgress, false)
     } else if (questSectionId == 'dot-quest-2' || questSectionId == 'dot-quest-4' || questSectionId == 'dot-quest-5') {
         const stringNumber = balances?.toString();
