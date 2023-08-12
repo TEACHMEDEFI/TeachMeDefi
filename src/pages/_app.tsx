@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Web3ReactProvider getLibrary={getLibrary}>
 
       <Head>
-        <title>TEACHMEDEFI</title>
+        <title>Dein Einstieg in Kryptowährungen | TEACHMEDEFI</title>
         <meta name="description" content="TEACHMEDEFI teach me defi" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/tmd-head-rainbow.svg" />

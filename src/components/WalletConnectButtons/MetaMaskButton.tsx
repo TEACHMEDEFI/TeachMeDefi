@@ -19,29 +19,29 @@ const MetaMaskButton = ({ toggleConnectWalletBtn }: any) => {
         setError(error)
       }
     }, false)
-    // setConnectedLocalStorage()
+    setConnectedLocalStorage()
     toggleConnectWalletBtn(false)
   }
 
 
-  // const setConnectedLocalStorage = () => {
-  //   const connectedData = {
-  //     talisman: false,
-  //     metamask: true
-  //   };
+  const setConnectedLocalStorage = () => {
+    const connectedData = {
+      talisman: false,
+      metamask: true
+    };
 
-  //   const connectedDataString = JSON.stringify(connectedData);
-  //   localStorage.setItem('hasConnected', connectedDataString);
-  // }
+    const connectedDataString = JSON.stringify(connectedData);
+    localStorage.setItem('hasConnected', connectedDataString);
+  }
 
-  // useEffect(() => {
-  //   const hasConnected = localStorage.getItem('hasConnected');
-  //   const localstorage = hasConnected && JSON.parse(hasConnected)
-  //   if (localstorage?.metamask) {
-  //     onClickConnect();
-  //   }
+  useEffect(() => {
+    const hasConnected = localStorage.getItem('hasConnected');
+    const localstorage = hasConnected && JSON.parse(hasConnected)
+    if (localstorage?.metamask) {
+      onClickConnect();
+    }
 
-  // }, [active, account])
+  }, [active, account])
 
 
   return (

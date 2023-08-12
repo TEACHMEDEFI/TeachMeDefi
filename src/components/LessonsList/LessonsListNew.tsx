@@ -232,7 +232,7 @@ export default function LessonsListNew({ chain, lessonsArray, title, isQuestSect
                 selectedPolkaAccount={selectedAccount} setSelectedPolkaAccount={setSelectedPolkaAccount} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
 
                 {// @ts-ignore
-                showPopup && showPopup[quests.questSectionId] && chain === 'eth' ? <QuestClaimModalBitcoin questSectionId={quests.questSectionId} togglePopup={togglePopup} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
+                showPopup && showPopup[quests.questSectionId] && chain === 'btc' ? <QuestClaimModalBitcoin questSectionId={quests.questSectionId} togglePopup={togglePopup} onClose={onCloseNft} modalOpen={isModalOpen(quests.questSectionId)} /> : null}
 
             </ul>
 
