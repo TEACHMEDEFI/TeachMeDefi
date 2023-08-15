@@ -181,7 +181,7 @@ export default function LessonsListNew({ chain, lessonsArray, title, isQuestSect
             className={`${imageClasses && imageClasses[quest.id]} bg-[#fdfdfd] dark:bg-gray-700 relative `}
           >
             <i className="fa-regular fa-play" /> {quest.videoTime} Min
-            <p className=' max-sm:hidden absolute  sm:left-28  sm:mt-4  sm:w-96 sm:text-start' >
+            <p className='  absolute left-24 sm:left-28 mt-2 sm:mt-4 w-56 sm:w-96 sm:text-start' >
               {quest.title}
             </p>
           </Link>
@@ -213,7 +213,7 @@ export default function LessonsListNew({ chain, lessonsArray, title, isQuestSect
 
           <div className="progress-container">
 
-            <ul className="ul-circles sm:mr-96">
+            <ul className="ul-circles mr-60 sm:mr-96">
               {renderProgressBarItems(quests.questSectionId)}
 
               {isQuestSection ? (
