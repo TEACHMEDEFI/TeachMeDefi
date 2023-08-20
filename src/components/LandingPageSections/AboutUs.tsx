@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useDisclosure } from '@chakra-ui/react'
 import { SecondaryButton } from "../Buttons/Buttons"
+import Link from 'next/link'
 import Image from "next/image"
 import AboutUsModal from '../Modals/AboutUsModal'
 
@@ -38,12 +39,12 @@ export default function AboutUs() {
             die richtigen, um Dir bei deinem Einstieg zu helfen. Wir wollen unsere Erfahrungen an
             Dich weitergeben und Dir mit Tipps und Tricks zur Seite stehen. Wir freuen uns auf Dich!
           </p>
-          <button
-            onClick={onOpen}
+          <Link
+            href={"/ueber-uns"}
             className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent '
           >
             Erfahre mehr über uns...
-          </button>
+          </Link>
           {/* <SecondaryButton onClick={onOpen}>Mehr lesen</SecondaryButton> */}
         </div>
         <div className="flex flex-wrap justify-center gap-x-5 lg:gap-16 xl:gap-28 -mt-10 " >
