@@ -82,7 +82,7 @@ export default function Navbar() {
         </div>
 
         {/* _____ NAV ROUTES, HIDDEN IF SCREEN IS UNDER 1280PX  _______ */}
-        <div className="space-x-8 hidden xl:flex " >
+        <div className="space-x-6 hidden xl:flex " >
           <div
             className="relative  "
             onMouseEnter={() => toggleTeachMeButton(!teachMeButton)}
@@ -118,6 +118,14 @@ export default function Navbar() {
             className="hover:underline"
           >
             NEWSLETTER
+          </Link>
+          <Link
+            data-linktarget="ueber-uns"
+            onClick={handleTagManagerEventsRedirect}
+            href={"/ueber-uns"}
+            className="hover:underline"
+          >
+            ÜBER UNS
           </Link>
           {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
           {/* <Link
@@ -230,6 +238,14 @@ export default function Navbar() {
             href={"https://www.newsletter.teachmedefi.de/"}
           >
             NEWSLETTER
+          </Link>
+          <Link
+            data-linktarget="ueber-uns"
+            onClick={handleTagManagerEventsRedirect}
+            href={"/ueber-uns"}
+            className="hover:underline"
+          >
+            ÜBER UNS
           </Link>
           {/* <Link 
           href={"/merch"} 
