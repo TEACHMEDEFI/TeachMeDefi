@@ -69,7 +69,12 @@ const questVideoTimes: QuestVideoTimes = {
   'eth-quest-4': '11:49',
   'eth-quest-5': '22:17',
   'eth-quest-6': '05:26',
-  'eth-quest-7': '27:47'
+  'eth-quest-7': '27:47',
+
+  'btc-quest-1': '03:11',
+  'btc-quest-2': '08:17',
+  'btc-quest-3': '10:09',
+  'btc-quest-4': '06:21'
 }
 
 
@@ -216,7 +221,7 @@ export default function LessonsListNew({ chain, lessonsArray, title, isQuestSect
             <ul className="ul-circles mr-60 sm:mr-96">
               {renderProgressBarItems(quests.questSectionId)}
 
-              {isQuestSection ? (
+              {isQuestSection && chain !== "btc" ? (
                 <>
                   <Link href="#" className="is-nft-mint bg-[#fdfdfd] dark:bg-gray-700" onClick={() => togglePopup(quests.questSectionId)}><i className="fa-light fa-trophy" />Mint NFT</Link>
                 </>)

@@ -1,8 +1,8 @@
 
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
-import { ethQuests, sicherheitsQuest } from '@/data/eth';
-import { ethTheory } from '@/data/eth/ethTheory';
+import { btcQuests } from '@/data/btc';
+import { btcTheory } from '@/data/btc/btcTheory';
 import { generalLessons } from '@/data/generalLessons';
 import LessonsListNew from '@/components/LessonsList/LessonsListNew';
 import { switchNetworkIfNeeded } from '../api/ethereum-api'
@@ -157,7 +157,7 @@ export default function Index() {
 
 
         <LessonsListNew chain={"btc"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose} onModalOpen={onModalOpen} />
-        <LessonsListNew chain={"btc"} lessonsArray={ethTheory} title={"Wie funktioniert Bitcoin"} isTheorySection totalVideoTime="---" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"btc"} lessonsArray={btcTheory} title={"Wie funktioniert Bitcoin"} isTheorySection totalVideoTime="21:56" onModalClose={onModalClose} onModalOpen={onModalOpen} />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max
@@ -173,7 +173,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection totalVideoTime="----" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"btc"} lessonsArray={btcQuests} isQuestSection totalVideoTime="27:58" onModalClose={onModalClose} onModalOpen={onModalOpen} />
 
         {/* <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 

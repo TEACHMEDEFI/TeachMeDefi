@@ -33,7 +33,7 @@ export default function LessonsOverview({ lessonsArray, title, section, chain }:
         {lessonsArray.map((lesson, i) => (
           <>
             {lesson.section === section &&
-              <div className={` p-1 rounded-xl  ${i > 1 ? "bg-gray-300 dark:bg-bgDarkGray" : borderClass}  `} >
+              <div key={lesson.id} className={` p-1 rounded-xl  ${i > 1 ? "bg-gray-300 dark:bg-bgDarkGray" : borderClass}  `} >
 
                 <div key={lesson.id} className='relative m-1 rounded-xl font-bold flex justify-center items-center '>
                   <Link href={`/${chain}/${lesson.slug}`} key={lesson.id} className='z-10 bg-white dark:bg-bgDarkBlue flex justify-center items-center w-60 h-32 rounded-3xl px-3' >

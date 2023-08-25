@@ -15,7 +15,7 @@ const NftCard = ({ questSectionId, questIndex }: NftCardProps) => {
   const nftBalance = useNFTBalance(questSectionId);
   const metadata = require(`../../../nft-metadata/${questSectionId}.json`)
   const src = metadata?.image
-  console.log(metadata)
+  // console.log(metadata)
   let href;
   if (questSectionId.indexOf('eth') > -1) {
     href = `/eth/#${ethQuests[questIndex].questSectionId}`
