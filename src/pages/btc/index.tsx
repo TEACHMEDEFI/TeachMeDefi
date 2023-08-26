@@ -106,15 +106,25 @@ export default function Index() {
     // </div >
     <div className={`flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
-        <div className=' my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0 ' >
-          <h1 className='text-7xl font-bold mb-5' >
+        <div className=' my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0 ' >
+          <h1 className='xl:text-5xl text-4xl font-bold' >
             Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
           </h1>
-          <h2 className='text-xl font-bold' >
-            Hier findest du alles, was du über die weltweit bekannteste Kryptowährung wissen musst.
+          <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10' >
+          Starte bei der Quelle: Bitcoin! Bereit, die Welt der Kryptowährungen am Ursprung zu erkunden? 
+          Hier findest du einen klaren Einstieg in die Grundlagen von Bitcoin. Wir erleuchten gemeinsam s
+          eine Geschichte, Bedeutung und bieten leicht verständliche Module sowie nützliche Tools für deine 
+          Lernreise. Und als Bonus? Für jeden erreichten Meilenstein winkt dir ein NFT. Tritt ein und 
+          entdecke Bitcoin – den Beginn der digitalen Geldrevolution.
+          {/* Starte bei der Quelle: Bitcoin!
+Bereit, die Welt der Kryptowährungen von dort zu erkunden, wo alles begann? Bitcoin hat den Weg für die digitale Revolution des Geldes geebnet.
+ Hier findest du einen leichten Einstieg in die Grundlagen von Bitcoin – ideal für Einsteiger und alle, die ihr Wissen über die Kryptowelt erweitern möchten. 
+ Lass uns gemeinsam die Grundprinzipien, die Geschichte und die Bedeutung von Bitcoin erkunden. Unsere Plattform bietet dir leicht verständliche Module,
+  nützliche Tools und spannende Einblicke, um das Beste aus deiner Lernreise herauszuholen. Und das Beste daran? Für jeden Meilenstein, den du auf deinem Weg erreichst, 
+  erhältst du ein NFT als Zeichen deines Fortschritts. Tritt ein in die fesselnde Welt von Bitcoin und werde Teil der digitalen Zukunft! */}
           </h2>
         </div>
-        <div className='relative w-80 sm:w-96 h-80 sm:h-96 mt-10'>
+        <div className='relative w-full lg:w-2/4 h-full lg:h-[80%] grow'>
           <Image src={"/btc/bitcoin_planet.png"} fill alt='Ethereum Hero' priority />
         </div>
 

@@ -61,7 +61,7 @@ export default function Index() {
   return (
     <div className={ `flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
-        <div className=' my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0  ' >
+        <div className=' my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0  ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
             Willkommen bei <span
               className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent'
