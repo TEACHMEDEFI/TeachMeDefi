@@ -1,8 +1,12 @@
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function UeberUns() {
+  const { isDarkMode } = useTheme();
   return (
-    <section  className='py-10 px-5 sm:px-8 lg:px-16'>
+    <section className='py-10 px-5 sm:px-8 lg:px-16'>
       <div className=" ">
         <h3 className="text-4xl font-bold mb-5">Über uns</h3>
         <p className="tracking-wide leading-relaxed  ">
@@ -49,6 +53,152 @@ export default function UeberUns() {
           und über fünf Jahren Erfahrung im B2B- Vertrieb sowie zwei Jahren Erfahrung als Business und Approvals
           Coordinator, bei dem er ein Team von 30 internationalen Mitarbeitern leitete, bringt Rustam eine solide operative Kompetenz in unser Team.
         </p>
+
+
+
+        <div className="w-full flex flex-col items-center  max-w-[1240px]"  >
+
+          <div className="flex flex-wrap justify-center gap-x-5 lg:gap-16 xl:gap-28 -mt-10 " >
+
+
+            <div className='-mt-10' >
+              <div className="relative w-[250px] h-[395px]" >
+                <div className="absolute bg-gradient-to-br
+              from-primaryBlue via-secondaryPurple to-primaryPink
+              rounded-full w-[250px] h-[250px] bottom-0
+              "
+                >
+                  <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                    <Image
+                      src={"/home/aboutUs/sohejl.png"}
+                      className="rounded-3xl"
+                      fill
+                      loading='lazy'
+                      alt="Profil picture Sohejl"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Sohejl</h4>
+              <div className='flex justify-center gap-4'>
+
+                <Link
+                  href={"https://www.linkedin.com/in/sohejl-shahshahani-far-16aaba141/"}
+                  target="_blank"
+                >
+                  <div className="h-9 w-9 relative">
+                    <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"} alt="linkedIn" fill sizes="60px" />
+                  </div>
+                </Link>
+                <Link
+                  href={"https://twitter.com/Moeeinvest"}
+                  target="_blank"
+                >
+                  <div className="h-9 w-9 relative">
+                    <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            <div className='-mt-10' >
+              <div className="relative w-[250px] h-[395px]" >
+                <div className="absolute bg-gradient-to-br
+              from-primaryBlue via-secondaryPurple to-primaryPink
+              rounded-full w-[250px] h-[250px] bottom-0
+              "
+                >
+                  <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                    <Image
+                      src={"/home/aboutUs/jan.png"}
+                      className="rounded-3xl"
+                      fill
+                      loading='lazy'
+                      alt="Profil picture Jan"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Jan</h4>
+              <div className='flex justify-center gap-4'>
+
+                <Link
+                  href={"https://www.linkedin.com/in/janzajfert/"}
+                  target="_blank"
+                >
+                  <div className="h-9 w-9 relative">
+                    <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"} alt="linkedIn" fill sizes="60px" />
+                  </div>
+                </Link>
+                <Link
+                  href={"https://twitter.com/Cezar3088"}
+                  target="_blank"
+                >
+                  <div className="h-9 w-9 relative">
+                    <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+
+            <div className='-mt-10' >
+              <div className="relative w-[250px] h-[395px]" >
+                <div className="absolute bg-gradient-to-br
+              from-primaryBlue via-secondaryPurple to-primaryPink
+              rounded-full w-[250px] h-[250px] bottom-0
+              "
+                >
+                  <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                    <Image
+                      src={"/home/aboutUs/rustam.png"}
+                      className="rounded-3xl"
+                      fill
+                      loading='lazy'
+                      alt="Profil picture Rustam"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Rustam</h4>
+              <div className='flex justify-center gap-4'>
+
+                <Link
+                  href={"https://www.linkedin.com/in/rustam-kohen-087048177/"}
+                  target="_blank"
+                >
+                  <div className="h-9 w-9 relative">
+                    <Image src={isDarkMode ? "/icons/linkedIn.png" : "/icons/linkedIn_dark.svg"} alt="linkedIn" fill sizes="60px" />
+                  </div>
+                </Link>
+                <Link
+                  href={"________"}
+                  target="_blank"
+                >
+                  <div className="h-9 w-9 relative">
+                    <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
       </div>
 
     </section>
