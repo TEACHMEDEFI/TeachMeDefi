@@ -193,7 +193,7 @@ export const btcTheory: Quests[] = [
         transcript: [
           {
             // title: "Anleitung zum Video",
-            text: 'Denkst du, Bitcoin ist vollständig anonym? Lass uns das noch mal überdenken. Das Besondere an Bitcoin ist tatsächlich seine Pseudonymität. Stell dir das so vor: Mit jeder Bitcoin-Transaktion, die du durchführst, schreibst du eine Nachricht an die gesamte Welt, und sie verbindet sie mit deinem Pseudonym, deiner Bitcoin-Adresse. Aber es ist nicht ganz so, als ob du ein Maskenkostüm trägst. Jede deiner Transaktionen ist nachverfolgbar, auch wenn dein wirklicher Name nicht offensichtlich ist. Das mag erstmal beängstigend klingen, aber tatsächlich ist es ein starkes Zeichen für Transparenz und Sicherheit.'
+            text: 'Denkst du, Bitcoin ist vollständig anonym? Lass uns das noch mal überdenken. Das Besondere an Bitcoin ist tatsächlich seine Pseudonymität. Stell dir das so vor: Mit jeder Bitcoin-Transaktion, die du durchführst, schreibst du eine Nachricht an die gesamte Welt, und signierst sie mit deinem Pseudonym, deiner Bitcoin-Adresse. Aber es ist nicht ganz so, als ob du ein Maskenkostüm trägst. Jede deiner Transaktionen ist nachverfolgbar, auch wenn dein wirklicher Name nicht offensichtlich ist. Das mag erstmal beängstigend klingen, aber tatsächlich ist es ein starkes Zeichen für Transparenz und Sicherheit.'
           },
           {
             text: 'Ja, mit bestimmten Werkzeugen können diese Transaktionen potenziell zu deiner realen Identität zurückverfolgt werden. Aber hey, im Gegensatz zu den undurchsichtigen Prozessen traditioneller Banküberweisungen ist die Blockchain wie ein offenes Buch, das jedem erlaubt, seine Geschichte zu lesen.',
