@@ -5,6 +5,7 @@ import BN from 'bn.js';
 import { useUserProgress, useTokenBalance, QuestNftContractAddresses } from '../../pages/api/ethereum-api'
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
+import { btcQuests } from '@/data/btc';
 
 
 import QuestABI from '../../../artifacts/contracts/TMDQuest.sol/TMDQuest.json';
@@ -39,7 +40,16 @@ export const questHints: QuestHints = {
 */
 export const checkQuestsForCompleteView = (questSectionId: string, hasProgress: Function, isBitcoinQuest: boolean): boolean => {
     let userHasAllProgress = true;
-    let dataArray = questSectionId.indexOf('eth') > -1 ? ethQuests : dotQuests
+    let dataArray = dotQuests
+
+    if (questSectionId.indexOf('eth') > -1) {
+        dataArray = ethQuests;
+    }
+
+    if (isBitcoinQuest) {
+        dataArray = btcQuests;
+    }
+
     const sectionQuest = dataArray.filter((quest) => {
         return quest.questSectionId === questSectionId;
     })
@@ -71,7 +81,7 @@ export const useIsProgressNftMintable = (questSectionId: string, isBtcQuest: boo
     } else if (questSectionId === 'dot-quest-1') {
         mintable = polkaWalletConnected ? true : false
     } else if (questSectionId == 'eth-quest-5' || questSectionId == 'eth-quest-6' || isBtcQuest) {
-        mintable = checkQuestsForCompleteView(questSectionId, hasProgress, false)
+        mintable = checkQuestsForCompleteView(questSectionId, hasProgress, isBtcQuest)
     } else if (questSectionId == 'dot-quest-2' || questSectionId == 'dot-quest-4' || questSectionId == 'dot-quest-5') {
         const stringNumber = balances?.toString();
         mintable = stringNumber && parseInt(stringNumber) > 0 ? true : false;

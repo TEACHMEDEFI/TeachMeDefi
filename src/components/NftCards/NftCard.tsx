@@ -3,8 +3,7 @@ import { useNFTBalance } from '../../pages/api/ethereum-api'
 import Link from 'next/link';
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
-// import { btcQuests } from '@/data/btc';
-import { Quests } from '@/data/generalLessons'
+import { btcQuests } from '@/data/btc';
 
 type NftCardProps = {
   questSectionId: string;
@@ -22,7 +21,7 @@ const NftCard = ({ questSectionId, questIndex }: NftCardProps) => {
   } else if (questSectionId.indexOf('dot') > -1) {
     href = `/dot/#${dotQuests[questIndex].questSectionId}`
   } else {
-    href = `/btc/#${dotQuests[questIndex].questSectionId}`
+    href = `/btc/#${btcQuests[questIndex].questSectionId}`
   }
 
 
