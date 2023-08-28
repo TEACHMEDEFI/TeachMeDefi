@@ -74,7 +74,7 @@ export const btcTheory: Quests[] = [
             text: 'Auf die einzigartigen Eigenschaften von Bitcoin, die ihm seinen Wert verleihen, werden wir im Laufe dieser Video-Reihe genauer eingehen. Die Sicherheit und Unveränderlichkeit von Bitcoin werden durch die Blockchain-Technologie gewährleistet. Für eine detailliertere Erklärung der Blockchain, schau dir unser Video "Blockchain - Einfach erklärt" mit Jan an.',
           },
           {
-            text: 'Die Revolution, die Bitcoin bietet, geht über einfache Transaktionen hinaus. Sie beinhaltet grenzüberschreitende und inländische Transaktionen, Transparenz, Effizienz, Wertaufbewahrung und Kontrolle, ohne Vertrauen in eine dritte Partei setzen zu müssen. Bleibt dran, bleibt neugierig und bleibt offen für die revolutionären Möglichkeiten, die Bitcoin bietet. Bis zum nächsten Mal bei TeachMeDeFi!',
+            text: 'Die Revolution, die Bitcoin bietet, geht über einfache Transaktionen hinaus. Sie beinhaltet grenzüberschreitende und inländische Transaktionen, Transparenz, Effizienz, Wertaufbewahrung und Kontrolle, ohne Vertrauen in eine dritte Partei setzen zu müssen. Bleibt dran, bleibt neugierig und bleibt offen für die revolutionären Möglichkeiten, die Bitcoin bietet. Bis zum nächsten Mal bei TEACHMEDEFI!',
           }
         ]
       },
@@ -112,7 +112,7 @@ export const btcTheory: Quests[] = [
             text: 'Ein zentraler Bestandteil des Bitcoin-Netzwerks ist der Proof-of-Work-Mechanismus, der bereits im Video "Konsensmechanismen" von Jan erklärt wurde. Dieser Mechanismus stellt sicher, dass das Durchführen betrügerischer Transaktionen extrem schwierig und kostspielig ist. Ein Betrugsversuch würde eine enorme Menge an Rechenleistung erfordern, mehr als die Hälfte der gesamten Rechenleistung des Netzwerks. Und nicht nur aktuelle, sondern auch alle vergangenen Transaktionen sind durch diesen Prozess geschützt und gesichert.',
           },
           {
-            text: 'Halte also die Augen offen, bleibe informiert und sei gespannt auf mehr Bitcoin-Erkenntnisse mit TeachMeDefi!',
+            text: 'Halte also die Augen offen, bleibe informiert und sei gespannt auf mehr Bitcoin-Erkenntnisse mit TEACHMEDEFI!',
           }
         ]
       },
@@ -214,7 +214,7 @@ export const btcTheory: Quests[] = [
             text: 'Bitcoin ist kein in Stein gemeißeltes System, es entwickelt sich ständig weiter. Vielleicht sehen wir in Zukunft Lösungen, die unsere Privatsphäre noch besser schützen und den globalen Datenschutzstandards entsprechen, die noch entwickelt werden müssen.',
           },
           {
-            text: 'Bis zum nächsten Mal, bleibt sicher, bleibt kryptisch und bleib bei TeachMeDeFi.',
+            text: 'Bis zum nächsten Mal, bleibt sicher, bleibt kryptisch und bleib bei TEACHMEDEFI.',
           }
         ]
       },
