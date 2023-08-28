@@ -90,9 +90,9 @@ export default function Navbar() {
           >
             <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
+              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
               <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETHEREUM</Link>
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >POLKADOT</Link>
-              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
           <Link
@@ -121,7 +121,7 @@ export default function Navbar() {
           </Link>
           <Link
             data-linktarget="ueber-uns"
-            onClick={handleTagManagerEventsRedirect}
+            onClick={handleTagManagerClickEvents}
             href={"/ueber-uns"}
             className="hover:underline"
           >
@@ -212,9 +212,9 @@ export default function Navbar() {
           >
             <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
+              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
               <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETHEREUM</Link>
               <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >POLKADOT</Link>
-              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
           <Link
