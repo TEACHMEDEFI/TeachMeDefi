@@ -21,19 +21,30 @@ export const quest1: Lesson[] = [
     transcript: [
 
       {
-        text: "Herzlichen Glückwunsch, du hast es zum praktischen Teil geschafft. Bevor wir aber ans Eingemachte gehen und lernen, wie man Bitcoin kauft, habe ich noch etwas, was ich unbedingt loswerden will und was mir wirklich am Herzen liegt. Es ist wirklich mega wichtig, dass du deine Kryptowährungen nicht auf einer zentralisierten Börse wie Coinbase, Binance, Kraken, Crypto.com oder wie sie auch alle heißen mögen, lagerst. Schick sie nach dem Kauf sofort auf deine eigene Wallet! Ja, es mag Transaktionsgebühren verursachen, aber das ist ein kleiner Preis für die Sicherheit deines Bitcoins oder deines Krypto-Portfolios im Allgemeinen. Ich kann gar nicht oft genug betonen, wie wichtig das ist. Das ist verdammt wichtig!"
+        text: "Eines der wichtigsten Prinzipien in der Krypto-Welt ist die Selbstverwahrung. Bevor du in die spannende Welt des Bitcoin-Kaufs einsteigst, solltest du ein solides Verständnis für die sichere Aufbewahrung deiner Kryptowährungen haben. In dieser Anleitung erfährst du, warum die Selbstverwahrung so wichtig ist und wie du sie praktizierst."
       },
       {
-        text: 'In der Krypto-Welt gibt es kein "Zu groß, um zu scheitern". Mt. Gox, Bitfinex oder Quadriga - die meisten werden sich nicht mehr an diese Namen erinnern können. Das waren Giganten, denen damals blind vertraut wurde. Der jüngste Fall ist FTX, ein weiteres Kartenhaus, das wirklich spektakulär zusammengebrochen ist. Diese Tauschbörsen sind alle gescheitert und haben zig Milliarden an hart verdientem Geld mit sich begraben, weil die Leute ihre Coins fahrlässigerweise nicht sicher verwahrt und nicht auf ihren eigenen Wallets aufbewahrt haben. Aus Frust wird dann gesagt, Krypto sei ein Betrug, ein Scam. Mein Freund, lass mich dir sagen: Diese zentralisierten Börsen sind nicht das Herz und die Seele von Krypto.'
+        subline: '1.1 Zentralisierte Börsen – Das Problem:',
+        text: 'Viele Neulinge in der Kryptowelt lagern ihre Coins auf zentralisierten Tauschbörsen wie Coinbase, Binance, Kraken oder Crypto.com. Obwohl sie Bequemlichkeit bieten, sind solche Plattformen riskant. Historische Fehltritte wie bei Mt. Gox und Bitfinex zeigen, dass selbst große Namen fallen können.'
       },
       {
-        text: "Echtes Krypto fängt erst richtig an, wenn du jederzeit volle Kontrolle über deine Kryptowährungen hast, und das bedeutet, dass sie sicher in deinem eigenen Wallet liegen, nicht irgendwo auf einer Tauschbörse. Bitcoins Hauptmission ist es zurzeit, Wertaufbewahrung über einen langen Zeitraum zu sein - Punkt. Wenn du mehr Action brauchst, schau dir andere Blockchains wie Ethereum oder Polkadot an. Jan, Sohejl und auch ich werden in anderen Videos noch detaillierter darauf eingehen."
+        subline: '1.2 Transaktionsgebühren:',
+        text: 'Ja, das Senden von Kryptowährungen von einer Börse zu deinem eigenen Wallet kann Gebühren verursachen. Diese Gebühren sind jedoch ein kleiner Preis für die Sicherheit und den Frieden, den die Selbstverwahrung bietet.'
       },
       {
-        text: "Zum Schluss des Videos, präge dir diese zwei Worte genau ein: SELF CUSTODY, also Selbstverwahrung. Hier hast du das Steuer selbst in der Hand und bist voll und ganz für deine Kryptowährungen verantwortlich, ohne auf irgendjemanden angewiesen zu sein. Und glaub mir, diesen Ausdruck wirst du noch sehr, sehr oft hören. Bitte, nimm dir das wirklich zu Herzen und sende deine Kryptowährungen immer auf dein eigenes Wallet."
+        subline: '1.3 Das wahre Herz der Kryptowelt:',
+        text: 'Kryptowährungen, insbesondere Bitcoin, wurden mit dem Ziel der Dezentralisierung und der Selbstverwahrung geschaffen. Echtes Krypto-Erlebnis beginnt, wenn du die volle Kontrolle über deine Coins hast, d.h. wenn sie in deinem eigenen Wallet gespeichert sind.'
       },
       {
-        text: 'So, jetzt aber genug der ernsten Worte. Lass uns endlich loslegen und lernen, wie man Bitcoin kauft!"'
+        subline: '1.4 Was ist Self Custody?',
+        text: 'SELF CUSTODY bedeutet, dass du alleinige Kontrolle über deine Kryptowährungen hast. Es gibt keine Mittelsmänner oder Institutionen, denen du vertrauen musst. Mit dieser Kontrolle kommt jedoch auch Verantwortung. Stelle sicher, dass du lernst, wie du dein Wallet sicher aufbewahrst und verwendest.'
+      },
+      {
+        subline: 'Schlüsselbotschaft:',
+        text: 'Bevor du dich auf den Kauf von Bitcoin stürzt, ist es unerlässlich, zu verstehen, wie du deine Investition sicher aufbewahrst. Selbstverwahrung ist nicht nur eine Option; sie ist das Kernprinzip der Krypto-Bewegung. Befolge diesen Grundsatz und du wirst auf dem besten Weg sein, das Beste aus deiner Krypto-Reise herauszuholen.'
+      },
+      {
+        text: 'Möchtest du tiefer in das Thema eintauchen und mehr darüber erfahren? Schau dir unser ausführliches YouTube-Video zu diesem Thema an und begib dich sicher in die Welt der Kryptowährungen!'
       },
     ]
   }
