@@ -247,10 +247,10 @@ export const switchNetworkIfNeeded = async (): Promise<void> => {
     //     }
     //   ]
     // });
-    // await window.ethereum.request({
-    //   method: 'wallet_switchEthereumChain',
-    //   params: [{ chainId: '0xaa36a7' }],
-    // });
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId: '0xaa36a7' }],
+    });
   }
 }
 
