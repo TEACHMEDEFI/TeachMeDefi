@@ -61,9 +61,10 @@ export default function Navbar() {
   // }
 
   const handleMobileNavClick = (e: any) => {
-    handleTagManagerEventsRedirect(e)
     setOpenBurgerMenu(false)
+    handleTagManagerClickEvents(e)
   }
+
 
   return (
     <div className="flex justify-center"  >
@@ -212,9 +213,9 @@ export default function Navbar() {
           >
             <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
-              <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETHEREUM</Link>
-              <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >POLKADOT</Link>
+              <Link href={"/btc"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >BITCOIN</Link>
+              <Link href={"/eth"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >ETHEREUM</Link>
+              <Link href={"/dot"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >POLKADOT</Link>
             </div>
           </div>
           <Link
@@ -241,7 +242,7 @@ export default function Navbar() {
           </Link>
           <Link
             data-linktarget="ueber-uns"
-            onClick={handleTagManagerEventsRedirect}
+            onClick={handleTagManagerClickEvents}
             href={"/ueber-uns"}
             className="hover:underline"
           >
