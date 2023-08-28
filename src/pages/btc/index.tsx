@@ -111,11 +111,9 @@ export default function Index() {
             Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
           </h1>
           <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10' >
-          Starte bei der Quelle: Bitcoin! Bereit, die Welt der Kryptowährungen am Ursprung zu erkunden? 
-          Hier findest du einen klaren Einstieg in die Grundlagen von Bitcoin. Wir erleuchten gemeinsam s
-          eine Geschichte, Bedeutung und bieten leicht verständliche Module sowie nützliche Tools für deine 
-          Lernreise. Und als Bonus? Für jeden erreichten Meilenstein winkt dir ein NFT. Tritt ein und 
-          entdecke Bitcoin – den Beginn der digitalen Geldrevolution.
+          Dein Schlüssel zum Bitcoin-Universum! Du bist am Anfang deiner Krypto-Reise und suchst den besten Startpunkt? Hier findest du alles, was du für einen erfolgreichen Start brauchst. 
+          Unser Bitcoin-Bootcamp bietet dir die essenziellen Informationen, kompakt und leicht verständlich, ohne dich in Details zu verlieren. Das Ziel unseres Bootcamps ist es, dir einen schnellen und fundierten Einstieg in die Welt von Bitcoin zu ermöglichen. 
+          Und das Beste daran? Alles ist kostenfrei! Als Dankeschön für deinen Eifer winkt dir ein symbolisches NFT für jeden erreichten Meilenstein. Tritt ein, rüste dich mit dem Nötigsten aus und beginne deine Reise in der Bitcoin-Welt voller Vertrauen!
           {/* Starte bei der Quelle: Bitcoin!
 Bereit, die Welt der Kryptowährungen von dort zu erkunden, wo alles begann? Bitcoin hat den Weg für die digitale Revolution des Geldes geebnet.
  Hier findest du einen leichten Einstieg in die Grundlagen von Bitcoin – ideal für Einsteiger und alle, die ihr Wissen über die Kryptowelt erweitern möchten. 
