@@ -60,7 +60,7 @@ export default function Index() {
 
   return (
     <div className={ `flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
-      <section className='h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
+      <section className='lg:h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl ' >
         <div className=' my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0  ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
             Willkommen bei <span
@@ -75,13 +75,13 @@ export default function Index() {
             in die Welt von Ethereum einzusteigen. Fange jetzt an, entdecke die Welt von Ethereum und verdiene NFTs während deiner Lernreise!
           </h2>
         </div>
-        <div className='relative w-full lg:w-2/4 h-full grow'>
+        <div className='max-lg:hidden  relative w-full lg:w-2/4 h-full grow'>
           <Image src={"/eth/eth_hero.png"} fill alt='Ethereum Hero' />
         </div>
 
       </section>
 
-      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44' >
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-12 lg:mb-44' >
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >

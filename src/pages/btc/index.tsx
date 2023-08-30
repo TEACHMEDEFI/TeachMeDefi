@@ -60,52 +60,9 @@ export default function Index() {
   }
 
   return (
-    // <div className='flex flex-col  w-full justify-center items-center'>
-
-    //   <section className='flex flex-col w-full justify-center items-center relative mb-32'>
-    //     <h1 className=' text-center text-4xl sm:text-6xl lg:text-7xl font-bold mb-5 mt-16' >
-    //       Willkommen bei{" "}
-    //       <span className='text-bitcoinOrange'> Bitcoin!</span>
-    //     </h1>
-    //     <h2 className='text-xl md:text-4xl font-bold mb-5 mt-8 '>Coming Soon!</h2>
-    //     <div className='relative w-80 sm:w-96 h-80 sm:h-96 mt-10'>
-    //       <Image src={"/btc/bitcoin_planet.png"} fill alt='Ethereum Hero' priority />
-    //     </div>
-    //   </section>
-
-    //   {/* <section className=' h-screen w-full flex justify-center items-center gap-24 max-w-7xl' >
-    //     <div className='w-2/4 space-y-10' >
-    //       <h1 className='text-7xl font-bold mb-5' >
-    //         Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
-    //       </h1>
-    //       <h2 className='text-xl font-bold' >
-    //         Hier findest du alles, was du über die weltweit bekannteste Kryptowährung wissen musst.
-    //       </h2>
-    //     </div>
-    //     <div className='relative w-2/5 h-full '>
-    //       <Image src={"/btc/bitcoin_planet.png"} fill alt='Ethereum Hero' priority />
-    //     </div>
-    //   </section>
-    //   <section className='h-96 w-full flex items-center justify-center relative' >
-    //     <h2 className='font-bold tracking-widest text-center max-w-4xl p-2 z-10 rounded-lg  ' >
-    //       Bitcoin ist eine digitale Währung, die 2009 von einer Person oder Gruppe namens Satoshi Nakamoto ins Leben
-    //       gerufen wurde. Im Gegensatz zu traditionellen Währungen wird Bitcoin nicht von einer Zentralbank ausgegeben,
-    //       sondern durch ein dezentrales Netzwerk von Computern verwaltet, die als Blockchain bezeichnet werden.
-    //       Transaktionen werden direkt zwischen den Teilnehmern abgewickelt, ohne dass ein Dritter wie eine Bank
-    //       benötigt wird. Bitcoin gilt als eine der ersten und bekanntesten Kryptowährungen und hat in den letzten
-    //       Jahren aufgrund seiner schnellen und sicheren Transaktionen und seines begrenzten Angebots an Popularität gewonnen.
-    //     </h2>
-    //   </section> */}
-    //   {/* <section className=' w-full flex flex-col items-center gap-10 justify-center mb-36 relative ' >
-    //     <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Was ist eine Blockchain"} section={0} />
-    //     <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Theory Ethereum"} section={1} />
-    //     <LessonsOverview chain={"btc"} lessonsArray={btcLessons} title={"Praktisch Ethereum"} section={2} />
-
-    //   </section > */}
-
-    // </div >
+   
     <div className={`flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
-      <section className='h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24' >
+      <section className='lg:h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl' >
         <div className=' my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0 ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
             Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
@@ -114,21 +71,15 @@ export default function Index() {
           Dein Schlüssel zum Bitcoin-Universum! Du bist am Anfang deiner Krypto-Reise und suchst den besten Startpunkt? Hier findest du alles, was du für einen erfolgreichen Start brauchst. 
           Unser Bitcoin-Bootcamp bietet dir die essenziellen Informationen, kompakt und leicht verständlich, ohne dich in Details zu verlieren. Das Ziel unseres Bootcamps ist es, dir einen schnellen und fundierten Einstieg in die Welt von Bitcoin zu ermöglichen. 
           Und das Beste daran? Alles ist kostenfrei! Als Dankeschön für deinen Eifer winkt dir ein symbolisches NFT für jeden erreichten Meilenstein. Tritt ein, rüste dich mit dem Nötigsten aus und beginne deine Reise in der Bitcoin-Welt voller Vertrauen!
-          {/* Starte bei der Quelle: Bitcoin!
-Bereit, die Welt der Kryptowährungen von dort zu erkunden, wo alles begann? Bitcoin hat den Weg für die digitale Revolution des Geldes geebnet.
- Hier findest du einen leichten Einstieg in die Grundlagen von Bitcoin – ideal für Einsteiger und alle, die ihr Wissen über die Kryptowelt erweitern möchten. 
- Lass uns gemeinsam die Grundprinzipien, die Geschichte und die Bedeutung von Bitcoin erkunden. Unsere Plattform bietet dir leicht verständliche Module,
-  nützliche Tools und spannende Einblicke, um das Beste aus deiner Lernreise herauszuholen. Und das Beste daran? Für jeden Meilenstein, den du auf deinem Weg erreichst, 
-  erhältst du ein NFT als Zeichen deines Fortschritts. Tritt ein in die fesselnde Welt von Bitcoin und werde Teil der digitalen Zukunft! */}
           </h2>
         </div>
-        <div className='relative w-full lg:w-2/4 h-full lg:h-[80%] grow'>
+        <div className=' max-lg:hidden relative w-full lg:w-2/4 h-full lg:h-[80%] grow'>
           <Image src={"/btc/bitcoin_planet.png"} fill alt='Ethereum Hero' priority />
         </div>
 
       </section>
 
-      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44' >
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-12 lg:mb-44' >
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >
