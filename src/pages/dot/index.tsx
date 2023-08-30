@@ -56,7 +56,7 @@ export default function Index() {
   return (
     <div className={ `flex flex-col w-full justify-center items-center max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='lg:h-[60vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl ' >
-        <div className='my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg    sm:pl-8 lg:pl-16 xl:pl-0 ' >
+        <div className='my-8  md:my-16 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg  sm:pl-8 lg:pl-16 xl:pl-0 ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
             Entdecke die Welt von <span className='text-polkaPink'> Polkadot!</span>
           </h1>
@@ -77,7 +77,7 @@ export default function Index() {
 
       </section>
 
-      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44'>
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-12 lg:mb-44'>
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >
