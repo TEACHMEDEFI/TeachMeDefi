@@ -22,7 +22,7 @@ export default function CourseOverview() {
           <p className="tracking-wider  md:w-[360px] lg:w-[420px] xl:w-[500px] mb-5" >
           {/* Unser Krypto Bootcamp führt dich in nur 90 Minuten durch die Grundlagen von Blockchains wie Bitcoin,  */}
           Unser Krypto Bootcamp führt dich in nur 90 Minuten durch die Grundlagen von Blockchains wie
-          Ethereum und Polkadot. Lerne auf deine eigene Art und Weise und erhalte Belohnungen in Form von 
+          Bitcoin, Ethereum und Polkadot. Lerne auf deine eigene Art und Weise und erhalte Belohnungen in Form von 
           NFTs für deinen Fortschritt. Mach den ersten Schritt in die Zukunft der Finanzen mit TEACHMEDEFI!
             </p>
           <div className="flex flex-wrap" >
