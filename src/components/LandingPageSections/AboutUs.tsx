@@ -58,7 +58,7 @@ export default function AboutUs() {
               rounded-full w-[250px] h-[250px] bottom-0
               "
               >
-                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                <div className="absolute w-[250px] h-[396px] bottom-0 rounded-b-full" >
                   <Image
                     src={"/home/aboutUs/sohejl.png"}
                     className="rounded-3xl"
@@ -79,7 +79,7 @@ export default function AboutUs() {
               rounded-full w-[250px] h-[250px] bottom-0
               "
               >
-                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                <div className="absolute w-[250px] h-[396px] bottom-0 rounded-b-full" >
                   <Image
                     src={"/home/aboutUs/jan.png"}
                     className="rounded-3xl"
@@ -101,7 +101,7 @@ export default function AboutUs() {
               rounded-full w-[250px] h-[250px] bottom-0
               "
               >
-                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                <div className="absolute w-[250px] h-[396px] bottom-0 rounded-b-full" >
                   <Image
                     src={"/home/aboutUs/rustam.png"}
                     className="rounded-3xl"
