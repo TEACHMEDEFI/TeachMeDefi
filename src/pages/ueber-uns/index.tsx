@@ -12,8 +12,8 @@ export default function UeberUns() {
         <p className="tracking-wide leading-relaxed  ">
           Seit 2017 setzen wir uns intensiv mit dem Thema DeFi und der Krypto-Welt auseinander.
           Wir können auf persönliche Erfolge und Misserfolge zurückgreifen. Daher sind wir auch
-          die richtigen, um Dir bei deinem Einstieg zu helfen. Wir wollen unsere Erfahrungen an
-          Dich weitergeben und Dir mit Tipps und Tricks zur Seite stehen. Wir freuen uns auf Dich!
+          die richtigen, um dir bei deinem Einstieg zu helfen. Wir wollen unsere Erfahrungen an
+          dich weitergeben und dir mit Tipps und Tricks zur Seite stehen. Wir freuen uns auf dich!
         </p>
         <br />
         <p className="tracking-wide leading-relaxed " >
@@ -27,11 +27,11 @@ export default function UeberUns() {
         </p>
         <br />
         <p className="tracking-wide leading-relaxed mb-11" >
-          Die Krypto-Industrie ist zwar momentan noch jung, doch in ihr steckt viel Potenzial - sie wird in
-          den nächsten Jahren kontinuierlich wachsen. Daher ist es ratsam, Dir schon jetzt die Zeit zu nehmen
+          Die Krypto-Industrie ist zwar momentan noch jung, doch in ihr steckt viel Potenzial - sie dürfte in
+          den nächsten Jahren kontinuierlich wachsen. Daher ist es ratsam, dir schon jetzt die Zeit zu nehmen
           und nicht der Letzte zu sein, der den Markt betritt. Nutze stattdessen die Chance, sei frühzeitig
-          dabei, positioniere Dich und profitiere von den Möglichkeiten. Bei TeachMeDeFi unterstützen wir
-          Dich dabei, diese Chancen zu erkennen und Deine Position in der aufstrebenden Krypto-Welt zu stärken.
+          dabei, positioniere dich und profitiere von den Möglichkeiten. Bei TEACHMEDEFI unterstützen wir
+          dich dabei, diese Chancen zu erkennen und deine Position in der aufstrebenden Krypto-Welt zu stärken.
           Lass uns gemeinsam die Zukunft der Finanzen gestalten und keine Gelegenheit verpassen.
         </p>
 
@@ -64,8 +64,8 @@ export default function UeberUns() {
                 </div>
                 <h4 className="font-bold mb-2 text-2xl text-center mt-5" >Sohejl</h4>
                 <p className="tracking-wide leading-relaxed mt-2 text-center" >
-                  Seit 2017 in der Krypto-Welt aktiv, kann <strong>Sohejl</strong> auf sechs Jahre internationale Erfahrung in den
-                  Bereichen Mergers & Acquisitions, Beteiligungscontrolling und Corporate Strategy zurückblicken.
+                  <strong>Sohejl</strong> ist seit 2017 in der Krypto-Welt aktiv. Er kann auf sechs Jahre internationale Erfahrung in den
+                  Bereichen Mergers & Acquisitions, Controlling und Corporate Strategy zurückblicken.
                   Mit seiner umfangreichen Erfahrung ist er für die strategische Ausrichtung von TEACHMEDEFI verantwortlich.
                 </p>
                 <div className='flex justify-center gap-4 mt-2'>
