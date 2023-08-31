@@ -38,7 +38,7 @@ export default function UeberUns() {
 
 
         <div className="w-full flex flex-col items-center "  >
-          <div className="w-full flex flex-wrap gap-5 justify-center " >
+          <div className="w-full flex flex-wrap gap-5 xl:gap-10 2xl:gap-20 justify-center " >
 
 
 
