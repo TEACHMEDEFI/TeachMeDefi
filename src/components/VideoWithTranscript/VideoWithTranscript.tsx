@@ -203,8 +203,8 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
         {videoEnded && !showMintNftDirections && showFeedbackDialogue && !showSpinner && (
           <div className="fade-out">
-            <h2 className='font-bold text-3xl '>Bitte Nimm dir einen Moment Zeit und gib uns Feedback!</h2>
-            <h3 className='font-bold text-3xl '>Clicke auf den Link und fülle das Formular aus. Damit hilfst du uns unsere Lernplattform weiter zu verbessern! Danke</h3>
+            <h2 className='font-bold text-3xl '>Bitte nimm dir einen Moment Zeit und gib uns Feedback!</h2>
+            <h3 className='font-bold text-3xl '>Klicke auf den Link und beantworte einige wenige Fragen. Damit hilfst du uns unsere Lernplattform weiter zu verbessern. Vielen Dank!</h3>
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
               <PrimaryButton customClassButton='md:w-max ' onClick={handleFeedbackClick}>Feedback</PrimaryButton>
             </div>
