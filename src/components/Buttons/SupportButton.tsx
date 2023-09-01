@@ -40,21 +40,6 @@ export function SupportButton() {
           <div className="absolute w-72  bg-gray-200 dark:bg-gray-600 rounded-lg p-3 bottom-0 right-2 lg:right-7 " >
             <p className="text-sm"> Bitte nimm dir einen Moment Zeit und fülle unseren Feedback Fragebogen aus! <br /> <br /> Bei Fragen kannst du uns gerne auf Twitter bzw. X erreichen! <br /> (Hinweis: Registrierung notwendig). </p>
             <Link
-              href={"https://twitter.com/messages/compose?recipient_id=1415614087686393857"}
-              className={`relative w-fit flex items-center rounded-md px-3 py-1 mt-3
-          bg-gray-300 dark:bg-gray-500 max-lg:justify-center 
-          twitter-mention-button font-bold`}
-              target="_blank"
-              data-screen-name={"@TeachMeDefi"}
-              data-show-count="false"
-            >
-              Twitter / X
-              <span className="absolute -right-1 -top-1 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-              </span>
-            </Link>
-            <Link
               href={"https://docs.google.com/forms/d/e/1FAIpQLSftkvPlhlYYCFJNdr4YcM6ch-PvS-DlGtywb-i9mSzrzcwWzQ/viewform?usp=sf_link"}
               className={`relative w-fit flex items-center rounded-md px-3 py-1 mt-3
           bg-gray-300 dark:bg-gray-500 max-lg:justify-center 
@@ -69,6 +54,22 @@ export function SupportButton() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
               </span>
             </Link>
+            <Link
+              href={"https://twitter.com/messages/compose?recipient_id=1415614087686393857"}
+              className={`relative w-fit flex items-center rounded-md px-3 py-1 mt-3
+          bg-gray-300 dark:bg-gray-500 max-lg:justify-center 
+          twitter-mention-button font-bold`}
+              target="_blank"
+              data-screen-name={"@TeachMeDefi"}
+              data-show-count="false"
+            >
+              Twitter / X
+              <span className="absolute -right-1 -top-1 flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+              </span>
+            </Link>
+          
           </div>
         </div>
       }
