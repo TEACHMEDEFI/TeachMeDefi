@@ -38,7 +38,7 @@ export function SupportButton() {
           onClick={() => setShowPopup(false)}
         >
           <div className="absolute w-72  bg-gray-200 dark:bg-gray-600 rounded-lg p-3 bottom-0 right-2 lg:right-7 " >
-            <p className="text-sm"> Für Fragen kannst du uns gerne auf Twitter erreichen! <br /> (Hinweis: Registrierung notwendig). Oder für Feedback unseren Fragebogen ausfüllen </p>
+            <p className="text-sm"> Bitte nimm dir einen Moment Zeit und fülle unseren Feedback Fragebogen aus! <br /> <br /> Bei Fragen kannst du uns gerne auf Twitter erreichen! <br /> (Hinweis: Registrierung notwendig). </p>
             <Link
               href={"https://twitter.com/messages/compose?recipient_id=1415614087686393857"}
               className={`relative w-fit flex items-center rounded-md px-3 py-1 mt-3
