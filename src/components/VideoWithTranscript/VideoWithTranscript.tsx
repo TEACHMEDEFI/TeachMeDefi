@@ -98,7 +98,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
 
   const handleRandomFeedbackDialogue = () => {
-    const shouldShowDialogue = true // Math.random() < 0.5;
+    const shouldShowDialogue = Math.random() < 0.5;
 
     if (shouldShowDialogue) {
       setShowFeedbackDialogue(true)
