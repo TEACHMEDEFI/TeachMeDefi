@@ -98,7 +98,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
 
   const handleRandomFeedbackDialogue = () => {
-    const shouldShowDialogue = Math.random() < 0.5;
+    const shouldShowDialogue = true // Math.random() < 0.5;
 
     if (shouldShowDialogue) {
       setShowFeedbackDialogue(true)
@@ -216,8 +216,8 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
         {videoEnded && !showMintNftDirections && showFeedbackDialogue && !showSpinner && (
           <div className="fade-out">
-            <h2 className='font-bold text-3xl '>Bitte nimm dir einen Moment Zeit und gib uns Feedback!</h2>
-            <h3 className='font-bold text-3m '>Klicke auf den Link und beantworte einige wenige Fragen. Damit hilfst du uns unsere Lernplattform weiter zu verbessern. Vielen Dank!</h3>
+            <h2 className='font-bold text-xl '>Bitte nimm dir einen Moment Zeit und gib uns Feedback!</h2>
+            <h3 className='font-bold text-3s '>Klicke auf den Link und beantworte einige wenige Fragen. Damit hilfst du uns unsere Lernplattform weiter zu verbessern. Vielen Dank!</h3>
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
               <PrimaryButton customClassButton='md:w-max ' onClick={handleFeedbackClick}>Feedback</PrimaryButton>
               <PrimaryButton customClassButton='md:w-max ' onClick={handleSkipFeedback}>Überspringen</PrimaryButton>
