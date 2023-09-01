@@ -8,6 +8,7 @@ import { PrimaryButton } from '../Buttons/Buttons';
 import { useTheme } from '@/context/ThemeContext';
 import { Quests } from '@/data/generalLessons'
 import { SupportCoaching } from '../SupportCoaching/SupportCoaching';
+import Spinner from '../Spinner/Spinner';
 
 
 type VideoWithTranscriptProps = {
@@ -29,6 +30,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const [videoEnded, setVideoEnded] = useState<boolean>(false);
   const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
+  const [showSpinner, setShowSpinner] = useState<boolean>(false);
   const [showFeedbackDialogue, setShowFeedbackDialogue] = useState<boolean>(false);
   const [showMintNftDirections, setShowMintNftDirections] = useState<boolean>(false);
   const [videoStuck, setVideoStuck] = useState<boolean>(false)
@@ -113,12 +115,19 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
   const handleVideoOnEnd = () => {
-    setVideoEnded(true);
-    setShowNavButtons(false)
-    if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
-      setShowMintNftDirections(true)
-    }
-    handleRandomFeedbackDialogue();
+    setShowSpinner(true)
+    setTimeout(() => {
+      setVideoEnded(true);
+      setShowNavButtons(false)
+      if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
+        setShowMintNftDirections(true)
+      }
+      handleRandomFeedbackDialogue();
+      setShowSpinner(false)
+    },1000)
+
+    
+    
   }
 
 
@@ -153,7 +162,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
   return (
     <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10 video-wrap video-page' onScroll={() => onVideoScroll()} >
-      {showPlayer && !videoEnded && (
+      {showPlayer && !videoEnded && !showSpinner && (
         <div className='video-wrap z-50 w-full relative' >
 
           <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
@@ -176,7 +185,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       )}
 
       <div className="content">
-        {videoEnded && !showMintNftDirections && !showFeedbackDialogue && (
+        {videoEnded && !showMintNftDirections && !showFeedbackDialogue && !showSpinner && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
@@ -187,7 +196,12 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
           </div>
         )}
 
-        {videoEnded && !showMintNftDirections && showFeedbackDialogue && (
+
+        {showSpinner && 
+          <Spinner />
+        }
+
+        {videoEnded && !showMintNftDirections && showFeedbackDialogue && !showSpinner && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Bitte Nimm dir einen Moment Zeit und gib uns Feedback!</h2>
             <h3 className='font-bold text-3xl '>Clicke auf den Link und fülle das Formular aus. Damit hilfst du uns unsere Lernplattform weiter zu verbessern! Danke</h3>
@@ -198,7 +212,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         )}
 
 
-        {showMintNftDirections && videoEnded && (
+        {showMintNftDirections && videoEnded && !showSpinner && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Super! Du bist beim letzten Video dieser Quest angekommen. Wenn du alle Challenges erfüllt hast,
               dann schließe jetzt dieses Popup-Fenster und klicke den &quot;Mint NFT&quot; Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ
@@ -212,7 +226,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
         )}
 
-        {showNavButtons && <div className="flex flex-col sm:flex-row justify-around gap-5 py-5 ">
+        {showNavButtons && !showSpinner && <div className="flex flex-col sm:flex-row justify-around gap-5 py-5 ">
           <PrimaryButton customClassButton='sm:w-max' buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Vorheriges Video</PrimaryButton>
           <PrimaryButton customClassButton='sm:w-max' buttonDisabled={!showNextButton} onClick={displayNextVideo}>Nächstes Video</PrimaryButton>
         </div>}
