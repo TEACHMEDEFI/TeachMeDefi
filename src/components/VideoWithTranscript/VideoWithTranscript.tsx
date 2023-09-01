@@ -29,10 +29,12 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const [videoEnded, setVideoEnded] = useState<boolean>(false);
   const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
+  const [showFeedbackDialogue, setShowFeedbackDialogue] = useState<boolean>(false);
   const [showMintNftDirections, setShowMintNftDirections] = useState<boolean>(false);
   const [videoStuck, setVideoStuck] = useState<boolean>(false)
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLDivElement>(null);
+  const gdocsLink = 'https://docs.google.com/forms/d/e/1FAIpQLSftkvPlhlYYCFJNdr4YcM6ch-PvS-DlGtywb-i9mSzrzcwWzQ/viewform?usp=sf_link'
 
   useEffect(() => {
     setShowPlayer(true);
@@ -92,12 +94,31 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     }
   }
 
+
+  const handleRandomFeedbackDialogue = () => {
+    const shouldShowDialogue = Math.random() < 0.5;
+
+    if (shouldShowDialogue) {
+      setShowFeedbackDialogue(true)
+    }
+  }
+
+
+  const handleFeedbackClick = () => {
+    if (typeof window != undefined) {
+      window.open(gdocsLink, '_blank');
+    }
+
+    setShowFeedbackDialogue(false);
+  }
+
   const handleVideoOnEnd = () => {
     setVideoEnded(true);
     setShowNavButtons(false)
     if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
       setShowMintNftDirections(true)
     }
+    handleRandomFeedbackDialogue();
   }
 
 
@@ -135,33 +156,43 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       {showPlayer && !videoEnded && (
         <div className='video-wrap z-50 w-full relative' >
 
-            <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
-          <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
-            <ReactPlayer
-              height="100%"
-              width="100%"
-              url={currentLesson.youtubeUrl}
-              controls={true}
-              onEnded={handleVideoOnEnd}
-              onStart={handleVideoOnPlay}
-              config={{
-                youtube: {
-                  playerVars: { fs: 1 }
-                }
-              }}
-            />
+          <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
+            <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
+              <ReactPlayer
+                height="100%"
+                width="100%"
+                url={currentLesson.youtubeUrl}
+                controls={true}
+                onEnded={handleVideoOnEnd}
+                onStart={handleVideoOnPlay}
+                config={{
+                  youtube: {
+                    playerVars: { fs: 1 }
+                  }
+                }}
+              />
           </div>
         </div>
       )}
 
       <div className="content">
-        {videoEnded && !showMintNftDirections && (
+        {videoEnded && !showMintNftDirections && !showFeedbackDialogue && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
               <PrimaryButton customClassButton='md:w-max ' buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Vorheriges Video</PrimaryButton>
               <PrimaryButton customClassButton='md:w-max ' onClick={replayVideo}>Video nochmal abspielen</PrimaryButton>
               <PrimaryButton customClassButton='md:w-max ' buttonDisabled={!showNextButton} onClick={displayNextVideo}>Nächstes Video</PrimaryButton>
+            </div>
+          </div>
+        )}
+
+        {videoEnded && !showMintNftDirections && showFeedbackDialogue && (
+          <div className="fade-out">
+            <h2 className='font-bold text-3xl '>Bitte Nimm dir einen Moment Zeit und gib uns Feedback!</h2>
+            <h3 className='font-bold text-3xl '>Clicke auf den Link und fülle das Formular aus. Damit hilfst du uns unsere Lernplattform weiter zu verbessern! Danke</h3>
+            <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
+              <PrimaryButton customClassButton='md:w-max ' onClick={handleFeedbackClick}>Feedback</PrimaryButton>
             </div>
           </div>
         )}
