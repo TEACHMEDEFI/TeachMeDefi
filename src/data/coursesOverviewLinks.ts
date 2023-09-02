@@ -6,15 +6,15 @@ export type Course ={
 
 export const courseSections: Course[] =[
   {
+    title: "Bitcoin",
+    href: "/btc"
+  },
+  {
     title: "Ethereum",
     href: "/eth"
   },
   {
     title: "Polkadot",
     href: "/dot"
-  },
-  {
-    title: "Bitcoin",
-    href: "/btc"
-  },
+  }
 ]

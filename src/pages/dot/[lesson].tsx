@@ -24,34 +24,34 @@ export default function LessonPage({ currentLesson, nextLessonSlug }: { currentL
 }
 
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const paths = dotLessons.map((lesson) => ({
-    params: { lesson: lesson.slug },
-  }))
+// export const getStaticPaths: GetStaticPaths<Params> = async () => {
+//   const paths = dotLessons.map((lesson) => ({
+//     params: { lesson: lesson.slug },
+//   }))
 
-  return { paths, fallback: false }
-}
+//   return { paths, fallback: false }
+// }
 
-export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
-  params,
-}) => {
-  const { lesson } = params!
+// export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
+//   params,
+// }) => {
+//   const { lesson } = params!
 
-  const currentLessonIndex = dotLessons.findIndex(
-    (currentLesson) => currentLesson.slug === lesson
-  )
+//   const currentLessonIndex = dotLessons.findIndex(
+//     (currentLesson) => currentLesson.slug === lesson
+//   )
 
-  const currentLesson = dotLessons.find(
-    (currentLesson) => currentLesson.slug === lesson
-  )
+//   const currentLesson = dotLessons.find(
+//     (currentLesson) => currentLesson.slug === lesson
+//   )
 
-  const nextLessonSlug = (dotLessons.length !== currentLessonIndex + 1) ?
-    `/dot/${dotLessons[currentLessonIndex + 1].slug}` : ""
+//   const nextLessonSlug = (dotLessons.length !== currentLessonIndex + 1) ?
+//     `/dot/${dotLessons[currentLessonIndex + 1].slug}` : ""
 
-  return {
-    props: {
-      currentLesson,
-      nextLessonSlug,
-    },
-  }
-}
+//   return {
+//     props: {
+//       currentLesson,
+//       nextLessonSlug,
+//     },
+//   }
+// }

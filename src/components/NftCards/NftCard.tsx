@@ -3,7 +3,7 @@ import { useNFTBalance } from '../../pages/api/ethereum-api'
 import Link from 'next/link';
 import { ethQuests } from '@/data/eth';
 import { dotQuests } from '@/data/dot';
-import { Quests } from '@/data/generalLessons'
+import { btcQuests } from '@/data/btc';
 
 type NftCardProps = {
   questSectionId: string;
@@ -14,8 +14,16 @@ const NftCard = ({ questSectionId, questIndex }: NftCardProps) => {
   const nftBalance = useNFTBalance(questSectionId);
   const metadata = require(`../../../nft-metadata/${questSectionId}.json`)
   const src = metadata?.image
-  const chain = questSectionId.indexOf('eth') > -1 ? 'eth' : 'dot';
-  const href = chain === 'eth' ? `/${chain}/#${ethQuests[questIndex].questSectionId}` : `/${chain}/#${dotQuests[questIndex].questSectionId}`
+  // console.log(metadata)
+  let href;
+  if (questSectionId.indexOf('eth') > -1) {
+    href = `/eth/#${ethQuests[questIndex].questSectionId}`
+  } else if (questSectionId.indexOf('dot') > -1) {
+    href = `/dot/#${dotQuests[questIndex].questSectionId}`
+  } else {
+    href = `/btc/#${btcQuests[questIndex].questSectionId}`
+  }
+
 
 
   const removeWord = (sentence : string) => {

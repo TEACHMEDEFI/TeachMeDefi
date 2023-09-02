@@ -6,7 +6,7 @@ export type Lesson = {
   youtubeUrl: string;
   youtubeThumbnail: string;
   importantLinks?: Links[];
-  section: number; // 0 = Allgemein, 1 = Theory, alles ab 2 = Praktisch
+  section?: number; // 0 = Allgemein, 1 = Theory, alles ab 2 = Praktisch
   popupHasInput?: boolean;
   nftCanBeClaimed?: boolean;
   questNumber?: number;

@@ -25,34 +25,34 @@ export default function LessonPage({ currentLesson, nextLessonSlug }: { currentL
 }
 
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const paths = btcLessons.map((lesson) => ({
-    params: { lesson: lesson.slug },
-  }))
+// export const getStaticPaths: GetStaticPaths<Params> = async () => {
+//   const paths = btcLessons.map((lesson) => ({
+//     params: { lesson: lesson.slug },
+//   }))
 
-  return { paths, fallback: false }
-}
+//   return { paths, fallback: false }
+// }
 
-export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
-  params,
-}) => {
-  const { lesson } = params!
+// export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
+//   params,
+// }) => {
+//   const { lesson } = params!
 
-  const currentLessonIndex = btcLessons.findIndex(
-    (currentLesson) => currentLesson.slug === lesson
-  )
+//   const currentLessonIndex = btcLessons.findIndex(
+//     (currentLesson) => currentLesson.slug === lesson
+//   )
 
-  const currentLesson = btcLessons.find(
-    (currentLesson) => currentLesson.slug === lesson
-  )
+//   const currentLesson = btcLessons.find(
+//     (currentLesson) => currentLesson.slug === lesson
+//   )
 
-  const nextLessonSlug = (btcLessons.length !== currentLessonIndex + 1) ?
-    `/btc/${btcLessons[currentLessonIndex + 1].slug}` : ""
+//   const nextLessonSlug = (btcLessons.length !== currentLessonIndex + 1) ?
+//     `/btc/${btcLessons[currentLessonIndex + 1].slug}` : ""
 
-  return {
-    props: {
-      currentLesson: currentLesson,
-      nextLessonSlug,
-    },
-  }
-}
+//   return {
+//     props: {
+//       currentLesson: currentLesson,
+//       nextLessonSlug,
+//     },
+//   }
+// }

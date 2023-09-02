@@ -59,6 +59,19 @@ export default function Index() {
           <NftCard questSectionId={'dot-quest-5'} questIndex={4} />
         </div>
 
+        <h2 className="xl:text-2xl text-2xl font-bold w-max mx-auto
+        bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
+        >
+          Bitcoin Quests
+          </h2>
+        <div className="nft-card-container flex relative mt-5 mb-20">
+
+          <NftCard questSectionId={'btc-quest-1'} questIndex={0} />
+          <NftCard questSectionId={'btc-quest-2'} questIndex={1} />
+          <NftCard questSectionId={'btc-quest-3'} questIndex={2} />
+          <NftCard questSectionId={'btc-quest-4'} questIndex={3} />
+        </div>
+
       </section>
     </div >
   )

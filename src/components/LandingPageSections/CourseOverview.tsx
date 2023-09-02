@@ -12,7 +12,7 @@ export default function CourseOverview() {
 
       <div className="bg-gradient-to-r
       from-primaryBlue via-secondaryPurple to-primaryPink
-        rounded-3xl relative text-white flex lg:items-center max-xl:w-full"
+        rounded-3xl relative text-white flex lg:items-center max-xl:w-full xl:w-[1240px]"
       >
        <div className="absolute max-xl:hidden -left-72 -top-72 w-0 xl:w-[500px] h-0 xl:h-[358px] z-10">
         <Image src={"/home/inBackground/doge-master.png"} fill alt="ethereum doge robot" />
@@ -22,7 +22,7 @@ export default function CourseOverview() {
           <p className="tracking-wider  md:w-[360px] lg:w-[420px] xl:w-[500px] mb-5" >
           {/* Unser Krypto Bootcamp führt dich in nur 90 Minuten durch die Grundlagen von Blockchains wie Bitcoin,  */}
           Unser Krypto Bootcamp führt dich in nur 90 Minuten durch die Grundlagen von Blockchains wie
-          Ethereum und Polkadot. Lerne auf deine eigene Art und Weise und erhalte Belohnungen in Form von 
+          Bitcoin, Ethereum und Polkadot. Lerne auf deine eigene Art und Weise und erhalte Belohnungen in Form von 
           NFTs für deinen Fortschritt. Mach den ersten Schritt in die Zukunft der Finanzen mit TEACHMEDEFI!
             </p>
           <div className="flex flex-wrap" >

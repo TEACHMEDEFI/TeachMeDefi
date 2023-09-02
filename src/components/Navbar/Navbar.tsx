@@ -61,9 +61,10 @@ export default function Navbar() {
   // }
 
   const handleMobileNavClick = (e: any) => {
-    handleTagManagerEventsRedirect(e)
     setOpenBurgerMenu(false)
+    handleTagManagerClickEvents(e)
   }
+
 
   return (
     <div className="flex justify-center"  >
@@ -72,17 +73,17 @@ export default function Navbar() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#ff0000" />
       </Head>
-      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 z-10 backdrop-blur-sm">
+      <nav className=" absolute h-24 w-full max-w-[1600px] font-bold flex justify-between items-center px-10 sm:px-12 lg:px-20 z-10 backdrop-blur-sm">
         <div>
           <Link href={"/"}  >
-            <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative" >
+            <div className="xl:h-40 xl:w-80 sm:h-28 sm:w-56 h-20 w-40 relative " >
               <Image src={isDarkMode ? "/tdm_long_light.svg" : "/tdm_long_dark.svg"} fill alt="teach me defi logo" priority sizes="320px" />
             </div>
           </Link>
         </div>
 
         {/* _____ NAV ROUTES, HIDDEN IF SCREEN IS UNDER 1280PX  _______ */}
-        <div className="space-x-8 hidden xl:flex " >
+        <div className="space-x-6 hidden xl:flex " >
           <div
             className="relative  "
             onMouseEnter={() => toggleTeachMeButton(!teachMeButton)}
@@ -90,9 +91,9 @@ export default function Navbar() {
           >
             <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
+              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
               <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETHEREUM</Link>
               <Link data-linktarget="dot-section" onClick={handleTagManagerClickEvents} href={"/dot"} className="rainbow-text" >POLKADOT</Link>
-              <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
             </div>
           </div>
           <Link
@@ -119,8 +120,16 @@ export default function Navbar() {
           >
             NEWSLETTER
           </Link>
-          {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
           <Link
+            data-linktarget="ueber-uns"
+            onClick={handleTagManagerClickEvents}
+            href={"/ueber-uns"}
+            className="hover:underline"
+          >
+            ÜBER UNS
+          </Link>
+          {/* <Link href={"/merch"} className="hover:underline" >MERCH</Link> */}
+          {/* <Link
             target="_blank"
             data-linktarget="subscribe"
             onClick={handleTagManagerEventsRedirect}
@@ -128,7 +137,7 @@ export default function Navbar() {
             className="hover:underline"
           >
             SUBSCRIBE
-          </Link>
+          </Link> */}
         </div>
         <div className="flex gap-5 items-center " >
           <button onClick={toggleDarkMode} className="border-2 hidden dark:border-white border-bgDarkGray w-8 h-8 rounded-xl sm:flex items-center justify-center" >
@@ -204,9 +213,9 @@ export default function Navbar() {
           >
             <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
-              <Link href={"/eth"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >ETHEREUM</Link>
-              <Link href={"/dot"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >POLKADOT</Link>
-              <Link href={"/btc"} onClick={() => setOpenBurgerMenu(false)} className="rainbow-text" >BITCOIN</Link>
+              <Link href={"/btc"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >BITCOIN</Link>
+              <Link href={"/eth"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >ETHEREUM</Link>
+              <Link href={"/dot"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >POLKADOT</Link>
             </div>
           </div>
           <Link
@@ -231,20 +240,28 @@ export default function Navbar() {
           >
             NEWSLETTER
           </Link>
+          <Link
+            data-linktarget="ueber-uns"
+            onClick={handleTagManagerClickEvents}
+            href={"/ueber-uns"}
+            className="hover:underline"
+          >
+            ÜBER UNS
+          </Link>
           {/* <Link 
           href={"/merch"} 
           onClick={()=>setOpenBurgerMenu(false)}   
           >
           MERCH
         </Link> */}
-          <Link
+          {/* <Link
             target="_blank"
             data-linktarget="subscribe"
             onClick={e => handleMobileNavClick(e)}
             href={"https://www.newsletter.teachmedefi.de/"}
           >
             SUBSCRIBE
-          </Link>
+          </Link> */}
         </div>
       }
 

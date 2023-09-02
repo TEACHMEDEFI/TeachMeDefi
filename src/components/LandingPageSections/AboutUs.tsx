@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useDisclosure } from '@chakra-ui/react'
 import { SecondaryButton } from "../Buttons/Buttons"
+import Link from 'next/link'
 import Image from "next/image"
 import AboutUsModal from '../Modals/AboutUsModal'
 
@@ -38,12 +39,12 @@ export default function AboutUs() {
             die richtigen, um Dir bei deinem Einstieg zu helfen. Wir wollen unsere Erfahrungen an
             Dich weitergeben und Dir mit Tipps und Tricks zur Seite stehen. Wir freuen uns auf Dich!
           </p>
-          <button
-            onClick={onOpen}
+          <Link
+            href={"/ueber-uns"}
             className='bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent '
           >
             Erfahre mehr über uns...
-          </button>
+          </Link>
           {/* <SecondaryButton onClick={onOpen}>Mehr lesen</SecondaryButton> */}
         </div>
         <div className="flex flex-wrap justify-center gap-x-5 lg:gap-16 xl:gap-28 -mt-10 " >
@@ -57,7 +58,7 @@ export default function AboutUs() {
               rounded-full w-[250px] h-[250px] bottom-0
               "
               >
-                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                <div className="absolute w-[250px] h-[396px] bottom-0 rounded-b-full" >
                   <Image
                     src={"/home/aboutUs/sohejl.png"}
                     className="rounded-3xl"
@@ -78,7 +79,7 @@ export default function AboutUs() {
               rounded-full w-[250px] h-[250px] bottom-0
               "
               >
-                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                <div className="absolute w-[250px] h-[396px] bottom-0 rounded-b-full" >
                   <Image
                     src={"/home/aboutUs/jan.png"}
                     className="rounded-3xl"
@@ -100,7 +101,7 @@ export default function AboutUs() {
               rounded-full w-[250px] h-[250px] bottom-0
               "
               >
-                <div className="absolute w-[250px] h-[395px] bottom-0 rounded-b-full" >
+                <div className="absolute w-[250px] h-[396px] bottom-0 rounded-b-full" >
                   <Image
                     src={"/home/aboutUs/rustam.png"}
                     className="rounded-3xl"

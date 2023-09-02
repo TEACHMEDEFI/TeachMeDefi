@@ -26,36 +26,36 @@ export default function LessonPage({ currentLesson, nextLessonSlug }: { currentL
 }
 
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const paths = ethLessons.map((lesson) => ({
-    params: { lesson: lesson.slug },
-  }))
+// export const getStaticPaths: GetStaticPaths<Params> = async () => {
+//   const paths = ethLessons.map((lesson) => ({
+//     params: { lesson: lesson.slug },
+//   }))
 
-  return { paths, fallback: false }
-}
+//   return { paths, fallback: false }
+// }
 
-export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
-  params,
-}) => {
-  const { lesson } = params!
+// export const getStaticProps: GetStaticProps<{ currentLesson: Lesson | undefined }, Params> = async ({
+//   params,
+// }) => {
+//   const { lesson } = params!
   
-  const currentLessonIndex = ethLessons.findIndex(
-    (currentLesson) => currentLesson.slug === lesson
-  )
+//   const currentLessonIndex = ethLessons.findIndex(
+//     (currentLesson) => currentLesson.slug === lesson
+//   )
 
-  console.log(currentLessonIndex)
+//   console.log(currentLessonIndex)
 
-  const currentLesson = ethLessons.find(
-    (currentLesson) => currentLesson.slug === lesson
-  )
+//   const currentLesson = ethLessons.find(
+//     (currentLesson) => currentLesson.slug === lesson
+//   )
 
-  const nextLessonSlug = (ethLessons.length !== currentLessonIndex + 1) ?
-    `/eth/${ethLessons[currentLessonIndex + 1].slug}` : ""
+//   const nextLessonSlug = (ethLessons.length !== currentLessonIndex + 1) ?
+//     `/eth/${ethLessons[currentLessonIndex + 1].slug}` : ""
 
-  return {
-    props: {
-      currentLesson: currentLesson,
-      nextLessonSlug,
-    },
-  }
-}
+//   return {
+//     props: {
+//       currentLesson: currentLesson,
+//       nextLessonSlug,
+//     },
+//   }
+// }

@@ -6,7 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 export default function Footer() {
   const { isDarkMode } = useTheme();
   return (
-    <footer className="w-full border-t-4 flex justify-center" >
+    <footer className="w-full border-t-4 border-slate-200 flex justify-center" >
       <div className="w-full py-16 flex flex-col sm:flex-row justify-around items-center gap-14 max-w-[1600px] ">
 
         <div className="flex flex-col  items-center " >
@@ -75,7 +75,7 @@ export default function Footer() {
 
           </div>
         </div>
-        <div className="flex flex-col sm:border-l-4 sm:pl-5 max-sm:text-center py-3 rounded " >
+        <div className="flex flex-col border-slate-200 sm:border-l-4 sm:pl-5 max-sm:text-center py-3 rounded " >
           <Link data-linktarget="liability-section" href={"/haftungsausschluss"} className="rainbow-text" >Haftungsausschluss</Link>
           <Link data-linktarget="privacy-section" href={"/privacy"} className="rainbow-text" >Datenschutzerklärung</Link>
           <Link data-linktarget="terms-section" href={"/termsAndConditions"} className="rainbow-text" >Nutzungsbedingungen</Link>

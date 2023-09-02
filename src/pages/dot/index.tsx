@@ -55,8 +55,8 @@ export default function Index() {
 
   return (
     <div className={ `flex flex-col w-full justify-center items-center max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
-      <section className='h-[90vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl max-lg:mb-24 ' >
-        <div className='my-14 md:my-32 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg ' >
+      <section className='lg:h-[60vh] relative w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl ' >
+        <div className='my-8  md:my-16 lg:my-0 lg:w-2/4 space-y-5  backdrop-blur-sm rounded-lg  sm:pl-8 lg:pl-16 xl:pl-0 ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
             Entdecke die Welt von <span className='text-polkaPink'> Polkadot!</span>
           </h1>
@@ -68,16 +68,16 @@ export default function Index() {
           </h2>
 
         </div>
-        <div className='relative w-full lg:w-2/4 h-full grow'>
+        <div className=' max-lg:hidden relative  w-full lg:w-2/4 h-full grow'>
           <Image src={isDarkMode ? "/dot/dot-logo-dark.png" : "/dot/dot-logo-light.png"} fill alt='Ethereum Hero' />
         </div>
         <Image src={"/dot/polka_x.svg"} width={392 / 2} height={400 / 2} alt='polkadot ' className='absolute -left-60 bottom-0 ' />
-        <Image src={"/dot/polka_line.svg"} width={289 / 2} height={258 / 2} alt='polkadot ' className='absolute max-md:hidden -right-8 bottom-20 ' />
-        <Image src={"/dot/polka_net.svg"} width={706 / 2} height={487 / 2} alt='polkadot ' className='absolute max-lg:hidden -right-6 top-0 ' />
+        {/* <Image src={"/dot/polka_line.svg"} width={289 / 2} height={258 / 2} alt='polkadot ' className='absolute max-md:hidden -right-52 bottom-20 ' /> */}
+        {/* <Image src={"/dot/polka_net.svg"} width={706 / 2} height={487 / 2} alt='polkadot ' className='absolute max-lg:hidden -right-44 top-0 ' /> */}
 
       </section>
 
-      <section className='flex flex-col items-center relative sm:px-5 w-full mb-24 lg:mb-44'>
+      <section className='flex flex-col items-center relative sm:px-5 w-full mb-12 lg:mb-44'>
         {showPlayer &&
           <div className='bg-slate-100 dark:bg-bgDarkGray w-full aspect-video sm:p-2 xl:p-5 rounded-xl max-w-[1240px]'>
             <div className=' w-full aspect-video xl:pb-5 ' >

@@ -8,6 +8,7 @@ import { PrimaryButton } from '../Buttons/Buttons';
 import { useTheme } from '@/context/ThemeContext';
 import { Quests } from '@/data/generalLessons'
 import { SupportCoaching } from '../SupportCoaching/SupportCoaching';
+import Spinner from '../Spinner/Spinner';
 
 
 type VideoWithTranscriptProps = {
@@ -29,10 +30,13 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const [videoEnded, setVideoEnded] = useState<boolean>(false);
   const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
+  const [showSpinner, setShowSpinner] = useState<boolean>(false);
+  const [showFeedbackDialogue, setShowFeedbackDialogue] = useState<boolean>(false);
   const [showMintNftDirections, setShowMintNftDirections] = useState<boolean>(false);
   const [videoStuck, setVideoStuck] = useState<boolean>(false)
   const { isDarkMode } = useTheme();
   const calendlyRef = useRef<HTMLDivElement>(null);
+  const gdocsLink = 'https://docs.google.com/forms/d/e/1FAIpQLSftkvPlhlYYCFJNdr4YcM6ch-PvS-DlGtywb-i9mSzrzcwWzQ/viewform?usp=sf_link'
 
   useEffect(() => {
     setShowPlayer(true);
@@ -92,12 +96,51 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     }
   }
 
-  const handleVideoOnEnd = () => {
-    setVideoEnded(true);
-    setShowNavButtons(false)
-    if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
-      setShowMintNftDirections(true)
+
+  const handleRandomFeedbackDialogue = () => {
+    const shouldShowDialogue = Math.random() < 0.5;
+
+    if (shouldShowDialogue) {
+      setShowFeedbackDialogue(true)
     }
+  }
+
+
+  const handleFeedbackClick = () => {
+    if (typeof window != undefined) {
+      window.open(gdocsLink, '_blank');
+    }
+
+    setShowFeedbackDialogue(false);
+  }
+
+  const handleSkipFeedback = () => {
+    setShowSpinner(true)
+    setTimeout(() => {
+      setVideoEnded(true);
+      setShowNavButtons(false)
+      setShowFeedbackDialogue(false)
+      if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
+        setShowMintNftDirections(true)
+      }
+      setShowSpinner(false)
+    },1000)
+  }
+
+  const handleVideoOnEnd = () => {
+    setShowSpinner(true)
+    setTimeout(() => {
+      setVideoEnded(true);
+      setShowNavButtons(false)
+      if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
+        setShowMintNftDirections(true)
+      }
+      handleRandomFeedbackDialogue();
+      setShowSpinner(false)
+    },1000)
+
+    
+    
   }
 
 
@@ -132,30 +175,30 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
   return (
     <section className=' relative video-modal-container overflow-y-scroll max-lg:h-[80vh] lg:aspect-video px-2 md:px-10 video-wrap video-page' onScroll={() => onVideoScroll()} >
-      {showPlayer && !videoEnded && (
+      {showPlayer && !videoEnded && !showSpinner && (
         <div className='video-wrap z-50 w-full relative' >
 
-            <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
-          <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
-            <ReactPlayer
-              height="100%"
-              width="100%"
-              url={currentLesson.youtubeUrl}
-              controls={true}
-              onEnded={handleVideoOnEnd}
-              onStart={handleVideoOnPlay}
-              config={{
-                youtube: {
-                  playerVars: { fs: 1 }
-                }
-              }}
-            />
+          <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
+            <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
+              <ReactPlayer
+                height="100%"
+                width="100%"
+                url={currentLesson.youtubeUrl}
+                controls={true}
+                onEnded={handleVideoOnEnd}
+                onStart={handleVideoOnPlay}
+                config={{
+                  youtube: {
+                    playerVars: { fs: 1 }
+                  }
+                }}
+              />
           </div>
         </div>
       )}
 
       <div className="content">
-        {videoEnded && !showMintNftDirections && (
+        {videoEnded && !showMintNftDirections && !showFeedbackDialogue && !showSpinner && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
@@ -167,7 +210,23 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         )}
 
 
-        {showMintNftDirections && videoEnded && (
+        {showSpinner && 
+          <Spinner />
+        }
+
+        {videoEnded && !showMintNftDirections && showFeedbackDialogue && !showSpinner && (
+          <div className="fade-out">
+            <h2 className='font-bold text-xl '>Bitte nimm dir einen Moment Zeit und gib uns Feedback!</h2>
+            <h3 className='font-bold text-3s '>Klicke auf den Link und beantworte einige wenige Fragen. Damit hilfst du uns unsere Lernplattform weiter zu verbessern. Vielen Dank!</h3>
+            <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
+              <PrimaryButton customClassButton='md:w-max ' onClick={handleFeedbackClick}>Feedback</PrimaryButton>
+              <PrimaryButton customClassButton='md:w-max ' onClick={handleSkipFeedback}>Überspringen</PrimaryButton>
+            </div>
+          </div>
+        )}
+
+
+        {showMintNftDirections && videoEnded && !showSpinner && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Super! Du bist beim letzten Video dieser Quest angekommen. Wenn du alle Challenges erfüllt hast,
               dann schließe jetzt dieses Popup-Fenster und klicke den &quot;Mint NFT&quot; Button für diese Quest. Im folgenden Popup-Fenster wird dir der nächste Schritt erklärt! Alternativ
@@ -181,7 +240,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
         )}
 
-        {showNavButtons && <div className="flex flex-col sm:flex-row justify-around gap-5 py-5 ">
+        {showNavButtons && !showSpinner && <div className="flex flex-col sm:flex-row justify-around gap-5 py-5 ">
           <PrimaryButton customClassButton='sm:w-max' buttonDisabled={!showPrevButton} onClick={displayPrevVideo}>Vorheriges Video</PrimaryButton>
           <PrimaryButton customClassButton='sm:w-max' buttonDisabled={!showNextButton} onClick={displayNextVideo}>Nächstes Video</PrimaryButton>
         </div>}
