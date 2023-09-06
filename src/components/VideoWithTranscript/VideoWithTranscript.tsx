@@ -97,10 +97,20 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
 
-  const handleRandomFeedbackDialogue = () => {
-    const shouldShowDialogue = Math.random() < 0.5;
+  const feedbackGiven = () => {
+    if (typeof window != undefined) {
+      return window.sessionStorage.getItem('feedbackGiven');
+    }
 
-    if (shouldShowDialogue) {
+    return false;
+  }
+
+
+  const handleRandomFeedbackDialogue = () => {
+    const shouldShowDialogue = Math.random() < 0.1;
+    const feedbackDone = feedbackGiven();
+
+    if (shouldShowDialogue && !feedbackDone) {
       setShowFeedbackDialogue(true)
     }
   }
@@ -109,6 +119,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const handleFeedbackClick = () => {
     if (typeof window != undefined) {
       window.open(gdocsLink, '_blank');
+      window.sessionStorage.setItem('feedbackGiven', 'true');
     }
 
     setShowFeedbackDialogue(false);
@@ -116,6 +127,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
   const handleSkipFeedback = () => {
     setShowSpinner(true)
+    window.sessionStorage.setItem('feedbackGiven', 'true');
     setTimeout(() => {
       setVideoEnded(true);
       setShowNavButtons(false)
