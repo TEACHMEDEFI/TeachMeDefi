@@ -130,7 +130,7 @@ export default function UeberUns() {
                     </div>
                   </Link>
                   <Link
-                    href={"https://twitter.com/Cezar308"}
+                    href={"https://twitter.com/Cezar3088"}
                     target="_blank"
                   >
                     <div className="h-9 w-9 relative">
