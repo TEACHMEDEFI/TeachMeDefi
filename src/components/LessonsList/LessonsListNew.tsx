@@ -30,7 +30,7 @@ type LessonsListProps = {
   lessonsArray: Quests[];
   chain: string;
   title?: string;
-  isQuestSection?: boolean;
+  isQuestSection: boolean;
   isGeneralSection?: boolean;
   isTheorySection?: boolean;
   totalVideoTime: string;
@@ -253,7 +253,7 @@ export default function LessonsListNew({ chain, lessonsArray, title, isQuestSect
                 questSectionid={quests.questSectionId} // Pass hasProgress function as prop
                 currentQuest={quests}
                 currentQuestIndex={i}
-                isQuestSection
+                isQuestSection={isQuestSection}
               />
             ))}
           </div>

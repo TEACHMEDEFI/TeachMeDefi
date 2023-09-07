@@ -46,6 +46,9 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }, []);
 
 
+  console.log('IsQuestSection', isQuestSection)
+
+
   const handleVideoOnPlay = () => {
     if (setUserProgress) {
       setUserProgress(currentLesson.id)
