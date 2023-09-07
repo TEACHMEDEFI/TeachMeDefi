@@ -117,8 +117,8 @@ export default function Index() {
       <section className=' w-full flex flex-col justify-center relative z-50' >
 
 
-        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose} onModalOpen={onModalOpen}/>
-        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Wie funktioniert Ethereum"} isTheorySection totalVideoTime="15:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"eth"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={false} />
+        <LessonsListNew chain={"eth"} lessonsArray={ethTheory} title={"Wie funktioniert Ethereum"} isTheorySection totalVideoTime="15:47" onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={false} />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max
@@ -134,7 +134,7 @@ export default function Index() {
         </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection totalVideoTime="1:04:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection={true} totalVideoTime="1:04:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
 
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
@@ -151,7 +151,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} totalVideoTime="27:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"eth"} lessonsArray={sicherheitsQuest} totalVideoTime="27:47" onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={false} />
         {/* <Image src={"/eth/eth_windows.png"} className='absolute  -right-20 -bottom-36' width={600} height={600} alt='Ethereum Windows' /> */}
 
       </section>

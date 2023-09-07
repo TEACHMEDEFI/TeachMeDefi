@@ -115,8 +115,8 @@ export default function Index() {
       <section className=' w-full flex flex-col justify-center relative z-50' >
 
 
-        <LessonsListNew chain={"btc"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose} onModalOpen={onModalOpen} />
-        <LessonsListNew chain={"btc"} lessonsArray={btcTheory} title={"Wie funktioniert Bitcoin"} isTheorySection totalVideoTime="21:56" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"btc"} lessonsArray={generalLessons} title={"Was ist eine Blockchain"} totalVideoTime="11:54" isGeneralSection onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={false} />
+        <LessonsListNew chain={"btc"} lessonsArray={btcTheory} title={"Wie funktioniert Bitcoin"} isTheorySection totalVideoTime="21:56" onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={false} />
         <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
           via-secondaryPurple to-primaryPink bg-clip-text text-transparent text-center w-full md text-center:w-max
@@ -132,7 +132,7 @@ export default function Index() {
             </span>
           </h3>
         </span>
-        <LessonsListNew chain={"btc"} lessonsArray={btcQuests} isQuestSection totalVideoTime="27:58" onModalClose={onModalClose} onModalOpen={onModalOpen} />
+        <LessonsListNew chain={"btc"} lessonsArray={btcQuests} totalVideoTime="27:58" onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={true} />
 
         {/* <span className='mx-auto mt-28'>
           <h3 className='text-4xl  font-bold  bg-gradient-to-r from-primaryBlue 
