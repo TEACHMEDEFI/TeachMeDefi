@@ -1,6 +1,6 @@
 export default function Index() {
   return (
-    <div className="overflow-x-scroll">
+    <div >
       <h1 className="font-bold text-2xl mb-10"> Third Party Cookies</h1>
       <h3 className="font-bold text-xl ">YouTube</h3>
       Wir verwenden auf dieser Seite des Videodienstes YouTube, der Firma YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066,
@@ -16,8 +16,8 @@ export default function Index() {
         rel="nofollow">https://www.google.com/intl/de/policies/privacy/</a> nachlesen.
 
       <b>Cookies von Youtube</b>
-      <table >
-        <tbody>
+      <table className=" block max-sm:overflow-x-scroll" >
+        <tbody className="block">
           <tr>
             <th>Name</th>
             <th>Zweck</th>
@@ -163,8 +163,8 @@ export default function Index() {
       </p>
 
       <b>Cookies von Google Analytics</b>
-      <table className="table-auto">
-        <tbody>
+      <table className=" block max-sm:overflow-x-scroll" >
+        <tbody className=" block " >
           <tr >
             <th>Name</th>
             <th>Zweck</th>
@@ -237,8 +237,8 @@ export default function Index() {
         rel="nofollow noopener">http://www.youronlinechoices.com/de/praferenzmanagement/</a>.
 
       <b>Cookies von Facebook Pixel</b>
-      <table>
-        <tbody>
+      <table className=" block max-sm:overflow-x-scroll"  >
+        <tbody className=" block "  >
           <tr>
             <th>Name</th>
             <th>Zweck</th>
@@ -295,8 +295,8 @@ export default function Index() {
         target="blank">https://twitter.com/privacy?lang=de</a> abrufbar.
 
       <b>Cookies von Twitter</b>
-      <table >
-        <tbody>
+      <table  className=" block max-sm:overflow-x-scroll"  >
+        <tbody className=" block"  >
           <tr>
             <th>Name</th>
             <th>Zweck</th>
@@ -375,8 +375,8 @@ export default function Index() {
         href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out">https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out</a>.
 
       <b>Cookies von LinkedIn</b>
-      <table>
-        <tbody>
+      <table className=" block max-sm:overflow-x-scroll"  >
+        <tbody className=" block"  >
           <tr>
             <th>Name</th>
             <th>Zweck</th>
