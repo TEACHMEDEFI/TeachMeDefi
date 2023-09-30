@@ -25,8 +25,9 @@ export default function Footer() {
             <Link
               href={"https://twitter.com/teachmedefi?lang=de"}
               target="_blank"
+              className="flex items-center"
             >
-              <div className="h-9 w-9 relative">
+              <div className="h-8 w-8 relative">
                 <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
               </div>
             </Link>

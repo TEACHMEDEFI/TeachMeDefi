@@ -45,7 +45,7 @@ export default function HeroSection() {
                 </div>
               </Link>
               <Link href={"https://twitter.com/teachmedefi?lang=de"} target="_blank" >
-                <div className="h-6 w-6 relative">
+                <div className="h-5 w-5 relative">
                   <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"}
                     alt="twitter" fill sizes="60px"
                   />
