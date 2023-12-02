@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <section className='landing flex flex-col lg:flex-row  items-center w-full gap-x-32 relative' >
       <div className='w-full lg:w-5/12 xl:w-4/12 space-y-5 xl:ml-16 md:ml-16 md:pr-16 lg:pr-0 z-10 
-      lg:mb-64  mt-10 sm:mt-24 max-sm:w-full max-md:px-5  ' 
+      lg:mb-64  mt-10 sm:mt-24 max-sm:w-full max-md:px-5  '
       >
         <h1 className='xl:text-5xl text-4xl font-bold ' >
           Krypto leicht gemacht!
@@ -22,7 +22,7 @@ export default function HeroSection() {
           <br />
           Abonniere noch heute unseren Newsletter und erhalte kostenfreie Einsteiger-Handbücher zu Bitcoin & Ethereum!
         </h2>
-      
+
         <div >
           {/* <div className="w-40 mb-5">
             <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
@@ -32,21 +32,21 @@ export default function HeroSection() {
 
           <div>
             <div className="w-max mb-5">
-              <PrimaryButton href='https://www.newsletter.teachmedefi.de/' target="_blank">
-                Newsletter abonnieren
+              <PrimaryButton href='/kurse' >
+                Starte mit unseren Kursen
               </PrimaryButton>
             </div>
             <div className="flex gap-5 mb-5 items-center " >
               <Link href={"https://www.youtube.com/@teachmedefi"} target="_blank" >
-                <div className="h-6 w-6 relative">
+                <div className="h-8 w-8 relative">
                   <Image src={isDarkMode ? "/icons/youtube.png" : "/icons/youtube_dark.png"}
                     alt="youtube" fill sizes="60px"
                   />
                 </div>
               </Link>
               <Link href={"https://twitter.com/teachmedefi?lang=de"} target="_blank" >
-                <div className="h-5 w-5 relative">
-                  <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"}
+                <div className="h-6 w-6 relative">
+                  <Image src={isDarkMode ? "/icons/twitter-x-icon.svg" : "/icons/twitter-x-icon-dark.svg"}
                     alt="twitter" fill sizes="60px"
                   />
                 </div>

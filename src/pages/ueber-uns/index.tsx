@@ -83,7 +83,7 @@ export default function UeberUns() {
                     target="_blank"
                   >
                     <div className="h-9 w-9 relative">
-                      <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                      <Image src={isDarkMode ? "/icons/twitter-x-icon.svg" : "/icons/twitter-x-icon-dark.svg"} alt="twitter" fill sizes="60px" />
                     </div>
                   </Link>
                 </div>
@@ -134,7 +134,7 @@ export default function UeberUns() {
                     target="_blank"
                   >
                     <div className="h-9 w-9 relative">
-                      <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                      <Image src={isDarkMode ? "/icons/twitter-x-icon.svg" : "/icons/twitter-x-icon-dark.svg"} alt="twitter" fill sizes="60px" />
                     </div>
                   </Link>
                 </div>
@@ -183,7 +183,7 @@ export default function UeberUns() {
                     target="_blank"
                   >
                     <div className="h-9 w-9 relative">
-                      <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                      <Image src={isDarkMode ? "/icons/twitter-x-icon.svg" : "/icons/twitter-x-icon-dark.svg"} alt="twitter" fill sizes="60px" />
                     </div>
                   </Link>
                 </div>
@@ -225,7 +225,7 @@ export default function UeberUns() {
                   target="_blank"
                 >
                   <div className="h-9 w-9 relative">
-                    <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                    <Image src={isDarkMode ? "/icons/twitter-x-icon.svg" : "/icons/twitter-x-icon-dark.svg"} alt="twitter" fill sizes="60px" />
                   </div>
                 </Link>
               </div>
@@ -266,7 +266,7 @@ export default function UeberUns() {
                   target="_blank"
                 >
                   <div className="h-9 w-9 relative">
-                    <Image src={isDarkMode ? "/icons/twitter.png" : "/icons/twitter_dark.png"} alt="twitter" fill sizes="60px" />
+                    <Image src={isDarkMode ? "/icons/twitter-x-icon.svg" : "/icons/twitter-x-icon-dark.svg"} alt="twitter" fill sizes="60px" />
                   </div>
                 </Link>
               </div>

@@ -28,8 +28,10 @@ export default function CourseOverview() {
           <div className="flex flex-wrap" >
             {courseSections && courseSections.map((course, i) => (
               <div key={course.title} className="flex" >
-                <Link href={course.href}  className="font-bold text-xl" >{course.title}</Link>
-                {courseSections.length > i + 1 && <div className="mx-3 font-bold text-xl">|</div>}
+                <Link href={course.href}  className="font-bold text-2xl border px-2 rounded " >
+                  {course.title}
+                  </Link>
+                {courseSections.length > i + 1 && <div className="mx-3 font-bold text-2xl">|</div>}
               </div>
             ))}
           </div>
