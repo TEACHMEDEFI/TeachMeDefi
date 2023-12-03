@@ -9,6 +9,7 @@ import { useTheme } from '@/context/ThemeContext';
 import { Quests } from '@/data/generalLessons'
 import { SupportCoaching } from '../SupportCoaching/SupportCoaching';
 import Spinner from '../Spinner/Spinner';
+import { NewsletterSubiFrame } from '../NewsletterSubiFrame/NewsletterSubiFrame';
 
 
 type VideoWithTranscriptProps = {
@@ -32,6 +33,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   const [showNavButtons, setShowNavButtons] = useState<boolean>(true);
   const [showSpinner, setShowSpinner] = useState<boolean>(false);
   const [showFeedbackDialogue, setShowFeedbackDialogue] = useState<boolean>(false);
+  const [showNewsletterSub, setShowNewsletterSub] = useState<boolean>(false);
   const [showMintNftDirections, setShowMintNftDirections] = useState<boolean>(false);
   const [videoStuck, setVideoStuck] = useState<boolean>(false)
   const { isDarkMode } = useTheme();
@@ -46,7 +48,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }, []);
 
 
-  console.log('IsQuestSection', isQuestSection)
+  // console.log('IsQuestSection', isQuestSection)
 
 
   const handleVideoOnPlay = () => {
@@ -99,6 +101,43 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     }
   }
 
+  const subscriptionGiven = () => {
+    if (typeof window != undefined) {
+      return window.sessionStorage.getItem('subscribed');
+    }
+
+    return false;
+  }
+  
+  const handleRandomNewsletterSub = () => {
+    const shouldShowNewsletterSub = Math.random() > 0.8;
+    const subscribed = subscriptionGiven();
+
+    if (shouldShowNewsletterSub && !subscribed) {
+      setShowNewsletterSub(true)
+    }
+  }
+
+  const handleNewsletterSubClick = () => {
+    if (typeof window != undefined) {
+      window.sessionStorage.setItem('subscribed', 'true');
+    }
+    setShowNewsletterSub(false);
+  }
+  const handleSkipNewsletterSub = () => {
+    setShowSpinner(true)
+    window.sessionStorage.setItem('subscribed', 'true');
+    setTimeout(() => {
+      setVideoEnded(true);
+      setShowNavButtons(false)
+      setShowNewsletterSub(false)
+      if (isQuestSection && currentQuest.lessons[lessonIndex + 1] === undefined) {
+        setShowMintNftDirections(true)
+      }
+      setShowSpinner(false)
+    },1000)
+  }
+
 
   const feedbackGiven = () => {
     if (typeof window != undefined) {
@@ -107,8 +146,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
     return false;
   }
-
-
+  
   const handleRandomFeedbackDialogue = () => {
     const shouldShowDialogue = Math.random() < 0.1;
     const feedbackDone = feedbackGiven();
@@ -117,7 +155,6 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       setShowFeedbackDialogue(true)
     }
   }
-
 
   const handleFeedbackClick = () => {
     if (typeof window != undefined) {
@@ -141,6 +178,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       setShowSpinner(false)
     },1000)
   }
+  
 
   const handleVideoOnEnd = () => {
     setShowSpinner(true)
@@ -151,6 +189,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         setShowMintNftDirections(true)
       }
       handleRandomFeedbackDialogue();
+      handleRandomNewsletterSub();
       setShowSpinner(false)
     },1000)
 
@@ -213,7 +252,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       )}
 
       <div className="content">
-        {videoEnded && !showMintNftDirections && !showFeedbackDialogue && !showSpinner && (
+        {videoEnded && !showMintNftDirections && !showFeedbackDialogue && !showSpinner && !showNewsletterSub && (
           <div className="fade-out">
             <h2 className='font-bold text-3xl '>Du hast das Video beendet. Was möchtest du als nächstes tun?</h2>
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
@@ -236,6 +275,18 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
               <PrimaryButton customClassButton='md:w-max ' onClick={handleFeedbackClick}>Feedback</PrimaryButton>
               <PrimaryButton customClassButton='md:w-max ' onClick={handleSkipFeedback}>Überspringen</PrimaryButton>
+            </div>
+          </div>
+        )}
+        
+        {videoEnded && !showMintNftDirections && showNewsletterSub && !showFeedbackDialogue && !showSpinner && (
+          <div className="fade-out">
+            {/* <h2 className='font-bold text-xl '>Bitte nimm dir einen Moment Zeit und gib uns Feedback!</h2>
+            <h3 className='font-bold text-3s '>Klicke auf den Link und beantworte einige wenige Fragen. Damit hilfst du uns unsere Lernplattform weiter zu verbessern. Vielen Dank!</h3> */}
+            <NewsletterSubiFrame />
+            <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
+              <PrimaryButton customClassButton='md:w-max ' onClick={handleNewsletterSubClick}>Hab schon Abonniert</PrimaryButton>
+              <PrimaryButton customClassButton='md:w-max ' onClick={handleSkipNewsletterSub}>Überspringen</PrimaryButton>
             </div>
           </div>
         )}

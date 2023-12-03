@@ -12,15 +12,15 @@ export default function HeroSection() {
       lg:mb-64  mt-10 sm:mt-24 max-sm:w-full max-md:px-5  '
       >
         <h1 className='xl:text-5xl text-4xl font-bold ' >
-          Krypto leicht gemacht!
+        Optimaler Einstieg in die Krypto-Welt!
         </h1>
         <h2 className='xl:text-lg text-sm backdrop-blur-lg pb-1 lg:pb-5rounded-3xl pr-3 ' >
-          Egal, ob du ganz neu im Krypto-Bereich bist oder bereits ein erfahrener Nutzer -
-          wir machen Kryptowährungen und Blockchain einfach und zugänglich für alle.
-          Entdecke, lerne und verstehe die Welt der digitalen Währungen und nutze sie zu deinem Vorteil.
+        Wir haben unsere umfassende Erfahrung in Blockchain und Kryptowährungen in erstklassige
+         Kurse zu Ethereum, Polkadot und Bitcoin transformiert. Überzeug dich selbst: Derzeit gibt 
+         es wohl keinen besseren Weg, um in die Krypto-Welt einzusteigen und fundiertes Wissen zu erlangen.
           <br />
           <br />
-          Abonniere noch heute unseren Newsletter und erhalte kostenfreie Einsteiger-Handbücher zu Bitcoin & Ethereum!
+          Registriere dich jetzt und starte mit unseren Kursen, die dich zum Krypto-Experten machen!
         </h2>
 
         <div >
@@ -33,7 +33,7 @@ export default function HeroSection() {
           <div>
             <div className="w-max mb-5">
               <PrimaryButton href='/kurse' >
-                Starte mit unseren Kursen
+              Krypto Kurs starten
               </PrimaryButton>
             </div>
             <div className="flex gap-5 mb-5 items-center " >

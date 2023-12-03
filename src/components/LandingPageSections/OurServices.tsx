@@ -1,9 +1,21 @@
 
+import { useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
+import { NewsletterSubiFrame } from "../NewsletterSubiFrame/NewsletterSubiFrame";
 
 export default function OurServices() {
+
+  const [showNewsletterSub, setShowNewsletterSub] = useState(false)
+
+  const handleCloseNewsletterPopup = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    e.preventDefault()
+    setShowNewsletterSub(false)
+  }
   return (
+    <>
     <section className='flex flex-col justify-center items-center w-full relative py-24 lg:py-44 px-5' >
       <div className="flex gap-10 xl:w-[1240px] xl:justify-between flex-col xl:flex-row">
         <div className=" max-xl:flex max-lg:flex-col justify-center  items-center gap-10 lg:gap-24 xl:space-y-44 ">
@@ -45,7 +57,7 @@ export default function OurServices() {
               <Link
                 href={"#courses"}
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
-              >
+                >
                 Starte jetzt
               </Link>
             </div>
@@ -64,7 +76,7 @@ export default function OurServices() {
                 href={"https://podcasters.spotify.com/pod/show/teachmedefi"}
                 target="_blank"
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
-              >
+                >
                 Jetzt anhören
               </Link>
             </div>
@@ -80,13 +92,14 @@ export default function OurServices() {
               <p className='mt-1 tracking-wider text-sm w-full  lg:w-80 xl:w-96'>
               Mit unserem kostenlosen Newsletter erhältst du Krypto-Markt Updates, wertvolle Tipps und Einsichten direkt in dein Postfach. Abonniere jetzt.
               </p>
-              <Link
-                href={"https://www.newsletter.teachmedefi.de/"}
-                target="_blank"
+              <button
+                // href={"https://www.newsletter.teachmedefi.de/"}
+                // target="_blank"
+                onClick={() => setShowNewsletterSub(true)}
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
-              >
+                >
                 Hier abonnieren
-              </Link>
+              </button>
             </div>
           </div>
           <div className="flex max-[350px]:flex-col ">
@@ -102,7 +115,7 @@ export default function OurServices() {
                 href={"https://www.newsletter.teachmedefi.de/"}
                 // target="_blank"
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
-              >
+                >
                 Hier herunterladen
               </Link>
             </div>
@@ -120,7 +133,7 @@ export default function OurServices() {
                 href="https://calendly.com/teachmedefi/1std"
                 className="bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
                 target="_blank"
-              >
+                >
                 Nutze unser limitiertes Angebot!
               </Link>
             </div>
@@ -134,5 +147,26 @@ export default function OurServices() {
 
 
     </section>
+    {showNewsletterSub &&
+        <div
+          className="fixed w-screen h-screen bg-slate-800 bg-opacity-50 top-0 left-0 z-50
+            flex justify-center items-center p-5"
+          onClick={handleCloseNewsletterPopup}
+        >
+          <div className=" p-2 sm:p-10 bg-white max-sm:w-full h-[450px] sm:h-[600px] sm:aspect-square relative" 
+            onClick={e=>e.stopPropagation()}
+          >
+            <button
+              className="text-slate-700 text-xl font-bold absolute right-5 top-5
+            rounded-lg border-4 border-slate-700 w-10 h-10  "
+              onClick={handleCloseNewsletterPopup}
+            >
+              X
+            </button>
+            <NewsletterSubiFrame />
+          </div>
+        </div>
+      }
+                </>
   )
 }

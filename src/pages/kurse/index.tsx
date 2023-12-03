@@ -16,15 +16,15 @@ export default function index() {
           Dolor accusamus aliquam blanditiis, placeat voluptatum sapiente veritatis, eos quam perspiciatis inventore dolores eveniet rerum commodi, quidem unde ut omnis nulla id? Ut nam ullam, laudantium voluptatibus dicta commodi esse.
         </p>
         <div className='flex  gap-4 '>
-        <PrimaryButton href='/eth' >
-                ETHEREUM
-              </PrimaryButton>
-              <PrimaryButton href='/dot' >
-                POLKADOT
-              </PrimaryButton>
-              <PrimaryButton href='/btc' >
-                BITCOIN
-              </PrimaryButton>
+          <PrimaryButton href='/eth' >
+            ETHEREUM
+          </PrimaryButton>
+          <PrimaryButton href='/dot' >
+            POLKADOT
+          </PrimaryButton>
+          <PrimaryButton href='/btc' >
+            BITCOIN
+          </PrimaryButton>
         </div>
       </div>
 
@@ -36,7 +36,10 @@ export default function index() {
         <div className="absolute left-[46%] translate-x-[-50%] top-20 w-[50%] aspect-[337/435] ">
           <Image src={"/kurse-page/merge-ship.png"} fill alt="_________" />
         </div> */}
-      
+
+
+
+
 
 
       </div>
