@@ -5,7 +5,7 @@ export default function Index() {
     <div className="impressum">
       <div className="section">
         <h1 className="header">Angaben gemäß § 5 TMG</h1>
-        <p>TeachMeDeFi</p>
+        <p>TEACHMEDEFI</p>
         <p>Rustam Kohen, Sohejl Far & Jan Zajfert</p>
         <p>Beco da lapa 42</p>
         <p>1100-304 Lissabon</p>

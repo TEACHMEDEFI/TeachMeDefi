@@ -67,37 +67,78 @@ img {
 // }
 
 .landing-donut {
-  width: 640px;
-  height: 320px;
+  // width: 640px;
+  // height: 320px;
+  // background: url(/home/landing-stripe-sm.svg) no-repeat;
+  // transform-origin: center;
+  overflow: visible;
+
+
+  // @media (min-width: 640px) {
+  //   width: 768px;
+  //   height: 380px;
+  //   background: url(/home/landing-stripe.svg) no-repeat;
+  // }
+
+  // @media (min-width: 768px) {
+  //   width: 1024px;
+  //   height: 500px;
+  // }
+
+  @media (min-width: 1024px) {
+    left: 0;
+    top: 0;
+    position: absolute;
+    // translate: 50% calc(50% - 96px);
+    background: url(/home/hero-background-icons.svg) no-repeat;
+    // width: 1600px;
+    // width: 100%;
+    // height: 100%;
+    height: 850px;
+    aspect-ratio: 143/85;
+  }
+
+  @media (min-width: 1400px) {
+    // width: 2000px;
+    // height: 2000px;
+  }
+}
+
+.courses-donut {
+  // width: 640px;
+  // height: 320px;
   background: url(/home/landing-stripe-sm.svg) no-repeat;
   transform-origin: center;
   overflow: visible;
 
 
   @media (min-width: 640px) {
-    width: 768px;
-    height: 380px;
+    // width: 768px;
+    // height: 380px;
     background: url(/home/landing-stripe.svg) no-repeat;
   }
 
   @media (min-width: 768px) {
-    width: 1024px;
-    height: 500px;
+    // width: 1024px;
+    // height: 500px;
   }
 
   @media (min-width: 1024px) {
-    right: -25px;
-    bottom: 0;
+    left: 0;
+    top: 0;
     position: absolute;
-    translate: 50% calc(50% - 96px);
+    // translate: 50% calc(50% - 96px);
     background: url(/home/landing_rgb_donut.svg) no-repeat;
-    width: 1600px;
-    height: 1600px;
+    background-size: 1600px;
+    // height: 100%;
+    // width: 100%;
+    width: 600px;
+    height: 600px;
   }
 
   @media (min-width: 1400px) {
-    width: 2000px;
-    height: 2000px;
+    // width: 2000px;
+    // height: 2000px;
   }
 }
 

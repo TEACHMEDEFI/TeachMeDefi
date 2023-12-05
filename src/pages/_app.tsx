@@ -61,7 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className='dark:bg-bgDarkBlue dark:text-white'>
 
           <TagManagerScript />
-          <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white flex flex-col items-center relative`} >
+          <main className={`${poppins.className} dark:bg-bgDarkBlue dark:text-white flex flex-col items-center relative overflow-hidden`} >
             <TagManagerNoScript />
             <Navbar />
             <div className='pt-24 px-5 w-full max-w-[1600px]' >
