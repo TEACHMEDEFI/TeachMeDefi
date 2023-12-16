@@ -34,7 +34,8 @@ export default function AboutUs() {
           <h3 className="text-4xl font-bold mb-6">Über uns</h3>
 
           <p className="tracking-wide leading-relaxed ">
-            Seit 2017 setzen wir uns intensiv mit dem Thema DeFi und der Krypto-Welt auseinander.
+            Seit 2017 haben wir uns alle persönlich und intensiv mit dem Thema DeFi und der Krypto-Welt auseinander gesetzt. 
+            Seit 2022 führen wir immer wieder Kooperationsprojekte gemeinsam als TEACHMEDEFI durch.
             Wir können auf persönliche Erfolge und Misserfolge zurückgreifen. Daher sind wir auch
             die richtigen, um Dir bei deinem Einstieg zu helfen. Wir wollen unsere Erfahrungen an
             Dich weitergeben und Dir mit Tipps und Tricks zur Seite stehen. Wir freuen uns auf Dich!
