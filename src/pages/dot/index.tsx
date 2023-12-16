@@ -151,9 +151,9 @@ export default function Index() {
         <Image src={"/dot/polka_z.svg"} width={261 / 2} height={261 / 2} alt='polkadot ' className='absolute left-16 -bottom-36 ' />
         <Image src={"/dot/polka_polygon.svg"} width={455 / 2} height={437 / 2} alt='polkadot ' className='absolute max-lg:hidden  -right-16 bottom-12 ' />
       </section >
-      <div ref={calendlyRef}>
+      {/* <div ref={calendlyRef}>
         <SupportCoaching />
-      </div>
+      </div> */}
 
     </div >
   )

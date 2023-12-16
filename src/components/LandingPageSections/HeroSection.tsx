@@ -8,7 +8,7 @@ import { useTheme } from '@/context/ThemeContext';
 export default function HeroSection() {
   const { isDarkMode } = useTheme();
   return (
-    <section className='landing flex  mb-24 flex-col items-center w-full relative' >
+    <section className='landing flex -mt-8 mb-24 flex-col items-center w-full relative' >
       <div className=' relative z-0 flex -space-x-2' >
         {/* <div className="landing-donut " /> */}
 

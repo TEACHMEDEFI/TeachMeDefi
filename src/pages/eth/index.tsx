@@ -59,7 +59,7 @@ export default function Index() {
   }
 
   return (
-    <div className={ `flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
+    <div className={`flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='lg:h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl ' >
         <div className=' my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0  ' >
           <h1 className='xl:text-5xl text-4xl font-bold' >
@@ -126,12 +126,12 @@ export default function Index() {
           >
             Ethereum nutzen
             <span className="h-5 w-5 relative  lg:mr-2">
-          <button className='w-full h-full' onClick={scrollToCalendly} >
-            <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
-              alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
-            />
-          </button>
-        </span>
+              <button className='w-full h-full' onClick={scrollToCalendly} >
+                <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
+                  alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
+                />
+              </button>
+            </span>
           </h3>
         </span>
         <LessonsListNew chain={"eth"} lessonsArray={ethQuests} isQuestSection={true} totalVideoTime="1:04:47" onModalClose={onModalClose} onModalOpen={onModalOpen} />
@@ -156,9 +156,9 @@ export default function Index() {
 
       </section>
 
-      <div ref={calendlyRef} >
+      {/* <div ref={calendlyRef} >
         <SupportCoaching />
-      </div>
+      </div> */}
 
     </div >
   )

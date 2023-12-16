@@ -89,7 +89,7 @@ export default function Navbar() {
             onMouseEnter={() => toggleTeachMeButton(!teachMeButton)}
             onMouseLeave={() => toggleTeachMeButton(false)}
           >
-            <button className={`pl-2 ${teachMeButton && "underline"}`} >TEACH ME</button>
+            <Link href={"/kurse"} className={`pl-2 ${teachMeButton && "underline"}`} >KURSE</Link>
             <div className={`absolute flex flex-col w-32 pl-2 gap-1 bg-white dark:bg-bgDarkBlue py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
               <Link data-linktarget="btc-section" onClick={handleTagManagerClickEvents} href={"/btc"} className="rainbow-text" >BITCOIN</Link>
               <Link data-linktarget="eth-section" onClick={handleTagManagerClickEvents} href={"/eth"} className="rainbow-text" >ETHEREUM</Link>
@@ -211,7 +211,7 @@ export default function Navbar() {
           <div
             className="relative "
           >
-            <button onClick={() => toggleTeachMeButton(!teachMeButton)} >TEACH ME  </button>
+            <button onClick={() => toggleTeachMeButton(!teachMeButton)} >KURSE </button>
             <div className={`flex flex-col w-32 pl-2 gap-1 py-2 rounded-b-lg  ${teachMeButton ? "" : "hidden"} `} >
               <Link href={"/btc"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >BITCOIN</Link>
               <Link href={"/eth"} onClick={() => handleMobileNavClick(event)} className="rainbow-text" >ETHEREUM</Link>

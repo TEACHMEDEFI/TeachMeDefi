@@ -108,7 +108,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
     return false;
   }
-  
+
   const handleRandomNewsletterSub = () => {
     const shouldShowNewsletterSub = Math.random() > 0.8;
     const subscribed = subscriptionGiven();
@@ -135,7 +135,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         setShowMintNftDirections(true)
       }
       setShowSpinner(false)
-    },1000)
+    }, 1000)
   }
 
 
@@ -146,7 +146,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
 
     return false;
   }
-  
+
   const handleRandomFeedbackDialogue = () => {
     const shouldShowDialogue = Math.random() < 0.1;
     const feedbackDone = feedbackGiven();
@@ -176,9 +176,9 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         setShowMintNftDirections(true)
       }
       setShowSpinner(false)
-    },1000)
+    }, 1000)
   }
-  
+
 
   const handleVideoOnEnd = () => {
     setShowSpinner(true)
@@ -191,10 +191,10 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
       handleRandomFeedbackDialogue();
       handleRandomNewsletterSub();
       setShowSpinner(false)
-    },1000)
+    }, 1000)
 
-    
-    
+
+
   }
 
 
@@ -233,20 +233,20 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         <div className='video-wrap z-50 w-full relative' >
 
           <div className={`w-full -z-10 aspect-video ${videoStuck ? 'block' : 'absolute'} `} ></div>
-            <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
-              <ReactPlayer
-                height="100%"
-                width="100%"
-                url={currentLesson.youtubeUrl}
-                controls={true}
-                onEnded={handleVideoOnEnd}
-                onStart={handleVideoOnPlay}
-                config={{
-                  youtube: {
-                    playerVars: { fs: 1 }
-                  }
-                }}
-              />
+          <div className={`w-full aspect-video overflow-hidden rounded-t-xl video ${videoStuck ? 'stuck' : ''} `} >
+            <ReactPlayer
+              height="100%"
+              width="100%"
+              url={currentLesson.youtubeUrl}
+              controls={true}
+              onEnded={handleVideoOnEnd}
+              onStart={handleVideoOnPlay}
+              config={{
+                youtube: {
+                  playerVars: { fs: 1 }
+                }
+              }}
+            />
           </div>
         </div>
       )}
@@ -264,7 +264,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
         )}
 
 
-        {showSpinner && 
+        {showSpinner &&
           <Spinner />
         }
 
@@ -278,14 +278,14 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             </div>
           </div>
         )}
-        
+
         {videoEnded && !showMintNftDirections && showNewsletterSub && !showFeedbackDialogue && !showSpinner && (
           <div className="fade-out">
             {/* <h2 className='font-bold text-xl '>Bitte nimm dir einen Moment Zeit und gib uns Feedback!</h2>
             <h3 className='font-bold text-3s '>Klicke auf den Link und beantworte einige wenige Fragen. Damit hilfst du uns unsere Lernplattform weiter zu verbessern. Vielen Dank!</h3> */}
             <NewsletterSubiFrame />
             <div className="flex flex-col md:flex-row justify-around  gap-5 py-5">
-              <PrimaryButton customClassButton='md:w-max ' onClick={handleNewsletterSubClick}>Hab schon Abonniert</PrimaryButton>
+              <PrimaryButton customClassButton='md:w-max ' onClick={handleNewsletterSubClick}>Ich bin bereits Abonnent</PrimaryButton>
               <PrimaryButton customClassButton='md:w-max ' onClick={handleSkipNewsletterSub}>Überspringen</PrimaryButton>
             </div>
           </div>
