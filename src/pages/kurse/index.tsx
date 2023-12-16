@@ -10,13 +10,13 @@ export default function index() {
       <div className='text-center lg:text-start lg:w-1/2 lg:pt-32 xl:pt-24'>
 
         <h1 className='xl:text-5xl text-4xl font-bold mb-5' >
-          ÜBERBLICK ÜBER UNSERE KURSE
+          Kursübersicht
         </h1>
         <p className=' xl:text-lg text-sm backdrop-blur-lg pb-1 lg:pb-5rounded-3xl pr-3 mb-5'>
-          Unsere Kurse führen dich in nur 90 Minuten durch die Grundlagen von Blockchains wie Bitcoin,
-          Ethereum und Polkadot. Lerne auf deine eigene Art und Weise und erhalte symbolische Belohnungen
-          in Form von NFTs für deinen Fortschritt. Mach den ersten Schritt in die Zukunft der Finanzen
-          mit TEACHMEDEFI!
+          Seit 2017 meistern wir alle Markthöhen und -tiefen und haben daraus prägnante Kurse geformt, 
+          die dich optimal auf deine Krypto-Odyssee vorbereiten. Wir erschließen dir die Grundlagen von Bitcoin, 
+          Ethereum und Polkadot und belohnen deinen Fortschritt mit einzigartigen NFTs. Starte jetzt und werde fit 
+          für die Zukunft in der Kryptowelt!
         </p>
         <div className='flex flex-wrap gap-4 max-lg:justify-center'>
           <PrimaryButton customClassWrapper='max-sm:w-44 text-center' href='/eth' >

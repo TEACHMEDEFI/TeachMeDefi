@@ -120,7 +120,7 @@ export default function OurServices() {
               </Link>
             </div>
           </div>
-          <div className="flex max-[350px]:flex-col ">
+          {/* <div className="flex max-[350px]:flex-col ">
             <div className="h-16 w-16 aspect-square relative mr-5">
               <Image src={"/home/ourServices/bullet-square-coaching.svg"} fill alt="bullet point icon 1" />
             </div>
@@ -137,7 +137,7 @@ export default function OurServices() {
                 Nutze unser limitiertes Angebot!
               </Link>
             </div>
-          </div>
+          </div> */}
 
 
         </div>

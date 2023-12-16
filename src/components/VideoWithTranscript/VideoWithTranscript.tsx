@@ -45,7 +45,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
     setShowNextButton(false)
     setShowPrevButton(false)
     handleButtons()
-  }, []);
+  }, [videoEnded]);
 
 
   // console.log('IsQuestSection', isQuestSection)
@@ -110,7 +110,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
   }
 
   const handleRandomNewsletterSub = () => {
-    const shouldShowNewsletterSub = Math.random() > 0.8;
+    const shouldShowNewsletterSub = Math.random() > 0.5;
     const subscribed = subscriptionGiven();
 
     if (shouldShowNewsletterSub && !subscribed) {
@@ -360,7 +360,7 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
             </div>
           </div>}
 
-        <article ref={calendlyRef} id='calendly' className='pb-10 flex flex-col items-center pt-20' >
+        {/* <article ref={calendlyRef} id='calendly' className='pb-10 flex flex-col items-center pt-20' >
           <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
           md:flex-row w-full items-center justify-between rounded-lg relative'
           >
@@ -374,12 +374,25 @@ export default function VideoWithTranscript({ currentLesson, setUserProgress, di
               </p>
               <p className='tracking-wider text-center md:max-w-[360px] lg:max-w-[420px] xl:w-[500px]  '>
                 Nutze unser limitiertes Angebot!
-                {/* CHECK FOR RESPONSIVENESSS  */}
               </p>
               <PrimaryButton href='https://calendly.com/teachmedefi/1std' customClassButton='text-center' target='_blank' >Termin buchen </PrimaryButton>
             </div>
             <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
               <Image src={"/support/support-banner-img.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
+            </div>
+          </div>
+        </article> */}
+
+        <article className='pb-10 flex flex-col items-center pt-20' >
+          <div className=' bg-slate-100 dark:bg-gray-800 flex flex-col-reverse 
+          md:flex-row w-full items-center justify-between rounded-lg relative'
+          >
+            <div className='flex flex-col grow items-center gap-5 sm:gap-2 lg:gap-4 max-md:py-10 mx-auto lg:px-2  xl:px-0 '>
+            <h3 className=' text-2xl sm:text-4xl font-bold text-center '>Abonniere <br className="xl:hidden" /> unseren  Newsletter</h3>
+              <PrimaryButton href='https://www.newsletter.teachmedefi.de/' customClassButton='text-center' target='_blank' >Starte jetzt! </PrimaryButton>
+            </div>
+            <div className='relative aspect-square md:h-60 lg:h-96 max-md:w-full  lg:w-96  ' >
+              <Image src={"/home/newsletter_mailbox.png"} loading='lazy' className=' rounded-lg' fill alt='Newsletter' />
             </div>
           </div>
         </article>
