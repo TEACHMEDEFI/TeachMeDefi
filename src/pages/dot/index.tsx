@@ -101,13 +101,13 @@ export default function Index() {
        flex-col sm:flex-row'
       >
         Polkadot verstehen
-        <span className="h-5 w-5 relative  lg:mr-2">
+        {/* <span className="h-5 w-5 relative  lg:mr-2">
           <button onClick={scrollToCalendly} >
             <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
               alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
             />
           </button>
-        </span>
+        </span> */}
       </h3>
       <section className='w-full flex flex-col justify-center relative z-50' >
         <LessonsListNew chain={"dot"} lessonsArray={generalLessons} title={"Was ist eine Blockchain?"} isGeneralSection totalVideoTime="11:54" onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={false} />
@@ -118,13 +118,13 @@ export default function Index() {
           flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
           >
             Polkadot nutzen
-            <span className="h-5 w-5 relative  lg:mr-2">
+            {/* <span className="h-5 w-5 relative  lg:mr-2">
               <button onClick={scrollToCalendly} >
                 <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
                   alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                 />
               </button>
-            </span>
+            </span> */}
           </h3>
         </span>
         <LessonsListNew chain={"dot"} lessonsArray={dotQuests} isQuestSection={true} totalVideoTime="49:21" onModalClose={onModalClose} onModalOpen={onModalOpen} />
@@ -135,13 +135,13 @@ export default function Index() {
           flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
           >
             Sicher auf der Blockchain
-            <span className="h-5 w-5 relative  lg:mr-2">
+            {/* <span className="h-5 w-5 relative  lg:mr-2">
               <button className='w-full h-full' onClick={scrollToCalendly} >
                 <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
                   alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                 />
               </button>
-            </span>
+            </span> */}
           </h3>
         </span>
         <LessonsListNew chain={"eth"} isQuestSection={false} lessonsArray={sicherheitsQuestDot} totalVideoTime="15:17" onModalClose={onModalClose} onModalOpen={onModalOpen} />

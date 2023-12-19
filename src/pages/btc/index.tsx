@@ -60,7 +60,7 @@ export default function Index() {
   }
 
   return (
-   
+
     <div className={`flex flex-col  w-full justify-center items-center relative mb-32 max-sm:px-5 ${modelOpenClass && 'modal-open-no-scroll'} `}>
       <section className='lg:h-[60vh] w-full flex flex-col lg:flex-row justify-center items-center max-w-7xl' >
         <div className=' my-8 md:my-16 lg:my-0 lg:w-2/4 space-y-5   sm:pl-8 lg:pl-16 xl:pl-0 ' >
@@ -68,9 +68,9 @@ export default function Index() {
             Willkommen bei <span className='text-bitcoinOrange'> Bitcoin!</span>
           </h1>
           <h2 className='xl:text-lg text-sm pb-1 lg:pb-10 backdrop-blur-lg rounded-3xl sm:pr-10' >
-          Dein Schlüssel zum Bitcoin-Universum! Du bist am Anfang deiner Krypto-Reise und suchst den besten Startpunkt? Hier findest du alles, was du für einen erfolgreichen Start brauchst. 
-          Unser Bitcoin-Bootcamp bietet dir die essenziellen Informationen, kompakt und leicht verständlich, ohne dich in Details zu verlieren. Das Ziel unseres Bootcamps ist es, dir einen schnellen und fundierten Einstieg in die Welt von Bitcoin zu ermöglichen. 
-          Und das Beste daran? Alles ist kostenfrei! Als Dankeschön für deinen Eifer winkt dir ein symbolisches NFT für jeden erreichten Meilenstein. Tritt ein, rüste dich mit dem Nötigsten aus und beginne deine Reise in der Bitcoin-Welt voller Vertrauen!
+            Dein Schlüssel zum Bitcoin-Universum! Du bist am Anfang deiner Krypto-Reise und suchst den besten Startpunkt? Hier findest du alles, was du für einen erfolgreichen Start brauchst.
+            Unser Bitcoin-Bootcamp bietet dir die essenziellen Informationen, kompakt und leicht verständlich, ohne dich in Details zu verlieren. Das Ziel unseres Bootcamps ist es, dir einen schnellen und fundierten Einstieg in die Welt von Bitcoin zu ermöglichen.
+            Und das Beste daran? Alles ist kostenfrei! Als Dankeschön für deinen Eifer winkt dir ein symbolisches NFT für jeden erreichten Meilenstein. Tritt ein, rüste dich mit dem Nötigsten aus und beginne deine Reise in der Bitcoin-Welt voller Vertrauen!
           </h2>
         </div>
         <div className=' max-lg:hidden relative w-full lg:w-2/4 h-full lg:h-[80%] grow'>
@@ -104,13 +104,13 @@ export default function Index() {
       flex-col sm:flex-row'
       >
         Bitcoin verstehen
-        <span className="h-5 w-5 relative  lg:mr-2">
+        {/* <span className="h-5 w-5 relative  lg:mr-2">
           <button className='w-full h-full' onClick={scrollToCalendly} >
             <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
               alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
             />
           </button>
-        </span>
+        </span> */}
       </h3>
       <section className=' w-full flex flex-col justify-center relative z-50' >
 
@@ -123,13 +123,13 @@ export default function Index() {
           flex items-center gap-1 sm:gap-5 flex-col sm:flex-row'
           >
             Bitcoin nutzen
-            <span className="h-5 w-5 relative  lg:mr-2">
+            {/* <span className="h-5 w-5 relative  lg:mr-2">
               <button className='w-full h-full' onClick={scrollToCalendly} >
                 <Image src={isDarkMode ? "/support/info-icon-light.svg" : "/support/info-icon-dark.svg"}
                   alt="Vereinbare ein Termin mit Calendly" fill sizes="10px"
                 />
               </button>
-            </span>
+            </span> */}
           </h3>
         </span>
         <LessonsListNew chain={"btc"} lessonsArray={btcQuests} totalVideoTime="27:58" onModalClose={onModalClose} onModalOpen={onModalOpen} isQuestSection={true} />
