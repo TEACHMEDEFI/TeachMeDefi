@@ -5,12 +5,10 @@ export default function Index() {
     <div className="impressum">
       <div className="section">
         <h1 className="header">Angaben gemäß § 5 TMG</h1>
-        <p>TEACHMEDEFI</p>
         <p>Jan Zajfert</p>
         <p>Beco da lapa 42</p>
         <p>1100-304 Lissabon</p>
         <p>Portugal</p>
-        <p>Vertreten durch: Jan Zajfert</p>
       </div>
 
       <div className="section">
