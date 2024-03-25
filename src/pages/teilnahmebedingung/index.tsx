@@ -10,7 +10,7 @@ export default function index() {
         <br />
         Veranstalter der TEACHMEDEFI Gewinnspiele,
         <br />
-        Beco da Lapa 42, 1100-304 Lissabon, Portugal.
+        Av. Duque de Ávila 69, RC Direito, 1000-139 Lissabon, Portugal.
         </b>
       </p>
 
