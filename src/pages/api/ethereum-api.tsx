@@ -70,10 +70,10 @@ export const useTokenBalance = (questSectionId: Token): number => {
   const { account } = useWeb3React();
   const [balance, setBalance] = useState<number>(0);
 
-  const tokenAddress :string = TokenAddresses[questSectionId];
+  const tokenAddress: string = TokenAddresses[questSectionId];
   const blockChainToUse = chainIdPerQuest[questSectionId];
 
-  
+
   const config: config = {
     apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
     network: blockChainToUse,
@@ -81,40 +81,40 @@ export const useTokenBalance = (questSectionId: Token): number => {
   // @ts-ignore: Unreachable code error
   const alchemy = new Alchemy(config);
 
-  
+
   useEffect(() => {
     if (!account || !tokenAddress || !blockChainToUse) return;
     getTokenBalance()
-  },[account])
+  }, [account])
 
 
-  const getTokenBalance = async (): Promise<void> => { 
+  const getTokenBalance = async (): Promise<void> => {
 
-      // const latestBlock = await alchemy.core.getBlockNumber();
-      // console.log("The latest block number is", latestBlock);
-      let balances;
+    // const latestBlock = await alchemy.core.getBlockNumber();
+    // console.log("The latest block number is", latestBlock);
+    let balances;
 
 
-      // Get balance and format in terms of ETH
-      if (questSectionId === 'eth-quest-2' || questSectionId === 'eth-quest-4') {
-        
-        balances = await alchemy.core.getBalance(account as string, 'latest');
-        balances = utils.formatEther(balances);
-        // console.log(`Eth Balance of ${account as string}: ${balances} ETH`);
+    // Get balance and format in terms of ETH
+    if (questSectionId === 'eth-quest-2' || questSectionId === 'eth-quest-4') {
+
+      balances = await alchemy.core.getBalance(account as string, 'latest');
+      balances = utils.formatEther(balances);
+      // console.log(`Eth Balance of ${account as string}: ${balances} ETH`);
 
       // Get Balances for any other Token
-      } else {
-        const data = await alchemy.core.getTokenBalances(account as string, [tokenAddress]);
+    } else {
+      const data = await alchemy.core.getTokenBalances(account as string, [tokenAddress]);
 
-        balances = data ? data.tokenBalances[0].tokenBalance : 0;
+      balances = data ? data.tokenBalances[0].tokenBalance : 0;
 
-        // @ts-ignore: Unreachable code error
-        balances = Number(balances) // ? parseFloat(balances) : 0;
+      // @ts-ignore: Unreachable code error
+      balances = Number(balances) // ? parseFloat(balances) : 0;
 
-        // console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
-      }
+      // console.log(`Any Other Token Balance of ${account as string}: ${balances}`)
+    }
 
-      setBalance(balances);
+    setBalance(balances);
   };
 
 
@@ -147,7 +147,7 @@ export const useNFTBalance = (questSectionId: Token): number => {
         console.log(e)
         setBalance(0);
       }
-     
+
     };
 
     getTokenBalance();
@@ -165,9 +165,9 @@ export const useUserProgress = (): [hasProgress: (challengeId: string) => boolea
   const [userProgressObject, setUserProgressObject] = useState<{ [key: string]: string }>(() => {
     if (typeof window !== 'undefined') {
       const localStorageData = localStorage.getItem('userProgressObject');
-      return localStorageData ? JSON.parse(localStorageData) : { };
+      return localStorageData ? JSON.parse(localStorageData) : {};
     } else {
-      return { };
+      return {};
     }
   });
 
@@ -236,17 +236,6 @@ export const switchNetworkIfNeeded = async (): Promise<void> => {
   const chainId = Number(process.env.NEXT_PUBLIC_BLOCKCHAIN_ID)
   if (typeof window !== 'undefined' && window.ethereum.networkVersion !== chainId) {
 
-    // window.ethereum.request({
-    //   method: 'wallet_addEthereumChain',
-    //   params: [
-    //     {
-    //       chainName: 'Sepolia',
-    //       chainId: '11155111',
-    //       nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
-    //       rpcUrls: ['https://rpc2.sepolia.org']
-    //     }
-    //   ]
-    // });
     await window.ethereum.request({
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: '0xaa36a7' }],
