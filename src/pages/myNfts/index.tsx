@@ -1,14 +1,10 @@
 import { useEffect } from 'react';
-import { switchNetworkIfNeeded } from '../../pages/api/ethereum-api'
 import NftCard from '@/components/NftCards/NftCard';
 
 
 
 export default function Index() {
-  useEffect(() => {
-    switchNetworkIfNeeded()
 
-  }, [])
 
   return (
     <div className='flex flex-col  w-full justify-center items-center relative mb-32 pt-20 max-sm:px-5'>
@@ -35,7 +31,7 @@ export default function Index() {
         bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
         >
           Ethereum Quests
-          </h2>
+        </h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
 
           <NftCard questSectionId={'eth-quest-1'} questIndex={0} />
@@ -49,7 +45,7 @@ export default function Index() {
         bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
         >
           Polkadot Quests
-          </h2>
+        </h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
 
           <NftCard questSectionId={'dot-quest-1'} questIndex={0} />
@@ -63,7 +59,7 @@ export default function Index() {
         bg-gradient-to-r from-primaryBlue via-secondaryPurple to-primaryPink bg-clip-text text-transparent"
         >
           Bitcoin Quests
-          </h2>
+        </h2>
         <div className="nft-card-container flex relative mt-5 mb-20">
 
           <NftCard questSectionId={'btc-quest-1'} questIndex={0} />

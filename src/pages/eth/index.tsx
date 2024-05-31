@@ -5,7 +5,6 @@ import { ethQuests, sicherheitsQuest } from '@/data/eth';
 import { ethTheory } from '@/data/eth/ethTheory';
 import { generalLessons } from '@/data/generalLessons';
 import LessonsListNew from '@/components/LessonsList/LessonsListNew';
-import { switchNetworkIfNeeded } from '../api/ethereum-api'
 import ReactPlayer from "react-player"
 import { SupportCoaching } from '@/components/SupportCoaching/SupportCoaching';
 import { useTheme } from '@/context/ThemeContext';
@@ -20,7 +19,6 @@ export default function Index() {
 
 
   useEffect(() => {
-    switchNetworkIfNeeded()
     setShowPlayer(true)
 
   }, [modalOpen])
