@@ -5,10 +5,10 @@ export default function Index() {
     <div className="impressum">
       <div className="section">
         <h1 className="header">Angaben gemäß § 5 TMG</h1>
-        <p>Rustam Kohen</p>
-        <p>Av. Duque de Ávila 69, RC Direito</p>
-        <p>1000-139 Lissabon</p>
-        <p>Portugal</p>
+        <p>Sohejl Shahshahani Far</p>
+        <p>Heiliger Weg 63</p>
+        <p>44141 Dortmund</p>
+        <p>Deutschland</p>
       </div>
 
       <div className="section">
