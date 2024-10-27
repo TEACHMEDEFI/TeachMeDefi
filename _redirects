@@ -1,0 +1,5 @@
+# Allow newsletter.teachmedefi.de to remain active
+https://newsletter.teachmedefi.de/*    https://newsletter.teachmedefi.de/:splat   200
+
+# Redirect everything else to the new site
+/*    https://teach-me-defi.com   301!
